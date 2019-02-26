@@ -168,8 +168,8 @@ run clim ${var:-corr} $NPERYEAR ${date:-$i} ${FORM_plotsum:-1} $FORM_climyear1 $
 fi
 
 # generate GrADS metadata file - should be doing this in perl...
-firstmonth=`echo ${FORM_month:-1:12} | sed -e 's/\:.*//' | tr -d '\'`
-lastmonth=`echo ${FORM_month:-1:12} | sed -e 's/.*\://' | tr -d '\'`
+firstmonth=`echo ${FORM_month:-1:12} | sed -e 's/\:.*//' | tr -d '\\'`
+lastmonth=`echo ${FORM_month:-1:12} | sed -e 's/.*\://' | tr -d '\\'`
 nperyear=${NPERYEAR#-}
 if [ $lastmonth -gt $nperyear ]; then
 	lastmonth=$nperyear
