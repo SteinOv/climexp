@@ -14,28 +14,7 @@ if [ "$hiresmap" = true ]; then
 else
 	doublesize="x902 y697"
 fi
-grads=grads
-config=`$grads -b -l -c quit| fgrep Config`
-gradsver=`echo $config | cut -f 2 -d ' '`
-c=`echo $config | fgrep -c v2.`
-[ -z "$FORM_mapformat" ] && FORM_mapformat=png
-if [ ${gradsver#v2.2} != $gradsver ]; then
-	grads20=true
-	gxprint=gxprint
-	gxprintoptions=white
-elif [ ${gradsver#v2.1} != $gradsver ]; then
-	grads20=true
-	gxprint=gxprint
-	gxprintoptions=white
-elif [ ${gradsver#v2.0} != $gradsver ]; then
-	grads20=true
-	gxprint=print
-else
-	if [ "$FORM_mapformat" = geotiff ]; then
-		echo "geotiff export is not supported by GrADS 1.8"
-		exit
-	fi
-fi
+. ./conf_grads.cgi
 # expects variables: ...
 #
 # to find netpbm on MacOS X
@@ -168,8 +147,8 @@ run clim ${var:-corr} $NPERYEAR ${date:-$i} ${FORM_plotsum:-1} $FORM_climyear1 $
 fi
 
 # generate GrADS metadata file - should be doing this in perl...
-firstmonth=`echo ${FORM_month:-1:12} | sed -e 's/\:.*//' | tr -d '\'`
-lastmonth=`echo ${FORM_month:-1:12} | sed -e 's/.*\://' | tr -d '\'`
+firstmonth=`echo ${FORM_month:-1:12} | sed -e 's/\:.*//' | tr -d '\\'`
+lastmonth=`echo ${FORM_month:-1:12} | sed -e 's/.*\://' | tr -d '\\'`
 nperyear=${NPERYEAR#-}
 if [ $lastmonth -gt $nperyear ]; then
 	lastmonth=$nperyear
