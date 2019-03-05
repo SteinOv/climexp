@@ -14,28 +14,7 @@ if [ "$hiresmap" = true ]; then
 else
 	doublesize="x902 y697"
 fi
-grads=grads
-config=`$grads -b -l -c quit| fgrep Config`
-gradsver=`echo $config | cut -f 2 -d ' '`
-c=`echo $config | fgrep -c v2.`
-[ -z "$FORM_mapformat" ] && FORM_mapformat=png
-if [ ${gradsver#v2.2} != $gradsver ]; then
-	grads20=true
-	gxprint=gxprint
-	gxprintoptions=white
-elif [ ${gradsver#v2.1} != $gradsver ]; then
-	grads20=true
-	gxprint=gxprint
-	gxprintoptions=white
-elif [ ${gradsver#v2.0} != $gradsver ]; then
-	grads20=true
-	gxprint=print
-else
-	if [ "$FORM_mapformat" = geotiff ]; then
-		echo "geotiff export is not supported by GrADS 1.8"
-		exit
-	fi
-fi
+. ./conf_grads.cgi
 # expects variables: ...
 #
 # to find netpbm on MacOS X
