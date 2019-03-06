@@ -14,7 +14,7 @@ if [ "$hiresmap" = true ]; then
 else
 	doublesize="x902 y697"
 fi
-. ./conf_grads.cgi
+. ./config_grads.cgi
 # expects variables: ...
 #
 # to find netpbm on MacOS X
