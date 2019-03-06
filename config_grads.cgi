@@ -21,3 +21,4 @@ else
 		exit
 	fi
 fi
+[ "$lwrite" = true ] && echo "gradsver=$gradsver, grads20=$grads20, gxprint=$gxprint<br>"
