@@ -558,7 +558,7 @@ set lat 24.1 49.9';;
 prism_vpdmax*) ext=${FORM_field#prism_vpdmax};file=PRISMData/tdmean_prism$ext.nc;kindname="PRISM";climfield="max vapour pressure deficit";map='set lon -125 -66.5
 set lat 24.1 49.9';;
 
-scpdsi) file=CRUData/scPDSI.cru.3.25.bams2017.GLOBAL.1901.2016.nc;kindname="CRU";climfield="scPDSI 3.25";;
+scpdsi) file=CRUData/scPDSI.cru_ts3.26early.bams2018.GLOBAL.1901.2017.nc;kindname="CRU";climfield="scPDSI 3.26e";;
 scpdsi_europe) file=CRUData/scpdsi_Europe_IJC.nc;kindname="CRU";climfield="scPDSI";;
 scpdsi_alpine) file=CRUData/scpdsi_alpine.ctl;kindname="CRU";climfield="scPDSI";map='set lon 4 19
 set lat 43 49
