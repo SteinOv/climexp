@@ -224,6 +224,9 @@ EOF
     echo "<div class=bijschrift>Synthesis of "
     fgrep '#' $root.txt | sed -e 's/ *#//' -e 's/ *$/,/'
     echo 'Coloured bars denote natural variability, boxes also take representativity / model errors into account.'
+    if [ $FORM_weighted = weighted ]; then
+        echo "In the synthesis, the purple bar denotes the weighted average of observations and models, the box denotes the unweighted average."
+    fi
     echo "(<a href=\"$root.eps\">eps</a>, <a href=\"$root.pdf\">pdf</a>, <a href=\"$root.gnuplot\">plot script</a>, <a href=\"$root.txt\">raw data</a>)</div>"
     pngfile="./$root.png"
     getpngwidth
