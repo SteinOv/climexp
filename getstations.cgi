@@ -383,7 +383,14 @@ if [ ${listname#data} = $listname ]; then
 <div class="formheader"><a href="javascript:pop_page('help/timedistance.shtml',568,450)"><img src="images/info-i.gif" align="right"alt="help" border="0"></a>Select stations</div>
 <div class="formbody">
 At least:
-<input type="text" class="forminput" name="min" size=3 value="$FORM_min">years of data.
+<input type="text" class="forminput" name="min" size=3 value="$FORM_min">years of data,<br>
+<input type="text" step=any class="forminput" name="elevmin" size=4 value="$FORM_elevmin">m
+&lt; elevation &lt;
+<input type="text" step=any class="forminput" name="elevmax" size=4 value="$FORM_elevmax">m,<br>
+<input type="$number" step=any class="forminput" name="lat1" $textsize4 value="$FORM_lat1">&deg;N -
+<input type="$number" step=any class="forminput" name="lat2" $textsize4 value="$FORM_lat2">&deg;N, 
+<input type="$number" step=any class="forminput" name="lon1" $textsize4 value="$FORM_lon1">&deg;E - 
+<input type="$number" step=any class="forminput" name="lon2" $textsize4 value="$FORM_lon2">&deg;E.<br>
 <input type="submit" class="formbutton" value="select stations">
 </div>
 </form>
