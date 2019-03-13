@@ -25,7 +25,7 @@ if [ -z "$plotlist" ]; then
 
   # to find netpbm on MacOS X
   # fix title...
-  FORM_title=`echo "$FORM_title" | sed -e 's/with /\\\\with /'`
+  ###FORM_title=`echo "$FORM_title" | sed -e 's/with /\\\\with /'`
   title=`echo "$FORM_title" | sed -e 's/\\\\/ /'`
   . ./myvinkhead.cgi "Map of stations" "$title" "noindex,nofollow"
 
