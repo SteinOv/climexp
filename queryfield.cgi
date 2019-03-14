@@ -415,6 +415,7 @@ berkeley_txx) file=BerkeleyData/$FORM_field.nc;kindname="Berkeley";climfield="Tx
 clsat_tavg) file=SYSUData/CLSAT_13_tavg.nc;kindname="CL-SAT 1.3";climfield="T2m anom";;
 clsat_tmin) file=SYSUData/CLSAT_13_tmin.nc;kindname="CL-SAT 1.3";climfield="Tmin anom";;
 clsat_tmax) file=SYSUData/CLSAT_13_tmax.nc;kindname="CL-SAT 1.3";climfield="Tmax anom";;
+cmst) file=SYSUData/CMST.nc;kindname="CMST";climfield="T2m/SST anom";;
 
 hadghcnd_tx) file=UKMOData/hadghcnd_tx.ctl;kindname="HadGHCND";climfield="Tmax";NPERYEAR=366;;
 hadghcnd_tn) file=UKMOData/hadghcnd_tn.ctl;kindname="HadGHCND";climfield="Tmin";NPERYEAR=366;;
