@@ -64,7 +64,6 @@ if [ ${file#data/uploaded} != $file -a ${file%.nc} != $file ]; then # uploaded n
             file=$newfile
             WMO=data/uploaded@@@_$i
             PROG="netcdf2dat $file"
-            lwrite=true
         fi
     fi
 fi
