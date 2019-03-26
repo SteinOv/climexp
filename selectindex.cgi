@@ -33,13 +33,6 @@ href="https://www.ncdc.noaa.gov/data-access/marineocean-data/extended-reconstruc
 <td><a
 href="http://hadobs.metoffice.gov.uk/hadisst/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
-<tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=NCEPData/nino2&STATION=NINO12&TYPE=i&id=$EMAIL">NINO12</a>,
-<a href="getindices.cgi?WMO=NCEPData/nino3&STATION=NINO3&TYPE=i&id=$EMAIL">NINO3</a>,
-<a href="getindices.cgi?WMO=NCEPData/nino5&STATION=NINO3.4&TYPE=i&id=$EMAIL">NINO3.4</a>,
-<a href="getindices.cgi?WMO=NCEPData/nino4&STATION=NINO4&TYPE=i&id=$EMAIL">NINO4</a>
-(1856-1981 Kaplan, 1982-now NCEP OISSTv2)</div>
-<td><a href="http://www.cpc.noaa.gov/data/indices/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
-
 <tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=CRUData/soi&STATION=SOI&TYPE=i&id=$EMAIL">SOI</a>
 (1866-now, Jones)</div>
 <td><a href="http://www.cru.uea.ac.uk/cru/data/soi.htm" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
