@@ -384,7 +384,12 @@ $sum
 $dano
 quit
 EOF
-$grads -l -b << EOF >> /tmp/grads$uniq.log
+# on the SurfSARA cloud system it can take a while for the netcdf to become avilable on the SSD...
+ok=false
+n=0
+while [ $ok = false -a $n -lt 10 ]; do
+    ((n++))
+    $grads -l -b << EOF >> /tmp/grads$uniq.log
 $openfile
 set xlopts 1 4 0.15
 set ylopts 1 4 0.15
@@ -399,7 +404,16 @@ $clim
 $dano
 quit
 EOF
-
+    f=data/g${uniq}_$i
+    c=`pngtopnm $f.png | pnmcrop | pamfile | fgrep -c PPM`
+    if [ $c = 1 ]; then
+        [ "$lwrite" = true ] && echo "$f.png is non-empty<br>"
+        ok=true
+    else
+        [ "$lwrite" = true ] && echo "$f.png is empty, trying again<br>"
+        sleep 1
+    fi
+done
 if [ "$FORM_mapformat" = kml ]; then
 	alreadyprinted=
 	if [ -n "$map" ]; then
@@ -612,6 +626,8 @@ elif [ "$FORM_mapformat" = png ]; then
 			echo "(<a href=\"$f.eps.gz\">eps</a>,"
 			echo "<a href=\"ps2pdf.cgi?file=$f.eps.gz\">pdf</a>)</div>"
 			if [ -s $f.png ]; then
+			    checkfile=$f.png
+			    check_url # use curl to check the png is really here, I have had reports that sometimes it is not.
 				if [ "$hiresmap" = true ]; then
 					pngfile=$f.png
 					getpngwidth
