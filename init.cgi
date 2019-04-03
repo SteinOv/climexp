@@ -66,6 +66,28 @@ if [ -z "$init_done" ]; then
             halfwidth="100%"
         fi
     }
+
+    function check_url {
+        if [ -n "$checkfile" -a -s $checkfile ]; then
+            url=http://localhost/$checkfile
+            ###echo "checking $url...<br>"
+            if [ ${checkfile%.png} != $checkfile ]; then
+                type="image/png"
+            elif [ ${checkfile%.nc} != $checkfile ]; then
+                type="application/x-netcdf"
+            else
+                type="text/plain"
+            fi
+            c=`curl --head $url | fgrep -c $type`
+            n=0
+            while [ $c != "1" -a $n < 5 ]; do
+                ((n++))
+                # not yet there
+                sleep 0.5 # works on macOS and linux...
+                c=`curl --head $url | fgrep -c $type`
+            done
+        fi
+    }
     # netcdf libraries on bhlclim, bvlclim - hard-coded
     export LD_LIBRARY_PATH=/home/oldenbor/lib:/usr/local/free/lib:$LD_LIBRARY_PATH
     # for a few routines this seems needed
