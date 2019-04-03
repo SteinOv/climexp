@@ -371,7 +371,7 @@ Sea level--><td><div class="kalelink"><a href="getindices.cgi?WMO=CUData/sl_glob
 
 <tr><td>&nbsp;</td><td><div class="kalelink">PIOMAS <a href="getindices.cgi?WMO=UWData/piomas_mo&STATION=NH_seaice_volume&TYPE=i&id=$EMAIL">NH volume</a> (1979-now, U Washington PSC)</td><td><a href="http://psc.apl.uw.edu/research/projects/arctic-sea-ice-volume-anomaly/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
-<tr><td>Land ice</td><td><div class="kalelink">GRACE <a href="getindices.cgi?WMO=GRACEData/data_grs&STATION=Greenland_mass&TYPE=i&id=$EMAIL">Greenland</a>, <a href="getindices.cgi?WMO=GRACEData/data_ant&STATION=Antarctica_mass&TYPE=i&id=$EMAIL">Antarctica</a> mass changes,  (2003-2013, TU Delft)</td><td>&nbsp;</a>
+<tr><td>Land ice</td><td><div class="kalelink">GRACE <a href="getindices.cgi?WMO=GRACEData/greenland_mass&STATION=Greenland_mass&TYPE=i&id=$EMAIL">Greenland</a>, <a href="getindices.cgi?WMO=GRACEData/antarctica_mass&STATION=Antarctica_mass&TYPE=i&id=$EMAIL">Antarctica</a> mass changes,  (2003-2017, NASA/JPL)</td><td><a href="https://climate.nasa.gov/vital-signs/ice-sheets/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>India<td><div class="kalelink"><a href="getindices.cgi?WMO=IITMData/ALLIN&STATION=All-India_Rainfall&TYPE=p&id=$EMAIL">All-India Rainfall</a> (1871-2016, 29 subdivision, 2880000 km2, IITM)</div>
 <td><a href="http://www.tropmet.res.in" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
