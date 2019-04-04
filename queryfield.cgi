@@ -677,6 +677,7 @@ camsopi) file=NCEPData/camsopi.nc;kindname="CAMSOPI";climfield="prcp";;
 camsopi_perc) file=NCEPData/camsopi_perc.nc;kindname="CAMSOPI";climfield="perc";;
 noaa_olr) file=NOAAData/olr.mon.mean.nc;kindname="NOAA";climfield="OLR";;
 msla) file=CLSData/msla_merged_1deg.ctl;kindname="CLS merged";climfield="sea level anomalies";;
+esa_sla) file=ESAData/esacci_sla.nc;kindname="ESA CCI";climfield="sea level anomalies";;
 nodc_heat700) file=NODCData/heat700.nc;kindname="NODC";climfield="0-700m heat content";;
 nodc_heat2000) file=NODCData/heat2000.nc;kindname="NODC";climfield="0-2000m heat content";;
 nodc_temp100) file=NODCData/temp100.nc;kindname="NODC";climfield="0-100m mean temperature";;
