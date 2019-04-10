@@ -1000,6 +1000,13 @@ cfsr_ttr) file=CFSR/cfsr_ulwrf_toa.nc;kindname=CFSR;climfield="net LW TOA";LSMAS
 
 jra_*) var=${FORM_field#jra_};file="JRA-55/jra_${var}_mo.nc";kindname="JRA-55";climfield="$var";;
 
+gldas_mon_spi12) var=${FORM_field#gldas_mon_};file="CMCCData/spi_MON_GLDAS_0p25_deg_hist_1970_2016_3_6_12_mths.nc";kindname="GLDAS";climfield="$var";;
+gldas_mon_spi48) var=${FORM_field#gldas_mon_};file="CMCCData/spi_MON_GLDAS_0p25_deg_hist_1970_2016_24_36_48_mths.nc";kindname="GLDAS";climfield="$var";;
+gldas_mon_spei12) var=${FORM_field#gldas_mon_};file="CMCCData/spei_MON_GLDAS_0p25_deg_hist_1970_2016_3_6_12_mths.nc";kindname="GLDAS";climfield="$var";;
+gldas_mon_spei48) var=${FORM_field#gldas_mon_};file="CMCCData/spei_MON_GLDAS_0p25_deg_hist_1970_2016_24_36_48_mths.nc";kindname="GLDAS";climfield="$var";;
+gldas_ann_*) var=${FORM_field#gldas_ann_};file="CMCCData/${var}_ANN_GLDAS_0p25_deg_hist_1970_2016.nc";kindname="GLDAS";climfield="$var";;
+gldas_mon_*) var=${FORM_field#gldas_mon_};file="CMCCData/${var}_MON_GLDAS_0p25_deg_hist_1970_2016.nc";kindname="GLDAS";climfield="$var";;
+
 cslp|cpsl|cprmsl) file=20C/prmsl.mon.mean.nc;kindname="20C";climfield="SLP";LSMASK=20C/land.nc;;
 cprmsl_daily) file=20C/prmsl_daily.nc;kindname="20C";climfield="SLP";NPERYEAR=366;LSMASK=20C/land.nc;;
 cslp_extended) file=20C/prmsl.mon.mean_extended.nc;kindname="20C+";climfield="SLP";LSMASK=20C/land.nc;;
