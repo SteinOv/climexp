@@ -76,7 +76,7 @@ if [ -z "$FORM_timeseries" ]; then
 fi
 
 case "$FORM_fit" in
-gauss)  FORM_plot=sqrtlog;;
+gauss)  FORM_plot=log;;
 gumbel) FORM_plot=gumbel;;
 gev)    FORM_plot=gumbel;;
 gpd)    FORM_plot=log;;
