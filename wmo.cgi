@@ -51,10 +51,6 @@ do
             -e 's/<!--ICOADS-->/Ocean surface/'
 done
 cat <<EOF
-<tr><td align=right>Subsurface ocean</td><td>The raw WOD13 data are incompatible with the CXlimate Explorer. Derived time series are below.</td></td><td><a href="https://www.nodc.noaa.gov/OC5/WOD13/</a>" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td></tr>
-EOF
-fgrep -i 'nodc' selectindex.cgi | fgrep -v temp | sed -e "s/EMAIL/$EMAIL/g" 
-cat <<EOF
 <tr><td>Sea level stations</td><td>
 <form action="getstations.cgi" method="POST">
 <input type="hidden" name="email" value="$EMAIL">
@@ -72,6 +68,10 @@ or all stations in the region
 with at least <input type="$number" class="forminput" name="min" $textsize3 value="${FORM_min:-10}">years of data
 <input type="submit" class="formbutton" value="Get stations"></form>
 </td><td><a href="http://www.gloss-sealevel.org/"><img align="right" src="images/info-i.gif" alt="help" border="0"></a></td>
+<tr><td align=right>Subsurface ocean</td><td>The raw WOD13 data are incompatible with the CXlimate Explorer. Derived time series are below.</td></td><td><a href="https://www.nodc.noaa.gov/OC5/WOD13/</a>" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td></tr>
+EOF
+fgrep -i 'nodc' selectindex.cgi | fgrep -v temp | sed -e "s/EMAIL/$EMAIL/g" 
+cat <<EOF
 </tr><tr><th colspan="3">Sea Ice & Ice Sheets & Glacier ECVs: fields</th></tr>
 EOF
 for string in ice_index grace
