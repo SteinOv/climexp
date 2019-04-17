@@ -2,12 +2,15 @@
 echo 'Content-Type: text/html'
 echo
 echo
-
+. ./init.cgi
 . ./getargs.cgi
 
 . ./myvinkhead.cgi "WMO-assessed data sets" "Observations" "index,follow" | sed -e 's/56.375/90/'
+
 cat <<EOF
-To be written: short introduction
+This page provides links to the Climate Explorer pages of key climate variables that have been 
+assessed under supervision of the WMO.  For more information of the assessment process 
+and a list of the assessed datasets, see <a href="http://climate.ooxo.nl">the WMO web pge</a>.
 <table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
 <tr><th colspan="3">Temperature and Precipitation (ECVs) and Climate Indices: fields</th></tr>
 EOF
@@ -36,7 +39,7 @@ cat <<EOF
 <tr><th colspan="3">Hydrology and Marine</th></tr>
 <tr><td align=right>Run-off time series</td><td><a href="https://www.bafg.de/GRDC/EN/Home/homepage_node.html">GRDC</a> does not allow their data here</td></td><td><a href="https://www.bafg.de/GRDC/EN/01_GRDC/13_dtbse/database_node.html</a>" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td></tr>
 EOF
-for string in coads esa_sla
+for string in coads copernicus_sla esa_sla
 do
     fgrep -i $string selectfield_obs.html | fgrep -v filled |
         sed -e 's/<input type="radio" class="formradio" name="field" value="\([^"]*\)">/<a href="select.cgi?id=EMAIL\&field=\1">/g' \
@@ -47,11 +50,6 @@ do
             -e 's/<!--HADEX2-->/Extreme indices/' \
             -e 's/<!--ICOADS-->/Ocean surface/'
 done
-cat <<EOF
-<tr><td align=right>Sea level</td><td>C3S sea-level will soon be available</td><td><a href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/satellite-sea-level-global?tab=overview"><img src="images/info-i.gif" alt="more information" border="0"></a></td></tr>
-<tr><td align=right>Subsurface ocean</td><td>The raw WOD13 data are incompatible with the CXlimate Explorer. Derived time series are below.</td></td><td><a href="https://www.nodc.noaa.gov/OC5/WOD13/</a>" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td></tr>
-EOF
-fgrep -i 'nodc' selectindex.cgi | fgrep -v temp | sed -e "s/EMAIL/$EMAIL/g" 
 cat <<EOF
 <tr><td>Sea level stations</td><td>
 <form action="getstations.cgi" method="POST">
@@ -70,6 +68,10 @@ or all stations in the region
 with at least <input type="$number" class="forminput" name="min" $textsize3 value="${FORM_min:-10}">years of data
 <input type="submit" class="formbutton" value="Get stations"></form>
 </td><td><a href="http://www.gloss-sealevel.org/"><img align="right" src="images/info-i.gif" alt="help" border="0"></a></td>
+<tr><td align=right>Subsurface ocean</td><td>The raw WOD13 data are incompatible with the CXlimate Explorer. Derived time series are below.</td></td><td><a href="https://www.nodc.noaa.gov/OC5/WOD13/</a>" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td></tr>
+EOF
+fgrep -i 'nodc' selectindex.cgi | fgrep -v temp | sed -e "s/EMAIL/$EMAIL/g" 
+cat <<EOF
 </tr><tr><th colspan="3">Sea Ice & Ice Sheets & Glacier ECVs: fields</th></tr>
 EOF
 for string in ice_index grace
@@ -93,7 +95,7 @@ do
 done
 
 cat <<EOF
-</table>
+<tr><th colspan=3>&nbsp</th></tr></table>
 EOF
 # instead of myvinkfoot
 echo '</div></div></td></tr></table>'
