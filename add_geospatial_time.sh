@@ -104,7 +104,15 @@ else
     stopdate=`cat $tmpfile | fgrep 'available from' | awk '{print $7}'`
     c=`cat $tmpfile | fgrep available | fgrep -c Monthly`
     d=`cat $tmpfile | fgrep available | fgrep -c daily`
-    if [ $c = 1 ]; then
+    y=`cat $tmpfile | fgrep available | fgrep -c Yearly`
+    if [ $y = 1 ]; then
+        startyr=$startdate
+        startmon=Jan
+        stopyr=$stopdate
+        stopmon=Dec
+        startday=01
+        stopday=31
+    elif [ $c = 1 ]; then
         startyr=${startdate#???}
         startmon=${startdate%????}
         stopyr=${stopdate#???}
@@ -119,7 +127,7 @@ else
         stopyr=${stopdate#?????}
         stopmon=${stopdate%????}
         stopmon=${stopmon#??}
-        startday=${stopdate%???????}    
+        stopday=${stopdate%???????}    
     else
         echo "$0: cannot handle this time scale yet"
         exit
@@ -146,6 +154,6 @@ else
         [ $i = 2 ] && stopmo=$mo
     done
     ncatted -h -a time_coverage_start,global,c,c,"${startyr}-${startmo}-${startday}" \
-           -a time_coverage_end,global,c,c,"${stopyr}-${stopmo}-${startday}" \
+           -a time_coverage_end,global,c,c,"${stopyr}-${stopmo}-${stopday}" \
                 $file
 fi
