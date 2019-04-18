@@ -828,6 +828,11 @@ fldas_sm0_40) file=FLDASData/FLDAS_NOAH01_C_GL_M.A1982_2018_sm00_40.nc;kindname=
 pdsi-old) file=UCARData/pdsi.ctl;kindname="UCAR";climfield="drought index";;
 pdsi) file=UCARData/pdsi.mon.mean.nc;kindname="UCAR";climfield="PDSI";;
 sc_pdsi) file=UCARData/pdsisc.monthly.maps.1850-now.fawc=1.r2.5x2.5.ipe=2.nc;kindname="UCAR";climfield="scPDSI";;
+
+pdsi_anzda) file=UNSWData/anzda5.nc;kindname="UNSW";climield="scPDSI";NPERYEAR=1;map='set lon 136 178.5
+set lat -47 -11
+set mpdset hires';;
+
 mm05_z100) file=FUBData/mm05_z100.ctl;kindname="FUB";climfield="z100";map='set mproj nps';;
 mm05_z50) file=FUBData/mm05_z50.ctl;kindname="FUB";climfield="z50";map='set mproj nps';;
 mm05_z30) file=FUBData/mm05_z30.ctl;kindname="FUB";climfield="z30";map='set mproj nps';;
