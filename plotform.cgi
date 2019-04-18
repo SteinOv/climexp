@@ -296,6 +296,7 @@ cat <<EOF
 <option $sum_12_selected>12
 <option $sum_13_selected>13
 <option $sum_14_selected>14
+<option $sum_18_selected>18
 <option $sum_24_selected>24
 <option $sum_36_selected>36
 <option $sum_48_selected>48
