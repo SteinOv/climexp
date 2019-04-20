@@ -322,7 +322,7 @@ elif [ ${file#EUCLEIA/Had} != $file ]; then
 elif [ "${FORM_field#ecmwf}" != "${FORM_field}" -o "${FORM_field#ens_ecmwf}" != "${FORM_field}" ]; then
   echo "The ECMWF member states do not permit us to give you access to the raw data."
   echo "Please consult the ECMWF <a href=\"http://www.ecmwf.int/research/era/\" target="_new">ERA</a> or <a href=\"http://www.ecmwf.int/services/seasonal/\" target="_new">seasonal forecasting</a> website for further information."
-elif [ "${FORM_field#era}" != "${FORM_field}" ]; then
+elif [ "${FORM_field#era}" != "${FORM_field}" -o "${FORM_field#copernicus}" != "${FORM_field}" ]; then
 echo "Contains modified Copernicus Climate Change Service information."
   echo "Please read and agree to the <a href="http://apps.ecmwf.int/datasets/licences/copernicus/" target=\"_new\">Copernicus license</a> before downloading.<p>"
   download=OK
