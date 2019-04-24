@@ -79,6 +79,7 @@ cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amo
        fi
     fi
     [ "$lwrite" = true ] && echo "dataset=$dataset var=$var type=$type model=$model exp=$exp rip=$rip lead=$lead ip=$ip ensave=$ensave<br>"
+    alttype=$type
     if [ "${type%mon}" != "$type" ]; then
         if [ $dataset = knmi14 ]; then
             dir=mon/atmos
@@ -107,6 +108,7 @@ cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amo
     elif [ $type = yr ]; then
         dir=annual
         NPERYEAR=1
+        alttype=year
     else
        echo "$0: cannot handle type $type yet"
        exit -1
@@ -142,8 +144,9 @@ cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amo
         if [ $dataset = knmi14 ]; then
             if [ $model = RACMO22E ]; then
                 period=1950-2100
-                file=${var}_WEU-11i_KNMI-EC-EARTH_historical-${exp}_KNMI-${model}_v1_${type#A}_${period}_%%.nc
+                file=${var}_WEU-11i_KNMI-EC-EARTH_historical-${exp}_KNMI-${model}_v1_${alttype#A}_${period}_%%.nc
                 file=KNMI14Data/CMIP5/output/KNMI/$model/$exp/$dir/$var/$file
+                LSMASK=KNMI14Data/CMIP5/output/KNMI/RACMO22E/rcp85/fixed/sftlf_WEU-11_KNMI-EC-EARTH_historical_r0i0p0_KNMI-RACMO22E_v1_fx_latlon.nc
             else
                 if [ "$splitfield" = true ]; then
                     file=${var}_${type}_${model}_${exp}_????????-????????_%%.nc
@@ -238,23 +241,25 @@ cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amo
        fi
     else
        kindname="$model $exp"
-       if [ $type = Amon -o $type = Lmon -o $type = day ]; then
-           case $model in
-                HadGEM3-A-N216) trylsmask=EUCLEIA/HadGEM3-A-N216/fx/sftlf_fx_HadGEM3-A-N216_historical_r0i0p0.nc;;
-                ECEARTH23) trylsmask=KNMI14Data/sftlf_ns.nc;;
-                EC-EARTH) trylsmask=CMIP5/monthly/sftlf.nc;;
-                FIO-ESM)  trylsmask=CMIP5/fixed/sftlf.FIO-ESM.nc;;
-                GISS-E2-H-CC) trylsmask=CMIP5/fixed/sftlf_fx_GISS-E2-H_historical_r0i0p0.nc;; # tmp
-                GISS-E2-R-CC) trylsmask=CMIP5/fixed/sftlf_fx_GISS-E2-R_historical_r0i0p0.nc;; # tmp
-                HadGEM2*)  trylsmask=CMIP5/fixed/sftlf_fx_HadGEM2-ES_historical_r1i1p1.nc;;
-                inmcm4)    trylsmask=CMIP5/fixed/sftlf_fx_${model}_rcp45_r0i0p0.nc;;
-                *)         trylsmask=CMIP5/fixed/sftlf_fx_${model%_p?}_historical_r0i0p0.nc;;
-           esac
-       fi
-       if [ -n "$trylsmask" -a \( -s "$trylsmask" -o -s $HOME/climexp/$trylsmask \) ]; then
-           LSMASK=$trylsmask
-       else
-           trylsmask=""
+       if [ -z "$LSMASK" ]; then
+           if [ $type = Amon -o $type = Lmon -o $type = day ]; then
+               case $model in
+                    HadGEM3-A-N216) trylsmask=EUCLEIA/HadGEM3-A-N216/fx/sftlf_fx_HadGEM3-A-N216_historical_r0i0p0.nc;;
+                    ECEARTH23) trylsmask=KNMI14Data/sftlf_ns.nc;;
+                    EC-EARTH) trylsmask=CMIP5/monthly/sftlf.nc;;
+                    FIO-ESM)  trylsmask=CMIP5/fixed/sftlf.FIO-ESM.nc;;
+                    GISS-E2-H-CC) trylsmask=CMIP5/fixed/sftlf_fx_GISS-E2-H_historical_r0i0p0.nc;; # tmp
+                    GISS-E2-R-CC) trylsmask=CMIP5/fixed/sftlf_fx_GISS-E2-R_historical_r0i0p0.nc;; # tmp
+                    HadGEM2*)  trylsmask=CMIP5/fixed/sftlf_fx_HadGEM2-ES_historical_r1i1p1.nc;;
+                    inmcm4)    trylsmask=CMIP5/fixed/sftlf_fx_${model}_rcp45_r0i0p0.nc;;
+                    *)         trylsmask=CMIP5/fixed/sftlf_fx_${model%_p?}_historical_r0i0p0.nc;;
+               esac
+           fi
+           if [ -n "$trylsmask" -a \( -s "$trylsmask" -o -s $HOME/climexp/$trylsmask \) ]; then
+               LSMASK=$trylsmask
+           else
+               trylsmask=""
+           fi
        fi
     fi
     [ -n "$rip" ] && kindname="$kindname $rip"
