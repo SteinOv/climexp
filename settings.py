@@ -10,7 +10,7 @@ if platform.system() == 'Darwin':
        WORKING_DIR=WORKING_DIR) + os.environ['PATH']
 
     # For NCL
-    os.environ['PATH'] = '/usr/local/ncl/bin:' + os.environ['PATH']
+    os.environ['PATH'] = '/usr/local/ncl/bin:' + '/usr/local/bin:' + os.environ['PATH']
     os.environ['NCARG_ROOT'] = '/usr/local/ncl'
 
 else:
@@ -18,12 +18,11 @@ else:
     HOME_DIR = '/home/oldenbor'
     WORKING_DIR = '{HOME_DIR}/climexp'.format(HOME_DIR=HOME_DIR)
 
-    os.environ['PATH'] = '{HOME_DIR}/bin:{WORKING_DIR}/bin:{HOME_DIR}/local/lib:'.format(
+    os.environ['PATH'] = '{HOME_DIR}/bin:{WORKING_DIR}/bin:/usr/local/ncl/bin:'.format(
        HOME_DIR=HOME_DIR, 
        WORKING_DIR=WORKING_DIR) + os.environ['PATH']
 
     # For NCL
-    os.environ['PATH'] = '/usr/local/ncl/bin:' + os.environ['PATH']
     os.environ['NCARG_ROOT'] = '/usr/local/ncl'.format(WORKING_DIR=WORKING_DIR)
 
 os.chdir(WORKING_DIR)
