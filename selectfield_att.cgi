@@ -57,43 +57,6 @@ Choose a field and press this button</td></tr>
 <td><input type=radio class=formradio name=field value=knmi14_sfcWind_Amon_ECEARTH23_rcp85>
 <td>&nbsp;
 <td><input type=radio class=formradio name=field value=knmi14_psl_Amon_ECEARTH23_rcp85>
-EOF
-if [   $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 \
-    -o $EMAIL = e279dd4de035b5fd9edc95ba4df755f7 \
-    -o $EMAIL = bd113ded9265e569c369d53ff59bf69a \
-    -o $EMAIL = f9646e78b5dbcaee3d001eb713252e3e ]; then
-    cat << EOF
-<tr><th>with PCGLOB
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>pot evap
-<th>soil moist.
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<tr><td>&nbsp;
-<td>RCP8.5
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td><input type=radio class=formradio name=field value=knmi14pcglob_evappot_Amon_ECEARTH23_rcp85>
-<td><input type=radio class=formradio name=field value=knmi14pcglob_soilmoisture_Lmon_ECEARTH23_rcp85>
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-EOF
-fi
-cat << EOF
 <tr><td>&nbsp;
 <td>RCP8.5
 <td colspan=12>
@@ -134,6 +97,34 @@ if [   $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 \
     -o $EMAIL = bd113ded9265e569c369d53ff59bf69a \
     -o $EMAIL = f9646e78b5dbcaee3d001eb713252e3e ]; then
     cat << EOF
+<tr><th>with PCGLOB
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>pot evap
+<th>soil moist.
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<tr><td>&nbsp;
+<td>RCP8.5
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td><input type=radio class=formradio name=field value=knmi14pcglob_evappot_Amon_ECEARTH23_rcp85>
+<td><input type=radio class=formradio name=field value=knmi14pcglob_soilmoisture_Lmon_ECEARTH23_rcp85>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
 <tr><th>EC-Earth 2.3<br>T159 coupled time slices
 <th>scenario
 <th>tas
