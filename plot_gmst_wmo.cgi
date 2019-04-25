@@ -30,6 +30,8 @@ reffile=${yearfile%.dat}_1850-1900.dat
 # HadCRUT4 1981-2010 wrt 1961-1990: +0.29
 # offset: 0.60
 scaleseries 1:0.60 $anofile > $reffile
+plotreffile=${reffile%.dat}.txt
+plotdat $reffile > $plotreffile
 lowpassfile=${reffile%.dat}_5yrlo.dat
 filteryearseries lo box 5 $reffile > $lowpassfile
 pngfile=${reffile%.dat}.png
@@ -39,13 +41,14 @@ set output "$pngfile"
 set term png $gnuplot_png_font_hires
 set datafile missing "-999.900"
 set zero 1e-40
-set size 1,0.7
+set size 0.7,0.5
 set xzeroaxis
 set title "$name"
+set ylabel "Ta [Celsius]"
 set yrange [-0.4:1.4]
 set xrange [1850:2025]
-plot "$reffile" notitle with lines lt 1, \
-     "$lowpassfile" notitle with lines lt 4 lw 3
+plot "$lowpassfile" notitle with lines lt 2 lw 5, \
+     "$plotreffile" notitle with steps lt 1
 EOF
 echo $pngfile
 exit
