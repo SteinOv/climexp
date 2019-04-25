@@ -705,9 +705,9 @@ luge_past) file=McGillData/glpast_1700-2007_05.nc;kindname="LUGE";climfield="pas
 en3_sos) file=UKMOData/salt_EN3_v2a_ObjectiveAnalysis_5m.nc;kindname="EN3";climfield="SSS";;
 en3_osc*) depth=${FORM_field#en3_osc};file=UKMOData/salt_EN3_v2a_ObjectiveAnalysis_sal${depth}.nc;kindname="EN3";climfield="sal${depth}";;
 en3_ohc*) depth=${FORM_field#en3_ohc};file=UKMOData/temp_EN3_v2a_ObjectiveAnalysis_ohc${depth}.nc;kindname="EN3";climfield="ohc${depth}";;
-en4_sos) file=UKMOData/salt_EN.4.2.0_ObjectiveAnalysis_5m.nc;kindname="EN4.2.0";climfield="SSS";;
-en4_osc*) depth=${FORM_field#en4_osc};file=UKMOData/salt_EN.4.2.0_ObjectiveAnalysis_sal${depth}.nc;kindname="EN4.2.0";climfield="sal${depth}";;
-en4_ohc*) depth=${FORM_field#en4_ohc};file=UKMOData/temp_EN.4.2.0_ObjectiveAnalysis_ohc${depth}.nc;kindname="EN4.2.0";climfield="ohc${depth}";;
+en4_sos) file=UKMOData/salt_EN.4.2.1_ObjectiveAnalysis_5m.nc;kindname="EN4.2.1";climfield="SSS";;
+en4_osc*) depth=${FORM_field#en4_osc};file=UKMOData/salt_EN.4.2.1_ObjectiveAnalysis_sal${depth}.nc;kindname="EN4.2.1";climfield="sal${depth}";;
+en4_ohc*) depth=${FORM_field#en4_ohc};file=UKMOData/temp_EN.4.2.1_ObjectiveAnalysis_ohc${depth}.nc;kindname="EN4.2.1";climfield="ohc${depth}";;
 bmrc_d20) file=BMRCData/d20.nc;kindname="PEODAS";climfield="D20";;
 
 sos_u)     file="SOS/u_mean12.ctl";kindname="KNMI ERS";climfield="u";;
