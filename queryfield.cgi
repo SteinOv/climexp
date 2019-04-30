@@ -576,10 +576,10 @@ gpccpatch_25_n1) file=GPCCData/gpcc_25_n1_patched.nc;kindname="GPCC+monitoring_v
 gpcc) file=GPCCData/gpcc_10_mon.nc;kindname="GPCC monitoring";climfield="precipitation";flipcolor=11;;
 gpcc_n1) file=GPCCData/gpcc_10_n1_mon.nc;kindname="GPCC monitoring";climfield="precipitation";flipcolor=11;;
 ngpcc) file=GPCCData/gpcc_10_n_mon.nc;kindname="GPCC monitoring";climfield="#gauges";;
-ngpcc_025) file=GPCCData/gpcc_025_n.nc;kindname="GPCC";climfield="#gauges";;
-ngpcc_05) file=GPCCData/gpcc_05_n.nc;kindname="GPCC";climfield="#gauges";;
-ngpcc_10) file=GPCCData/gpcc_10_n.nc;kindname="GPCC";climfield="#gauges";;
-ngpcc_25) file=GPCCData/gpcc_25_n.nc;kindname="GPCC";climfield="#gauges";;
+ngpcc_025) file=GPCCData/ngpcc_025.nc;kindname="GPCC";climfield="#gauges";;
+ngpcc_05) file=GPCCData/ngpcc_05.nc;kindname="GPCC";climfield="#gauges";;
+ngpcc_10) file=GPCCData/ngpcc_10.nc;kindname="GPCC";climfield="#gauges";;
+ngpcc_25) file=GPCCData/ngpcc_25.nc;kindname="GPCC";climfield="#gauges";;
 gpcc_daily) file=GPCCData/gpcc_combined_daily.nc;kindname="GPCC daily V1";climfield="precipitation";NPERYEAR=366;;
 gpcc_daily_n1) file=GPCCData/gpcc_combined_daily_n1.nc;kindname="GPCC daily V1";climfield="precipitation"NPERYEAR=366;;
 ngpcc_daily) file=GPCCData/gpcc_combined_daily_n.nc;kindname="GPCC daily V1";climfield="#gauges"NPERYEAR=366;;
@@ -5210,6 +5210,8 @@ tasmax_ukmohadrm3_a1b_hadcm3q0_21) file=RT2b/METO-HC_HadRM3Q0_A1B_HadCM3Q0_DM_25
 tasmax_ukmohadrm3_a1b_hadcm3q0_22) file=RT2b/METO-HC_HadRM3Q0_A1B_HadCM3Q0_DM_25km_2071-2100_tasmax_latlon.nc;kindname="UKMO HadRM3Q0 HadCM3Q0";climfield=tasmax;NPERYEAR=360;;
 
 wh_txx_india) file=Weather@Home/India/India_tmax_may_Climatology_1.nc;kindname="W@H";climfield="TXx";NPERYEAR=1;;
+
+eurocordex_tasAdjust_day_ens_rcp45) file=CORDEX/EU-11-BC/tasAdjust_day_eu11bc_rcp45_%%.nc;kindname="EURO-CORDEX-11 BC";climfield="tas";NPERYEAR=366;;
 
 RCP*) file="IIASAData/${FORM_field}.nc";kindname=${FORM_field%%_*}
       climfield=${FORM_field%_*}
