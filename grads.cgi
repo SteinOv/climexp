@@ -627,7 +627,7 @@ elif [ "$FORM_mapformat" = png ]; then
 			echo "<a href=\"ps2pdf.cgi?file=$f.eps.gz\">pdf</a>)</div>"
 			if [ -s $f.png ]; then
 			    checkfile=$f.png
-			    check_url # use curl to check the png is really here, I have had reports that sometimes it is not.
+			    ###check_url # use curl to check the png is really here, I have had reports that sometimes it is not.
 				if [ "$hiresmap" = true ]; then
 					pngfile=$f.png
 					getpngwidth
