@@ -80,7 +80,7 @@ if [ -z "$init_done" ]; then
             fi
             c=`curl --head $url | fgrep -c $type`
             n=0
-            while [ $c != "1" -a $n < 5 ]; do
+            while [ $c != "1" -a $n -lt 5 ]; do
                 ((n++))
                 # not yet there
                 sleep 0.5 # works on macOS and linux...
