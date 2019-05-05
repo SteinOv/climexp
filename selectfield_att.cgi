@@ -541,6 +541,30 @@ cat <<EOF
 <td><input type=radio class=formradio name=field value=knmi14_TN3x_yr_RACMO22E_rcp85_AMJJAS>
 <td><input type=radio class=formradio name=field value=knmi14_TNn_yr_RACMO22E_rcp85_AMJJAS>
 <td><input type=radio class=formradio name=field value=knmi14_TN3n_yr_RACMO22E_rcp85_AMJJAS>
+<tr><th>EURO-CORDEX 11km
+<th>scenario
+<th>tas<br>bias-corrected
+<th>&nbsp;
+<th>&nbsp;
+<th>pr<br>bias-corrected
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<tr><td>9 daily
+<td>RCP4.5
+<td><input type=radio class=formradio name=field value=eurocordex_tasAdjust_day_ens_rcp45>
+<td>&nbsp;
+<td>&nbsp;
+<td><input type=radio class=formradio name=field value=eurocordex_prAdjust_day_ens_rcp45>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
 <tr><th>ISIMIP 1861-2099<th>scenario<th>potevap<th colspan=3>&nbsp<th>soilmoist<th colspan=7>&nbsp
 <tr><td>16 monthly<td>RCP6.0
 <td><input type=radio class=formradio name=field value=isimip_potevap_all_all_rcp60>
