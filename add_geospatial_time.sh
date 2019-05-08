@@ -156,4 +156,5 @@ else
     ncatted -h -a time_coverage_start,global,c,c,"${startyr}-${startmo}-${startday}" \
            -a time_coverage_end,global,c,c,"${stopyr}-${stopmo}-${stopday}" \
                 $file
+    [ -f $tmpfile ] && rm $tmpfile
 fi
