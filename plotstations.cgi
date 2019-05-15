@@ -154,7 +154,7 @@ export GADDIR=$DIR/grads
 f=data/g$$
 id=$$
 if [ -z "$FORM_col" ]; then
-  FORM_col = bw
+  FORM_col=bw
 fi
 size8=`echo "${scale}*0.8/2" | bc -l -q`
 size5=`echo "${scale}*0.5/2" | bc -l -q`
@@ -566,6 +566,7 @@ draw string 9.25 $y0 P>${FORM_greycut}%
   fi
 elif [ "$FORM_oper" != "grid" ]; then
 # not a correlation.  We would still like a legend, though...
+  [ -z "$scale" ] && scale="1"
   invscale=`echo "100000/$scale"|bc -l -q`
   invscale=${invscale%%\.*}
   if [ "$lwrite" = true ]; then
