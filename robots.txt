@@ -40,6 +40,9 @@ Disallow: /
 # follows links that it should not follow
 User-agent: discobot
 Disallow: /
+# follows links that it should not follow, no advertisements anyway
+User-agent: SemrushBot
+Disallow: /
 
 # Google was busy indexing the data files, also images disappear after 3 days
 User-agent: *
