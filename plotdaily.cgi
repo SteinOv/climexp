@@ -4,7 +4,7 @@
 # http://www.cpc.ncep.noaa.gov/products/global_monitoring/temperature/global_temp_accum.shtml
 #
 . ./init.cgi
-. ./nosearchengine.cgi
+. ./nosearchenginewithheader.cgi
 echo 'Content-Type: text/html'
 echo
 echo
