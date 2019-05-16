@@ -10,7 +10,7 @@ echo
 cat <<EOF
 This page provides links to the Climate Explorer pages of key climate variables that have been 
 assessed under supervision of the WMO.  For more information of the assessment process 
-and a list of the assessed datasets, see <a href="http://climate.ooxo.nl">the WMO web pge</a>.
+and a list of the assessed datasets, see <a href="http://climatedata-catalogue.wmo.int/new/">the WMO web pge</a>.
 <table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
 <tr><th colspan="3">Temperature and Precipitation (ECVs) and Climate Indices: fields</th></tr>
 EOF
