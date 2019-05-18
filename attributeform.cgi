@@ -22,8 +22,7 @@ else
     prog=$NAME
     NPERYEAR="$FORM_NPERYEAR"
 fi
-[ -z "$EMAIL" ] && EMAIL=someone@somewhere
-if [ $EMAIL = oldenborgh@knmi.nl ];then
+if [ "$EMAIL" = oldenborgh@knmi.nl ]; then
     lwrite=false
 fi
 

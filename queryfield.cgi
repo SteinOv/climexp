@@ -565,14 +565,10 @@ gpcc_25_n1) file=GPCCData/gpcc_25_n1.nc;kindname="GPCC 2.5";climfield="precipita
 gpcc_10_n1) file=GPCCData/gpcc_10_n1.nc;kindname="GPCC 1.0";climfield="precipitation";flipcolor=11;;
 gpcc_05_n1) file=GPCCData/gpcc_05_n1.nc;kindname="GPCC 0.5";climfield="precipitation";flipcolor=11;;
 gpcc_025_n1) file=GPCCData/gpcc_025_n1.nc;kindname="GPCC 0.25";climfield="precipitation";flipcolor=11;;
-gpccall_10) file=GPCCData/gpcc_10_combined.nc;kindname="GPCC+monitoring";climfield="precipitation";flipcolor=11;;
-gpccpatch_10) file=GPCCData/gpcc_10_patched.nc;kindname="GPCC+monitoring";climfield="precipitation";flipcolor=11;;
-gpccall_10_n1) file=GPCCData/gpcc_10_n1_combined.nc;kindname="GPCC+monitoring";climfield="precipitation";flipcolor=11;;
-gpccpatch_10_n1) file=GPCCData/gpcc_10_n1_patched.nc;kindname="GPCC+monitoring_var";climfield="precipitation";flipcolor=11;;
+gpccall_10) file=GPCCData/gpcc_10_combined.nc;kindname="GPCC+";climfield="precipitation";flipcolor=11;;
+gpccall_10_n1) file=GPCCData/gpcc_10_n1_combined.nc;kindname="GPCC+";climfield="precipitation";flipcolor=11;;
 gpccall_25) file=GPCCData/gpcc_25_combined.nc;kindname="GPCC+monitoring";climfield="precipitation";flipcolor=11;;
-gpccpatch_25) file=GPCCData/gpcc_25_patched.nc;kindname="GPCC+monitoring_var";climfield="precipitation";flipcolor=11;;
 gpccall_25_n1) file=GPCCData/gpcc_25_n1_combined.nc;kindname="GPCC+monitoring";climfield="precipitation";flipcolor=11;;
-gpccpatch_25_n1) file=GPCCData/gpcc_25_n1_patched.nc;kindname="GPCC+monitoring_var";climfield="precipitation";flipcolor=11;;
 gpcc) file=GPCCData/gpcc_10_mon.nc;kindname="GPCC monitoring";climfield="precipitation";flipcolor=11;;
 gpcc_n1) file=GPCCData/gpcc_10_n1_mon.nc;kindname="GPCC monitoring";climfield="precipitation";flipcolor=11;;
 ngpcc) file=GPCCData/gpcc_10_n_mon.nc;kindname="GPCC monitoring";climfield="#gauges";;
@@ -5212,6 +5208,9 @@ tasmax_ukmohadrm3_a1b_hadcm3q0_22) file=RT2b/METO-HC_HadRM3Q0_A1B_HadCM3Q0_DM_25
 wh_txx_india) file=Weather@Home/India/India_tmax_may_Climatology_1.nc;kindname="W@H";climfield="TXx";NPERYEAR=1;;
 
 eurocordex_tasAdjust_day_ens_rcp45) file=CORDEX/EU-11-BC/tasAdjust_day_eu11bc_rcp45_%%.nc;kindname="EURO-CORDEX-11 BC";climfield="tas";NPERYEAR=366;;
+eurocordex_tasAdjust_day_ens_rcp85) file=CORDEX/EU-11-BC/tasAdjust_day_eu11bc_rcp85_%%.nc;kindname="EURO-CORDEX-11 BC";climfield="tas";NPERYEAR=366;;
+eurocordex_prAdjust_day_ens_rcp45) file=CORDEX/EU-11-BC/prAdjust_day_eu11bc_rcp45_%%.nc;kindname="EURO-CORDEX-11 BC";climfield="pr";NPERYEAR=366;;
+eurocordex_prAdjust_day_ens_rcp85) file=CORDEX/EU-11-BC/prAdjust_day_eu11bc_rcp85_%%.nc;kindname="EURO-CORDEX-11 BC";climfield="pr";NPERYEAR=366;;
 
 RCP*) file="IIASAData/${FORM_field}.nc";kindname=${FORM_field%%_*}
       climfield=${FORM_field%_*}
