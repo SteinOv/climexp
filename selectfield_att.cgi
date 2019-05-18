@@ -553,12 +553,24 @@ cat <<EOF
 <th>&nbsp;
 <th>&nbsp;
 <th>&nbsp;
-<tr><td>9 daily
+<tr><td>10 daily
 <td>RCP4.5
 <td><input type=radio class=formradio name=field value=eurocordex_tasAdjust_day_ens_rcp45>
 <td>&nbsp;
 <td>&nbsp;
 <td><input type=radio class=formradio name=field value=eurocordex_prAdjust_day_ens_rcp45>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<tr><td>10 daily
+<td>RCP8.5
+<td><input type=radio class=formradio name=field value=eurocordex_tasAdjust_day_ens_rcp85>
+<td>&nbsp;
+<td>&nbsp;
+<td><input type=radio class=formradio name=field value=eurocordex_prAdjust_day_ens_rcp85>
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
