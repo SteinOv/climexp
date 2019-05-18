@@ -16,9 +16,6 @@ if [ -n "$DEBUG" ]; then
     echo '-------------' >> /tmp/kill.log
 fi
 pid=`ps axw | fgrep 'stillcomputing.cgi' | fgrep -v 'kill_' | egrep " $EOFID" | cut -d ' ' -f 1`
-if [ -z "$pid" ]; then
-  echo "$0: cannot find pid"
-  echo "$0: cannot find pid" 1>&2
-  exit -1
+if [ -n "$pid" ]; then
+    kill $pid > /dev/null 1>&2
 fi
-kill $pid > /dev/null 1>&2
