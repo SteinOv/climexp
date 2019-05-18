@@ -3,6 +3,7 @@
 # add geospatial* metadata variables to netcdf metadata
 [ -z "$file" ] && echo "$0: error: set variable file" && exit -1
 [ ! -s "$file" ] && echo "$0: error: cannot find file $file" && exit -1
+tmpfile=""
 c=`ncdump -h $file | fgrep -v _resolution | fgrep -c ":geospatial_"`
 if [ $c != 0 ]; then
     echo "$0: geospatial information already in $file, do nothing"
