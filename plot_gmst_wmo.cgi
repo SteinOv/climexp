@@ -48,7 +48,7 @@ set ylabel "Ta [Celsius]"
 set yrange [-0.4:1.4]
 set xrange [1850:2025]
 plot "$lowpassfile" notitle with lines lt 4 lw 5, \
-     "$plotreffile" notitle with steps lt 1
+     "$reffile" notitle with lines lt 1
 EOF
 echo $pngfile
 exit
