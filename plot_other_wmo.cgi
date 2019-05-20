@@ -23,6 +23,7 @@ fi
 
 yearfile=data/`basename $file .dat`_1mean_80_trend.dat
 daily2longer $file 1 mean minfac 80 add_trend > $yearfile
+eval `./bin/getunits $yearfile`
 plotyearfile=${yearfile%.dat}.txt
 plotdat $yearfile > $plotyearfile
 lowpassfile=${yearfile%.dat}_5yrlo.dat
@@ -37,9 +38,9 @@ set zero 1e-40
 set size 0.7,0.5
 set xzeroaxis
 set title "$name"
-set ylabel "sea level anomaly [mm]"
-plot "$lowpassfile" u 1:(1000*\$2) notitle with lines lt 4 lw 5, \
-     "$plotyearfile" u 1:(1000*\$2) notitle with steps lt 1
+set ylabel "$VAR [$UNITS]"
+plot "$lowpassfile" u 1:2 notitle with lines lt 4 lw 5, \
+     "$yearfile" u 1:2 notitle with lines lt 1
 EOF
 echo $pngfile
 exit
