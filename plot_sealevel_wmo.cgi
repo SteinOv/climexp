@@ -39,7 +39,7 @@ set xzeroaxis
 set title "$name"
 set ylabel "sea level anomaly [mm]"
 plot "$lowpassfile" u 1:(1000*\$2) notitle with lines lt 4 lw 5, \
-     "$yearfile" u 1:(1000*\$2) notitle with lines lt 1
+     "$yearfile" u 1:(1000*\$2) notitle with lines lt 1 lw 2
 EOF
 echo $pngfile
 exit
