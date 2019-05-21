@@ -29,6 +29,17 @@ plotdat $yearfile > $plotyearfile
 lowpassfile=${yearfile%.dat}_5yrlo.dat
 filteryearseries lo box 5 $yearfile > $lowpassfile
 pngfile=${yearfile%.dat}.png
+if [ $VAR = co2 ]; then
+    plotsmoth=""
+else
+    plotsmooth="\"$lowpassfile\" u 1:2 notitle with lines lt 4 lw 5, "
+fi
+if [ "${name%heat content}" != "$name" ]; then
+    setxrange="set xrange [1950:]"
+    setyrange="set yrange [-10:]"
+fi
+VAR_=`echo "$VAR" | tr '_' ' '`
+UNITS_=`echo "$UNITS" | tr '_' ' ' | sed -e 's/10\^22/10^2^2/'`
 gnuplot <<EOF > /tmp/gnuplot$$.log
 set colors classic
 set output "$pngfile"
@@ -37,10 +48,11 @@ set datafile missing "-999.900"
 set zero 1e-40
 set size 0.7,0.5
 set xzeroaxis
+$setxrange
+$setyrange
 set title "$name"
-set ylabel "$VAR [$UNITS]"
-plot "$lowpassfile" u 1:2 notitle with lines lt 4 lw 5, \
-     "$yearfile" u 1:2 notitle with lines lt 1
+set ylabel "$VAR_ [$UNITS_]"
+plot $plotsmooth"$yearfile" u 1:2 notitle with lines lt 1 lw 2
 EOF
 echo $pngfile
 exit
