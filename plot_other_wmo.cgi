@@ -22,7 +22,12 @@ if [ -z "$name" ]; then
 fi
 
 yearfile=data/`basename $file .dat`_1mean_80_trend.dat
-daily2longer $file 1 mean minfac 80 add_trend > $yearfile
+eval `./bin/getunits $file`
+if [ $VAR = co2 ]; then
+    daily2longer $file 1 mean minfac 80 add_persist > $yearfile
+else
+    daily2longer $file 1 mean minfac 80 add_trend > $yearfile
+fi
 eval `./bin/getunits $yearfile`
 plotyearfile=${yearfile%.dat}.txt
 plotdat $yearfile > $plotyearfile
