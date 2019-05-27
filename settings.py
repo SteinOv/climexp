@@ -17,8 +17,8 @@ else:
     # modern Linux computer
     HOME_DIR = '/home/oldenbor'
     WORKING_DIR = '{HOME_DIR}/climexp'.format(HOME_DIR=HOME_DIR)
-
-    os.environ['PATH'] = '{HOME_DIR}/bin:{WORKING_DIR}/bin:/usr/local/ncl/bin:'.format(
+    # added /usr/local/bin for the gs that supports transparency, Ubuntu gs does not.
+    os.environ['PATH'] = '{HOME_DIR}/bin:{WORKING_DIR}/bin:/usr/local/ncl/bin:/usr/local/bin'.format(
        HOME_DIR=HOME_DIR, 
        WORKING_DIR=WORKING_DIR) + os.environ['PATH']
 
