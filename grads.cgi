@@ -84,6 +84,9 @@ fi
 [ "$lwrite" = true ] && echo "FORM_yflip=$FORM_yflip<br>ylint=$ylint<br>"
 # sum in GrADS?
 [ -z "$var" ] && var=$FORM_var
+if [ ${NZ:-0} -le 1 ]; then # workaround for bug in GrADS 2.2.1
+    FORM_var="${FORM_var}(z=1)"
+fi
 if [ -n "$FORM_plotsum" ]; then
 	if [ "$FORM_plotsum" -gt 1 ]; then
 		###sum="run sum ${FORM_var:-corr} $FORM_plotsum"
@@ -387,7 +390,7 @@ EOF
 # on the SurfSARA cloud system it can take a while for the netcdf to become avilable on the SSD...
 ok=false
 n=0
-while [ $ok = false -a $n -lt 10 ]; do
+while [ $ok = false -a $n -lt 4 ]; do
     ((n++))
     $grads -l -b << EOF >> /tmp/grads$uniq.log
 $openfile
