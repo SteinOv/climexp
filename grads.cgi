@@ -2,7 +2,7 @@
 . ./init.cgi
 # to be sourced from various scripts.
 if [ $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 ]; then
-	lwrite=false # true
+	lwrite=true
 fi
 if [ "$lwrite" = true ]; then
     echo "Turned on debug printing<p>"
@@ -84,9 +84,6 @@ fi
 [ "$lwrite" = true ] && echo "FORM_yflip=$FORM_yflip<br>ylint=$ylint<br>"
 # sum in GrADS?
 [ -z "$var" ] && var=$FORM_var
-if [ ${NZ:-0} -le 1 ]; then # workaround for bug in GrADS 2.2.1
-    FORM_var="${FORM_var}(z=1)"
-fi
 if [ -n "$FORM_plotsum" ]; then
 	if [ "$FORM_plotsum" -gt 1 ]; then
 		###sum="run sum ${FORM_var:-corr} $FORM_plotsum"
