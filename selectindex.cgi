@@ -216,6 +216,9 @@ target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a
 <tr><td>Sea level<td><div class="kalelink"><a href="getindices.cgi?WMO=AVISOData/ssh_aviso&STATION=global_sea_level&TYPE=i&id=$EMAIL">Global sea level</a> from altimetry. (1993-now, AVISO)</div></a>
 <td><a href="https://www.aviso.altimetry.fr/en/data/products/ocean-indicators-products/mean-sea-level/products-images.html" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
+<tr><td><!--Sea level--><td><div class="kalelink"><a href="getindices.cgi?WMO=CDSData/global_copernicus_sla&STATION=global_sla_C3S&TYPE=i&id=$EMAIL">Global sea level</a> from altimetry. (1993-"now", Copernicus)</div></a>
+<td><a href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/satellite-sea-level-global?tab=overview" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+
 <tr><td><!--Sea level--><td><div class="kalelink"><a href="getindices.cgi?WMO=SiegenData/ssh_dangendorf&STATION=global_sea_level&TYPE=i&NPERYEAR=1&id=$EMAIL">Global sea level reconstruction</a> (1902-2012, Dangendorf et al, <a href="getindices.cgi?WMO=SiegenData/dssh_dangendorf&STATION=global_sea_level&TYPE=i&NPERYEAR=1&id=$EMAIL">uncertainty</a>), <a href="getindices.cgi?WMO=SiegenData/ssh_dangendorf_extended&STATION=global_sea_level&TYPE=i&NPERYEAR=1&id=$EMAIL">extended with AVISO</a></div></a>
 <td><a href="http://www.pnas.org/content/114/23/5946.abstract" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
