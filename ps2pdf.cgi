@@ -1,6 +1,7 @@
 #!/bin/bash
 . ./init.cgi
 . ./getargs.cgi
+. ./nosearchenginewithheader.cgi
 
 echo "Content-Type: text/html"
 echo
