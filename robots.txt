@@ -4,6 +4,9 @@
 User-agent: * 
 Crawl-delay: 5
 
+# slightly impolite, no documentation
+User-agent: MauiBot
+Disallow: /
 # too active
 User-agent: MJ12bot
 Disallow: /
