@@ -41,7 +41,7 @@ then
 	            $DIR/bin/$PROG $args >> $outfile
 	        done
 	        # collect all the metadata at the top. note it will give duplicate history etc attributes
-	        sort $outfile | uniq
+	        sed -e 's/^ *//' $outfile | sort | uniq
 	        rm $outfile
 	    fi
 	else
@@ -107,7 +107,7 @@ else
                 done
                 # to prevent incomplete series if the process is interrupted (assuming the same pid dpes not come up)
                 # also sort to collect all metadata at the top
-                sort $ensout.tmp$$ | uniq > $ensout
+                sed -e 's/^ *//' $ensout.tmp$$ | sort | uniq > $ensout
                 rm $ensout.tmp$$
             fi
 			echo "# $ensout"
