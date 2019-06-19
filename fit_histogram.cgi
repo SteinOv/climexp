@@ -114,6 +114,9 @@ FORM_yrbeg=""
 FORM_yrend=""
 nostartstop=true
 notimescale=true
+FORM_month=
+FORM_sum=
+FORM_ave=
 . ./histogram.cgi
 
 exit
