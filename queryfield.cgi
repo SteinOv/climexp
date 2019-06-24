@@ -401,6 +401,7 @@ giss_temp_land_250) file=NASAData/giss_temp_land_250.nc;kindname="GISS 250";clim
 giss_temp_1200) file=NASAData/giss_temp_both_1200.nc;kindname="GISS 1200";climfield="T2m/SST anom";LSMASK=NASAData/lsmask.nc;;
 giss_temp_land_1200) file=NASAData/giss_temp_land_1200.nc;kindname="GISS 1200";climfield="T2m anom";LSMASK=NASAData/lsmask.nc;;
 had4_krig_v2) file=YorkData/had4_krig_v2_0_0.nc;kindname="HadCRUT4 filled-in";climfield="T2m/SST";LSMASK=UKMOData/lsmask_5.nc;;
+had4sst4_krig_v2) file=YorkData/had4sst4_krig_v2_0_0.nc;kindname="HadCRUT4/HadSST4 filled-in";climfield="T2m/SST";LSMASK=UKMOData/lsmask_5.nc;;
 ghcn_cams_05) file=NCEPData/ghcn_cams_05.nc;kindname="GHCN/CAMS";climfield="t2m";;
 ghcn_cams_10) file=NCEPData/ghcn_cams_10.nc;kindname="GHCN/CAMS";climfield="t2m";;
 ghcn_cams_25) file=NCEPData/ghcn_cams_25.nc;kindname="GHCN/CAMS";climfield="t2m";;
