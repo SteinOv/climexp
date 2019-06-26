@@ -9,7 +9,7 @@ cat <<EOF
 All daily data, take the 3-day average and June max yourself.
 
 <p><b>Observations</b>
-<br>France: <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iensembles_025_tg_France_metropolitan_su&STATION=EOBS_TG_France">ECA&amp;D</a>,
+<br>France: <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iensembles_025_tg_France_metropolitan_su&STATION=EOBS_TG_France">E-OBS</a>,
 <a href=getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iberkeley_tavg_daily_full_France_metropolitan_su&STATION=Berkeley_TG_France">Berkeley</a>,
 <a href=getindices.cgi?id=$EMAIL&WMO=data/ierai_t2m_daily_e_France_metropolitan_su&STATION=ERA-i_T2m_France">ERA-interim+ECMEF analyses+forecasts</a>,
 <br>Toulouse: <a href="becatemp.cgi?id=$EMAIL&WMO=33&STATION=TOULOUSE-BLAGNAC">ECA&amp;D</a>,
