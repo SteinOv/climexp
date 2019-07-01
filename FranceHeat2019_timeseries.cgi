@@ -31,7 +31,7 @@ For daily data, take the 3-day average and June max yourself. For annual data th
 <br>16 RACMO 2.2 1950-2100:
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iknmi14_t2m_day_RACMO22E_rcp85_France_metropolitan_5lan_su_%%&STATION=RACMO22_tas_France&NPERYEAR=366">France</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iknmi14_t2m_day_RACMO22E_rcp85_1.38E_43.62N_n_su_%%&STATION=RACMO22_tas_Toulouse">16 RACMO 2.2 1950-2100</a>,
-<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iknmi14_t2m_day_RACMO22E_rcp85_-15-20E_37-66N_n_5lan_su_%%&STATION=RACMO22_tas_WEurope">Western Europe JJA</a>,
+<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iknmi14_t2m_mon_RACMO22E_rcp85_-15-20E_37-66N_n_su_mean_15yr_low-pass_box_max1_anom_75&STATION=RACMO22_tas_WEurope">Western Europe JJA</a>,
 <br>16 EC-Earth 2.3 1861-2100
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iknmi14_tas_Aday_ECEARTH23_rcp85_France_metropolitan_su_%%&STATION=EC-Earth23_tas_France&NPERYEAR=366">France</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iknmi14_tas_Aday_ECEARTH23_rcp85_1.38E_43.62N_n_su_%%&STATION=EC-Earth23_tas_Toulouse">Toulouse</a>,
