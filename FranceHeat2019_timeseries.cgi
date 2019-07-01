@@ -16,10 +16,11 @@ For daily data, take the 3-day average and June max yourself. For annual data th
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iensembles_025_tg_France_metropolitan_su&STATION=EOBS_TG_France&NPERYEAR=366">France</a>,
 <a href="becatemp.cgi?id=$EMAIL&WMO=33&STATION=TOULOUSE-BLAGNAC&NPERYEAR=366">Toulouse</a>,
 <br>Berkeley 1900-now:
-<a href=getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iberkeley_tavg_daily_full_France_metropolitan_su&STATION=Berkeley_TG_France&NPERYEAR=366">France</a>,
+<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iberkeley_tavg_daily_full_France_metropolitan_su&STATION=Berkeley_TG_France&NPERYEAR=366">France</a>,
 <br>ERA-interim+ECMEF analyses+forecasts 1979-now: 
-<a href=getindices.cgi?id=$EMAIL&WMO=data/ierai_t2m_daily_e_France_metropolitan_su&STATION=ERA-i_T2m_France&NPERYEAR=366">France</a>,
-<a href=getindices.cgi?id=$EMAIL&WMO=data/ierai_t2m_daily_e_1.38E_43.62N_n_su&STATION=ERA-i_T2m_Toulouse&NPERYEAR=366">Toulouse</a>
+<a href="getindices.cgi?id=$EMAIL&WMO=data/ierai_t2m_daily_e_France_metropolitan_su&STATION=ERA-i_T2m_France&NPERYEAR=366">France</a>,
+<a href="getindices.cgi?id=$EMAIL&WMO=data/ierai_t2m_daily_e_1.38E_43.62N_n_su&STATION=ERA-i_T2m_Toulouse&NPERYEAR=366">Toulouse</a>
+<br>CRUTEM4 1900-2018: <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/icrutem4_-15-20E_35-72N_n_su_15yr_low-pass_box_30_mean4_trend_max1_anom&STATION=CRUTEM4_WEurope_JJA&NPERYEAR=1">Western Europe JJA</a>
 
 <p><b>Models</b>
 
@@ -39,6 +40,10 @@ For daily data, take the 3-day average and June max yourself. For annual data th
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/ieucleia_tas_Aday_HadGEM3-A-N216_historical_France_metropolitan_5lan_su_%%%&STATION=HadGEM3A_tas_France&NPERYEAR=360">France</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/ieucleia_tas_Aday_HadGEM3-A-N216_historical_1.38E_43.62N_n_su_%%%&STATION=HadGEM3A_tas_Toulouse&NPERYEAR=360">Toulouse</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/ieucleia_tas_Aday_HadGEM3-A-N216_historical_-12-20E_35-72N_n_5lan_su_%%%&STATION=HadGEM3A_tas_WEurope">Western Europe JJA</a>,
+<br>28 CMIP5 1871-2100
+<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg3x_cmip5_%%%_France&STATION=tg3x_cmip5_France&NPERYEAR=1">France</a>
+<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg3x_cmip5_%%%_Toulouse&STATION=tg3x_cmip5_Toulouse&NPERYEAR=1">Toulouse</a>
+<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tas_cmip5_%%%_WEurope_JJA&STATION=tas_cmip5_WEurope_JJA&NPERYEAR=1">WEurope JJA</a>
 
 EOF
 
