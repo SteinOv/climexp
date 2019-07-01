@@ -35,15 +35,15 @@ For daily data, take the 3-day average and June max yourself. For annual data th
 <br>16 EC-Earth 2.3 1861-2100
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iknmi14_tas_Aday_ECEARTH23_rcp85_France_metropolitan_su_%%&STATION=EC-Earth23_tas_France&NPERYEAR=366">France</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iknmi14_tas_Aday_ECEARTH23_rcp85_1.38E_43.62N_n_su_%%&STATION=EC-Earth23_tas_Toulouse">Toulouse</a>,
-<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iknmi14_tas_Aday_ECEARTH23_rcp85_-12-20E_35-72N_n_su_%%&STATION=EC-Earth23_tas_WEurope">Western Europe JJA</a>,
+<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iknmi14_tas_Amon_ECEARTH23_rcp85_-15-20E_35-72N_n_5lan_su_mean_mean4_anom_max1_anom_15yr_low-pass_box&STATION=EC-Earth23_tas_WEurope">Western Europe JJA</a>,
 <br>15 HadGEM3-A-N219 1960-2015
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/ieucleia_tas_Aday_HadGEM3-A-N216_historical_France_metropolitan_5lan_su_%%%&STATION=HadGEM3A_tas_France&NPERYEAR=360">France</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/ieucleia_tas_Aday_HadGEM3-A-N216_historical_1.38E_43.62N_n_su_%%%&STATION=HadGEM3A_tas_Toulouse&NPERYEAR=360">Toulouse</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/ieucleia_tas_Aday_HadGEM3-A-N216_historical_-12-20E_35-72N_n_5lan_su_%%%&STATION=HadGEM3A_tas_WEurope">Western Europe JJA</a>,
 <br>28 CMIP5 1871-2100
-<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg3x_cmip5_%%%_France&STATION=tg3x_cmip5_France&NPERYEAR=1">France</a>
-<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg3x_cmip5_%%%_Toulouse&STATION=tg3x_cmip5_Toulouse&NPERYEAR=1">Toulouse</a>
-<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tas_cmip5_%%%_WEurope_JJA&STATION=tas_cmip5_WEurope_JJA&NPERYEAR=1">WEurope JJA</a>
+<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg3x_cmip5_%%%_France&STATION=tg3x_cmip5_France&NPERYEAR=1">France</a>,
+<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg3x_cmip5_%%%_Toulouse&STATION=tg3x_cmip5_Toulouse&NPERYEAR=1">Toulouse</a>,
+<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tas_cmip5_%%%_WEurope_JJA&STATION=tas_cmip5_WEurope_JJA&NPERYEAR=1">WEurope JJA</a>,
 
 EOF
 
