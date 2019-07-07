@@ -4,6 +4,10 @@
 User-agent: * 
 Crawl-delay: 5
 
+# no multilingual content...
+User-agent: Linguee
+Disallow: /
+
 # slightly impolite, no documentation
 User-agent: MauiBot
 Disallow: /
