@@ -250,14 +250,16 @@ class PlotAtlasMap:
                     mindata = 'dgt 1'
                 else:
                     mindata = ''
-                    
-                cmd = 'difffield {filename} {filename} {season} begin2 {begin1} end2 {end1} begin {begin2} end {end2} %(FORM_normsd)s {mindata} {standardunits} {difffile}'.format(filename=fileName, difffile=difffile, season=season, begin1=begin1, end1=end1, begin2=begin2, end2=end2, standardunits=varObj.standardunits, mindata=mindata) % paramsDict
+                
+                tmpdifffile = difffile + '.' + str(os.getpid())
+                cmd = 'difffield {filename} {filename} {season} begin2 {begin1} end2 {end1} begin {begin2} end {end2} %(FORM_normsd)s {mindata} {standardunits} {difffile}'.format(filename=fileName, difffile=tmpdifffile, season=season, begin1=begin1, end1=end1, begin2=begin2, end2=end2, standardunits=varObj.standardunits, mindata=mindata) % paramsDict
 
                 if lwrite:
                     self.logOut.info('%s <br>' % cmd)
                    
                 self.log.debug("Cmd: '%s'" % cmd)
                 subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
+                os.rename(tmpdifffile,difffile)
 
                 # TODO: check ret and if output file exists
                 if not os.path.exists(difffile):
