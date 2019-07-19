@@ -2,7 +2,23 @@
 if [ -z "$alreadycalledgetargs" ]; then
     export alreadycalledgetargs=true
     eval `./bin/proccgi "$@"`
-
+    # construct a web call that gives the same results
+    if [ -n "$SSL_PROTOCOL" ]; then
+        export SCRIPTURL="https://$SERVER_NAME$SCRIPT_NAME?"
+    else
+        export SCRIPTURL="http://$SERVER_NAME$SCRIPT_NAME?"
+    fi
+    # do not include ID, so that it does not leak into plots.
+    formvarlist=`set | egrep '^FORM_' | egrep -v '=$' | egrep -v 'FORM_id|FORM_EMAIL|FORM_email'`
+    init=0
+    for formvar in $formvarlist; do
+        if [ $init = 0 ]; then
+            init=1
+        else
+            SCRIPTURL="$SCRIPTURL&"
+        fi
+        SCRIPTURL="$SCRIPTURL${formvar#FORM_}"
+    done
     EMAIL="$FORM_id"
     [ -z "$EMAIL" ] && EMAIL="$FORM_EMAIL"
     [ -z "$EMAIL" ] && EMAIL="$FORM_email"
