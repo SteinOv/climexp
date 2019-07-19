@@ -193,7 +193,7 @@ EOF
   fi
   rm -f pid/$$.$EMAIL
   # in case two people retrieve the same data at the same time - make atomic
-  [ -s $DIR/data/$TYPE$WMO.dat.$$ ] && mv $DIR/data/$TYPE$WMO.dat.$$ $DIR/data/$TYPE$WMO.dat
+  [ -s ./data/$TYPE$WMO.dat.$$ ] && mv ./data/$TYPE$WMO.dat.$$ ./data/$TYPE$WMO.dat
   fgrep 'annot locate' $DIR/data/$TYPE$WMO.dat
   if [ $? = 0 ]; then
 	echo '<pre>'
