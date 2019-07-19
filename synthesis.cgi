@@ -15,7 +15,7 @@ if [ $EMAIL = someone@somewhere ]; then
     . ./myvinkheadfoot.cgi
 fi
 if [ $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 ]; then
-    lwrite=false
+    lwrite=true # false
 fi
 
 [ ! -d synthesis/$EMAIL ] && mkdir synthesis/$EMAIL

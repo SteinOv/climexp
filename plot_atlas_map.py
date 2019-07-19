@@ -259,6 +259,7 @@ class PlotAtlasMap:
                    
                 self.log.debug("Cmd: '%s'" % cmd)
                 subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
+                # make atomic, some web browsers seem to call te routiunes twice in quick nsuccesion
                 os.rename(tmpdifffile,difffile)
 
                 # TODO: check ret and if output file exists
@@ -353,9 +354,12 @@ class PlotAtlasMap:
                     season = ""
                 else:
                     season = "mon %(FORM_mon)s ave %(FORM_sum)s" % paramsDict
-                cmd = 'correlatefield {filename} {reffile} {season} begin {FORM_begin_fit} end {FORM_end_fit} {standardunits} {regrfile} > /dev/null'.format(filename=filename, reffile=reffile, season=season, standardunits=varObj.standardunits, regrfile=regrfile, **paramsDict)
+                tmpregrfile = regrfile + '.' + str(os.getpid())
+                cmd = 'correlatefield {filename} {reffile} {season} begin {FORM_begin_fit} end {FORM_end_fit} {standardunits} {regrfile} > /dev/null'.format(filename=filename, reffile=reffile, season=season, standardunits=varObj.standardunits, regrfile=tmpregrfile, **paramsDict)
                 ###self.logOut.info('cmd = %s<br>' % cmd)
                 subprocess.call(cmd, shell=True, stderr=subprocess.STDOUT)
+                # mak atomic, chromium at one time called the routine twice
+                os.rename(tmpregrfile,regrfile)
                 if not os.path.exists(regrfile):
                     raise PlotMapError("Something went wrong in {cmd}".format(cmd=cmd))
 
