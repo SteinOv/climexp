@@ -25,7 +25,7 @@ For daily data, take the 3-day average and June max yourself. For annual data th
 <p><b>Models</b>
 
 <br>10 EUROCORDEX bias-corrected 1971-2100:
-<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/eurocordex_tasAdjust_day_ens_rcp45_France_metropolitan_su_%%&STATION=EUROCORDEX11bc_tas_France&NPERYEAR=366">France</a>,
+<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/ieurocordex_tasAdjust_day_ens_rcp45_France_metropolitan_su_%%&STATION=EUROCORDEX11bc_tas_France&NPERYEAR=366">France</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/eurocordex_tasAdjust_day_ens_rcp45_1.38E_43.62N_n_su_%%&STATION=EUROCORDEX11bc_tas_Toulouse&NPERYEAR=366">Toulouse</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/eurocordex_tasAdjust_day_ens_rcp45_-12-20E_35-72N_n_su_%%_mean4_anom_30_max1_anom_15yr_low-pass_box_30&STATION=EUROCORDEX11bc_JJA_tas_WEurope&NPERYEAR=1">Western Europe JJA</a>,
 <br>16 RACMO 2.2 1950-2100:
@@ -44,7 +44,10 @@ For daily data, take the 3-day average and June max yourself. For annual data th
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg3x_cmip5_%%%_France&STATION=tg3x_cmip5_France&NPERYEAR=1">France</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg3x_cmip5_%%%_Toulouse&STATION=tg3x_cmip5_Toulouse&NPERYEAR=1">Toulouse</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tas_cmip5_%%%_WEurope_JJA&STATION=tas_cmip5_WEurope_JJA&NPERYEAR=1">WEurope JJA</a>,
-
+<br>31 IPSL-CM6B-LR
+<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg3x_ipsl-cm6a-lr_france_%%&STATION=tg3x_ipsl-cm6a-lr_France&NPERYEAR=1">France</a>,
+<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg3x_ipsl-cm6a-lr_toulouse_%%&STATION=tg3x_ipsl-cm6a-lr_Toulouse&NPERYEAR=1">Toulouse</a>,
+<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/notyet&STATION=tas_ipsl-cm6a-lr_WEurope_JJA&NPERYEAR=1">WEurope JJA</a>,
 EOF
 
 . ./myvinkfoot.cgi
