@@ -16,7 +16,7 @@ if [ -z "$NPERYEAR" -o "$NPERYEAR" = 12 ]; then
 <input type="checkbox" class="formcheck" name="soi"><a href="getindices.cgi?WMO=CRUData/soi&STATION=SOI&TYPE=i&id=$EMAIL">SOI</a>
 <input type="checkbox" class="formcheck" name="nao"><a href="getindices.cgi?WMO=CRUData/nao&STATION=NAO-Gibraltar&TYPE=i&id=$EMAIL">NAO</a>
 <input type="checkbox" class="formcheck" name="co2"><a href="getindices.cgi?WMO=CDIACData/co2_monthly&STATION=CO2&TYPE=i&id=$EMAIL">CO2</a>
-<input type="checkbox" class="formcheck" name="gmst"><a href="getindices.cgi?WMO=NASAData/giss_al_gl_m_4yrlo.dat&STATION=GMST&TYPE=i&id=$EMAIL">smoothed GMST</a>
+<input type="checkbox" class="formcheck" name="gmst"><a href="getindices.cgi?WMO=NASAData/giss_al_gl_m_4yrlo&STATION=GMST&TYPE=i&id=$EMAIL">smoothed GMST</a>
 EOF
 elif [ $NPERYEAR = 1 -o $NPERYEAR = -1 ]; then
     cat <<EOF
