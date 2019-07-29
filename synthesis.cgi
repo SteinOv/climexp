@@ -202,7 +202,7 @@ set noxtics
 set border 10 
 set ylabel "$region $season"
 stats '${root}.txt' using 7
-set size ((STATS_records+2)/20),1
+set size ((STATS_records+2.)/20),1
 SSTATS_max=STATS_max
 stats '${root}.txt' using 6
 set xrange[-0.5:(STATS_records-0.5)]
