@@ -305,6 +305,15 @@ if [ $extended = true ]; then
     echo "<a href=\"select.cgi?id=$EMAIL&field=${FORM_field}_e\">extended version</a>"
 fi
 
+if [ "$splitfield" = true ]; then
+    echo "<div class=\"alineakop\"><a name=\"separate\">Analyse $kindname $climfield per file</a></div>"
+    for onefile in `ls $file`; do
+        if [ -s $onefile ]; then
+            echo "<a href=select.cgi?id=$id&field=$onefile&kindname=$kindname>$onefile</a><br>"
+        fi
+    done
+fi
+
 echo "<div class=\"alineakop\"><a name=\"download\">Download $kindname $climfield</a></div>"
 
 ###echo "FORM_field=$FORM_field<br>"
