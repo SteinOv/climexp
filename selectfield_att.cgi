@@ -630,7 +630,7 @@ cat <<EOF
 Resources not listed are either easily accessible through  other Climate Explorer pages
 or available from the authors (except for non-public data such as the IMD analyses).
 
-<div class=alineakop>June 2019 France heat ave</div>
+<div class=alineakop>Summer 2019 European heat waves</div>
 <a href="FranceHeat2019_timeseries.cgi?id=$EMAIL">Separate page</a>
 
 <div class=alineakop>East African droughts</div>
