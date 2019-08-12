@@ -92,6 +92,10 @@ if [ -n "$FORM_normsd" ]; then
   normsd_checked="checked"
 fi
 
+if [ -n "$FORM_includelast" ]; then
+  includelast_checked="checked"
+fi
+
 case ${FORM_restrain:-0} in
 0.5) select05=selected;;
 0.4) select04=selected;;
@@ -224,10 +228,14 @@ if [ -n "$ENSEMBLE" -o $TYPE = set -o $TYPE = gridpoints ]; then
 EOF
 fi
 cat <<EOF
-<tr><td>Return time:<td>year <input type="$number" min=1 max=2500 step=1 class="forminput" name="year" $textsize4 value="$FORM_year"> (with value <input class="forminput" name="xyear" $textsize6 value="$FORM_xyear">)
+<tr><td>Return time:<td>year <input type="$number" min=1 max=2500 step=1 class="forminput" name="year" $textsize4 value="$FORM_year"> (with value <input class="forminput" name="xyear" $textsize6 value="$FORM_xyear">),
+this year is excluded from the fit unless the value is specified or you
+<input type="checkbox" class="formcheck" name="includelast" $includelast_checked>choose to include it
 <tr><td>Compare:<td>return time if it had occurred in year <input type="$number" min=1 max=2500 step=1 class="forminput" name="begin2" $textsize4 value="$FORM_begin2">
 <tr><td>Optionally plot:<td>return time if it had occurred in year <input type="$number" min=1 max=2500 step=1 class="forminput" name="end3" $textsize4 value="$FORM_end3">
-<tr><td>Bias correction:<td>add
+<tr><td>Bias correction:<td>evaluate for a return period of
+<input type="$number" class="forminput" name="biasrt" $textsize6 value="$FORM_biasrt">yr
+or add
 <input type="$number" class="forminput" name="biasmul" $textsize4 value="$FORM_biasmul">% and/or 
 <input type="$number" class="forminput" name="biasadd" $textsize4 value="$FORM_biasadd"> $UNITS.
 EOF
