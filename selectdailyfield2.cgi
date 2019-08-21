@@ -30,6 +30,7 @@ sed -e 's:<input type="radio" class="formradio" name="field" value="\([^"]*\)"><
     selectdailyfield_rea.html
 cat <<EOF
 </table>
+Please contact <a href="mailto:oldenborgh@knmi.nl">me</a> if you would like to have other areas of ERA5 at high resolution.
 EOF
 
 . ./myvinkfoot.cgi
