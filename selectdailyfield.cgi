@@ -23,5 +23,7 @@ cat <<EOF
 <table class="realtable" width="100%" border=0 cellpadding=0 cellspacing=0>
 EOF
 cat selectdailyfield_rea.html
+echo "</table>"
+echo "Please contact <a href=\"mailto:oldenborgh@knmi.nl\">me</a> if you would like to have other areas of ERA5 at high resolution."
 
 . ./myvinkfoot.cgi
