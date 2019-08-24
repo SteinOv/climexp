@@ -27,7 +27,7 @@ if [ -z "$alreadycalledgetargs" ]; then
     ###echo "EMAIL=$EMAIL<br>"
     # build a variable SCRIPTURL that can be used to reproduce this step later
     # do not include ID, so that it does not leak into plots.
-    formvarlist=`set | egrep '^FORM_' | egrep -v '=$' | sed -e "s/$id/\\$id/"`
+    formvarlist=`set | egrep '^FORM_' | fgrep -v FORM_data | egrep -v '=$' | tr ' ' '_' | sed -e "s/$id/\\$id/"`
     init=0
     for formvar in $formvarlist; do
         if [ $init = 0 ]; then
