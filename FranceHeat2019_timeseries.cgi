@@ -32,8 +32,8 @@ For daily data, take the 3-day average and June max (for the first heat wave) / 
 <br>Berkeley 1900-now:
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iberkeley_tavg_daily_full_France_metropolitan_su&STATION=Berkeley_TG_France&NPERYEAR=366">France</a>,
 <br>ERA-interim+ECMEF analyses+forecasts 1979-now: 
-<a href="getindices.cgi?id=$EMAIL&WMO=data/ierai_t2m_daily_e_France_metropolitan_su&STATION=ERA-i_T2m_France&NPERYEAR=366">France</a>,
-<a href="getindices.cgi?id=$EMAIL&WMO=data/ierai_t2m_daily_e_1.38E_43.62N_n_su&STATION=ERA-i_T2m_Toulouse&NPERYEAR=366">Toulouse</a>,
+<a href="get_index.cgi?email=$EMAIL&field=erai_t2m_daily_e&gridpoints=false&intertype=nearest&lat1=30&lat2=72&lon1=-15&lon2=30&maskmetadata=data/maskFrance_metropolitan.$EMAIL.poly&masktype=all&standardunits=standardunits&NPERYEAR=366">France</a>,
+<a href="get_index.cgi?email=$EMAIL&field=erai_t2m_daily_e&gridpoints=false&intertype=nearest&lat1=43.62&lon1=1.38&masktype=all&standardunits=standardunits&NPERYEAR=366">Toulouse</a>,
 <a href="getdutchtg.cgi?WMO=260&id=$EMAIL&STATION=De_Bilt">De Bilt</a>,
 <br>CRUTEM4 1900-2018: <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/icrutem4_-15-20E_35-72N_n_su_15yr_low-pass_box_30_mean4_trend_max1_anom&STATION=CRUTEM4_WEurope_JJA&NPERYEAR=1">Western Europe JJA</a>
 
