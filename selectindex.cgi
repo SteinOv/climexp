@@ -48,6 +48,10 @@ href="http://hadobs.metoffice.gov.uk/hadisst/" target="_new"><img src="images/in
 (1950-2018, NOAA/ESRL/PSD)</div>
 <td><a href="http://www.cdc.noaa.gov/people/klaus.wolter/MEI/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
+<tr><td>&nbsp;<td><div class="kalelink">Ni&ntilde;o <a href="getindices.cgi?WMO=CSIROData/CSIRO_NCT&STATION=nino_cold_tongue&TYPE=i&id=$EMAIL&NPERYEAR=4">cold tongue</a>, <a href="getindices.cgi?WMO=CSIROData/CSIRO_NWP&STATION=nino_warm_pool&TYPE=i&id=$EMAIL&NPERYEAR=4">warm pool</a> reconstructions 
+(1617-2008, CSIRO)</div>
+<td><a href="https://www.ncdc.noaa.gov/paleo/study/26270 " target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+
 <tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=TAOData/tao_wwv&STATION=WWV&TYPE=i&id=$EMAIL">Warm Water Volume</a>
 (5&deg;S-5&deg;N, 120&deg;E-80&deg;W, 1980-now, PMEL/TAO)</div>
 <td><a href="http://www.pmel.noaa.gov/tao/elnino/wwv/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
