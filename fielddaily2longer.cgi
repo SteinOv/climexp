@@ -55,6 +55,10 @@ else
   NAME="$NAME"
 fi
 NAME="$FORM_oper of $NAME"
+. ./nperyear2timescale.cgi
+if [ -n "$FORM_sum" -a "$FORM_sum" != 0 -a "$FORM_sum" != 1 ]; then
+    NAME="${FORM_sum}-$month $NAME"
+fi
 [ "$lwrite" = true ] && echo "FORM_nperyearnew = $FORM_nperyearnew<br>"
 if [ "$FORM_nperyearnew" = 366 -o "$FORM_nperyearnew" = 365 -o "$FORM_nperyearnew" = 360 ]; then
   NAME="daily $NAME"
