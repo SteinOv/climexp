@@ -578,11 +578,11 @@ cat <<EOF
 <td>&nbsp;
 <td>&nbsp;
 <tr><td>10 monthly
-<td>RCP8.5
-<td><input type=radio class=formradio name=field value=eurocordex_tasAdjust_mon_ens_rcp85>
+<td>RCP4.5
+<td><input type=radio class=formradio name=field value=eurocordex_tasAdjust_mon_ens_rcp45>
 <td>&nbsp;
 <td>&nbsp;
-<td><input type=radio class=formradio name=field value=eurocordex_prAdjust_mon_ens_rcp85>
+<td><input type=radio class=formradio name=field value=eurocordex_prAdjust_mon_ens_rcp45>
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
