@@ -5221,8 +5221,8 @@ eurocordex_tasAdjust_day_ens_rcp45) file=CORDEX/EU-11-BC/tasAdjust_day_eu11bc_rc
 eurocordex_tasAdjust_day_ens_rcp85) file=CORDEX/EU-11-BC/tasAdjust_day_eu11bc_rcp85_%%.nc;kindname="EURO-CORDEX-11 BC";climfield="tas";NPERYEAR=366;;
 eurocordex_prAdjust_day_ens_rcp45) file=CORDEX/EU-11-BC/prAdjust_day_eu11bc_rcp45_%%.nc;kindname="EURO-CORDEX-11 BC";climfield="pr";NPERYEAR=366;;
 eurocordex_prAdjust_day_ens_rcp85) file=CORDEX/EU-11-BC/prAdjust_day_eu11bc_rcp85_%%.nc;kindname="EURO-CORDEX-11 BC";climfield="pr";NPERYEAR=366;;
-eurocordex_prAdjust_mon_ens_rcp45) file=CORDEX/EU-11-BC/prAdjust_mon_eu11bc_rcp45_%%.nc;kindname="EURO-CORDEX-11 BC";climfield="pr";NPERYEAR=366;;
-eurocordex_prAdjust_mon_ens_rcp85) file=CORDEX/EU-11-BC/prAdjust_mon_eu11bc_rcp85_%%.nc;kindname="EURO-CORDEX-11 BC";climfield="pr";NPERYEAR=366;;
+eurocordex_prAdjust_mon_ens_rcp45) file=CORDEX/EU-11-BC/prAdjust_mon_eu11bc_rcp45_%%.nc;kindname="EURO-CORDEX-11 BC";climfield="pr";;
+eurocordex_prAdjust_mon_ens_rcp85) file=CORDEX/EU-11-BC/prAdjust_mon_eu11bc_rcp85_%%.nc;kindname="EURO-CORDEX-11 BC";climfield="pr";;
 
 RCP*) file="IIASAData/${FORM_field}.nc";kindname=${FORM_field%%_*}
       climfield=${FORM_field%_*}
