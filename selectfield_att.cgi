@@ -577,6 +577,18 @@ cat <<EOF
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
+<tr><td>10 monthly
+<td>RCP8.5
+<td><input type=radio class=formradio name=field value=eurocordex_tasAdjust_mon_ens_rcp85>
+<td>&nbsp;
+<td>&nbsp;
+<td><input type=radio class=formradio name=field value=eurocordex_prAdjust_mon_ens_rcp85>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
 <tr><th>ISIMIP 1861-2099<th>scenario<th>potevap<th colspan=3>&nbsp<th>soilmoist<th colspan=7>&nbsp
 <tr><td>16 monthly<td>RCP6.0
 <td><input type=radio class=formradio name=field value=isimip_potevap_all_all_rcp60>
