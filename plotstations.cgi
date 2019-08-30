@@ -3,6 +3,7 @@
 . ./getargs.cgi
 # check email address
 . ./checkemail.cgi
+. ./nosearchenginewithheader.cgi
 export DIR=`pwd`
 
 if [ "$EMAIL" = ec8907341dfc63c526d08e36d06b7ed8 ]; then
@@ -566,7 +567,6 @@ draw string 9.25 $y0 P>${FORM_greycut}%
   fi
 elif [ "$FORM_oper" != "grid" ]; then
 # not a correlation.  We would still like a legend, though...
-  [ -z "$scale" ] && scale="1"
   invscale=`echo "100000/$scale"|bc -l -q`
   invscale=${invscale%%\.*}
   if [ "$lwrite" = true ]; then
