@@ -16,12 +16,12 @@ For daily data, take the 3-day average and June max (for the first heat wave) / 
 <a href="get_index.cgi?email=$EMAIL&field=ensembles_025_tg_e&maskmetadata=data/maskFrance_metropolitan.$EMAIL.poly">France</a>,
 <a href="becatemp.cgi?id=$EMAIL&WMO=33&STATION=TOULOUSE-BLAGNAC&NPERYEAR=366">Toulouse</a>,
 <a href="becatemp.cgi?id=$EMAIL&WMO=737&STATION=LILLE-LESQUIN&NPERYEAR=366">Lille</a>,
-<a href="getdutchtg.cgi?WMO=260&id=$EMAIL&STATION=De_Bilt&NPERYEAR=366">De Bilt</a>,
 <a href="becatemp.cgi?id=$EMAIL&WMO=274&STATION=OXFORD&NPERYEAR=366">Oxford</a>,
-<a href="becatemp.cgi?id=$EMAIL&WMO=4360&STATION=LINGEN">Lingen</a>,
+<a href="becatemp.cgi?id=$EMAIL&WMO=4360&STATION=LINGEN">Lingen</a>.
+<br>KNMI: <a href="getdutchtg.cgi?WMO=260&id=$EMAIL&STATION=De_Bilt&NPERYEAR=366">De Bilt</a>.
 <br>UK Met Office: <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg_cambridge_bg&STATION=CAMBRIDGE_BG&NPERYEAR=366">Cambridge Botanical Gardens</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg_cambridge_bg_patched&STATION=CAMBRIDGE_BG_patched&NPERYEAR=366">Cambridge BG patched</a>,
-<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg_cambridge_niab&STATION=CAMBRIDGE_NIAB&NPERYEAR=366">Cambridge NIAB</a>,
+<a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg_cambridge_niab&STATION=CAMBRIDGE_NIAB&NPERYEAR=366">Cambridge NIAB</a>.
 <br>U Oxford: <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg_oxford&STATION=OXFORD&NPERYEAR=366">Oxford</a>,
 <br>DWD: <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg_trier&STATION=TRIER-ZEWEN&NPERYEAR=366">Trier-Zewen</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg_kaiserslautern&STATION=KAISERSLAUTERN&NPERYEAR=366">Kaiserslautern</a>,
@@ -29,6 +29,7 @@ For daily data, take the 3-day average and June max (for the first heat wave) / 
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg_geisenheim&STATION=GEISENHEIM&NPERYEAR=366">Geisenheim</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg_badneuenahr&STATION=BADNEUENAHR-AHRWEILER&NPERYEAR=366">Bad Neuenahr-Ahrweiler</a>,
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/tg_weilerswist&STATION=Weilerswist-Lommersum&NPERYEAR=366">Weilerswist-Lommersum</a>.
+<br>KMI: The homogenised Uccle series is not publicly available.
 <br>Berkeley 1900-now:
 <a href="getindices.cgi?id=$EMAIL&WMO=FranceHeat2019/iberkeley_tavg_daily_full_France_metropolitan_su&STATION=Berkeley_TG_France&NPERYEAR=366">France</a>,
 <br>ERA-interim+ECMEF analyses+forecasts 1979-now: 
