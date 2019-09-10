@@ -15,7 +15,7 @@ in the last three months (up to the beginning of the month) and the weather over
 -->
 
 
-<p><font color=#FF1010"><blink>For an interactive version of these plots and to better understand the sources of predictability go to <a href="myapp/kprep-sop">KPREP sources of predictability</a>.
+<p><font color=#FF1010"><blink>For an interactive version of these plots and to better understand the sources of predictability go to <a href="http://climexp.knmi.nl/myapp/kprep-sop">KPREP sources of predictability</a>.
 
 
 EOF
