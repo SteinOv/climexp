@@ -1117,6 +1117,22 @@ era5_rsds_daily_eu) file=ERA5/era5_rsds_daily_eu.nc;kindname="ERA5";climfield="r
 era5_wspd_daily_eu) file=ERA5/era5_sfcWind_daily_eu.nc;kindname="ERA5";climfield="wspd";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_eu.nc;;
 era5_maxwspd_daily_eu) file=ERA5/era5_sfcWindmax_daily_eu.nc;kindname="ERA5";climfield="max wspd";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_eu.nc;;
 
+era5_prcp_daily_af) file=ERA5/era5_tp_daily_af.nc;kindname="ERA5";climfield="pr";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_t2m_daily_af) file=ERA5/era5_t2m_daily_af.nc;kindname="ERA5";climfield="T2m";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_tdew_daily_af) file=ERA5/era5_tdew_daily_af.nc;kindname="ERA5";climfield="Tdew";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_twet_daily_af) file=ERA5/era5_twetbulb_daily_af.nc;kindname="ERA5";climfield="Twetbulb";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_slp_daily_af) file=ERA5/era5_msl_daily_af.nc;kindname="ERA5";climfield="MSL";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_sp_daily_af) file=ERA5/era5_sp_daily_af.nc;kindname="ERA5";climfield="SP";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_z500_daily_af) file=ERA5/era5_z500_daily_af.nc;kindname="ERA5";climfield="Z500";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_t500_daily_af) file=ERA5/era5_t500_daily_af.nc;kindname="ERA5";climfield="t500";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_q500_daily_af) file=ERA5/era5_q500_daily_af.nc;kindname="ERA5";climfield="q500";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_tmin_daily_af) file=ERA5/era5_tmin_daily_af.nc;kindname="ERA5";climfield="Tmin";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_tmax_daily_af) file=ERA5/era5_tmax_daily_af.nc;kindname="ERA5";climfield="Tmax";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_evap_daily_af) file=ERA5/era5_evap_daily_af.nc;kindname="ERA5";climfield="evap";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_rsds_daily_af) file=ERA5/era5_rsds_daily_af.nc;kindname="ERA5";climfield="rsds";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_wspd_daily_af) file=ERA5/era5_sfcWind_daily_af.nc;kindname="ERA5";climfield="wspd";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_maxwspd_daily_af) file=ERA5/era5_sfcWindmax_daily_af.nc;kindname="ERA5";climfield="max wspd";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+
 era5_slp|era5_psl|era5_msl) file=ERA5/era5_msl.nc;kindname="ERA5";climfield="MSL";LSMASK=ERA5/era5_000000_lsm.nc;;
 era5_taux) file=ERA5/era5_ustrs.nc;kindname="ERA5";climfield="taux";LSMASK=ERA5/era5_000000_lsm.nc;;
 era5_tauy) file=ERA5/era5_vstrs.nc;kindname="ERA5";climfield="tauy";LSMASK=ERA5/era5_000000_lsm.nc;;
