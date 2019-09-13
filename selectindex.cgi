@@ -116,7 +116,7 @@ target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a
 <tr><td>IPO<td><div class="kalelink">4-yr time scale, based on <a href="getindices.cgi?WMO=UKMOData/eof_pac_hadsst3_4_01&STATION=IPO_HadSST3_4&TYPE=i&id=$EMAIL">HadSST3</a>, <a href="getindices.cgi?WMO=UKMOData/eof_pac_hadisst1_4_01&STATION=IPO_HadISST1_4&TYPE=i&id=$EMAIL">HadISST1</a>, <a href="getindices.cgi?WMO=NCDCData/eof_pac_ersstv5_4_01&STATION=IPO_HadERSSTv5_4&TYPE=i&id=$EMAIL">ERSSTv5</a></div>
 <td><a href="javascript:pop_page('help/ipo.shtml',568,450)" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
-<tr><td>PDO<td><div class="kalelink"><a href="getindices.cgi?WMO=UWData/pdo&STATION=PDO&TYPE=i&id=$EMAIL">Pacific Decadal  Oscillation</a> (1900-now, Mantua, U. Washington)</div>
+<tr><td>PDO<td><div class="kalelink"><a href="getindices.cgi?WMO=UWData/pdo&STATION=PDO&TYPE=i&id=$EMAIL">Pacific Decadal  Oscillation</a> (1900-2018, Mantua, U. Washington)</div>
 <td><a
 href="http://www.atmos.washington.edu/~mantua/abst.PDO.html"
 target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
