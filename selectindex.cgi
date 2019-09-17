@@ -44,9 +44,9 @@ href="http://hadobs.metoffice.gov.uk/hadisst/" target="_new"><img src="images/in
 <tr><td>&nbsp;<td><div class="kalelink">Precipitation Ni&ntilde;o indices:  <a href="getindices.cgi?WMO=GPCCData/telecon_nino34_gpcc&STATION=Nino34_prcp_land&TYPE=i&id=$EMAIL">GPCC</a>, <a href="getindices.cgi?WMO=CRUData/telecon_nino34_cruts&STATION=Nino34_prcp_cruts&TYPE=i&id=$EMAIL">CRU TS land </a>, <a href="getindices.cgi?WMO=NCEPData/telecon_nino34_cmorph&STATION=Nino34_prcp_sat&TYPE=i&id=$EMAIL">CMORPH satellite</a></div>
 <td><a href="help/prcp_nino_indices.shtml" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
-<tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=NOAAData/mei&STATION=MEI&TYPE=i&id=$EMAIL">MEI</a>
-(1950-2018, NOAA/ESRL/PSD)</div>
-<td><a href="http://www.cdc.noaa.gov/people/klaus.wolter/MEI/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+<tr><td>&nbsp;<td><div class="kalelink">1979-now: <a href="getindices.cgi?WMO=NOAAData/meiv2&STATION=MEIv2&TYPE=i&id=$EMAIL">MEI v2</a>, 1950-2018: <a href="getindices.cgi?WMO=NOAAData/mei&STATION=MEI&TYPE=i&id=$EMAIL">MEI</a>
+(NOAA/ESRL/PSD)</div>
+<td><a href="https://www.esrl.noaa.gov/psd/enso/mei/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>&nbsp;<td><div class="kalelink">Ni&ntilde;o <a href="getindices.cgi?WMO=CSIROData/CSIRO_NCT&STATION=nino_cold_tongue&TYPE=i&id=$EMAIL&NPERYEAR=4">cold tongue</a>, <a href="getindices.cgi?WMO=CSIROData/CSIRO_NWP&STATION=nino_warm_pool&TYPE=i&id=$EMAIL&NPERYEAR=4">warm pool</a> reconstructions 
 (1617-2008, CSIRO)</div>
@@ -116,7 +116,7 @@ target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a
 <tr><td>IPO<td><div class="kalelink">4-yr time scale, based on <a href="getindices.cgi?WMO=UKMOData/eof_pac_hadsst3_4_01&STATION=IPO_HadSST3_4&TYPE=i&id=$EMAIL">HadSST3</a>, <a href="getindices.cgi?WMO=UKMOData/eof_pac_hadisst1_4_01&STATION=IPO_HadISST1_4&TYPE=i&id=$EMAIL">HadISST1</a>, <a href="getindices.cgi?WMO=NCDCData/eof_pac_ersstv5_4_01&STATION=IPO_HadERSSTv5_4&TYPE=i&id=$EMAIL">ERSSTv5</a></div>
 <td><a href="javascript:pop_page('help/ipo.shtml',568,450)" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
-<tr><td>PDO<td><div class="kalelink"><a href="getindices.cgi?WMO=UWData/pdo&STATION=PDO&TYPE=i&id=$EMAIL">Pacific Decadal  Oscillation</a> (1900-now, Mantua, U. Washington)</div>
+<tr><td>PDO<td><div class="kalelink"><a href="getindices.cgi?WMO=UWData/pdo&STATION=PDO&TYPE=i&id=$EMAIL">Pacific Decadal  Oscillation</a> (1900-2018, Mantua, U. Washington)</div>
 <td><a
 href="http://www.atmos.washington.edu/~mantua/abst.PDO.html"
 target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>

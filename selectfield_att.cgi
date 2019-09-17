@@ -466,7 +466,7 @@ cat <<EOF
 <td><input type=radio class=formradio name=field value=knmi14_t2m_day_RACMO22E_rcp85>
 <td>&nbsp;
 <td>&nbsp;
-<td>&nbsp;
+<td><input type=radio class=formradio name=field value=knmi14_pr_day_RACMO22E_rcp85>
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
@@ -478,7 +478,7 @@ cat <<EOF
 <td><input type=radio class=formradio name=field value=knmi14_t2m_mon_RACMO22E_rcp85>
 <td>&nbsp;
 <td>&nbsp;
-<td>&nbsp;
+<td><input type=radio class=formradio name=field value=knmi14_pr_mon_RACMO22E_rcp85>
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
