@@ -264,9 +264,17 @@ EOF
     if [ -n "$FORM_yr1" -o -n "$FORM_yr2" ]; then
         listname=${listname%.txt}_${FORM_yr1}:${FORM_yr2}.txt
     fi
+    if [ -n "$FORM_maskmetadata" ]; then
+        polygonname_=`echo "$polygonnname | tr ' ' '_'` # for safety, make spaces underscores
+        listname=${listname%.txt}_${polygonname_}.txt
+    fi
     if [ "$lwrite" = true ]; then
         echo "<pre>"
         echo ./bin/$prog $fortargs
+        echo "FORM_maskmetadata=$FORM_maskmetadata"
+        echo "polygonname=$polygonname"
+        echo "polygonfile=$polygonfile"
+        echo "listname=$listname"
         echo "</pre>"
     fi
     if [ -n "$FORM_yr1" -o -n "$FORM_yr2" ]; then
