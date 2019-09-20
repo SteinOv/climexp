@@ -456,9 +456,9 @@ cat <<EOF
 <th>tas<br>max
 <th>pr
 <th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
+<th>mrso
+<th>mrso1m
+<th>mrso10cm
 <th>&nbsp;
 <th>psl
 <tr><td>16 daily
@@ -480,9 +480,9 @@ cat <<EOF
 <td>&nbsp;
 <td><input type=radio class=formradio name=field value=knmi14_pr_mon_RACMO22E_rcp85>
 <td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
+<td><input type=radio class=formradio name=field value=knmi14_mrso_mon_RACMO22E_rcp85>
+<td><input type=radio class=formradio name=field value=knmi14_mrso1m_mon_RACMO22E_rcp85>
+<td><input type=radio class=formradio name=field value=knmi14_mrso10cm_mon_RACMO22E_rcp85>
 <td>&nbsp;
 <td>&nbsp;
 <tr><th>&nbsp;

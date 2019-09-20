@@ -82,8 +82,13 @@ cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amo
     alttype=$type
     if [ "${type%mon}" != "$type" ]; then
         if [ $dataset = knmi14 ]; then
-            dir=mon/atmos
-            type=Amon
+            if [ ${var#mrs} != $var ]; then
+                dir=mon/land
+                type=Aland
+            else
+                dir=mon/atmos
+                type=Amon
+            fi
         else
             dir=monthly
         fi
