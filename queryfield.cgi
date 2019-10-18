@@ -148,7 +148,11 @@ cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amo
     else
         if [ $dataset = knmi14 ]; then
             if [ $model = RACMO22E ]; then
-                period=1950-2100
+                if [ $var = evappot ]; then
+                    period=1950-2020
+                else
+                    period=1950-2100
+                fi
                 file=${var}_WEU-11i_KNMI-EC-EARTH_historical-${exp}_KNMI-${model}_v1_${alttype#A}_${period}_%%.nc
                 file=KNMI14Data/CMIP5/output/KNMI/$model/$exp/$dir/$var/$file
                 LSMASK=KNMI14Data/CMIP5/output/KNMI/RACMO22E/rcp85/fixed/sftlf_WEU-11_KNMI-EC-EARTH_historical_r0i0p0_KNMI-RACMO22E_v1_fx_latlon.nc
