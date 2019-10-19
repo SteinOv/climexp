@@ -150,6 +150,7 @@ cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amo
             if [ $model = RACMO22E ]; then
                 if [ $var = evappot ]; then
                     period=1950-2020
+                    dir=mon/land
                 else
                     period=1950-2100
                 fi
