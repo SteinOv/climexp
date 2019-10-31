@@ -23,6 +23,7 @@ if [ -n "$ROBOT" ]; then
     hiddenstyle_ncepncar=""
     hiddenstyle_ncepdoe=""
     hiddenstyle_20c=""
+    hiddenstyle_20crv3=""
     hiddenstyle_era20c=""
 else
     hiddenstyle_erainterim="style=\"display: none;\""
@@ -34,6 +35,7 @@ else
     hiddenstyle_ncepncar="style=\"display: none;\""
     hiddenstyle_ncepdoe="style=\"display: none;\""
     hiddenstyle_20c="style=\"display: none;\""
+    hiddenstyle_20crv3="style=\"display: none;\""
     hiddenstyle_era20c="style=\"display: none;\""
 fi
 if [ -s prefs/$EMAIL.field.12 ]; then
@@ -50,6 +52,7 @@ if [ -s prefs/$EMAIL.field.12 ]; then
             NCEP/NCAR) hiddenstyle_ncepncar="";;
             NCEP/DOE) hiddenstyle_ncepdoe="";;
             20C) hiddenstyle_20c="";;
+            20CRv3) hiddenstyle_20crv3="";;
             ERA-20C) hiddenstyle_era20c="";;
         esac
     fi
@@ -64,6 +67,7 @@ sed -e "s/hiddenstyle_erainterim/$hiddenstyle_erainterim/" \
     -e "s/hiddenstyle_ncepncar/$hiddenstyle_ncepncar/" \
     -e "s/hiddenstyle_ncepdoe/$hiddenstyle_ncepdoe/" \
     -e "s/hiddenstyle_20c/$hiddenstyle_20c/" \
+    -e "s/hiddenstyle_20crv3/$hiddenstyle_20crv3/" \
     -e "s/hiddenstyle_era20c/$hiddenstyle_era20c/" \
     -e "s/value=\"$FORM_field\"/value=\"$FORM_field\" checked/" \
     ./selectfield_rea.html
