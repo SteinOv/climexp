@@ -66,8 +66,8 @@ sed -e "s/hiddenstyle_erainterim/$hiddenstyle_erainterim/" \
     -e "s/hiddenstyle_gldas/$hiddenstyle_gldas/" \
     -e "s/hiddenstyle_ncepncar/$hiddenstyle_ncepncar/" \
     -e "s/hiddenstyle_ncepdoe/$hiddenstyle_ncepdoe/" \
-    -e "s/hiddenstyle_20c/$hiddenstyle_20c/" \
     -e "s/hiddenstyle_20crv3/$hiddenstyle_20crv3/" \
+    -e "s/hiddenstyle_20c/$hiddenstyle_20c/" \
     -e "s/hiddenstyle_era20c/$hiddenstyle_era20c/" \
     -e "s/value=\"$FORM_field\"/value=\"$FORM_field\" checked/" \
     ./selectfield_rea.html
