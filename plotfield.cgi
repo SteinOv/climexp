@@ -21,7 +21,8 @@ if [ "$c" = 1 ]; then # workaround for bug in GrADS
 fi
 if [ "${FORM_field#erai}" != "$FORM_field" -o "${FORM_field#era5}" != "$FORM_field" -o \
     "${FORM_field#data/erai}" != "$FORM_field" -o "${FORM_field#data/era5}" != "$FORM_field" -o \
-    "${FORM_field#ct}" != "$FORM_field" -o "${FORM_field#data/ct}" != "$FORM_field" ]; then
+    "${FORM_field#ct}" != "$FORM_field" -o "${FORM_field#data/ct}" != "$FORM_field" -o \
+    "${FORM_field#c3t}" != "$FORM_field" -o "${FORM_field#data/c3t}" != "$FORM_field" ]; then
     if [ -z "$FORM_plotanomaly" -a \( "$UNITS" = "K" -o "$UNITS" = degK \) -a "$NEWUNITS" = "Celsius" ]; then
         FORM_var="$FORM_var-273.15"
     fi
