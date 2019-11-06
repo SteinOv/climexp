@@ -118,7 +118,7 @@ target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a
 
 <tr><td>PDO<td><div class="kalelink"><a href="getindices.cgi?WMO=UWData/pdo&STATION=PDO&TYPE=i&id=$EMAIL">Pacific Decadal  Oscillation</a> (1900-2018, Mantua, U. Washington)</div>
 <td><a
-href="http://www.atmos.washington.edu/~mantua/abst.PDO.html"
+href="https://oceanview.pfeg.noaa.gov/erddap/tabledap/cciea_OC_PDO.htmlTable?time,PDO"
 target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=UWData/pdo_hadsst3&STATION=PDO_HadSST3&TYPE=i&id=$EMAIL">based on HadSST3</a> (1850-now), <a href="getindices.cgi?WMO=UWData/pdo_ersst&STATION=PDO_ERSST&TYPE=i&id=$EMAIL">based on ERSST</a> (1880-now)</div>
