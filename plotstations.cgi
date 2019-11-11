@@ -9,6 +9,11 @@ export DIR=`pwd`
 if [ "$EMAIL" = ec8907341dfc63c526d08e36d06b7ed8 ]; then
     lwrite=false # true
 fi
+if [ "$lwrite" = true ]; then
+    echo 'Content-Type: text/html'
+    echo
+    echo
+fi
 
 hiresmap=true
 if [ "$hiresmap" = true ]; then
@@ -568,6 +573,7 @@ draw string 9.25 $y0 P>${FORM_greycut}%
 elif [ "$FORM_oper" != "grid" ]; then
 # not a correlation.  We would still like a legend, though...
   invscale=`echo "100000/$scale"|bc -l -q`
+  [ "$lwrite" = true ] && echo "100000/$scale |bc -l -q = $invscale<br>"
   invscale=${invscale%%\.*}
   if [ "$lwrite" = true ]; then
     echo "Not a correlation, compute legend<br>"
