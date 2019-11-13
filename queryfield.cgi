@@ -535,7 +535,13 @@ ensembles_025_rr_e) file=ENSEMBLES/rr_0.25deg_reg_v20.0ee.nc;kindname="E-OBS 20.
 set lat 30 75';;
 ensembles_025_rr_mo) file=ENSEMBLES/rr_0.25deg_reg_v20.0eu_mo.nc;kindname="E-OBS 20.0e";climfield="prcp";flipcolor=11;map='set lon -30 50
 set lat 30 75';;
+ensembles_025_pp) file=ENSEMBLES/pp_0.25deg_reg_v20.0eu.nc;kindname="E-OBS 20.0e";climfield="slp";NPERYEAR=366;map='set lon -30 50
+set lat 30 75';;
 ensembles_025_pp_mo) file=ENSEMBLES/pp_0.25deg_reg_v20.0eu_mo.nc;kindname="E-OBS 20.0e";climfield="slp";map='set lon -30 50
+set lat 30 75';;
+ensembles_025_qq) file=ENSEMBLES/qq_0.25deg_reg_v20.0eu.nc;kindname="E-OBS 20.0e";climfield="globrad";NPERYEAR=366;map='set lon -30 50
+set lat 30 75';;
+ensembles_025_qq_mo) file=ENSEMBLES/qq_0.25deg_reg_v20.0eu_mo.nc;kindname="E-OBS 20.0e";climfield="globrad";map='set lon -30 50
 set lat 30 75';;
 ensembles_025_elev) file=ENSEMBLES/elev_0.25deg_reg_v4.0.nc;kindname="E-OBS 4.0";climfield="elev";NPERYEAR=0;map='set lon -30 50
 set lat 30 75';;
