@@ -36,9 +36,14 @@ if [ $EMAIL != someone@somewhere ]; then
 fi
 echo `date` "$FORM_EMAIL ($REMOTE_ADDR) correlatefield $file $corrargs" | sed -e "s:$DIR/::g" >> log/log
 if [ -n "$FORM_runcorr" -a -n "$FORM_runwindow" ]; then
-  echo "Computing running $FORM_runvar and their significance with a Monte Carlo.  This will take quite a while<p>"
+    if [ ${NPERYEAR:-12} -ge 360 ]; then
+        echo "Computing running correlation of daily fields would take forever, not even attempting it."
+        . ./myvinkfoot.cgi
+        exit
+    fi
+    echo "Computing running $FORM_runvar and their significance with a Monte Carlo.  This will take quite a while<p>"
 else
-  echo "Computing correlations... (this may take a minute or so)<p>"
+    echo "Computing correlations... (this may take a minute or so)<p>"
 fi
 # license to kill
 echo "<small>If it takes too long you can abort the job <a href=\"killit.cgi?id=$FORM_EMAIL&pid=$$\" target=\"_new\">here</a> (using the [back] button of the browser does <it>not</it> kill the correlation job)</small><p>"
