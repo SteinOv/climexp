@@ -630,6 +630,8 @@ clm_wfdei_rain) file=ETHData/RAIN_wfdei_clm.nc;kindname="CLM/WFDEI";climfield="r
 clm_wfdei_et) file=ETHData/ET_wfdei_clm.nc;kindname="CLM/WFDEI";climfield="evapotranspiration";;
 clm_wfdei_etp) file=ETHData/ETp_wfdei_clm.nc;kindname="CLM/WFDEI";climfield="potential evaporation";;
 
+grun) file=ETHZData/GRUN_v1_GSWP3_WGS84_05_1902_2014_ce.nc;kindname="GRUN";climfield="runoff";;
+
 emulate) file=CRUData/emulate_3.2_1850-2003.nc;kindname="EMULATE 3.2";climfield="SLP";NPERYEAR=366;map="set lon -70 50
 set lat 25 70";;
 trenberthslp) file=UCARData/ds010_1.nc;kindname="Trenberth";climfield="SLP";map='set mproj nps';;
