@@ -337,7 +337,7 @@ echo "<div class=\"alineakop\"><a name=\"download\">Download $kindname $climfiel
 if [ ${FORM_field#had} != $FORM_field -o ${FORM_field#mohmat} != $FORM_field -o ${FORM_field#en4} != $FORM_field ]; then
   echo "(c) Crown copyright 2006, data supplied by the Met Office."
   echo "The UKMO license does not allow us to redistribute this file. "
-  echo "Please consult their <a href="http://www.hadobs.org" target=\"_new\">website</a> for further information."
+  echo "Please consult their <a href=http://www.metoffice.gov.uk/hadobs target=\"_new\">website</a> for further information."
 elif [ ${FORM_field#ukmo} != $FORM_field -o ${FORM_field#ens_ukmo} != $FORM_field ]; then
   echo "(c) Crown copyright 2006, data supplied by the Met Office."
   echo "The UKMO does not allow us to redistribute this file. "

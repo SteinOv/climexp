@@ -176,7 +176,7 @@ yet been homogenised. Homogenised daily precipitation series are available <a hr
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=preciphom1910">precip (8-8) 1910- hom</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=preciphom1951">precip (8-8) 1951- hom</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=rx">max hourly precip (0-24)</a><br>
-<a href="getdutchstations.cgi?id=$EMAIL&TYPE=ev">Makking evaporation</a><br>
+<a href="getdutchstations.cgi?id=$EMAIL&TYPE=ev">Makkink evaporation</a><br>
 </td><td>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=pg">mean surface pressure</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=pn">minimum surface pressure</a><br>
