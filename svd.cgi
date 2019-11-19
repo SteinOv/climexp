@@ -66,6 +66,14 @@ if [ $EMAIL != someone@somewhere ]; then
   . ./headlines.cgi
 fi
 
+if [ $EMAIL = someone@somewhere ]; then
+    echo "Dear anonymous user, please <a href=registerform.cgi>register</a> before starting SVD calculations so I can contact someone if the calculation takes so long it starts hindering other users."
+    . ./myvinkfoot.cgi
+    exit
+fi
+
+
+
 echo `date` "$EMAIL ($REMOTE_ADDR) svd $field1 $field2 $corrargs" | sed -e "s:$DIR/::g"  >> log/log
 startstop="/tmp/startstop$$.txt"
 corrargs="$corrargs startstop $startstop"
