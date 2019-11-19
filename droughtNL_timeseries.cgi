@@ -85,7 +85,7 @@ SM:
 <i><b>The Netherlands coastal</b></i><br>
 PR:
 <a href="average_set.cgi?EMAIL=$id&NAME=list_preciphom1951_min__mask_Netherlands_coastal.txt&NPERYEAR=366&STATION=series&TYPE='coastal_homogenised_precipitation'&WMO=getdutchpreciphom1951&setoper=mean">homogenised stations</aa>, 
-<a href="getindices.cgi?WMO=DutchDrought/iensembles_025_rr_mo_Netherlands_inland_su&STATION=iensembles_025_rr_mo_Netherlands_inland&TYPE=i&id=$EMAIL">E-OBS</a><br>
+<a href="getindices.cgi?WMO=DutchDrought/iensembles_025_rr_mo_Netherlands_coastal_su&STATION=iensembles_025_rr_mo_Netherlands_inland&TYPE=i&id=$EMAIL">E-OBS</a><br>
 EOF
 
 . ./myvinkfoot.cgi
