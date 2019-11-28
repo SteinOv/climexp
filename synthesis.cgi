@@ -160,8 +160,11 @@ if [ -z "$nocomputation" ]; then
     [ "$lwrite" = true ] && echo "./bin/synthesis $args<br>"
     echo `date` "$EMAIL ($REMOTE_ADDR) synthesis $args" >> log/log
     ./bin/synthesis $args > $ofile
-    if [ ! -s $ofile ]; then
+    if [ ! -s $ofile -o `fgrep -c 'error:' $ofile` != 0 ]; then
         echo "Something went wrong in synthesis $args"
+        echo '<pre>'
+        cat $ofile 2>&1
+        echo '</pre>'
         . ./myvinkfoot.cgi
         exit
     fi
