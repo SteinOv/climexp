@@ -1170,7 +1170,7 @@ era5_twet_daily) file=ERA5/era5_twetbulb_daily.nc;kindname="ERA5";climfield="Twe
 era5_slp_daily) file=ERA5/era5_msl_daily.nc;kindname="ERA5";climfield="MSL";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_05.nc;;
 era5_sp_daily) file=ERA5/era5_sp_daily.nc;kindname="ERA5";climfield="SP";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_05.nc;;
 era5_z500_daily) file=ERA5/era5_z500_daily.nc;kindname="ERA5";climfield="Z500";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_05.nc;;
-era5_t500_daily) file=ERA5/era5_t500_daily.nc;kindname="ERA5";climfield="t500";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_05.nc;;
+era5_t850_daily) file=ERA5/era5_t850_daily.nc;kindname="ERA5";climfield="t850";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_05.nc;;
 era5_q500_daily) file=ERA5/era5_q500_daily.nc;kindname="ERA5";climfield="q500";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_05.nc;;
 era5_tmin_daily) file=ERA5/era5_tmin_daily.nc;kindname="ERA5";climfield="Tmin";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_05.nc;;
 era5_tmax_daily) file=ERA5/era5_tmax_daily.nc;kindname="ERA5";climfield="Tmax";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_05.nc;;
@@ -1186,7 +1186,7 @@ era5_twet_daily_eu) file=ERA5/era5_twetbulb_daily_eu.nc;kindname="ERA5";climfiel
 era5_slp_daily_eu) file=ERA5/era5_msl_daily_eu.nc;kindname="ERA5";climfield="MSL";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_eu.nc;;
 era5_sp_daily_eu) file=ERA5/era5_sp_daily_eu.nc;kindname="ERA5";climfield="SP";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_eu.nc;;
 era5_z500_daily_eu) file=ERA5/era5_z500_daily_eu.nc;kindname="ERA5";climfield="Z500";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_eu.nc;;
-era5_t500_daily_eu) file=ERA5/era5_t500_daily_eu.nc;kindname="ERA5";climfield="t500";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_eu.nc;;
+era5_t850_daily_eu) file=ERA5/era5_t850_daily_eu.nc;kindname="ERA5";climfield="t850";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_eu.nc;;
 era5_q500_daily_eu) file=ERA5/era5_q500_daily_eu.nc;kindname="ERA5";climfield="q500";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_eu.nc;;
 era5_tmin_daily_eu) file=ERA5/era5_tmin_daily_eu.nc;kindname="ERA5";climfield="Tmin";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_eu.nc;;
 era5_tmax_daily_eu) file=ERA5/era5_tmax_daily_eu.nc;kindname="ERA5";climfield="Tmax";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_eu.nc;;
@@ -1202,7 +1202,7 @@ era5_twet_daily_af) file=ERA5/era5_twetbulb_daily_af.nc;kindname="ERA5";climfiel
 era5_slp_daily_af) file=ERA5/era5_msl_daily_af.nc;kindname="ERA5";climfield="MSL";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
 era5_sp_daily_af) file=ERA5/era5_sp_daily_af.nc;kindname="ERA5";climfield="SP";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
 era5_z500_daily_af) file=ERA5/era5_z500_daily_af.nc;kindname="ERA5";climfield="Z500";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
-era5_t500_daily_af) file=ERA5/era5_t500_daily_af.nc;kindname="ERA5";climfield="t500";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
+era5_t850_daily_af) file=ERA5/era5_t850_daily_af.nc;kindname="ERA5";climfield="t850";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
 era5_q500_daily_af) file=ERA5/era5_q500_daily_af.nc;kindname="ERA5";climfield="q500";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
 era5_tmin_daily_af) file=ERA5/era5_tmin_daily_af.nc;kindname="ERA5";climfield="Tmin";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
 era5_tmax_daily_af) file=ERA5/era5_tmax_daily_af.nc;kindname="ERA5";climfield="Tmax";NPERYEAR=366;LSMASK=ERA5/era5_000000_lsm_af.nc;;
