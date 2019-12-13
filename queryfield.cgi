@@ -393,7 +393,7 @@ isimip*)
     ;;
 
 tempa) file=NCDCData/temp_anom.nc;kindname="NCDC v3";climfield="T2m anom";LSMASK=NCDCData/ls_temp_anom.nc;;
-noaa_temp) file=NCDCData/NOAAGlobalTemp.gridded.nc;kindname="NOAA v4";climfield="SST/T2m anom";LSMASK=NCDCData/ls_noaatemp.nc;;
+noaa_temp) file=NCDCData/NOAAGlobalTemp_v5.0.0_gridded.nc;kindname="NOAA v5";climfield="SST/T2m anom";LSMASK=NCDCData/ls_noaatemp.nc;;
 hadcrut4) file=UKMOData/HadCRUT.4.6.0.0.median.nc;kindname="HadCRUT4.6";climfield="SST/T2m anom";LSMASK=UKMOData/lsmask_5.nc;;
 crutem1) file=CRUData/crutem1.ctl;kindname="CRUTEM1";climfield="T2m anom";;
 ncrutem1) file=CRUData/ncrutem1.ctl;kindname="CRUTEM1";climfield="number of stations";;
