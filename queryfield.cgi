@@ -843,6 +843,8 @@ emep_nox_25) file=EMEPData/nox_emissions_25.ctl;kindname="EMEP";climfield="NOX e
 set lat 25 80';NPERYEAR=1;;
 emep_nox_5) file=EMEPData/nox_emissions_5.ctl;kindname="EMEP";climfield="NOX emissions";NPERYEAR=1;map='set lon -45 75
 set lat 25 80';NPERYEAR=1;;
+ndvi_noaa_01) file=NOAAData/ndvi_v005_01.nc;kindname="NOAA";climfield="ndvi";;
+ndvi_noaa_05) file=NOAAData/ndvi_v005_05.nc;kindname="NOAA";climfield="ndvi";;
 ndvi) file=UMDData/gimms_ndvi_mo.nc;kindname="GIMMS";climfield="ndvi";;
 ndvi_old) file=NASAData/ndvi.ctl;kindname="pathfinder";climfield="vegetation";;
 merra_refet) file=UCSBData/ETos_p05.monthly_01.nc;kindname="MERRA/ASCE";climfield="RefET";;
