@@ -559,6 +559,13 @@ set lat 24.1 49.9';;
 prism_vpdmax*) ext=${FORM_field#prism_vpdmax};file=PRISMData/tdmean_prism$ext.nc;kindname="PRISM";climfield="max vapour pressure deficit";map='set lon -125 -66.5
 set lat 24.1 49.9';;
 
+acorn_tave_mo) file=BOMData/tave_month_latest_ce.nc;kindname="ACORN-SATv2";climfield="Tave";map='set lon 110 160
+set lat -45 -10';;
+acorn_tmin_mo) file=BOMData/tmin_month_latest_ce.nc;kindname="ACORN-SATv2";climfield="Tmin";map='set lon 110 160
+set lat -45 -10';;
+acorn_tmax_mo) file=BOMData/tmax_month_latest_ce.nc;kindname="ACORN-SATv2";climfield="Tmax";map='set lon 110 160
+set lat -45 -10';;
+
 scpdsi) file=CRUData/scPDSI.cru_ts3.26early.bams2018.GLOBAL.1901.2017.nc;kindname="CRU";climfield="scPDSI 3.26e";;
 scpdsi_europe) file=CRUData/scpdsi_Europe_IJC.nc;kindname="CRU";climfield="scPDSI";;
 scpdsi_alpine) file=CRUData/scpdsi_alpine.ctl;kindname="CRU";climfield="scPDSI";map='set lon 4 19
