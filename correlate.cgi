@@ -26,6 +26,10 @@ lwrite=false
 . ./save_variable.cgi
 
 CLIM=`echo "$FORM_CLIMATE" | tr '[:upper:]' '[:lower:]'`
+if [ -z "$CLIM" ]; then
+    CLIM=$STATION
+    STATION=""
+fi
 station=`echo $STATION | tr '_%' ' +'`
 NAME=$FORM_NAME
 # common options
