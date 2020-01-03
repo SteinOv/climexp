@@ -125,7 +125,7 @@ target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a
 <td>&nbsp;
 
 <tr><td>DMI<td><div class="kalelink"><a href="getindices.cgi?WMO=UKMOData/hadisst1_dmi&STATION=DMI_HadISST1&TYPE=i&id=$EMAIL">DMI</a>, <a href="getindices.cgi?WMO=UKMOData/hadisst1_seio&STATION=SEIO_HadISST1&TYPE=i&id=$EMAIL">SEIO</a>, <a href="getindices.cgi?WMO=UKMOData/hadisst1_wtio&STATION=WTIO_HadISST1&TYPE=i&id=$EMAIL">WTIO</a> based on HadISST1</a> (1870-now), <a href="getindices.cgi?WMO=NCDCData/dmi_ersst&STATION=DMI_ERSST&TYPE=i&id=$EMAIL">DMI</a>, <a href="getindices.cgi?WMO=NCDCData/seio_ersst&STATION=SEIO_ERSST&TYPE=i&id=$EMAIL">SEIO</a>, <a href="getindices.cgi?WMO=NCDCData/wtio_ersst&STATION=WTIO_ERSST&TYPE=i&id=$EMAIL">WTIO</a> based on ERSST</a> (1880-now)</div>
-<td><a href="https://stateoftheocean.osmc.noaa.gov/sur/ind/dmi.php" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+<td><a href="http://ioc-goos-oopc.org/state_of_the_ocean/sur/ind/dmi.php" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>MJO<td><div class="kalelink">
 <a href="getindices.cgi?WMO=NCEPData/cpc_mjo01_mean12&STATION=MJO_01&TYPE=i&id=$EMAIL">1</a> (80&deg;E),
@@ -289,7 +289,7 @@ Sea level--><td><div class="kalelink"><a href="getindices.cgi?WMO=CUData/sl_glob
 <td><a href="http://sidc.oma.be/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=SRMPData/solarradioflux&STATION=solar_radio_flux&TYPE=i&id=$EMAIL">Solar radio flux</a> (1947-now, DRAO)</div>
-<td><a href="http://www.drao-ofr.hia-iha.nrc-cnrc.gc.ca/icarus/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+<td><a href="https://www.spaceweather.gc.ca/solarflux/sx-3-en.php" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=RALData/osf_merged&STATION=open_solar_flux&TYPE=i&id=$EMAIL&NPERYEAR=1">Annual reconstructed open solar flux</a> (1675-2017), <a href="getindices.cgi?WMO=RALData/osf_mo&STATION=open_solar_flux&TYPE=i&id=$EMAIL">almost monthly</a> (1964-2018), Lockwood</div>
 <td><a href="http://iopscience.iop.org/article/10.1088/0004-637X/700/2/937/meta" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
