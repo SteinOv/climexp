@@ -642,6 +642,9 @@ cat <<EOF
 Resources not listed are either easily accessible through  other Climate Explorer pages
 or available from the authors (except for non-public data such as the IMD analyses).
 
+<div class=alineakop>Australian fire risk 2019/20</div>
+<a href="bushfires_timeseries.cgi?id=$EMAIL">Separate page</a>
+
 <div class=alineakop>Dutch drought 2018</div>
 <a href="droughtNL_timeseries.cgi?id=$EMAIL">Separate page</a>
 
