@@ -124,7 +124,7 @@ cat <<EOF
 <input type="hidden" name="climate" value="$timescale $extraname$climate">
 <input type="hidden" name="prog" value="$prog">
 <input type="hidden" name="listname" value="$listname">
-<input type="hidden" name="type" value="aatribute">
+<input type="hidden" name="type" value="attribute">
 <div class="formheader">Covariate series</div>
 EOF
 
