@@ -32,4 +32,5 @@ FORM_minfac=$FORM_minfac;
 FORM_biasmul=$FORM_biasmul;
 FORM_biasadd=$FORM_biasadd;
 FORM_biasrt=$FORM_biasrt;
+FORM_amoeba=$FORM_amoeba;
 EOF
