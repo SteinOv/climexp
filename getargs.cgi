@@ -38,6 +38,7 @@ if [ -z "$alreadycalledgetargs" ]; then
         fi
         SCRIPTURL="$SCRIPTURL${formvar#FORM_}"
     done
+    SCRIPTURL=`echo "$SCRIPTURL" | sed -e 's/+++/%%%/' -e 's/++/%%/'`
     [ -n "FORM_WMO" ] && FORM_WMO=`echo "$FORM_WMO" | sed -e 's/%%%/+++/' -e 's/%%/++/'`
     [ -n "FORM_wmo" ] && FORM_wmo=`echo "$FORM_wmo" | sed -e 's/%%%/+++/' -e 's/%%/++/'`
     [ -n "$FORM_field" ] && export FORM_field
