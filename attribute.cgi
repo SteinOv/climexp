@@ -186,9 +186,12 @@ EOF
     export SCRIPTPID=$$
     export FORM_EMAIL=$EMAIL
 fi
+if [ -n "$FORM_amoeba" ]; then
+    ext=_amoeba
+fi
 
-[ "$lwrite" = true ] && echo bin/attribute $corrargs | sed -e 's@ data/@ /tmp/@g'
-(./bin/attribute $corrargs > $root.txt) 2>&1
+[ "$lwrite" = true ] && echo bin/attribute$ext $corrargs | sed -e 's@ data/@ /tmp/@g'
+(./bin/attribute$ext $corrargs > $root.txt) 2>&1
 grep 'bootstrap' $root.txt | sed -e 's/#//'
 echo '<table class="realtable" width="100%" border=0 cellpadding=0 cellspacing=0>'
 if [ "$TYPE" = gridpoints -o $TYPE = field ]; then
@@ -234,7 +237,7 @@ c=`wc -l $root.txt|awk '{print $1}'`
 if [ $c -lt 20 ]; then
 	echo "<p>Something went wrong, c=$c"
 	echo 'Please send <a href="mailto:mailto:oldenborgh@knmi.nl">me</a> the following command and I will try to fix it.<p>'
-	echo bin/attribute $corrargs | sed -e 's@data/h@/tmp/h@g' -e 's/startstop.*//'
+	echo bin/attribute$ext $corrargs | sed -e 's@data/h@/tmp/h@g' -e 's/startstop.*//'
 	. ./myvinkfoot.cgi
 	exit
 fi
