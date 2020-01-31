@@ -96,6 +96,10 @@ if [ -n "$FORM_includelast" ]; then
   includelast_checked="checked"
 fi
 
+if [ -n "$FORM_amoeba" ]; then
+  amoeba_checked="checked"
+fi
+
 case ${FORM_restrain:-0} in
 0.5) select05=selected;;
 0.4) select04=selected;;
@@ -263,6 +267,10 @@ fi
 cat <<EOF
 <tr><td>Confidence interval:<td><input type="$number" step=any class="forminput" name="ci" $textsize4 value="${FORM_ci:-95}">%
 EOF
+offer_amoeba=true
+if [ "$offer_amoeba" = true ]; then
+   echo "<input type=checkbox class=formcheck name=amoeba $amoeba_checked>use amoeba"
+fi
 if [ $TYPE = field ]; then
     . ./plotoptions.cgi
 fi
