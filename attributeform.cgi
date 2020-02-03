@@ -22,7 +22,7 @@ else
     prog=$NAME
     NPERYEAR="$FORM_NPERYEAR"
 fi
-if [ "$EMAIL" = oldenborgh@knmi.nl ]; then
+if [ "$EMAIL" = ec8907341dfc63c526d08e36d06b7ed8 ]; then
     lwrite=false
 fi
 
@@ -51,7 +51,8 @@ EOF
 DIR=`pwd`
 c1=`echo "$WMO $file" | fgrep -c '%%'`
 c2=`echo "$WMO $file" | fgrep -c '++'`
-if [ $c1 -gt 0 -o $c2 -gt 0 ]; then
+c3=`echo "$WMO $file" | fgrep -c '@@'`
+if [ $c1 -gt 0 -o $c2 -gt 0 -o $c3 -gt 0 ]; then
   ENSEMBLE=true
 fi
 
@@ -101,11 +102,24 @@ if [ -n "$FORM_amoeba" ]; then
 fi
 
 case ${FORM_restrain:-0} in
-0.5) select05=selected;;
-0.4) select04=selected;;
-0.3) select03=selected;;
-0.2) select02=selected;;
-*)   select00=selected;;
+    0.5) select05=selected;;
+    0.4) select04=selected;;
+    0.3) select03=selected;;
+    0.2) select02=selected;;
+    *)   select00=selected;;
+esac
+
+case ${FORM_blockyr:-1} in
+    1) select1=selected;;
+    2) select2=selected;;
+    3) select3=selected;;
+    4) select4=selected;;
+    5) select5=selected;;
+    6) select6=selected;;
+    7) select7=selected;;
+    8) select8=selected;;
+    9) select9=selected;;
+    10) select10=selected;;
 esac
 
 case ${FORM_var:-atr1} in
@@ -139,7 +153,7 @@ if [ -n "$file" ]; then
 else
     files=./data/$TYPE$WMO.dat
 fi
-if [ "$ENSEMBLE" = true ]; then
+if [ 0 = 1 -a "$ENSEMBLE" = true ]; then
   firstfile=`echo $files | sed -e 's/%%%/000/' -e 's/+++/000/' -e 's/%%/00/' -e 's/++/00/'`
   if [ ! -s $firstfile ]; then
     firstfile=`echo $filest | sed -e 's/%%%/001/' -e 's/+++/001/' -e 's/%%/01/' -e 's/++/01/'`
@@ -213,7 +227,35 @@ cat <<EOF
 <tr><td valign=top>Use:<td>
 <input type="radio" class="formradio" name="fit" value="gauss" $fit_gauss>Average and fit normal distribution<br>
 <input type="radio" class="formradio" name="fit" value="gumbel" $fit_gumbel>Block maxima and fit Gumbel distribution<br>
-<input type="radio" class="formradio" name="fit" value="gev" $fit_gev>Block maxima and fit GEV<br>
+<input type="radio" class="formradio" name="fit" value="gev" $fit_gev>Block maxima and fit GEV using <select class="forminput" name="blockyr">
+<option value="1" $select1>1
+<option value="2" $select2>2
+<option value="3" $select3>3
+<option value="4" $select4>4
+<option value="5" $select5>5
+<option value="6" $select6>6
+<option value="7" $select7>7
+<option value="8" $select8>8
+<option value="9" $select9>9
+<option value="10" $select10>10
+</select>-yr
+EOF
+if [ -n "$ENSEMBLE" ]; then
+echo "and <select class=forminput name=blockens>"
+    i=0
+    while [ $i -lt "$NENS" -a $i -lt 10 ]; do
+        ((i++))
+        echo "<option value=$i>$i"
+    done
+    i=1
+    while [ $i -lt 10 -a $((NENS/i)) -gt 10 ]; do
+        echo "<option value=$((NENS/i))>$((NENS/i))"
+        ((i++))
+    done
+    echo "</select>-ensemble"
+fi
+cat <<EOF
+blocks<br>
 <input type="radio" class="formradio" name="fit" value="gpd" $fit_gpd>Peak over threshold
 <input type="$number" class="forminput" name="dgt" value="${FORM_dgt:-80}" $textsize6>% and fit GPD<br>
 <select class="forminput" name="restrain">
