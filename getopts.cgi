@@ -147,3 +147,5 @@ fi
 [ -n "$FORM_biasmul" ] && corrargs="$corrargs biasmul ${FORM_biasmul}%" # UI gives percentage
 [ -n "$FORM_biasadd" ] && corrargs="$corrargs biasadd $FORM_biasadd"
 [ -n "$FORM_biasrt" ] && corrargs="$corrargs biasrt $FORM_biasrt"
+[ -n "$FORM_blockyr" ] && corrargs="$corrargs blockyr $FORM_blockyr"
+[ -n "$FORM_blockens" ] && corrargs="$corrargs blockens $FORM_blockens"
