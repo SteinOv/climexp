@@ -247,10 +247,15 @@ echo "and <select class=forminput name=blockens>"
         ((i++))
         echo "<option value=$i>$i"
     done
-    i=1
-    while [ $i -lt 10 -a $((NENS/i)) -gt 10 ]; do
-        echo "<option value=$((NENS/i))>$((NENS/i))"
-        ((i++))
+    i=20
+    jold=0
+    while [ $i -gt 0 ]; do
+        ((j=NENS/i))
+        if [ $j -gt 10 -a $j != $jold ]; then
+            echo "<option value=$j>$j"
+        fi
+        jold=$j
+        ((i--))
     done
     echo "</select>-ensemble"
 fi
