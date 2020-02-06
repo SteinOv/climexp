@@ -148,6 +148,7 @@ cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amo
     else
         if [ $dataset = knmi14 ]; then
             if [ $model = RACMO22E ]; then
+                alttype=yr
                 if [ $var = evappot ]; then
                     period=1950-2020
                     dir=mon/land
@@ -564,6 +565,11 @@ set lat -45 -10';;
 acorn_tmin_mo) file=BOMData/tmin_month_latest_ce.nc;kindname="ACORN-SATv2";climfield="Tmin";map='set lon 110 160
 set lat -45 -10';;
 acorn_tmax_mo) file=BOMData/tmax_month_latest_ce.nc;kindname="ACORN-SATv2";climfield="Tmax";map='set lon 110 160
+set lat -45 -10';;
+
+awap_prcp) file=BOMData/awap_025.nc;kindname="AWAP";climfield="prcp";flipcolor=11;map='set lon 110 155
+set lat -45 -10';;
+awap_prcp_mo) file=BOMData/awap_025_mo.nc;kindname="AWAP";climfield="prcp";flipcolor=11;map='set lon 110 155
 set lat -45 -10';;
 
 scpdsi) file=CRUData/scPDSI.cru_ts3.26early.bams2018.GLOBAL.1901.2017.nc;kindname="CRU";climfield="scPDSI 3.26e";;
