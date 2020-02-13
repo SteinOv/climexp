@@ -227,7 +227,8 @@ else
 fi
 c1=`echo $WMO | fgrep -c '++'`
 c2=`echo $WMO | fgrep -c '%%'`
-if [ $c1 -gt 0 -o $c2 -gt 0 ]; then
+c3=`echo $WMO | fgrep -c '@@'`
+if [ $c1 -gt 0 -o $c2 -gt 0 -o $c3 -gt 0 ]; then
   ENSEMBLE=true
   firstfile=`echo ./data/$TYPE$WMO.dat | sed -e 's/%%%/000/' -e 's/+++/000/' -e 's/%%/00/' -e 's/++/00/'`
   if [ ! -s $firstfile ]; then

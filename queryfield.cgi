@@ -148,7 +148,6 @@ cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amo
     else
         if [ $dataset = knmi14 ]; then
             if [ $model = RACMO22E ]; then
-                alttype=yr
                 if [ $var = evappot ]; then
                     period=1950-2020
                     dir=mon/land
@@ -405,8 +404,8 @@ crutem2v) file=CRUData/crutem2v.ctl;kindname="CRUTEM2v";climfield="T2m anom";;
 crutem3) file=CRUData/CRUTEM3_ce.nc;kindname="CRUTEM3";climfield="T2m anom";;
 ncrutem3) file=CRUData/CRUTEM3_nobs_ce.nc;kindname="CRUTEM3";climfield="number of stations";;
 crutem3v) file=CRUData/CRUTEM3v_ce.nc;kindname="CRUTEM3v";climfield="T2m anom";;
-crutem4) file=UKMOData/CRUTEM.4.6.0.0.anomalies.nc;kindname="CRUTEM4.6";climfield="T2m anom";;
-crutem4v) file=UKMOData/CRUTEM.4.6.0.0.variance_adjusted.nc;kindname="CRUTEM4.6v";climfield="T2m anom";;
+crutem4) file=UKMOData/CRUTEM.4.6.0.0.anomalies.nc;kindname="CRUTEM4.6";climfield="T2m anom";LSMASK=UKMOData/lsmask_5.nc;;
+crutem4v) file=UKMOData/CRUTEM.4.6.0.0.variance_adjusted.nc;kindname="CRUTEM4.6v";climfield="T2m anom";LSMASK=UKMOData/lsmask_5.nc;;
 giss_temp_250) file=NASAData/giss_temp_both_250.nc;kindname="GISS 250";climfield="T2m/SST anom";LSMASK=NASAData/lsmask.nc;;
 giss_temp_land_250) file=NASAData/giss_temp_land_250.nc;kindname="GISS 250";climfield="T2m anom";LSMASK=NASAData/lsmask.nc;;
 giss_temp_1200) file=NASAData/giss_temp_both_1200.nc;kindname="GISS 1200";climfield="T2m/SST anom";LSMASK=NASAData/lsmask.nc;;
@@ -560,16 +559,24 @@ set lat 24.1 49.9';;
 prism_vpdmax*) ext=${FORM_field#prism_vpdmax};file=PRISMData/tdmean_prism$ext.nc;kindname="PRISM";climfield="max vapour pressure deficit";map='set lon -125 -66.5
 set lat 24.1 49.9';;
 
-acorn_tave_mo) file=BOMData/tave_month_latest_ce.nc;kindname="ACORN-SATv2";climfield="Tave";map='set lon 110 160
+acorn_tave_mo) file=BOMData/tave_month_latest_ce.nc;kindname="ACORN-SATv2";climfield="Tave";LSMASK=BOMData/lsmask_025.nc;map='set lon 110 160
 set lat -45 -10';;
-acorn_tmin_mo) file=BOMData/tmin_month_latest_ce.nc;kindname="ACORN-SATv2";climfield="Tmin";map='set lon 110 160
+acorn_tmin_mo) file=BOMData/tmin_month_latest_ce.nc;kindname="ACORN-SATv2";climfield="Tmin";LSMASK=BOMData/lsmask_025.nc;map='set lon 110 160
 set lat -45 -10';;
-acorn_tmax_mo) file=BOMData/tmax_month_latest_ce.nc;kindname="ACORN-SATv2";climfield="Tmax";map='set lon 110 160
+acorn_tmax_mo) file=BOMData/tmax_month_latest_ce.nc;kindname="ACORN-SATv2";climfield="Tmax";LSMASK=BOMData/lsmask_025.nc;map='set lon 110 160
 set lat -45 -10';;
 
-awap_prcp) file=BOMData/awap_025.nc;kindname="AWAP";climfield="prcp";flipcolor=11;map='set lon 110 155
+awap_prcp) file=BOMData/awapprcp_025.nc;kindname="AWAP";climfield="prcp";LSMASK=BOMData/lsmask_025.nc;flipcolor=11;map='set lon 110 155
 set lat -45 -10';;
-awap_prcp_mo) file=BOMData/awap_025_mo.nc;kindname="AWAP";climfield="prcp";flipcolor=11;map='set lon 110 155
+awap_prcp_mo) file=BOMData/awapprcp_025_mo.nc;kindname="AWAP";LSMASK=BOMData/lsmask_025.nc;climfield="prcp";flipcolor=11;map='set lon 110 155
+set lat -45 -10';;
+awap_tmax) file=BOMData/awaptmax_025.nc;kindname="AWAP";climfield="tmax";LSMASK=BOMData/lsmask_025.nc;map='set lon 110 155
+set lat -45 -10';;
+awap_tmax_mo) file=BOMData/awaptmax_025_mo.nc;kindname="AWAP";LSMASK=BOMData/lsmask_025.nc;climfield="tmax";map='set lon 110 155
+set lat -45 -10';;
+awap_tmin) file=BOMData/awaptmin_025.nc;kindname="AWAP";climfield="tmin";LSMASK=BOMData/lsmask_025.nc;map='set lon 110 155
+set lat -45 -10';;
+awap_tmin_mo) file=BOMData/awaptmin_025_mo.nc;kindname="AWAP";LSMASK=BOMData/lsmask_025.nc;climfield="tmin";map='set lon 110 155
 set lat -45 -10';;
 
 scpdsi) file=CRUData/scPDSI.cru_ts3.26early.bams2018.GLOBAL.1901.2017.nc;kindname="CRU";climfield="scPDSI 3.26e";;
@@ -1360,6 +1367,38 @@ era20c_u*) lev=${FORM_field#era20c_u};file=ERA-20C/${FORM_field}.nc;kindname="ER
 era20c_v*) lev=${FORM_field#era20c_v};file=ERA-20C/${FORM_field}.nc;kindname="ERA-20C";climfield="v$lev";;
 era20c_w*) lev=${FORM_field#era20c_w};file=ERA-20C/${FORM_field}.nc;kindname="ERA-20C";climfield="w$lev";;
 era20c_q*) lev=${FORM_field#era20c_q};file=ERA-20C/${FORM_field}.nc;kindname="ERA-20C";climfield="q$lev";;
+
+cera20c_slp|cera20c_psl|cera20c_msl) file=CERA-20C/cera20c_msl.nc;kindname="CERA-20C";climfield="MSL";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_slp_daily) file=CERA-20C/cera20c_msl_daily.nc;kindname="CERA-20C";climfield="MSL";LSMASK=CERA-20C/lsmask64.nc;NPERYEAR=366;;
+cera20c_taux) file=CERA-20C/cera20c_ustrs.nc;kindname="CERA-20C";climfield="taux";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_tauy) file=CERA-20C/cera20c_vstrs.nc;kindname="CERA-20C";climfield="tauy";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_u10m) file=CERA-20C/cera20c_u10.nc;kindname="CERA-20C";climfield="u10";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_v10m) file=CERA-20C/cera20c_v10.nc;kindname="CERA-20C";climfield="v10";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_ts) file=CERA-20C/cera20c_ts.nc;kindname="CERA-20C";climfield="Tsfc";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_t2m|cera20c_tas) file=CERA-20C/cera20c_t2m.nc;kindname="CERA-20C";climfield="T2m";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_t2m_daily) file=CERA-20C/cera20c_t2m_daily.nc;kindname="CERA-20C";climfield="T2m";LSMASK=CERA-20C/lsmask64.nc;NPERYEAR=366;;
+cera20c_tmin) file=CERA-20C/cera20c_tmin.nc;kindname="CERA-20C";climfield="Tmin";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_tmax) file=CERA-20C/cera20c_tmax.nc;kindname="CERA-20C";climfield="Tmax";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_t2msst) file=CERA-20C/cera20c_t2msst.nc;kindname="CERA-20C";climfield="T2m/SST";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_wspd) file=CERA-20C/cera20c_wspd.nc;kindname="CERA-20C";climfield="wind speed";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_ci) file=CERA-20C/cera20c_ci.nc;kindname="CERA-20C";climfield="sea-ice cover";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_snd) file=CERA-20C/cera20c_snd.nc;kindname="CERA-20C";climfield="snow depth";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_lhf) file=CERA-20C/cera20c_lhtfl.nc;kindname="CERA-20C";climfield="latent heat flux";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_shf) file=CERA-20C/cera20c_shtfl.nc;kindname="CERA-20C";climfield="sensible heat flux";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_huss) file=CERA-20C/cera20c_huss.nc;kindname="CERA-20C";climfield="spec humidity";LSMASK=CERA-20C/lsmask075.nc;;
+cera20c_evap) file=CERA-20C/cera20c_evap.nc;kindname="CERA-20C";climfield="evaporation";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_pme) file=CERA-20C/cera20c_pme.nc;kindname="CERA-20C";climfield="P-E";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_tp|cera20c_pr) file=CERA-20C/cera20c_tp.nc;kindname="CERA-20C";climfield="precipitation";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_prcp_daily) file=CERA-20C/cera20c_tp_daily.nc;kindname="CERA-20C";climfield="precipitation";LSMASK=CERA-20C/lsmask64.nc;NPERYEAR=366;;
+cera20c_ssr) file=CERA-20C/cera20c_ssr.nc;kindname="CERA-20C";climfield="SSR";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_str) file=CERA-20C/cera20c_str.nc;kindname="CERA-20C";climfield="STR";LSMASK=CERA-20C/lsmask64.nc;;
+cera20c_z*_daily) lev=${FORM_field#cera20c_z};lev=${lev%_daily};file=CERA-20C/${FORM_field}.nc;kindname="CERA-20C";climfield="z$lev";NPERYEAR=366;;
+cera20c_z*) lev=${FORM_field#cera20c_z};file=CERA-20C/${FORM_field}.nc;kindname="CERA-20C";climfield="z$lev";;
+cera20c_t*) lev=${FORM_field#cera20c_t};file=CERA-20C/${FORM_field}.nc;kindname="CERA-20C";climfield="t$lev";;
+cera20c_u*) lev=${FORM_field#cera20c_u};file=CERA-20C/${FORM_field}.nc;kindname="CERA-20C";climfield="u$lev";;
+cera20c_v*) lev=${FORM_field#cera20c_v};file=CERA-20C/${FORM_field}.nc;kindname="CERA-20C";climfield="v$lev";;
+cera20c_w*) lev=${FORM_field#cera20c_w};file=CERA-20C/${FORM_field}.nc;kindname="CERA-20C";climfield="w$lev";;
+cera20c_q*) lev=${FORM_field#cera20c_q};file=CERA-20C/${FORM_field}.nc;kindname="CERA-20C";climfield="q$lev";;
 
 merra_slp) file=MERRA/merra_slp.nc;kindname="MERRA";climfield="SLP";LSMASK=MERRA/lsmask.nc;;
 merra_taux) file=MERRA/merra_taux.nc;kindname="MERRA";climfield="taux";LSMASK=MERRA/lsmask.nc;;

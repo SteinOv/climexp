@@ -73,11 +73,11 @@ fi
 
 [ -z "$FORM_runwindow" ] && FORM_runwindow=$FORM_minnum
 if [ -n "$FORM_runcorr" -a -n "$FORM_runvar" ]; then
-	if [ -n "$FORM_minnum" -a "$FORM_minnum" -gt $FORM_runwindow ]; then
-		echo "Warning: you requested a minimum number of points ($FORM_minnum) that is higher then the running correlation window length ($FORM_runwindow). Adjusted it to be the same.<p>"
-		FORM_minnum=$FORM_runwindow
-		corrargs="$corrargs minnum $FORM_minnum"
-	fi
+        if [ -n "$FORM_minnum" -a "$FORM_minnum" -gt $FORM_runwindow ]; then
+                echo "Warning: you requested a minimum number of points ($FORM_minnum) that is higher then the running correlation window length ($FORM_runwindow). Adjusted it to be the same.<p>"
+                FORM_minnum=$FORM_runwindow
+                corrargs="$corrargs minnum $FORM_minnum"
+        fi
     if [ $FORM_runvar = regression -o $FORM_runvar = correlation ]; then
         echo "Computing running $FORM_runvar and its significance with a Monte Carlo.  This may take a while<p>"
     else
@@ -257,96 +257,97 @@ if [ -z "$tmp" ]; then
         else
           xlabel="month"
         fi
-	if [ "$FORM_fix" = "fix2" ]; then
-	  xlabel="$xlabel $index"
-	fi
-	if [ -z "$FORM_conting" ]; then
-	  prob1="index 0 using 1:4"
+        if [ "$FORM_fix" = "fix2" ]; then
+          xlabel="$xlabel $index"
+        fi
+        if [ -z "$FORM_conting" ]; then
+          prob1="index 0 using 1:4"
           if [ $n -eq 1 ]; then
             prob2="index 0 using 1:4"
           else
-	    prob2="index 1 using 1:4"
+            prob2="index 1 using 1:4"
           fi
-	  if [ "$FORM_whichvar" = regr ]; then
-	      corr1="using 1:15"
-	      corr2="using 1:(\$15-2*\$16)"
-	      corr3="using 1:(\$15+2*\$16)"
-	  else
-	      corr1="using 1:3"
-	      corr2="using 1:10"
-	      corr3="using 1:14"
-	  fi
+          if [ "$FORM_whichvar" = regr ]; then
+              corr1="using 1:15"
+              corr2="using 1:(\$15-2*\$16)"
+              corr3="using 1:(\$15+2*\$16)"
+          else
+              corr1="using 1:3"
+              corr2="using 1:10"
+              corr3="using 1:14"
+          fi
           yformat="%5.2f"
-	  if [ -n "$FORM_rank" ]; then
-	    mean="median"
-	    sd="IQR"
-	  else
-	    mean="mean"
-	    sd="s.d."
-	  fi
-	  if [ -n "$FORM_log" ]; then
-	    if [ "$FORM_fix" = "fix2" ]; then
-	      [ $ext = png ] && [ -z "FORM_rank" ] && echo "Note that the mean and s.d. have been recomputed from the mean and s.d. of the logarithms of $index"
-	      clim1="using 1:(10**\$8) title \"$mean $index\""
-	      clim2="using 1:(2.302585*10**\$8*\$9) title \"sd $index\""
-	    else
-	      [ $ext = png ] && [ -z "FORM_rank" ] && echo "Note that the mean and s.d. have been recomputed from the mean and s.d. of the logarithms of $CLIM"
-              clim1="using 1:(10**\$6) title \"$mean $CLIM\""
-	      clim2="using 1:(2.302585*10**\$6*\$7) title \"$sd $CLIM\""
-	    fi
-	  elif [ -n "$FORM_sqrt" ]; then
-	    if [ "$FORM_fix" = "fix2" ]; then
-	      [ $ext = png ] && [ -z "FORM_rank" ] && echo "Note that the mean and s.d. have been recomputed from the mean and s.d. of the sqrt of $index"
-	      clim1="using 1:(\$8**2) title \"$mean $index\""
-	      clim2="using 1:(2*\$8*\$9) title \"$sd $index\""
-	    else
-	      [ $ext = png ] && [ -z "FORM_rank" ] && echo "Note that the mean and s.d. have been recomputed from the mean and s.d. of the sqrt of $CLIM"
-              clim1="using 1:(\$6**2) title \"$mean $CLIM\""
-	      clim2="using 1:(2*\$6*\$7) title \"$sd $CLIM\""
-	    fi
-	  else
-	    if [ "$FORM_fix" = "fix2" ]; then
-	      clim1="using 1:8 title \"$mean $index\""
-	      clim2="using 1:9 title \"$sd $index\""
-	    else
-              clim1="using 1:6 title \"$mean $CLIM\""
-	      clim2="using 1:7 title \"$sd $CLIM\""
-	    fi
-	  fi
+          if [ -n "$FORM_rank" ]; then
+            mean="median"
+            sd="IQR"
+          else
+            mean="mean"
+            sd="s.d."
+          fi
+          CLIM_=`echo "$CLIM" | tr '_' ' '`
+          if [ -n "$FORM_log" ]; then
+            if [ "$FORM_fix" = "fix2" ]; then
+              [ $ext = png ] && [ -z "FORM_rank" ] && echo "Note that the mean and s.d. have been recomputed from the mean and s.d. of the logarithms of $index"
+              clim1="using 1:(10**\$8) title \"$mean $index\""
+              clim2="using 1:(2.302585*10**\$8*\$9) title \"sd $index\""
+            else
+              [ $ext = png ] && [ -z "FORM_rank" ] && echo "Note that the mean and s.d. have been recomputed from the mean and s.d. of the logarithms of $CLIM"
+              clim1="using 1:(10**\$6) title \"$mean $CLIM_\""
+              clim2="using 1:(2.302585*10**\$6*\$7) title \"$sd $CLIM_\""
+            fi
+          elif [ -n "$FORM_sqrt" ]; then
+            if [ "$FORM_fix" = "fix2" ]; then
+              [ $ext = png ] && [ -z "FORM_rank" ] && echo "Note that the mean and s.d. have been recomputed from the mean and s.d. of the sqrt of $index"
+              clim1="using 1:(\$8**2) title \"$mean $index\""
+              clim2="using 1:(2*\$8*\$9) title \"$sd $index\""
+            else
+              [ $ext = png ] && [ -z "FORM_rank" ] && echo "Note that the mean and s.d. have been recomputed from the mean and s.d. of the sqrt of $CLIM"
+              clim1="using 1:(\$6**2) title \"$mean $CLIM_\""
+              clim2="using 1:(2*\$6*\$7) title \"$sd $CLIM_\""
+            fi
+          else
+            if [ "$FORM_fix" = "fix2" ]; then
+              clim1="using 1:8 title \"$mean $index\""
+              clim2="using 1:9 title \"$sd $index\""
+            else
+              clim1="using 1:6 title \"$mean $CLIM_\""
+              clim2="using 1:7 title \"$sd $CLIM_\""
+            fi
+          fi
         else
-	  prob1="using 1:3"
-	  prob2="using 1:3"
-	  corr1='using 1:($9+$19)'
-	  corr2='using 1:($11+$17)'
-	  corr3='index 0 using 1:($11+$17)'
+          prob1="using 1:3"
+          prob2="using 1:3"
+          corr1='using 1:($9+$19)'
+          corr2='using 1:($11+$17)'
+          corr3='index 0 using 1:($11+$17)'
           correlation="(<<)+(>>), (<>)+(><)"
           yformat="%5.0f"
-	  if [ -n "$FORM_log" ]; then
-	    if [ "$FORM_fix" = "fix2" ]; then
-	      clim1="using 1:(10**\$22) title \"cut1 $index\""
-	      clim2="using 1:(10**\$23) title \"cut2 $index\""
-	    else
-	      clim1="using 1:(10**\$20) title \"cut1 $index\""
-	      clim2="using 1:(10**\$21) title \"cut2 $index\""
-	    fi
-	  elif [ -n "$FORM_sqrt" ]; then
-	    if [ "$FORM_fix" = "fix2" ]; then
-	      clim1="using 1:(\$22**2) title \"cut1 $index\""
-	      clim2="using 1:(\$23**2) title \"cut2 $index\""
-	    else
-	      clim1="using 1:(\$20**2) title \"cut1 $index\""
-	      clim2="using 1:(\$21**2) title \"cut2 $index\""
-	    fi
-	  else
+          if [ -n "$FORM_log" ]; then
+            if [ "$FORM_fix" = "fix2" ]; then
+              clim1="using 1:(10**\$22) title \"cut1 $index\""
+              clim2="using 1:(10**\$23) title \"cut2 $index\""
+            else
+              clim1="using 1:(10**\$20) title \"cut1 $index\""
+              clim2="using 1:(10**\$21) title \"cut2 $index\""
+            fi
+          elif [ -n "$FORM_sqrt" ]; then
+            if [ "$FORM_fix" = "fix2" ]; then
+              clim1="using 1:(\$22**2) title \"cut1 $index\""
+              clim2="using 1:(\$23**2) title \"cut2 $index\""
+            else
+              clim1="using 1:(\$20**2) title \"cut1 $index\""
+              clim2="using 1:(\$21**2) title \"cut2 $index\""
+            fi
+          else
             if [ "$FORM_fix" = "fix2" ]; then
               clim1="using 1:22 title \"cut1 $index\""
-	      clim2="using 1:23 title \"cut2 $index\""
-	    else
-              clim1="using 1:20 title \"cut1 $CLIM\""
-	      clim2="using 1:21 title \"cut2 $CLIM\""
-	    fi
+              clim2="using 1:23 title \"cut2 $index\""
+            else
+              clim1="using 1:20 title \"cut1 $CLIM_\""
+              clim2="using 1:21 title \"cut2 $CLIM_\""
+            fi
           fi
-	fi
+        fi
 
         gnuplot << EOF
 $gnuplot_init
@@ -391,7 +392,7 @@ EOF
     if [ $n -le 1 -a -z "$FORM_sum" -a -z "$FORM_sum2" ]; then
       a=`awk '{print -$15}' $DIR/data/$TYPE$WMO${FORM_num}.cor | tr '\n' ':'`
       if [ ! -s $DIR/data/dummy.$NPERYEAR.dat ]; then
-	$DIR/bin/gen_time 1700 2200 $NPERYEAR > $DIR/data/dummy.$NPERYEAR.dat
+        $DIR/bin/gen_time 1700 2200 $NPERYEAR > $DIR/data/dummy.$NPERYEAR.dat
       fi
       if [ -n "$FORM_soi" -o -n "$FORM_nao" -o -n "$FORM_nino12" -o -n "$FORM_nino3" -o -n "$FORM_nino4" -o -n "$FORM_nino34" -o -n "$FORM_time" ]; then
         a1=$a
@@ -423,10 +424,10 @@ EOF
     fi
     [ -n "$FORM_detrend" ] && xlabel="$xlabel (detrended)"
     if [ "$lwrite" = true ]; then
-	echo "FORM_diff=$FORM_diff<br>"
-	echo "ndiff=$ndiff<br>"
-	echo "FORM_detrend=$FORM_detrend<br>"
-	echo "FORM_anomal=$FORM_anomal<br>"
+        echo "FORM_diff=$FORM_diff<br>"
+        echo "ndiff=$ndiff<br>"
+        echo "FORM_detrend=$FORM_detrend<br>"
+        echo "FORM_anomal=$FORM_anomal<br>"
     fi
     [ -z "$FORM_diff" -a -z "$ndiff" -a -z "$FORM_detrend" -a -n "$FORM_anomal" ] && xlabel="$xlabel (anomalies)"
     corrval="r = "`cut -b 11-17 data/$TYPE$WMO${FORM_num}.cor`
@@ -628,16 +629,16 @@ else
     if [ "$NPERYEAR" -gt 1 -a \( -z "$FORM_month" -o -n "$tmp" \) ]; then
       [ "$lwrite" = true ] && echo "Yes, range of months"
       if [ -z "$FORM_conting" ]; then
-	FORM_ver="60"
-	FORM_hor="60"
-	FORM_num=${FORM_num}
-	. $DIR/plot3dcor.cgi
+        FORM_ver="60"
+        FORM_hor="60"
+        FORM_num=${FORM_num}
+        . $DIR/plot3dcor.cgi
       fi
     else # more than one month?
 
       if [ "$FORM_fix" = "fix2" ]; then
         title="$title $indexmonth"
-	echo "<div class=\"alineakop\">Lag correlations of $CLIM $station ($WMO) with $indexmonth $index</div>"
+        echo "<div class=\"alineakop\">Lag correlations of $CLIM $station ($WMO) with $indexmonth $index</div>"
       else
         title="$seriesmonth $title"
         echo "<div class=\"alineakop\">Lag correlations of $seriesmonth $CLIM $station ($WMO) with $index</div>"
@@ -654,17 +655,17 @@ else
       esac
       if [ -z "$FORM_conting" ]; then
         echo "If present, the band around the ${correlation}s indicates the 95% confidence limits"
-	if [ "$FORM_whichvar" = regr ]; then
-	    echo "assuming normally distributed errors"
-	    corr1='using 2:15'
-	    corr2="using 2:(\$15-2*\$16)"
-	    corr3="using 2:(\$15+2*\$16)"
-	else
-	    echo "computed with a non-parametric bootstrap"
-	    corr1='using 2:3'
-	    corr2='using 2:10'
-	    corr3='using 2:14'
-	fi
+        if [ "$FORM_whichvar" = regr ]; then
+            echo "assuming normally distributed errors"
+            corr1='using 2:15'
+            corr2="using 2:(\$15-2*\$16)"
+            corr3="using 2:(\$15+2*\$16)"
+        else
+            echo "computed with a non-parametric bootstrap"
+            corr1='using 2:3'
+            corr2='using 2:10'
+            corr3='using 2:14'
+        fi
         gnuplot << EOF
 $gnuplot_init
 set size 0.7,0.5

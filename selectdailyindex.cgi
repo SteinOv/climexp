@@ -32,6 +32,9 @@ cat <<EOF
 <tr><td>Radiation<td><div class="kalelink"><a href="getindices.cgi?WMO=PMODData/solarconstant_daily&STATION=measured_solar_constant&TYPE=i&id=$EMAIL&NPERYEAR=366">Measured solar constant</a> (1978-now, WRC/PMOD)</div>
 <td><a href="http://www.pmodwrc.ch/pmod.php?topic=tsi/composite/SolarConstant" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
+<tr><td>Ozone<td><div class="kalelink"><a href="getindices.cgi?WMO=TEMISData/ozon_dy&STATION=lost_ozone&TYPE=i&id=$EMAIL&NPERYEAR=366">Ozone lost in the hole</a> (1979-now, KNMI)</div>
+<td><a href="http://www.temis.nl/protocols/o3hole/o3_history.php" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+
 <tr><td>Sun<td><div class="kalelink"><a href="getindices.cgi?WMO=SIDCData/sunspots_daily&STATION=sunspots&TYPE=i&id=$EMAIL&NPERYEAR=366">Sunspot number</a> (1818-now, SIDC)</div>
 <td><a href="http://sidc.oma.be/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 

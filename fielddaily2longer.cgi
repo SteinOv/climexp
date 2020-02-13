@@ -22,7 +22,7 @@ fi
 . ./myvinkhead.cgi "Computing derived field" "$kindname $climfield" "noindex,nofollow"
 
 if [ $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 ]; then
-    lwrite=true
+    lwrite=false # true
 fi
 # prevent abuse...
 if [ "$NPERYEAR" = "$FORM_nperyearnew" -a "$FORM_oper" != "number" ]; then
