@@ -271,6 +271,9 @@ Sea level--><td><div class="kalelink"><a href="getindices.cgi?WMO=CUData/sl_glob
 
 <tr><td>&nbsp;<td><div class="kalelink">Global <a href="getindices.cgi?WMO=NASAData/saod_gl&STATION=stratospheric_AOD&TYPE=i&id=$EMAIL">stratospheric aerosol optical depth</a> due to volcanic eruptions, <a href="getindices.cgi?WMO=NASAData/saod_nh&STATION=stratospheric_AOD_NH&TYPE=i&id=$EMAIL">NH</a>,<a href="getindices.cgi?WMO=NASAData/saod_sh&STATION=stratospheric_AOD_SH&TYPE=i&id=$EMAIL">SH</a> (1850-now, NASA/GISS)</div><td><a href="http://data.giss.nasa.gov/modelforce/strataer/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
+<tr><td>Ozone<td><div class="kalelink"><a href="getindices.cgi?WMO=TEMISData/ozon_mo&STATION=lost_ozone&TYPE=i&id=$EMAIL">Ozone lost in the hole</a>, <a href="getindices.cgi?WMO=TEMISData/ozon_yr&STATION=lost_ozone&TYPE=i&id=$EMAIL">annual mean</a>, <a href="getindices.cgi?WMO=TEMISData/ozon_yr1&STATION=lost_ozone&TYPE=i&id=$EMAIL">dy 220-280 (7 Aug-6 Oct) mean</a> (1979-now, KNMI)</div>
+<td><a href="http://www.temis.nl/protocols/o3hole/o3_history.php" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+
 <tr><td>Sun<td><div class="kalelink"><a href="getindices.cgi?WMO=PMODData/tsi&STATION=measured_total_solar_irradiance&TYPE=i&id=$EMAIL">Measured total solar irradiance</a> (1978-now, WRC/PMOD)</div>
 <td><a href="http://www.pmodwrc.ch/pmod.php?topic=tsi/composite/SolarConstant" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
