@@ -9,6 +9,14 @@ cat <<EOF
 All time series are averaged over the South-East Australia bush fire region, land points in (155,-29) (150,-29) (144,-40) (155,-40).
 We also made scripts that compute all numbers in the paper: <a href=SEAustralia/fit_heat.sh>heat</a>, <a href=SEAustralia/fit_drought_annual.sh>annual drought</a>, <a href=SEAustralia/fit_drought_annual_2100.sh>annual drought up to 2100</a>, <a href=SEAustralia/fit_driest_month.sh>driest month in SONDJF</a>, <a href=SEAustralia/fit_fwi.sh>FWI SONDJF max</a>, <a href=SEAustralia/fit_msr.sh>MSR SONDJF max</a> 
 
+<p><i><b>Area burned</b></i><br> 
+Monthly: <a href="getindices.cgi?WMO=SEAustralia/burned_area&STATION=modis_burned_area&TYPE=i&id=$EMAIL">MODIS 1997-2018</a>.
+<p><i><b>FWI ERA5 monthly mean 1997-2018, data for Fig 2</b></i><br>
+Monthly: <a href="getindices.cgi?WMO=SEAustralia/fwi_era5_monmean_97-18_nsw&STATION=FWI_era5_monmean_nsw&TYPE=i&id=$EMAIL">FWI ERA5 1997-2018</a>.
+
+
+
+
 <p><i><b>Heat (only reliable after 1910)</b></i><br> 
 Monthly: <a href="getindices.cgi?WMO=SEAustralia/giss_temp_250_mask0_5lan_su&STATION=GISS250_bushfire&TYPE=i&id=$EMAIL">GISTEMP T2m</a>,
 <a href="getindices.cgi?WMO=SEAustralia/berkeley_tavg_mask0_5lan_su_ext&STATION=t2m_Berkeley_bushfire&TYPE=i&id=$EMAIL">Berkeley T2m</a>,
