@@ -53,13 +53,18 @@ EOF
 	do
 		if [ -f $maskmetadata ]; then
 			this=`head -1 $maskmetadata`
-			name=`head -2 $maskmetadata | tail -n -1`
-			if [ "$this" = "$maskfile" -o \( -z "$maskfile" -a "$maskmetadata" = "$FORM_maskmetadata" \) ]; then
-				selected=selected
+			if [ ! -s "$this" ]; then
+			    # sometimes the metadata is still around while the data is gone...
+			    rm $maskmetadata
 			else
-				selected=""
-			fi
-			echo "<option value=\"$maskmetadata\" $selected>$name</option>"
+                name=`head -2 $maskmetadata | tail -n -1`
+                if [ "$this" = "$maskfile" -o \( -z "$maskfile" -a "$maskmetadata" = "$FORM_maskmetadata" \) ]; then
+                    selected=selected
+                else
+                    selected=""
+                fi
+                    echo "<option value=\"$maskmetadata\" $selected>$name</option>"
+                fi
 		fi
 	done
 	cat <<EOF
