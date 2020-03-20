@@ -159,7 +159,7 @@ if [ -n "$LSMASK" -a -n "$FORM_masktype" ]; then
 fi
 if [ -n "$FORM_maskmetadata" ]; then
     # generate masknetcdf for this particular grid
-    basefield=`basename ${FORM_field}`
+    basefield=`basename ${WMO#\+*}`
     masknetcdf=data/mask_${basefile}_${basefield}.nc
     if [ -s $masknetcdf ]; then
         size=`cat $masknetcdf | wc -c`
