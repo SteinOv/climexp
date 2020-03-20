@@ -23,7 +23,7 @@ if [ -z "$init_done" ]; then
         if [ `uname` = Darwin ]; then
             maxload=5 # 1 is the grep, we have 2 cores, correlatefield counts for two
         else
-            maxload=11 # 1 is the grep, we have 8 cores, correlatefield counts for two
+            maxload=13 # 1 is the grep, we have 8 cores, correlatefield counts for two, some margin
         fi
     fi
     if [ ${load:-0} -gt $maxload -a `uname` != Darwin ]; then
