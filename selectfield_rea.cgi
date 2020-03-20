@@ -25,6 +25,7 @@ if [ -n "$ROBOT" ]; then
     hiddenstyle_20c=""
     hiddenstyle_20crv3=""
     hiddenstyle_era20c=""
+    hiddenstyle_cera20c=""
 else
     hiddenstyle_erainterim="style=\"display: none;\""
     hiddenstyle_era5="style=\"display: none;\""
@@ -37,6 +38,7 @@ else
     hiddenstyle_20c="style=\"display: none;\""
     hiddenstyle_20crv3="style=\"display: none;\""
     hiddenstyle_era20c="style=\"display: none;\""
+    hiddenstyle_cera20c="style=\"display: none;\""
 fi
 if [ -s prefs/$EMAIL.field.12 ]; then
     eval `egrep '^FORM_field=[-_a-zA-Z0-9]*;$' ./prefs/$EMAIL.field.12`
@@ -54,6 +56,7 @@ if [ -s prefs/$EMAIL.field.12 ]; then
             20C) hiddenstyle_20c="";;
             20CRv3) hiddenstyle_20crv3="";;
             ERA-20C) hiddenstyle_era20c="";;
+            CERA-20C) hiddenstyle_ecra20c="";;
         esac
     fi
 fi
@@ -69,6 +72,7 @@ sed -e "s/hiddenstyle_erainterim/$hiddenstyle_erainterim/" \
     -e "s/hiddenstyle_20crv3/$hiddenstyle_20crv3/" \
     -e "s/hiddenstyle_20c/$hiddenstyle_20c/" \
     -e "s/hiddenstyle_era20c/$hiddenstyle_era20c/" \
+    -e "s/hiddenstyle_cera20c/$hiddenstyle_cera20c/" \
     -e "s/value=\"$FORM_field\"/value=\"$FORM_field\" checked/" \
     ./selectfield_rea.html
 
