@@ -1,5 +1,7 @@
 #!/bin/bash
 
+lwrite=false
+[ "$lwrite" = true ] && echo "this is fit_histogram.cgi<br>"
 outfile=`echo $corrroot.dat | sed -e 's/\+/X/g'`
 if [ "$lwrite" = true ]; then
     echo "correlate $corrargs<p>"
@@ -57,6 +59,7 @@ while [ $i -lt $nmax -a $nextfile = true ]; do
     infile=`echo $enscorrargs | cut -f 1  -d ' '`
     [ "$lwrite" = true ] && echo "infile=$infile<p>"
     startstop=/tmp/startstop$$_$i.txt
+
     if [ -s $infile ]; then
         if [ $i = 0 ]; then
             enscorrargs="$enscorrargs dump /tmp/dump$$.txt"
@@ -93,7 +96,7 @@ while [ $i -lt $nmax -a $nextfile = true ]; do
         echo "$yr $var" >> $outfile
         rm $ensplotfile
     else
-        nextfile=false
+        [ $i -gt 0 ] && nextfile=false
     fi
 done
 
