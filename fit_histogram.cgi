@@ -112,7 +112,7 @@ FORM_nbin=20
 FORM_TYPE=`basename $outfile | cut -b 1`
 FORM_WMO=`basename $outfile .dat`
 FORM_WMO=${FORM_WMO#$FORM_TYPE}
-FORM_STATION="$FORM_whichvar $STATION $with $index"
+FORM_STATION="$FORM_whichvar $CLIM $STATION $with $index"
 FORM_yrbeg=""
 FORM_yrend=""
 nostartstop=true
@@ -120,6 +120,9 @@ notimescale=true
 FORM_month=
 FORM_sum=
 FORM_ave=
+FORM_anomal=
+FORM_minnum=
+FORM_var=$FORM_whichvar
 . ./histogram.cgi
 
 exit
