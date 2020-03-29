@@ -9,15 +9,18 @@ echo
 
 cat <<EOF
 <div class="kalelink">
-This page will fill up as time and disk space or remote access tools allow.
+First batch of CNIP6 runs downlaoded November 2019, will be updated shortly.
 <p>
 <form action="select.cgi" method="POST">
 <input type="hidden" name="email" value="$EMAIL">
 <table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
-<!--
 <tr valign="baseline"><th colspan="13"><input type="submit" class="formbutton" value="Select field">
 Choose a field and press this button</td></tr>
--->
+EOF
+
+cat selectfield_cmip6.html
+
+cat <<EOF
 <tr><th colspan=8>Forcings
 <tr><th>
 <a href="http://solarisheppa.geomar.de/cmip6">Solar</a>

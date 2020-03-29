@@ -42,7 +42,7 @@ knmi14pcglob*)
     LSMASK=UUData/lsmask.nc
     ;;
 
-cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amon_model_exp
+cmip6*|cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amon_model_exp
     field=$FORM_field
     dataset=${field%%_*}
     field=${field#*_}
@@ -120,6 +120,7 @@ cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amo
     fi
     case $dataset in
          cmip5) datasetname=CMIP5;decdir=CMIP5/decadal;;
+         cmip6) datasetname=CMIP6;;
          thor) datasetname=THOR;decdir=THOR;;
          knmi14) datasetname=KNMI14;;
          eucleia) datasetname=EUCLEIA;;
@@ -201,22 +202,29 @@ cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amo
             fi
             file=EUCLEIA/${model}/$dir/$var/$file
             ###echo "file=$file"
+        elif [ $dataset = cmip6 ]; then
+            if [ -z "$rip" ]; then
+                file=$datasetname/$dir/$var/${var}_${type}_${model}_${exp}_gn_185001-210012_%%%.nc
+            else
+                file=`echo $datasetname/$dir/$var/${var}_${type}_${model}_${exp}_${rip}_gn_??????-??????+??????-??????_CEmerged_00.nc | sed -e 's/00.nc/%%.nc/'`
+            fi
+            LSMASK=""
         elif [ -z "$rip" ]; then
-            file=CMIP5/$dir/$var/${var}_${type}_${model}_${exp}_000.nc
+            file=$datasetname/$dir/$var/${var}_${type}_${model}_${exp}_000.nc
             if [ -e $file -o -L $file ]; then
-                file=CMIP5/$dir/$var/${var}_${type}_${model}_${exp}_%%%.nc
+                file=$datasetname/$dir/$var/${var}_${type}_${model}_${exp}_%%%.nc
             else
                 oldfile=$file
-                file=CMIP5/$dir/$var/${var}_${type}_${model}_${exp}_00.nc
+                file=$datasetname/$dir/$var/${var}_${type}_${model}_${exp}_00.nc
                 if [ -e $file -o -L $file ]; then
                     file=CMIP5/$dir/$var/${var}_${type}_${model}_${exp}_%%.nc
                 else
-                    echo "queryfield: error: cannot locate CMIP5 file $oldfile or $file"
+                    echo "queryfield: error: cannot locate $datasetname file $oldfile or $file"
                     exit -1
                 fi
             fi
         else
-            file=CMIP5/$dir/$var/${var}_${type}_${model}_${exp}_${rip}.nc
+            file=$datasetname/$dir/$var/${var}_${type}_${model}_${exp}_${rip}.nc
         fi
     fi
     ###echo "file=$file<br>"
@@ -244,7 +252,9 @@ cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amo
           kindname="${model}$nmod $exp"
        fi
        # first rough approximation
-       if [ $var = sic -o $var = tos -o $var = sos ]; then
+       if [ $dataset = cmip6 ]; then
+          LSMASK=CMIP5/monthly/lsmask_cmip3_288.nc
+       elif [ $var = sic -o $var = tos -o $var = sos ]; then
           LSMASK=CMIP5/monthly/lsmask_cmip3_288.nc
        else
           LSMASK=CMIP5/monthly/lsmask_cmip3_144.nc
