@@ -284,6 +284,7 @@ cmip6*|cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_
     fi
     [ -n "$rip" ] && kindname="$kindname $rip"
     climfield="$var"
+    var="" # otherwise grads.cgi gets confused. never use global variables.
     ;;
 
 cordex*)
