@@ -95,7 +95,7 @@ if [ -z "$init_done" ]; then
     # netcdf libraries on bhlclim, bvlclim - hard-coded
     export LD_LIBRARY_PATH=/home/oldenbor/lib:/usr/local/free/lib:$LD_LIBRARY_PATH
     # for a few routines this seems needed
-    export PATH=./bin:/sw/bin:/usr/local/bin:/usr/local/free/bin:$PATH
+    export PATH=./bin:/sw/bin:/opt/sw/bin:/usr/local/bin:/usr/local/free/bin:/sbin:$PATH
     # finally, avoid commas instead of decimal points :-(
     export LANG=C
     # start with modest parallel processing
