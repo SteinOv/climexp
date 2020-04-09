@@ -46,7 +46,7 @@ fi
 for file in ncdc_gl_1mean_80_trend_1850-1900.png heat700_global_1mean_80_trend.png maunaloa_f_1mean_80_trend.png
 do
     url=http://climexp.knmi.nl/annual_overview_world_weather/$file
-    c=`curl --head $url | fgrep -c -i png` 
+    c=`curl -s --head $url | fgrep -c -i png` 
     if [ $c != 1 ]; then
         echo "$0: error retrieving $url"
     fi
