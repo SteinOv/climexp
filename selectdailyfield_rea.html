@@ -6,10 +6,10 @@
 <th>u850</th>
 <th>v850</th>
 <th>z500</th>
-<th>div200</th>
 <th>u200</th>
 <th>v200</th>
-<th>&nbsp;</th>
+<th>evap</th>
+<th>wspd</th>
 <th>&nbsp;</th>
 </tr><tr>
 <td>NCEP/NCAR 1948-now</td>
@@ -20,36 +20,10 @@
 <td>&nbsp;</td>
 <td align="center"><input type="radio" class="formradio" name="field" value="nz500_daily"></td>
 <td>&nbsp;</td>
-<td>&nbsp;</td>
 <td align="center"><input type="radio" class="formradio" name="field" value="nv200_daily"></td>
 <td>&nbsp;</td>
+<td>&nbsp;</td>
 <td><a href="http://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis.html" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td>
-</tr><tr>
-<th>&nbsp;</th>
-<th>t2m</th>
-<th>prcp</th>
-<th>slp</th>
-<th>tmin</th>
-<th>tmax</th>
-<th>z500</th>
-<th>rlds</th>
-<th>rsds</th>
-<th>evap</th>
-<th>wspd</th>
-<th>&nbsp;</th>
-</tr><tr>
-<td>ERA-interim 1979-2019</td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_t2m_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_prcp_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_slp_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_tmin_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_tmax_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_z500_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_rlds_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_rsds_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_evap_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_wspd_daily"></td>
-<td><a href="http://www.ecmwf.int/en/research/climate-reanalysis/era-interim" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td>
 </tr><tr>
 <td>ERA5 1979-now 0.5&deg;</td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_t2m_daily"></td>
@@ -64,7 +38,7 @@
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_wspd_daily"></td>
 <td><a href="https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td>
 </tr><tr>
-<td>ERA5 1979-now Europe</td>
+<td>ERA5 1979-now 0.25&deg; Europe</td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_t2m_daily_eu"></td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_prcp_daily_eu"></td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_slp_daily_eu"></td>
@@ -77,7 +51,7 @@
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_wspd_daily_eu"></td>
 <td><a href="https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td>
 </tr><tr>
-<td>ERA5 1979-now Africa</td>
+<td>ERA5 1979-now 0.25&deg; Africa</td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_t2m_daily_af"></td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_prcp_daily_af"></td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_slp_daily_af"></td>
@@ -103,19 +77,6 @@
 <th>max wspd</th>
 <th>&nbsp;</th>
 </tr><tr>
-<td>ERA-interim 1979-now</td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_tdew_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_twet_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_sp_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_u850_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_v850_daily"></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_evappot_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="erai_maxwspd_daily"></td>
-<td><a href="http://www.ecmwf.int/en/research/climate-reanalysis/era-interim" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td>
-</tr><tr>
 <td>ERA5 1979-now 0.5&deg;</td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_tdew_daily"></td>
 <td align="center"><!--input type="radio" class="formradio" name="field" value="era5_twet_daily"--></td>
@@ -127,9 +88,9 @@
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_maxwspd_daily"></td>
-<td><a href="http://www.ecmwf.int/en/research/climate-reanalysis/ERA5" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td>
+<td><a href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels?tab=overview" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td>
 </tr><tr>
-<td>ERA5 1979-now Europe</td>
+<td>ERA5 1979-now 0.25&deg; Europe</td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_tdew_daily_eu"></td>
 <td align="center"><!--input type="radio" class="formradio" name="field" value="era5_twet_daily_eu"--></td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_sp_daily_eu"></td>
@@ -140,9 +101,9 @@
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_maxwspd_daily_eu"></td>
-<td><a href="http://www.ecmwf.int/en/research/climate-reanalysis/ERA5" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td>
+<td><a href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels?tab=overview" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td>
 </tr><tr>
-<td>ERA5 1979-now Africa</td>
+<td>ERA5 1979-now 0.25&deg; Africa</td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_tdew_daily_af"></td>
 <td align="center"><!--input type="radio" class="formradio" name="field" value="era5_twet_daily_af"--></td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_sp_daily_af"></td>
@@ -153,7 +114,7 @@
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td align="center"><input type="radio" class="formradio" name="field" value="era5_maxwspd_daily_af"></td>
-<td><a href="http://www.ecmwf.int/en/research/climate-reanalysis/ERA5" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td>
+<td><a href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels?tab=overview" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td>
 </tr><tr>
 <th>&nbsp;</th>
 <th>t2m</th>
@@ -180,19 +141,6 @@
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td><a href="http://www.ecmwf.int/en/research/climate-reanalysis/era-20c" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td>
-</tr><tr>
-<td>20CR V2c 1851-2014</td>
-<td align="center"><input type="radio" class="formradio" name="field" value="ct2m_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="cprate_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="cprmsl_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="ctmin_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="ctmax_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="ct850_daily"></td>
-<td align="center"><input type="radio" class="formradio" name="field" value="cz500_daily"></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td align="center"><input type="radio" class="formradio" name="field" value="cwspd_daily"></td>
-<td><a href="http://www.esrl.noaa.gov/psd/data/gridded/data.20thC_ReanV2c.monolevel.html" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a></td>
 </tr><tr>
 <td>20CR V3 1836-2015</td>
 <td align="center"><input type="radio" class="formradio" name="field" value="c3t2m_daily"></td>
