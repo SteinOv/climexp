@@ -153,7 +153,9 @@ target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a
 <tr><td>AAO<td><div class="kalelink"><a href="getindices.cgi?WMO=NCEPData/cpc_aao&STATION=CPC_AAO&TYPE=i&id=$EMAIL">Antarctic Oscillation</a> (1979-now, CPC/NCEP)</div>
 <td><a href="http://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/aao/aao.shtml" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
-<tr><td>SAM<td><div class="kalelink"><a href="getindices.cgi?WMO=BASData/bas_sam&STATION=BAS_SAM&TYPE=i&id=$EMAIL">Southern Annular Mode index</a> (1957-now, BAS)</div>
+<tr><td>SAM<td><div class="kalelink">Southern Annular Mode index <a href="getindices.cgi?WMO=BASData/bas_sam&STATION=BAS_SAM&TYPE=i&id=$EMAIL">BAS 1957-now</a>, <a href="getindices.cgi?WMO=NCEPNCAR40/sam_ncepncar&STATION=SAM_NCEPNCAR&TYPE=i&id=$EMAIL">NCEP/NCAR 1948-now</a>, <a href="getindices.cgi?WMO=ERA5/era5_sam&STATION=SAM_ERA5&TYPE=i&id=$EMAIL">ERA5 1979-now</a></div>
+<td><a href="http://www.nerc-bas.ac.uk/icd/gjma/sam.html" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+
 <tr><td>Mset<td><div class="kalelink"><a href="getindices.cgi?WMO=MBARIData/M1&STATION=M1&TYPE=i&id=$EMAIL">M1</a>, <a href="getindices.cgi?WMO=MBARIData/M2&STATION=M2&TYPE=i&id=$EMAIL">M2</a>, <a href="getindices.cgi?WMO=MBARIData/M3&STATION=M3&TYPE=i&id=$EMAIL">M3</a>, <a href="getindices.cgi?WMO=MBARIData/M4&STATION=M4&TYPE=i&id=$EMAIL">M4</a>, <a href="getindices.cgi?WMO=MBARIData/M5&STATION=M5&TYPE=i&id=$EMAIL">M5</a>, <a href="getindices.cgi?WMO=MBARIData/M6&STATION=M6&TYPE=i&id=$EMAIL">M6</a> 
 <td><a href="http://www.mbari.org/bog/GlobalModes/Indices.htm" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
