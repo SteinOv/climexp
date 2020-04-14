@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 if [ -z "$DIR" ]; then
   DIR=`pwd`
 fi
@@ -18,16 +18,16 @@ elif [ $c1 -ne 0 -a $c2 -ne 0 ]; then
   i=0
   ii=00
   iii=000
-  ensfile1=`echo $file1 | sed -e "s:\+\+\+:$iii:" -e "s:\%\%\%:$iii:" -e "s:\+\+:$ii:" -e "s:\%\%:$ii:"`
-  ensfile2=`echo $file2 | sed -e "s:\+\+\+:$iii:" -e "s:\%\%\%:$iii:" -e "s:\+\+:$ii:" -e "s:\%\%:$ii:"`
-  [ "$lwrite" = true ] && echo "Looking for $ensfile1 and $ensfile2<br>" 1>&2
+  ensfile1=`echo $file1 | sed -e "s:+++:$iii:" -e "s:\%\%\%:$iii:" -e "s:++:$ii:" -e "s:\%\%:$ii:"`
+  ensfile2=`echo $file2 | sed -e "s:+++:$iii:" -e "s:\%\%\%:$iii:" -e "s:++:$ii:" -e "s:\%\%:$ii:"`
+  [ "$lwrite" = true ] && echo "Starting from $file1 and $file2<br>Looking for $ensfile1 and $ensfile2<br>" 1>&2
   while [ -f $ensfile1 -a -f $ensfile2 ]
   do
     ensargs="$ensfile1 $ensfile2 $3 $4"
     if [ $cc2 = 0 ]; then
-      ensout=`echo data/$TYPE$WMO.dat | sed -e "s:\+\+:$ii:" -e "s:\%\%:$ii:g"`
+      ensout=`echo data/$TYPE$WMO.dat | sed -e "s:++:$ii:" -e "s:\%\%:$ii:g"`
     else
-      ensout=`echo data/$TYPE$WMO.dat | sed -e "s:\+\+\+:$iii:" -e "s:\%\%\%:$iii:"`
+      ensout=`echo data/$TYPE$WMO.dat | sed -e "s:+++:$iii:" -e "s:\%\%\%:$iii:"`
     fi
     [ "$lwrite" = true ] && echo "$DIR/bin/$PROG $ensargs > $ensout<br>" 1>&2
     $DIR/bin/$PROG $ensargs > $ensout
@@ -35,8 +35,8 @@ elif [ $c1 -ne 0 -a $c2 -ne 0 ]; then
     ((i++))
     ii=`printf %02i $i`
     iii=`printf %03i $i`
-    ensfile1=`echo $file1 | sed -e "s:\+\+\+:$iii:" -e "s:\%\%\%:$iii:" -e "s:\+\+:$ii:" -e "s:\%\%:$ii:"`
-    ensfile2=`echo $file2 | sed -e "s:\+\+\+:$iii:" -e "s:\%\%\%:$iii:" -e "s:\+\+:$ii:" -e "s:\%\%:$ii:"`
+    ensfile1=`echo $file1 | sed -e "s:+++:$iii:" -e "s:\%\%\%:$iii:" -e "s:++:$ii:" -e "s:\%\%:$ii:"`
+    ensfile2=`echo $file2 | sed -e "s:+++:$iii:" -e "s:\%\%\%:$iii:" -e "s:++:$ii:" -e "s:\%\%:$ii:"`
   done
 elif [ $c1 -ne 0 ]; then
   # the first one is an ensemble
