@@ -100,7 +100,10 @@ IOD: <a href="getindices.cgi?WMO=NCDCData/dmi_ersst&STATION=DMI_ERSST&TYPE=i&id=
 <br>IOD-Nino3.4r: <a href="getindices.cgi?WMO=SEAustralia/dmi-enso_ersst&STATION=DMI-ENSO&TYPE=i&id=$EMAIL">ERSSTv5 obs</a>, <a href="getindices.cgi?WMO=SEAustralia/dmi-enso_ecearth_%%%&STATION=DMI-NINO34_EC-Earth&TYPE=i&id=$EMAIL">EC-Earth</a>, 
 
 <br>SAM:
-<a href="getindices.cgi?WMO=BASData/bas_sam&STATION=BAS_SAM&TYPE=i&id=$EMAIL">BAS</a>.
+<a href="getindices.cgi?WMO=BASData/bas_sam&STATION=SAM_BAS&TYPE=i&id=$EMAIL">BAS</a>,
+<a href="getindices.cgi?WMO=NCEPNCAR40/sam_ncepncar&STATION=SAM_NCEPNCAR&TYPE=i&id=$EMAIL">NCEPNCAR R1</a>,
+<a href="getindices.cgi?WMO=ERA5/era5_sam&STATION=SAM_ERA5&TYPE=i&id=$EMAIL">ERA5</a>,
+<a href="getindices.cgi?WMO=CMIP5/knmi14_psl_Amon_ECEARTH23_rcp85_0-360E_-40N_n____-knmi14_psl_Amon_ECEARTH23_rcp85_0-360E_-65N_n_%%&STATION=EC-Earth_SAM&TYPE=i&id=$EMAIL">EC-Earth</a>.
 
 <br>Ozone hole:
 <a href="getindices.cgi?WMO=TEMISData/ozon_mo&STATION=lost_ozone&TYPE=i&id=$EMAIL">lost ozone</a>
