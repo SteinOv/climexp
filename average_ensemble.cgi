@@ -7,10 +7,10 @@ export DIR=`pwd`
 
 [ -z "$FORM_oper" ] && FORM_oper=mean
 if [ -z "$FORM_nens1" -a -z "$FORM_nens2" ]; then
-    WMO=`echo "$FORM_wmo" | sed -e "s/\+\+\+/$FORM_oper/" -e "s/\+\+/$FORM_oper/"`
+    WMO=`echo "$FORM_wmo" | sed -e "s/\+\+\+/$FORM_oper/" -e "s/\+\+/$FORM_oper/" -e "s/@@/$FORM_oper/"`
     STATION="$FORM_station $FORM_oper"
 else
-    WMO=`echo "$FORM_wmo" | sed -e "s/\+\+\+/${FORM_oper}_${FORM_nens1}_${FORM_nens2}/" -e "s/\+\+/${FORM_oper}_${FORM_nens1}_${FORM_nens2}/"`
+    WMO=`echo "$FORM_wmo" | sed -e "s/\+\+\+/${FORM_oper}_${FORM_nens1}_${FORM_nens2}/" -e "s/\+\+/${FORM_oper}_${FORM_nens1}_${FORM_nens2}/" -e "s/@@/${FORM_oper}_${FORM_nens1}_${FORM_nens2}/"`
     STATION="$FORM_station $FORM_oper ${FORM_nens1}:${FORM_nens2}"
 fi
 TYPE="$FORM_type"
