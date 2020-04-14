@@ -4,7 +4,7 @@ climexp=http://climexp.knmi.nl
 ###climexp=http://localhost
 
 yrnow=`date +%Y`
-yr=2018
+yr=2001
 while [ $yr -lt $yrnow ]
 do
     mkdir -p $yr

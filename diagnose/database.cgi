@@ -10,37 +10,37 @@ case "$var" in
 	slp_ecmwf) 
 		if [ "$FORM_lang" = nl ]; then
 			naam="luchtdruk (noordelijk halfrond)"
-			bron="ERA-interim heranalyse, ECMWF analyse"
+			bron="ERA5 heranalyse, ECMWF analyse"
 		else
 			naam="sea-level pressure (northern hemisphere)"
-			bron="ERA-interim reanalysis, ECMWF analysis"
+			bron="ERA5 reanalysis, ECMWF analysis"
 		fi
 		url=http://apps.ecmwf.int/datasets/data/interim-full-moda/levtype=sfc/
-		climexpfield=erai_slp_e
+		climexpfield=era5_slp_e
 		units=[mb]
 		anomalie=ja;;
 	z500_ecmwf)
 		if [ "$FORM_lang" = nl ]; then
 			naam="500mb hoogte (noordelijk halfrond)"
-			bron="ERA-interim heranalyse, ECMWF analyse"
+			bron="ERA5 heranalyse, ECMWF analyse"
 		else
 			naam="500mb height (northern hemisphere)"
-			bron="ERA-interim reanalysis, ECMWF analysis"
+			bron="ERA5 reanalysis, ECMWF analysis"
 		fi
 		url=https://apps.ecmwf.int/datasets/data/interim-full-moda/levtype=pl/
-		climexpfield=erai_z500_e
+		climexpfield=era5_z500_e
 		units=[m]
 		anomalie=ja;;
 	z500_ecmwf_sh)
 		if [ "$FORM_lang" = nl ]; then
 			naam="500mb hoogte (zuidelijk halfrond)"
-			bron="ERA-interim heranalyse, ECMWF analyse"
+			bron="ERA5 heranalyse, ECMWF analyse"
 		else
 			naam="500mb height (southern hemisphere)"
-			bron="ERA-interim reanalysis, ECMWF analysis"
+			bron="ERA5 reanalysis, ECMWF analysis"
 		fi
 		url=https://apps.ecmwf.int/datasets/data/interim-full-moda/levtype=pl/
-		climexpfield=erai_z500_e
+		climexpfield=era5_z500_e
 		units=[m]
 		anomalie=ja;;
 	slp_ncepncar) 
@@ -82,25 +82,25 @@ case "$var" in
 	t2m_ecmwf)
 		if [ "$FORM_lang" = nl ]; then
 			naam="temperatuur (2m hoogte, noordelijk halfrond)"
-			bron="ERA-interim heranalyse, ECMWF analyse"
+			bron="ERA5 heranalyse, ECMWF analyse"
 		else
 			naam="temperature (2m height, northern hemisphere)"
-			bron="ERA-interim reanalysis, ECMWF analysis"
+			bron="ERA5 reanalysis, ECMWF analysis"
 		fi
 		url=https://apps.ecmwf.int/datasets/data/interim-full-moda/levtype=sfc/
-		climexpfield=erai_t2m_e
+		climexpfield=era5_t2m_e
 		units=[K]
 		anomalie=ja;;
 	t2m_ecmwf_w) 
 		if [ "$FORM_lang" = nl ]; then
 			naam="temperatuur (2m hoogte, wereld)"
-			bron="ERA-interim heranalyse, ECMWF analyse"
+			bron="ERA5 heranalyse, ECMWF analyse"
 		else
 			naam="temperature (2m height, world)"
-			bron="ERA-interim reanalysis, ECMWF analysis"
+			bron="ERA5 reanalysis, ECMWF analysis"
 		fi
 		url=https://apps.ecmwf.int/datasets/data/interim-full-moda/levtype=sfc/
-		climexpfield=erai_t2m_e
+		climexpfield=era5_t2m_e
 		units=[K]
 		anomalie=ja;;
 	t2m_ghcncams)
@@ -331,7 +331,7 @@ case "$var" in
 		name=NCDC_global_land_temperature
 		climexpseries=NCDCData/$var
 		units=[Celsius];;
-	erai_t2msst_gl)
+	era5_t2msst_gl)
 		if [ "$FORM_lang" = nl ]; then			
 			naam="wereldgemiddelde temperatuur"
 		else
@@ -339,10 +339,10 @@ case "$var" in
 		fi
 		bron=ECMWF
 		url=http://www.ecmwf.int/research/era/
-		name=ERAi_global_temperature
-		climexpseries=ERA-interim/$var
+		name=era5_global_temperature
+		climexpseries=ERA5/$var
 		units=[Celsius];;
-	erai_t2m_landnoice)
+	era5_t2m_landnoice)
 		if [ "$FORM_lang" = nl ]; then			
 			naam="wereldgemiddelde landtemperatuur"
 		else
@@ -350,8 +350,8 @@ case "$var" in
 		fi
 		bron=ECMWF
 		url=http://www.ecmwf.int/research/era/
-		name=ERAi_global_land_temperature
-		climexpseries=ERA-interim/$var
+		name=era5_global_land_temperature
+		climexpseries=ERA5/$var
 		units=[Celsius];;
 	tlt_gl) naam="wereldgemiddelde	temperatuur"
 		if [ "$FORM_lang" = nl ]; then			

@@ -9,7 +9,7 @@ cmaxsea=
 cmaxhalf=
 colour_f=
 case $var in
-  slp|slp_f) field=erai_msl_e # nslp
+  slp|slp_f) field=era5_msl_e # nslp
         name=slp_ecmwf # slp_ncepncar
         mproj=nps
         lon1=-180
@@ -27,7 +27,7 @@ case $var in
         climyear1=1981
         climyear2=2010
         ;;
-  slp_w|slp_w_f) field=erai_msl_e # nslp
+  slp_w|slp_w_f) field=era5_msl_e # nslp
         name=slp_w_ecmwf
         mproj=latlon
         lon1=-180
@@ -45,7 +45,7 @@ case $var in
         climyear1=1981
         climyear2=2010
         ;;
-  slpsh|slpsh_f) field=erai_msl_e # nslp
+  slpsh|slpsh_f) field=era5_msl_e # nslp
         name=slp_ncepncar_sh
         mproj=sps
         colour=10
@@ -61,7 +61,7 @@ case $var in
         climyear1=1981
         climyear2=2010
         ;;
-  z500|z500_f) field=erai_z500_e # nz500
+  z500|z500_f) field=era5_z500_e # nz500
         name=z500_ecmwf # z500_ncepncar
         mproj=nps
         colour=10
@@ -77,7 +77,7 @@ case $var in
         climyear1=1981
         climyear2=2010
         ;;
-  z500sh|z500sh_f) field=erai_z500_e # nz500
+  z500sh|z500sh_f) field=era5_z500_e # nz500
         name=z500_ecmwf_sh # z500_ncepncar_sh
         mproj=sps
         colour=10
@@ -107,7 +107,7 @@ case $var in
         climyear1=1981
         climyear2=2010
         ;;
-  t2m|t2m_f) field=erai_t2m_e # ghcn_cams_05
+  t2m|t2m_f) field=era5_t2m_e # ghcn_cams_05
         name=t2m_ecmwf # t2m_ghcncams
         mproj=nps
         colour=10
@@ -121,7 +121,7 @@ case $var in
         climyear1=1981
         climyear2=2010
         ;;
-  t2mw|t2mw_f) field=erai_t2m_e # ghcn_cams_05
+  t2mw|t2mw_f) field=era5_t2m_e # ghcn_cams_05
         name=t2m_ecmwf_w # t2m_ghcncams_w
         mproj=latlon
         colour=10
