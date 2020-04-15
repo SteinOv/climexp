@@ -62,7 +62,7 @@ Choose a field and press this button</td></tr>
 <td colspan=12>
 <a href="getindices.cgi?WMO=KNMI14Data/Tglobal/iknmi14_tas_Amon_ECEARTH23_rcp85_0-360E_-90-90N_n_su_%%&STATION=Tglobal_EC-Earth23&TYPE=t&NPERYEAR=12&id=$EMAIL">Global mean temperature</a>,
 <a href="getindices.cgi?WMO=KNMI14Data/Tglobal/iknmi14_tas_Amon_ECEARTH23_rcp85_0-360E_-90-90N_n_5lan_su_%%&STATION=Tland_EC-Earth23&TYPE=t&NPERYEAR=12&id=$EMAIL">land only</a>;
-<a href="getindices.cgi?WMO=KNMI14Data/Nino/nino34_%%%&STATION=EC-Earth23_Nino3.4&TYPE=i&NPERYEAR=12&id=$EMAIL">Ni&ntilde;o3.4 (detrended)</a>.
+<a href="getindices.cgi?WMO=KNMI14Data/Nino/nino34r_ecearth23_%%&STATION=EC-Earth23_Nino3.4r&TYPE=i&NPERYEAR=12&id=$EMAIL">relative Ni&ntilde;o3.4</a>.
 <tr><th>&nbsp;
 <th>&nbsp;
 <th>Rx1day
