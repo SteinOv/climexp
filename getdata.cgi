@@ -293,7 +293,8 @@ else
         STATION=$VAR
         station=`echo "$STATION" | tr '_' ' '`
     fi
-    if [ -n "$ENSEMBLE" ]; then
+    c0=`echo "$firstfile" | fgrep -c '@@'`
+    if [ -n "$ENSEMBLE" -a "$c0" = 0 ]; then
         # also generate netcdf files for the rest of the ensemble
         ensfile=$firstfile
         i=0
@@ -305,7 +306,7 @@ else
                 else
                     [ -f $ncfile ] && rm $ncfile
                     [ "$NPERYEAR" -ge 360 ] && echo "Converting $i to netcdf<p>"
-                    [ "$lwrite" = true ] && echo "dat2nc $firstfile $TYPE "$STATION" $ncfile<br>"
+                    [ "$lwrite" = true ] && echo "dat2nc $ensfile $TYPE "$STATION" $ncfile<br>"
                     dat2nc $ensfile ${TYPE:-i} "$STATION" $ncfile
                 fi
             fi
@@ -579,7 +580,7 @@ Take anomalies and set standard deviation to one
 <input type="submit" class="formbutton" value="Normalise">
 </form>
 </td></tr><tr><td>Combine:</td><td>
-<a href="normdiffform.cgi?id=$EMAIL&TYPE=$TYPE&WMO=$wmo&STATION=$STATION&NAME=$name&NPERYEAR=$NPERYEAR">Combine with another timeseries to form a normalized index</a>
+<a href="normdiffform.cgi?id=$EMAIL&TYPE=$TYPE&WMO=$wmo&STATION=$STATION&NAME=$name&NPERYEAR=$NPERYEAR">Combine with another timeseries to form a (normalised) index</a>
 </td><td><a href="javascript:pop_page('help/combineseries.shtml',284,450)"><img src="images/info-i.gif" alt="help" border="0"></a></td></tr>
 <tr><td>Mask out:</td><td><a href="maskseriesform.cgi?id=$EMAIL&TYPE=$TYPE&WMO=$wmo&STATION=$STATION&NAME=$name&NPERYEAR=$NPERYEAR">Mask out based on another time series</a>
 </td><td><a href="javascript:pop_page('help/maskseries.shtml',284,450)"><img src="images/info-i.gif" alt="help" border="0"></a></td></tr>
@@ -666,12 +667,19 @@ if [ -n "$ENSEMBLE" ]; then
 <input type="checkbox" class="formcheck" name="ensanom">Take anomalies relative to the ensemble mean<br>
 <select class="forminput" name="nens1">
 EOF
+	c1=`echo $WMO | egrep -c '@@'`
+	c2=`echo $WMO | egrep -c '%%|\+\+'`
 	c3=`echo $WMO | egrep -c '%%%|\+\+\+'`
-	if [ $c3 = 0 ]; then
-		nmax=100
-	else
-		nmax=1000
-	fi
+    # we already ran getunits
+	nmax=$NENS
+    if [ -z "$NENS" ]; then
+        echo "$0: error: cannot determine number of ensemble members"
+        if [ $c3 = 0 ]; then
+            nmax=100
+        else
+            nmax=1000
+        fi
+    fi
 	i=0
 	exist=true
 	while [ $i -lt $nmax -a $exist = true ]
@@ -705,7 +713,20 @@ EOF
 </td></tr>
 </table>
 </div>
-
+EOF
+    if [ -n "$EMAIL" -a "$EMAIL" != someone@somewhere ]; then
+      def=./prefs/$EMAIL.average_ensemble
+      if [ -s $def ]; then
+        eval `egrep '^FORM_[a-z0-9]*=[a-z]*[-+0-9.]*;$' $def`
+      fi
+    fi
+    case "$FORM_oper" in
+        min) min_checked=checked;;
+        max) min_checked=checked;;
+        anomalies) anomalies_checked=checked;;
+        *) mean_checked=checked;;
+    esac
+	cat <<EOF
 <p><div class="formheader">Compute ensemble statistic</div>
 <div class='formbody'>
 <table style='width:100%' border='0' cellpadding='0' cellspacing='0'>
@@ -717,11 +738,12 @@ EOF
 <input type="hidden" name="wmo" value="$WMO">
 <input type="hidden" name="NPERYEAR" value="$NPERYEAR">
 Operation: 
-<input type="radio" class="formradio" name="oper" value="mean" checked>mean, 
-<input type="radio" class="formradio" name="oper" value="min">min, 
-<input type="radio" class="formradio" name="oper" value="max">max
+<input type="radio" class="formradio" name="oper" value="mean" $mean_checked>mean,
+<input type="radio" class="formradio" name="oper" value="min" $min_checked>min,
+<input type="radio" class="formradio" name="oper" value="max" $max_checked>max,
+<input type="radio" class="formradio" name="oper" value="anomalies" $anomalies_checked>anomalies.
 <br>
-Ensemble members: <input type="$number" min=0 step=1 size="3" style="width: 4em;" name="nens1"> to <input type="$number" min=0 step=1 size="3" style="width: 4em;" name="nens2"><br>
+Ensemble members: <input type="$number" min=0 step=1 size="3" style="width: 4em;" name="nens1" value="$FORM_nens1"> to <input type="$number" min=0 step=1 size="3" style="width: 4em;" name="nens2" value="$FORM_nens2"><br>
 <input type="submit" class="formbutton" value="Compute">
 </form>
 </td></tr>
