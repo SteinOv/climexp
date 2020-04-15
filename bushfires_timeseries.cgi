@@ -95,15 +95,24 @@ IOD: <a href="getindices.cgi?WMO=NCDCData/dmi_ersst&STATION=DMI_ERSST&TYPE=i&id=
 <a href="getindices.cgi?WMO=SEAustralia/GFDL-ESM2M_1950-2100_IOD_monthly_ts_@@&STATION=DMI_GFDL-ESM2M&TYPE=i&id=$EMAIL">GFDL ESM2M</a>, 
 <a href="getindices.cgi?WMO=SEAustralia/MPI-ESM_1850-2099_IOD_monthly_ts_@@&STATION=DMI_MPI-ESM&TYPE=i&id=$EMAIL">MPI ESM</a>.
 
-<br>Nino3.4r:
-<a href="getindices.cgi?WMO=NCDCData/ersst_nino3.4a_rel&STATION=NINO3.4_rel&TYPE=i&id=$EMAIL">ERSSTv5 obs</a>, <a href="getindices.cgi?WMO=KNMI14Data/Nino/nino34_%%%&STATION=EC-Earth23_Nino3.4&TYPE=i&NPERYEAR=12&id=$EMAIL">EC-Earth</a>, <a href="getindices.cgi?WMO=SEAustralia/CanESM2_1950-2100_Nino34_monthly_ts_@@&STATION=DMI_CanESM2&TYPE=i&id=$EMAIL">CanESM2</a>, 
+<br>Nino3.4:
+relative to 20S-20N: <a href="getindices.cgi?WMO=NCDCData/ersst_nino3.4a_rel&STATION=NINO3.4_rel&TYPE=i&id=$EMAIL">ERSSTv5 obs</a>, <a href="getindices.cgi?WMO=KNMI14Data/Nino/nino34r_ecearth23_%%&STATION=EC-Earth23_Nino3.4&TYPE=i&NPERYEAR=12&id=$EMAIL">EC-Earth</a>, wrt ensemble mean:
+<a href="getindices.cgi?WMO=SEAustralia/CanESM2_1950-2100_Nino34_monthly_ts_anomalies_@@&STATION=CanESM2_Nino3.4a&TYPE=i&id=$EMAIL">CanESM2</a>, 
+<a href="getindices.cgi?WMO=SEAustralia/CESM1-CAM5_1920-2100_Nino34_monthly_ts_anomalies_@@&STATION=CESM1-CAM5_Nino3.4a&TYPE=i&id=$EMAIL">CESM1-CAM5</a>, 
+<a href="getindices.cgi?WMO=SEAustralia/CSIRO-Mk3-6-0_1850-2100_Nino34_monthly_ts_anomalies_@@&STATION=CSIRO_Nino3.4a&TYPE=i&id=$EMAIL">CSIRO Mk3.6.0</a>, 
+<a href="getindices.cgi?WMO=SEAustralia/GFDL-CM3_1920-2100_Nino34_monthly_ts_anomalies_@@&STATION=GFDL-CM3_Nino3.4a&TYPE=i&id=$EMAIL">GFDL-CM3</a>, 
+<a href="getindices.cgi?WMO=SEAustralia/GFDL-ESM2M_1950-2100_Nino34_monthly_ts_anomalies_@@&STATION=GFDL-ESM2M_Nino3.4a&TYPE=i&id=$EMAIL">GFDL-ESM2M</a>, 
+<a href="getindices.cgi?WMO=SEAustralia/MPI-ESM_1850-2099_Nino34_DJF_ts_anomalies_@@&STATION=MPI-ESM_Nino3.4a&TYPE=i&id=$EMAIL">MPI-ESM</a>.
+
 <br>IOD-Nino3.4r: <a href="getindices.cgi?WMO=SEAustralia/dmi-enso_ersst&STATION=DMI-ENSO&TYPE=i&id=$EMAIL">ERSSTv5 obs</a>, <a href="getindices.cgi?WMO=SEAustralia/dmi-enso_ecearth_%%%&STATION=DMI-NINO34_EC-Earth&TYPE=i&id=$EMAIL">EC-Earth</a>, 
 
 <br>SAM:
 <a href="getindices.cgi?WMO=BASData/bas_sam&STATION=SAM_BAS&TYPE=i&id=$EMAIL">BAS</a>,
 <a href="getindices.cgi?WMO=NCEPNCAR40/sam_ncepncar&STATION=SAM_NCEPNCAR&TYPE=i&id=$EMAIL">NCEPNCAR R1</a>,
 <a href="getindices.cgi?WMO=ERA5/era5_sam&STATION=SAM_ERA5&TYPE=i&id=$EMAIL">ERA5</a>,
-<a href="getindices.cgi?WMO=CMIP5/knmi14_psl_Amon_ECEARTH23_rcp85_0-360E_-40N_n____-knmi14_psl_Amon_ECEARTH23_rcp85_0-360E_-65N_n_%%&STATION=EC-Earth_SAM&TYPE=i&id=$EMAIL">EC-Earth</a>.
+<a href="getindices.cgi?WMO=SEAustralia/sam_ECEARTH23_%%&STATION=EC-Earth_SAM&TYPE=i&id=$EMAIL">EC-Earth</a>,
+<a href="getindices.cgi?WMO=SEAustralia/sam_HadGEM3-A-N219_%%%&STATION=HadGEM3A_SAM&TYPE=i&id=$EMAIL">HadGEM3A</a>,
+<a href="getindices.cgi?WMO=CMIP5/SAM/sam_CanESM2_%%%&STATION=CanESM2_SAM&TYPE=i&id=$EMAIL">CanESM2</a>.
 
 <br>Ozone hole:
 <a href="getindices.cgi?WMO=TEMISData/ozon_mo&STATION=lost_ozone&TYPE=i&id=$EMAIL">lost ozone</a>
