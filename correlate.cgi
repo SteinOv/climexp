@@ -417,6 +417,9 @@ EOF
     . ./month2string.cgi
     echo "<div class=\"alineakop\">Fit of $seriesmonth $CLIM $station ($WMO) vs $indexmonth $index</div>"
     xlabel="$index"
+    if [ $xlabel = time ]; then
+        xlabel="${xlabel}-2000"
+    fi
     if [ -n "$ndiff" ]; then
       xlabel="$xlabel ($ndiff-yr running mean)"
     else
