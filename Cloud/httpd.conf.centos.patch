@@ -1,0 +1,160 @@
+*** httpd.conf.centos	2020-04-20 15:12:02.000000000 +0200
+--- httpd.conf.centos.new	2020-04-20 17:00:44.000000000 +0200
+***************
+*** 83,89 ****
+  # e-mailed.  This address appears on some server-generated pages, such
+  # as error documents.  e.g. admin@your-domain.com
+  #
+! ServerAdmin root@localhost
+  
+  #
+  # ServerName gives the name and port that the server uses to identify itself.
+--- 83,89 ----
+  # e-mailed.  This address appears on some server-generated pages, such
+  # as error documents.  e.g. admin@your-domain.com
+  #
+! ServerAdmin oldenborgh@knmi.nl
+  
+  #
+  # ServerName gives the name and port that the server uses to identify itself.
+***************
+*** 92,98 ****
+  #
+  # If your host doesn't have a registered DNS name, enter its IP address here.
+  #
+! #ServerName www.example.com:80
+  
+  #
+  # Deny access to the entirety of your server's filesystem. You must
+--- 92,98 ----
+  #
+  # If your host doesn't have a registered DNS name, enter its IP address here.
+  #
+! ServerName climexp-test.knmi.nl:80
+  
+  #
+  # Deny access to the entirety of your server's filesystem. You must
+***************
+*** 116,134 ****
+  # documents. By default, all requests are taken from this directory, but
+  # symbolic links and aliases may be used to point to other locations.
+  #
+! DocumentRoot "/var/www/html"
+  
+  #
+! # Relax access to content within /var/www.
+  #
+! <Directory "/var/www">
+      AllowOverride None
+      # Allow open access:
+      Require all granted
+  </Directory>
+  
+  # Further relax access to the default document root:
+! <Directory "/var/www/html">
+      #
+      # Possible values for the Options directive are "None", "All",
+      # or any combination of:
+--- 116,134 ----
+  # documents. By default, all requests are taken from this directory, but
+  # symbolic links and aliases may be used to point to other locations.
+  #
+! DocumentRoot "/home/oldenbor/climexp"
+  
+  #
+! # Relax access to content within /home/oldenbor/climexp.
+  #
+! <Directory "/home/oldenbor/climexp">
+      AllowOverride None
+      # Allow open access:
+      Require all granted
+  </Directory>
+  
+  # Further relax access to the default document root:
+! <Directory "/home/oldenbor/climexp">
+      #
+      # Possible values for the Options directive are "None", "All",
+      # or any combination of:
+***************
+*** 141,147 ****
+      # http://httpd.apache.org/docs/2.4/mod/core.html#options
+      # for more information.
+      #
+!     Options Indexes FollowSymLinks
+  
+      #
+      # AllowOverride controls what directives may be placed in .htaccess files.
+--- 141,147 ----
+      # http://httpd.apache.org/docs/2.4/mod/core.html#options
+      # for more information.
+      #
+!     Options Indexes FollowSymLinks MultiViews ExecCGI Includes
+  
+      #
+      # AllowOverride controls what directives may be placed in .htaccess files.
+***************
+*** 161,167 ****
+  # is requested.
+  #
+  <IfModule dir_module>
+!     DirectoryIndex index.html
+  </IfModule>
+  
+  #
+--- 161,167 ----
+  # is requested.
+  #
+  <IfModule dir_module>
+!     DirectoryIndex index.shtml index.html
+  </IfModule>
+  
+  #
+***************
+*** 274,287 ****
+      # AddEncoding allows you to have certain browsers uncompress
+      # information on the fly. Note: Not all browsers support this.
+      #
+!     #AddEncoding x-compress .Z
+!     #AddEncoding x-gzip .gz .tgz
+      #
+      # If the AddEncoding directives above are commented-out, then you
+      # probably should define those extensions to indicate media types:
+      #
+!     AddType application/x-compress .Z
+!     AddType application/x-gzip .gz .tgz
+  
+      #
+      # AddHandler allows you to map certain file extensions to "handlers":
+--- 274,287 ----
+      # AddEncoding allows you to have certain browsers uncompress
+      # information on the fly. Note: Not all browsers support this.
+      #
+!     AddEncoding x-compress .Z
+!     AddEncoding x-gzip .gz .tgz
+      #
+      # If the AddEncoding directives above are commented-out, then you
+      # probably should define those extensions to indicate media types:
+      #
+!     #AddType application/x-compress .Z
+!     #AddType application/x-gzip .gz .tgz
+  
+      #
+      # AddHandler allows you to map certain file extensions to "handlers":
+***************
+*** 291,297 ****
+      # To use CGI scripts outside of ScriptAliased directories:
+      # (You will also need to add "ExecCGI" to the "Options" directive.)
+      #
+!     #AddHandler cgi-script .cgi
+  
+      # For type maps (negotiated resources):
+      #AddHandler type-map var
+--- 291,298 ----
+      # To use CGI scripts outside of ScriptAliased directories:
+      # (You will also need to add "ExecCGI" to the "Options" directive.)
+      #
+!     AddHandler cgi-script .cgi
+!     AddHandler cgi-script .py
+  
+      # For type maps (negotiated resources):
+      #AddHandler type-map var
