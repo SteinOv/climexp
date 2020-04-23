@@ -595,7 +595,7 @@ scpdsi_europe) file=CRUData/scpdsi_Europe_IJC.nc;kindname="CRU";climfield="scPDS
 scpdsi_alpine) file=CRUData/scpdsi_alpine.ctl;kindname="CRU";climfield="scPDSI";map='set lon 4 19
 set lat 43 49
 set mpdset hires';;
-spei_*) n=${FORM_field#spei_};file=CSICData/SPEI_$n.nc;kindname="CSIC";climfield="SPEI $n";flipcolor=11;;
+spei_*) n=${FORM_field#spei_};file=CSICData/spei$n.nc;kindname="CSIC";climfield="SPEI $n";flipcolor=11;;
 PSI_*) dataset=${FORM_field#PSI_};file=UCData/PSI_$dataset.nc;kindname="GIDMaPS";climfield="PSI $dataset";flipcolor=11;;
 SPI_*) dataset=${FORM_field#SPI_};file=UCData/SPI_$dataset.nc;kindname="GIDMaPS";climfield="SPI $dataset";flipcolor=11;;
 SSI_*) dataset=${FORM_field#SSI_};file=UCData/SSI_$dataset.nc;kindname="GIDMaPS";climfield="SSI $dataset";flipcolor=11;;
@@ -869,11 +869,11 @@ set lat 25 80';NPERYEAR=1;;
 emep_so2_5) file=EMEPData/so2_emissions_5.ctl;kindname="EMEP";climfield="SO2 emissions";NPERYEAR=1;map='set lon -45 75
 set lat 25 80';NPERYEAR=1;;
 emep_nox_1) file=EMEPData/nox_emissions_1.ctl;kindname="EMEP";climfield="NOX emissions";NPERYEAR=1;map='set lon -45 75
-set lat 25 80';NPERYEAR=1;;
+set lat 25 80';;
 emep_nox_25) file=EMEPData/nox_emissions_25.ctl;kindname="EMEP";climfield="NOX emissions";NPERYEAR=1;map='set lon -45 75
-set lat 25 80';NPERYEAR=1;;
+set lat 25 80';;
 emep_nox_5) file=EMEPData/nox_emissions_5.ctl;kindname="EMEP";climfield="NOX emissions";NPERYEAR=1;map='set lon -45 75
-set lat 25 80';NPERYEAR=1;;
+set lat 25 80';;
 ndvi_noaa_01) file=NOAAData/ndvi_v005_01.nc;kindname="NOAA";climfield="ndvi";;
 ndvi_noaa_05) file=NOAAData/ndvi_v005_05.nc;kindname="NOAA";climfield="ndvi";;
 ndvi) file=UMDData/gimms_ndvi_mo.nc;kindname="GIMMS";climfield="ndvi";;
