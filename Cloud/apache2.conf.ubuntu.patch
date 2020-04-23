@@ -1,0 +1,54 @@
+*** apache2.conf.ubuntu.org	2020-04-21 10:34:26.000000000 +0200
+--- apache2.conf.ubuntu	2020-04-21 10:38:24.000000000 +0200
+***************
+*** 168,176 ****
+  </Directory>
+  
+  <Directory /var/www/>
+! 	Options Indexes FollowSymLinks
+  	AllowOverride None
+  	Require all granted
+  </Directory>
+  
+  #<Directory /srv/>
+--- 168,207 ----
+  </Directory>
+  
+  <Directory /var/www/>
+! 	Options Indexes FollowSymLinks MultiViews ExecCGI Includes
+  	AllowOverride None
+  	Require all granted
++ 	SetEnv no-gzip 1
++ </Directory>
++ <Directory /var/www/climexp/.git>
++             Order allow,deny
++             Allow from knmi.nl
++             Deny from all
++ </Directory>
++ <Directory /var/www/climexp/DemeterData>
++             Order allow,deny
++             Allow from knmi.nl
++             Deny from all
++ </Directory>
++ <Directory /var/www/climexp/ECMWFData>
++             Order allow,deny
++             Allow from knmi.nl
++             Deny from all
++ </Directory>
++ <Directory /var/www/climexp/UKMOData>
++             Order allow,deny
++             Allow from knmi.nl
++             Deny from all
++ </Directory>
++ <Directory /var/www/climexp/log>
++             Order allow,deny
++             Allow from knmi.nl
++             Deny from all
++ </Directory>
++ <Directory /var/www/climexp/UKMO>
++             Order allow,deny
++             Allow from knmi.nl
++             Deny from all
+  </Directory>
+  
+  #<Directory /srv/>

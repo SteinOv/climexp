@@ -1,0 +1,20 @@
+*** mime.conf.ubuntu.orig	2020-04-21 17:02:17.000000000 +0200
+--- mime.conf.ubuntu	2020-04-21 17:00:44.000000000 +0200
+***************
+*** 216,222 ****
+  	# To use CGI scripts outside of ScriptAliased directories:
+  	# (You will also need to add "ExecCGI" to the "Options" directive.)
+  	#
+! 	#AddHandler cgi-script .cgi
+  
+  	#
+  	# For files that include their own HTTP headers:
+--- 216,223 ----
+  	# To use CGI scripts outside of ScriptAliased directories:
+  	# (You will also need to add "ExecCGI" to the "Options" directive.)
+  	#
+! 	AddHandler cgi-script .cgi
+! 	AddHandler cgi-script .py
+  
+  	#
+  	# For files that include their own HTTP headers:

@@ -1,0 +1,72 @@
+*** 000-default.conf.orig	2020-04-21 13:31:09.000000000 +0200
+--- 000-default.conf	2020-04-21 13:32:28.000000000 +0200
+***************
+*** 6,15 ****
+  	# match this virtual host. For the default virtual host (this file) this
+  	# value is not decisive as it is used as a last resort host regardless.
+  	# However, you must set it for any further virtual host explicitly.
+! 	#ServerName www.example.com
+  
+! 	ServerAdmin webmaster@localhost
+! 	DocumentRoot /var/www/html
+  
+  	# Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+  	# error, crit, alert, emerg.
+--- 6,15 ----
+  	# match this virtual host. For the default virtual host (this file) this
+  	# value is not decisive as it is used as a last resort host regardless.
+  	# However, you must set it for any further virtual host explicitly.
+! 	ServerName climexp-test.knmi.nl
+  
+! 	ServerAdmin oldenborgh@knmi.nl
+! 	DocumentRoot /var/www/climexp
+  
+  	# Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+  	# error, crit, alert, emerg.
+***************
+*** 26,31 ****
+--- 26,69 ----
+  	# following line enables the CGI configuration for this host only
+  	# after it has been globally disabled with "a2disconf".
+  	#Include conf-available/serve-cgi-bin.conf
++ 
++ 	# This part added by FK
++ 
++ 	# First app 1 (kprep app)
++          WSGIDaemonProcess kprep_fc processes=2 threads=5 python-home=/data/dash_venv 
++          WSGIProcessGroup kprep_fc
++ 
++          WSGIScriptAlias /kprep_fc /var/www/climexp/wsgi-scripts/sop_app.wsgi
++ 
++ 	<Location /kprep_fc>
++ 		WSGIProcessGroup kprep_fc
++ 	</Location>
++ 
++         <Directory /var/www/climexp/wsgi-scripts>
++                  #WSGIProcessGroup 
++                  WSGIApplicationGroup %{GLOBAL}
++                  WSGIScriptReloading On
++                  Require all granted
++          </Directory>
++ 
++ 	# Then app 2 (mdc app)
++          WSGIDaemonProcess kprep_mdc processes=2 threads=5 python-home=/data/dash_venv
++          WSGIProcessGroup kprep_mdc
++ 
++          WSGIScriptAlias /kprep_mdc /var/www/climexp/wsgi-scripts/sop_app_mdc.wsgi
++ 
++         <Location /kprep_mdc>
++                 WSGIProcessGroup kprep_mdc
++         </Location>
++ 
++         <Directory /var/www/climexp/wsgi-scripts>
++                  #WSGIProcessGroup 
++                  WSGIApplicationGroup %{GLOBAL}
++                  WSGIScriptReloading On
++                  Require all granted
++          </Directory>
++ 
++ 
+  </VirtualHost>
+  
+  # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
