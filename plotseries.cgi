@@ -33,9 +33,10 @@ if [ "$NPERYEAR" = 1 ]; then
 else
     WMO_new=$WMO
 fi
+mywmo=`echo "$WMO" | tr '+' '%'`
 (./bin/series ./data/$TYPE$WMO_new.dat plot ./data/ts$TYPE$WMO.plt > ./data/ts$TYPE$WMO.txt) 2>&1
 echo "<div class=\"bijschrift\">Time series plots of $station $name per $kind. The thick line is a 10-year running average "
-echo "(<a href=\"data/ts$TYPE$WMO$KIND.eps.gz\">eps</a>, <a href="ps2pdf.cgi?file=data/ts$TYPE$WMO$KIND.eps.gz">pdf</a>, <a href=\"data/ts$TYPE$WMO.txt\">raw data</a>)</div>"
+echo "(<a href=\"data/ts$TYPE$WMO$KIND.eps.gz\">eps</a>, <a href="ps2pdf.cgi?file=data/ts$TYPE$mywmo$KIND.eps.gz">pdf</a>, <a href=\"data/ts$TYPE$WMO.txt\">raw data</a>)</div>"
 
 . ./setyaxis.cgi
 var=`echo "$VAR" | tr '_' ' '`
