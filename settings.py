@@ -23,6 +23,9 @@ else:
        WORKING_DIR=WORKING_DIR) + os.environ['PATH']
 
     # For NCL
-    os.environ['NCARG_ROOT'] = '/usr/local/ncl'.format(WORKING_DIR=WORKING_DIR)
+    if os.path.isdir("/usr/share/ncarg"):
+        os.environ['NCARG_ROOT'] = '/usr/share/ncarg'
+    if os.path.isdir("/usr/local/ncl"):
+        os.environ['NCARG_ROOT'] = '/usr/local/ncl'
 
 os.chdir(WORKING_DIR)
