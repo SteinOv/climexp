@@ -4,9 +4,9 @@
 # based on what I installed in fink on macOS
 # and honed while tryng to get the Climate Explorer up at SurfSARA
 sudo apt-get install apache2
-sudo apt-get install make git autoconf automake autotools-dev pkg-config man cron
-sudo apt-get install gfortran g++ gdb libnetcdff-dev libudunits2-dev hdf4-tools
-sudo apt-get install cdo nco netcdf-bin bc dos2unix
+sudo apt-get install make git autoconf automake autotools-dev pkg-config man cron dos2unix
+sudo apt-get install gfortran g++ gdb libnetcdff-dev libudunits2-dev hdf4-tools libgfortran3
+sudo apt-get install cdo nco netcdf-bin bc # ncl-ncarg does not work
 sudo apt-get install gnuplot-nox netpbm grads gdal-bin
 sudo apt-get install libgsl-dev liblapack-dev libfftw3-dev
 sudo apt-get install texlive-font-utils # installs all of tex as well.  Oh well.
@@ -73,6 +73,21 @@ sudo chown -R oldenbor ~oldenbor
 
 cd /var/www
 sudo ln -s ~oldenbor/climexp ./climexp
+cd $HOME
+
+mkdir ~/Downloads
+cd ~/Downloads
+wget https://www.earthsystemgrid.org/dataset/ncl.650.dap/file/ncl_ncarg-6.5.0-Debian8.11_64bit_gnu492.tar.gz
+cd /usr/local/
+pushd /usr/local
+mkdir -p ncl-6.5.0
+cd ncl-6.5.0
+sudo tar zxf ~/Downloads/ncl_ncarg-6.5.0-Debian8.11_64bit_gnu492.tar.gz
+cd ..
+sudo rm -f ncl
+sudo ln -s ncl-6.5.0 ncl
+cd ../bin
+sudo ln -s ../ncl/bin/ncl
 cd $HOME
 
 if [ ! -s apache2.conf.ubuntu.patch ]; then
