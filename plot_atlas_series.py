@@ -855,7 +855,7 @@ plot \\\n""".format(yr1s=yr1s, yr2s=yr2s)
             ###pdffile = epsfile.rstrip('.eps') + '.pdf'
             ###cmd='gs -q -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile={pdffile} {epsfile} -c quit'.format(epsfile=epsfile,pdffile=pdffile)
             # does not work, I do not know why, no PDF for the time being
-            ###subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
+            subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
 
         # epsfile already exists ?
         pngfile = epsfile.rstrip('.eps') + '.png'
@@ -864,7 +864,7 @@ plot \\\n""".format(yr1s=yr1s, yr2s=yr2s)
         if mkpngfile and (not os.path.exists(pngfile) or os.path.getsize(pngfile) == 0 or os.path.getmtime(pngfile) < os.path.getmtime(epsfile)):
             ###self.logOut.info("generating {pngfile}".format(pngfile=pngfile))
 
-            cmd = 'gs -q -r900 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -dNOPAUSE -sDEVICE=ppmraw -sOutputFile=- {epsfile} -c quit | pnmcrop | pnmtopng > {pngfile}'.format(epsfile=epsfile, pngfile=pngfile)
+            cmd = './bin/gs -q -r900 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -dNOPAUSE -sDEVICE=ppmraw -sOutputFile=- {epsfile} -c quit | pnmcrop | pnmtopng > {pngfile}'.format(epsfile=epsfile, pngfile=pngfile)
             subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
 
         # End of processing data
