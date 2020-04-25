@@ -7,6 +7,7 @@ echo
 export DIR=`pwd`
 . ./init.cgi
 . ./getargs.cgi
+. ./config_grads.cgi
 WMO=$FORM_WMO
 TYPE=$FORM_TYPE
 STATION=$FORM_STATION
