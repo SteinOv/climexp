@@ -8,7 +8,7 @@ echo
 cat <<EOF
 <i><b>The Netherlands inland</b></i><br>
 PR:  
-<a href="getdutchstations.cgi?id=$EMAIL&TYPE=preciphom1951">homogenised stations</a>,
+<a href="getdutchstations.cgi?id=$EMAIL&TYPE=preciphom1951">homogenised stations (select "inland" on this page)</a>,
 <a href="getindices.cgi?WMO=DutchDrought/iensembles_025_rr_mo_Netherlands_inland_su&STATION=iensembles_025_rr_mo_Netherlands_inland&TYPE=i&id=$EMAIL">E-OBS</a>,
 <a href="getindices.cgi?WMO=DutchDrought/iicmip5_pr_Amon_GFDL-ESM2M_rcp60_6E_52N_n_su_000&STATION=iicmip5_pr_Amon_GFDL-ESM2M_rcp60_6E_52N&TYPE=i&id=$EMAIL">GFDL</a>,
 <a href="getindices.cgi?WMO=DutchDrought/icmip5_pr_Amon_HadGEM2-ES_rcp60_7E_52.5N_n_su_%%%&STATION=icmip5_pr_Amon_HadGEM2-ES_rcp60_7E_52.5N&TYPE=i&id=$EMAIL">HadGem</a>,
