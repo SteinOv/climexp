@@ -8,7 +8,7 @@ echo
 cat <<EOF
 <i><b>The Netherlands inland</b></i><br>
 PR:  
-<a href="average_set.cgi?EMAIL=$id&NAME=list_preciphom1951_min__mask_Netherlands_inland.txt&NPERYEAR=366&STATION=series&TYPE='inland_homogenised_precipitation'&WMO=getdutchpreciphom1951&setoper=mean">homogenised stations</a>,
+<a href="getdutchstations.cgi?id=$EMAIL&TYPE=preciphom1951">homogenised stations</a>,
 <a href="getindices.cgi?WMO=DutchDrought/iensembles_025_rr_mo_Netherlands_inland_su&STATION=iensembles_025_rr_mo_Netherlands_inland&TYPE=i&id=$EMAIL">E-OBS</a>,
 <a href="getindices.cgi?WMO=DutchDrought/iicmip5_pr_Amon_GFDL-ESM2M_rcp60_6E_52N_n_su_000&STATION=iicmip5_pr_Amon_GFDL-ESM2M_rcp60_6E_52N&TYPE=i&id=$EMAIL">GFDL</a>,
 <a href="getindices.cgi?WMO=DutchDrought/icmip5_pr_Amon_HadGEM2-ES_rcp60_7E_52.5N_n_su_%%%&STATION=icmip5_pr_Amon_HadGEM2-ES_rcp60_7E_52.5N&TYPE=i&id=$EMAIL">HadGem</a>,
@@ -84,7 +84,8 @@ SM:
 
 <i><b>The Netherlands coastal</b></i><br>
 PR:
-<a href="average_set.cgi?EMAIL=$id&NAME=list_preciphom1951_min__mask_Netherlands_coastal.txt&NPERYEAR=366&STATION=series&TYPE='coastal_homogenised_precipitation'&WMO=getdutchpreciphom1951&setoper=mean">homogenised stations</aa>, 
+<a href="getdutchstations.cgi?id=$EMAIL&TYPE=preciphom1951">homogenised stations (select "coastal" on this page)</a>,
+>homogenised stations</aa>, 
 <a href="getindices.cgi?WMO=DutchDrought/iensembles_025_rr_mo_Netherlands_coastal_su&STATION=iensembles_025_rr_mo_Netherlands_inland&TYPE=i&id=$EMAIL">E-OBS</a><br>
 EOF
 
