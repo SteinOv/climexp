@@ -58,22 +58,22 @@ var.def.nc(ncfile,"lat","NC_DOUBLE","lat")
 #var.def.nc(ncfile,"data","NC_DOUBLE",c("lon","lat","time"))
 var.def.nc(ncfile,"data","NC_DOUBLE",c("lon","lat"))
 
+att.put.nc(ncfile,"data","missing_value","NC_DOUBLE",-999.99)
+
+att.put.nc(ncfile,"lon","long_name","NC_CHAR","Longitude")
+att.put.nc(ncfile,"lon","units","NC_CHAR","degrees_east")
+att.put.nc(ncfile,"lon","axis","NC_CHAR","X")
+
+att.put.nc(ncfile,"lat","long_name","NC_CHAR","Latitude")
+att.put.nc(ncfile,"lat","units","NC_CHAR","degrees_north")
+att.put.nc(ncfile,"lat","axis","NC_CHAR","Y")
+
 
 # add data to variables
 var.put.nc(ncfile,"lat",lat)
 var.put.nc(ncfile,"lon",lon)
 #var.put.nc(ncfile,"time",time)
 var.put.nc(ncfile,"data",data)
-
-att.put.nc(ncfile,"data","missing_value","NC_DOUBLE",-999.99)
-
-att.put.nc(ncfile,"lon","long_name","NC_DOUBLE","Longitude")
-att.put.nc(ncfile,"lon","units","NC_DOUBLE","degrees_east")
-att.put.nc(ncfile,"lon","axis","NC_DOUBLE","X")
-
-att.put.nc(ncfile,"lat","long_name","NC_DOUBLE","Latitude")
-att.put.nc(ncfile,"lat","units","NC_DOUBLE","degrees_north")
-att.put.nc(ncfile,"lat","axis","NC_DOUBLE","Y")
 
 # syncronize and close the netcdf file    
 sync.nc(ncfile)
