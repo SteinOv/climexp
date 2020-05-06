@@ -749,6 +749,7 @@ heat700_jma) file=JMAData/heat700_jma.nc;kindanme="JMA";climfield="0-700m heat c
 soda_heat750) file=SODAData/soda_750int.nc;kindanme="SODA";climfield="0-750m heat content";;
 grace_land) file=GRACEData/grace_land.nc;kindname="GRACE";climfield="LWE";;
 grace_ocean) file=GRACEData/grace_ocean.nc;kindname="GRACE";climfield="LWE";;
+grace_all) file=GRACEData/grace_all.nc;kindname="GRACE";climfield="LWE";;
 luge_crop) file=McGillData/glcrop_1700-2007_05.nc;kindname="LUGE";climfield="cropland fraction";NPERYEAR=1;;
 luge_past) file=McGillData/glpast_1700-2007_05.nc;kindname="LUGE";climfield="pasture fraction";NPERYEAR=1;;
 en3_sos) file=UKMOData/salt_EN3_v2a_ObjectiveAnalysis_5m.nc;kindname="EN3";climfield="SSS";;
