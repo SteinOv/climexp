@@ -1,7 +1,7 @@
 #!/bin/bash
 # to be sourced from getdata.cgi, correlate.cgi
 if [ "$TYPE" = "p" ]; then
-  if [ $NPERYEAR = 12 ]; then
+  if [ -z "$UNITS" -a $NPERYEAR = 12 ]; then
     if [ -z "$FORM_sum" -o "$FORM_sum" = "1" -o "$FORM_operation" = "selecting" ]; then
       ylabel="[mm/month]"
     elif [ "$FORM_sum" -eq "12" ]; then
