@@ -22,42 +22,42 @@ FORM_dipole=no
 # filling out two blanks means the whole range
 # filling out one blank means using one point.
 if [ -z "$FORM_lon2" ]; then
-  if [ -z "$FORM_lon1" ]; then
-    FORM_lon1='0'
-    FORM_lon2='360'
-    name_lon="0-360"
-  else
-    FORM_lon2="$FORM_lon1"
-    name_lon="$FORM_lon1"
-  fi
+    if [ -z "$FORM_lon1" ]; then
+        FORM_lon1='0'
+        FORM_lon2='360'
+        name_lon="0-360"
+    else
+        FORM_lon2="$FORM_lon1"
+        name_lon="$FORM_lon1"
+    fi
 else
-  if [ -z "$FORM_lon1" -o "$FORM_lon1" = "$FORM_lon2" ]; then
-    FORM_lon1="$FORM_lon2"
-    name_lon="$FORM_lon2"
-  else
-    name_lon="${FORM_lon1}-${FORM_lon2}"
-  fi
+    if [ -z "$FORM_lon1" -o "$FORM_lon1" = "$FORM_lon2" ]; then
+        FORM_lon1="$FORM_lon2"
+        name_lon="$FORM_lon2"
+    else
+        name_lon="${FORM_lon1}-${FORM_lon2}"
+    fi
 fi
 if [ -z "$FORM_lat2" -o "$FORM_lat1" = "$FORM_lat2" ]; then
-  if [ -z "$FORM_lat1" ]; then
-    FORM_lat1='-90'
-    FORM_lat2='90'
-    name_lat="-90-90"
-  else
-    FORM_lat2="$FORM_lat1"
-    name_lat="$FORM_lat1"
-  fi
+    if [ -z "$FORM_lat1" ]; then
+        FORM_lat1='-90'
+        FORM_lat2='90'
+        name_lat="-90-90"
+    else
+        FORM_lat2="$FORM_lat1"
+        name_lat="$FORM_lat1"
+    fi
 else
-  if [ -z "$FORM_lat1" ]; then
-    FORM_lat1="$FORM_lat2"
-    name_lat="$FORM_lat1"
-  else
-    name_lat="${FORM_lat1}-${FORM_lat2}"
-  fi
+    if [ -z "$FORM_lat1" ]; then
+        FORM_lat1="$FORM_lat2"
+        name_lat="$FORM_lat1"
+    else
+        name_lat="${FORM_lat1}-${FORM_lat2}"
+    fi
 fi
 
 if [ -n "$EMAIL" -a "$EMAIL" != someone@somewhere ]; then
-  cat > ./prefs/$EMAIL.coordinates <<EOF
+    cat > ./prefs/$EMAIL.coordinates <<EOF
 FORM_lat1=$FORM_lat1;
 FORM_lat2=$FORM_lat2;
 FORM_lon1=$FORM_lon1;
@@ -122,11 +122,11 @@ else
 fi
 
 if [ "$FORM_noisemodel" != "1" ]; then
-  WMO=${WMO}$FORM_noisemodel
+    WMO=${WMO}$FORM_noisemodel
 fi
 if [ -n "$LSMASK" -a "$FORM_masktype" != "all" ]; then
-  WMO=${WMO}_${FORM_masktype}
-  station="${station} ${FORM_masktype}"
+    WMO=${WMO}_${FORM_masktype}
+    station="${station} ${FORM_masktype}"
 fi
 if [ -n "$FORM_standardunits" ]; then
     WMO=${WMO}_su
@@ -135,7 +135,7 @@ if [ "$FORM_minfac" != 30 ]; then
     WMO=${WMO}_${FORM_minfac}p
 fi
 if [ "$FORM_gridpoints" = min -o "$FORM_gridpoints" = max ]; then
-    WMO=${WMO}_${FORM_gridpoints}    
+    WMO=${WMO}_${FORM_gridpoints}        
 fi
 if [ -n "$ENSEMBLE" ]; then
     c3=`echo $file | fgrep -c '%%%'`
@@ -155,7 +155,7 @@ else
 fi
 NPERYEAR=${FIELDNPERYEAR:-12}
 if [ -n "$LSMASK" -a -n "$FORM_masktype" ]; then
-  mask="lsmask $LSMASK $FORM_masktype"
+    mask="lsmask $LSMASK $FORM_masktype"
 fi
 if [ -n "$FORM_maskmetadata" ]; then
     # generate masknetcdf for this particular grid
@@ -225,216 +225,216 @@ export WMO
 export file
 export TYPE
 if [ "$FORM_gridpoints" != true ]; then
-  outfile=data/$TYPE$WMO.dat
-  if [ -z "$ENSEMBLE" ]; then
-      if [ -s $outfile ]; then
-        n=`cat $outfile | wc -l`
-      else
-        n=0
-      fi
-      if [ $n -gt 10 -a $outfile -nt $file ]; then
-        PROG=""
-      fi
-  fi
-  if [ "$splitfield" = true -a "$PROG" != "" ]; then
-    warning='<font color="#ff0000">This may take a long time, more than an hour for daily data.</font>'
-    if [ -z "$EMAIL" -o "$EMAIL" = someone@somewhere ]; then
-        echo 'Content-Type: text/html'
-        echo 
-        . ./myvinkhead.cgi "Error" "Please register for this operation"
-        . ./myvinkfoot.cgi
+    outfile=data/$TYPE$WMO.dat
+    if [ -z "$ENSEMBLE" ]; then
+        if [ -s $outfile ]; then
+            n=`cat $outfile | wc -l`
+        else
+            n=0
+        fi
+        if [ $n -gt 10 -a $outfile -nt $file ]; then
+            PROG=""
+        fi
     fi
-  fi
-  . ./getdata.cgi
+    if [ "$splitfield" = true -a "$PROG" != "" ]; then
+        warning='<font color="#ff0000">This may take a long time, more than an hour for daily data.</font>'
+        if [ -z "$EMAIL" -o "$EMAIL" = someone@somewhere ]; then
+            echo 'Content-Type: text/html'
+            echo 
+            . ./myvinkhead.cgi "Error" "Please register for this operation"
+            . ./myvinkfoot.cgi
+        fi
+    fi
+    . ./getdata.cgi
 else
-  STATION=""
-  FORM_field=`basename $FORM_field`
-  PROG="$PROG gridpoints $FORM_field"
-  if [ -n "$FORM_maskmetadata" ]; then
-    m=`basename $maskfile .nc`
-    m=`basename $maskfile .txt`
-    listname=data/grid_${m}.txt
-  else
-    listname=data/grid_${FORM_field}_${FORM_lon1}:${FORM_lon2}_${FORM_lat1}:${FORM_lat2}_${FORM_masktype}.txt
-  fi
-  echo 'Content-Type: text/html'
-  echo 
-  echo
-  . ./myvinkhead.cgi "Set of grid points" "$timese $kindname $climfield"
-  ###echo ./bin/$PROG
-  echo `date` "$EMAIL ($REMOTE_ADDR) $PROG > $listname" >> log/log
-  ( ./bin/$PROG > $listname ) 2>&1
-  FORM_climate=`echo "$kindname $climfield" | tr ' ' '_'`
-  prog="grid$FORM_field"
-  NAME=`basename $listname`
-  WMO=grid$WMO
-  . ./getstations.cgi
+    STATION=""
+    FORM_field=`basename $FORM_field`
+    PROG="$PROG gridpoints $FORM_field"
+    if [ -n "$FORM_maskmetadata" ]; then
+        m=`basename $maskfile .nc`
+        m=`basename $maskfile .txt`
+        listname=data/grid_${m}.txt
+    else
+        listname=data/grid_${FORM_field}_${FORM_lon1}:${FORM_lon2}_${FORM_lat1}:${FORM_lat2}_${FORM_masktype}.txt
+    fi
+    echo 'Content-Type: text/html'
+    echo 
+    echo
+    . ./myvinkhead.cgi "Set of grid points" "$timese $kindname $climfield"
+    ###echo ./bin/$PROG
+    echo `date` "$EMAIL ($REMOTE_ADDR) $PROG > $listname" >> log/log
+    ( ./bin/$PROG > $listname ) 2>&1
+    FORM_climate=`echo "$kindname $climfield" | tr ' ' '_'`
+    prog="grid$FORM_field"
+    NAME=`basename $listname`
+    WMO=grid$WMO
+    . ./getstations.cgi
 fi
 
 else # subset a field
 
-  cat <<EOF
+    cat <<EOF
 Content-type: text/html
 
 
 EOF
-  . ./myvinkhead.cgi "Computing subset field" "$kindname $climfield" "noindex,nofollow"
-  outfile=`basename $file .ctl`
-  outfile=`basename $outfile .nc`
-  if [ -n "$FORM_maskmetadata" ]; then
-    outfile=data/${outfile}_${basefile}
-    newkindname=${kindname}_${basefile}
-  else
-    outfile=data/${outfile}_${name_lon}E_${name_lat}N
-    newkindname=${kindname}_${name_lon}E_${name_lat}N
-  fi
-  if [ -n "$FORM_standardunits" ]; then
-    outfile=${outfile}_su
-  fi
-  if [ -n "$splitfield" ]; then
-    outfile=`echo $outfile | sed -e 's:??*-??*::'`
-  fi
-  if [ -z "$ENSEMBLE" ]; then
-    if [ -f $outfile.nc -a $outfile.nc -nt $file ]; then
-      echo "Field already exists<br>"
+    . ./myvinkhead.cgi "Computing subset field" "$kindname $climfield" "noindex,nofollow"
+    outfile=`basename $file .ctl`
+    outfile=`basename $outfile .nc`
+    if [ -n "$FORM_maskmetadata" ]; then
+        outfile=data/${outfile}_${basefile}
+        newkindname=${kindname}_${basefile}
     else
-      if [ -n "$FORM_maskmetadata" ]; then
-        if [ 0 = 1 ]; then
-            [ "$lwrite" = true ] && echo cdo maskregion,$maskfile $file $outfile.nc
-            cdo maskregion,$masknetcdf $file $outfile.nc
-        else
-            # there still are .ctl files...
-            [ "$lwrite" = true ] && echo ./bin/get_index $file mask $masknetcdf $FORM_standardunits outfield $outfile.nc
-            ./bin/get_index $file mask $masknetcdf $FORM_standardunits outfield $outfile.nc 2>&1 | fgrep -v '# '
-        fi
-        if [ -n "$LSMASK" -a -s "$LSMASK" ]; then
-            outmask=data/lsmask_`basename $outfile`
-            [ "$lwrite" = true ] && echo ./bin/get_index $LSMASK mask $masknetcdf outfield $outmask.nc
-            ./bin/get_index $LSMASK mask $masknetcdf outfield $outmask.nc 2>&1
-            LSMASK=$outmask.nc
-        fi
-      else
-        [ "$lwrite" = true ] && echo ./bin/get_index $file $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 $FORM_standardunits outfield $outfile.nc
-        ./bin/get_index $file $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 $FORM_standardunits outfield $outfile.nc 2>&1
-        if [ -n "$LSMASK" -a -s "$LSMASK" ]; then
-            outmask=data/lsmask_`basename $outfile`
-            [ "$lwrite" = true ] && echo ./bin/get_index $LSMASK $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 outfield $outmask.nc
-            ./bin/get_index $LSMASK $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 outfield $outmask.nc 2>&1
-            LSMASK=$outmask.nc
-        fi
-      fi
-      if [ ! -s $outfile.nc ]; then
-      . ./myvinkfoot.cgi
-      exit
-      fi
+        outfile=data/${outfile}_${name_lon}E_${name_lat}N
+        newkindname=${kindname}_${name_lon}E_${name_lat}N
     fi
-  else
-    c3=`echo $file | egrep -c '%%%|\+\+\+'`
-    i=0
-    if [ $c3 = 0 ]; then
-        ii=00
-        nmax=100
-        format=%02i
-    else
-        ii=000
-        nmax=1000
-        format=%03i
+    if [ -n "$FORM_standardunits" ]; then
+        outfile=${outfile}_su
     fi
-    allfiles=`echo $file | sed -e "s:\+\+\+:$ii:" -e "s:\%\%\%:$ii:" -e "s:\+\+:$ii:" -e "s:\%\%:$ii:"`
-    while [ $i -lt $nmax ]; do
-      [ "$lwrite" = true ] && echo "i=$i, checking for $ensfile"
-      if [ "$splitfield" = true ]; then
-        ensfile=`ls -t $allfiles 2>&1 | head -1`
-      else
-        ensfile=$allfiles
-      fi
-      if [ -f $ensfile -o -f data/$ensfile ]; then
-        [ ! -s $ensfile ] && ensfile=data/$ensfile # I think
-        ensout=`echo $outfile | sed -e "s:\+\+\+:$ii:" -e "s:\%\%\%:$ii:" -e "s:\+\+:$ii:" -e "s:\%\%:$ii:" -e 's:??*-??*::'`
-        if [ -f $ensout.nc -a $ensout.nc -nt $ensfile ]; then
-          echo "Ensemble member $ii already exists<br>"
+    if [ -n "$splitfield" ]; then
+        outfile=`echo $outfile | sed -e 's:??*-??*::'`
+    fi
+    if [ -z "$ENSEMBLE" ]; then
+        if [ -f $outfile.nc -a $outfile.nc -nt $file ]; then
+            echo "Field already exists<br>"
         else
-          if [ -n "$FORM_maskmetadata" ]; then
-            if [ 0 = 1 ]; then
-                cdo maskregion,$masknetcdf $ensfile $ensout.nc
-            else
-                if [ "$splitfield" != true ]; then
-                    ./bin/get_index $ensfile mask $masknetcdf 5lan $FORM_standardunits outfield $ensout.nc 2>&1 | fgrep -v '# ' 
+            if [ -n "$FORM_maskmetadata" ]; then
+                if [ 0 = 1 ]; then
+                    [ "$lwrite" = true ] && echo cdo maskregion,$maskfile $file $outfile.nc
+                    cdo maskregion,$masknetcdf $file $outfile.nc
                 else
-                    j=0
-                    ensoutfiles=""
-                    for ensfile in `echo $allfiles`; do
-                        ((j++))
-                        if [ ! -s ${ensout}_$j.nc -o ${ensout}_$j.nc -ot $ensfile ]; then
-                            echo "`basename $ensfile .nc`<p>"
-                            [ "$lwrite" = true ] && echo "./bin/get_index $ensfile mask $masknetcdf $FORM_standardunits outfield ${ensout}_${j}_$$.nc 2>&1 | fgrep -v '# ' <p>"
-                            ./bin/get_index $ensfile mask $masknetcdf $FORM_standardunits outfield ${ensout}_${j}_$$.nc 2>&1 | fgrep -v '# ' 
-                            mv ${ensout}_${j}_$$.nc ${ensout}_$j.nc
-                        fi
-                        ensoutfiles="$ensoutfiles ${ensout}_$j.nc"
-                    done
-                    echo "Concatenating partial results...<p>"
-                    cdo -r -f nc4 -z zip copy $ensoutfiles ${ensout}_$$.nc 2>&1
-                    echo "<br>"
-                    mv ${ensout}_$$.nc $ensout.nc
-                    rm $ensoutfiles
+                    # there still are .ctl files...
+                    [ "$lwrite" = true ] && echo ./bin/get_index $file mask $masknetcdf $FORM_standardunits outfield $outfile.nc
+                    ./bin/get_index $file mask $masknetcdf $FORM_standardunits outfield $outfile.nc 2>&1 | fgrep -v '# '
+                fi
+                if [ -n "$LSMASK" -a -s "$LSMASK" ]; then
+                    outmask=data/lsmask_`basename $outfile`
+                    [ "$lwrite" = true ] && echo ./bin/get_index $LSMASK mask $masknetcdf outfield $outmask.nc
+                    ./bin/get_index $LSMASK mask $masknetcdf outfield $outmask.nc 2>&1
+                    LSMASK=$outmask.nc
+                fi
+            else
+                [ "$lwrite" = true ] && echo ./bin/get_index $file $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 $FORM_standardunits outfield $outfile.nc
+                ./bin/get_index $file $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 $FORM_standardunits outfield $outfile.nc 2>&1
+                if [ -n "$LSMASK" -a -s "$LSMASK" ]; then
+                    outmask=data/lsmask_`basename $outfile`
+                    [ "$lwrite" = true ] && echo ./bin/get_index $LSMASK $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 outfield $outmask.nc
+                    ./bin/get_index $LSMASK $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 outfield $outmask.nc 2>&1
+                    LSMASK=$outmask.nc
                 fi
             fi
-            subsetname="mask $maskname"
-          else
-            if [ "$splifield" != true ]; then
-                [ "$lwrite" = true ] && echo ./bin/get_index $ensfile $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 $FORM_standardunits $ensout.nc
-                echo "generating ensemble member $ii...<p>"
-                ./bin/get_index $ensfile $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 $FORM_standardunits outfield $ensout.nc 2>&1
-            else
-                j=0
-                ensoutfiles=""
-                for ensfile in `echo $allfiles`; do
-                    ((j++))
-                    if [ ! -s ${ensout}_$j.nc -o ${ensout}_$j.nc -ot $ensfile ]; then
-                        echo "`basename $ensfile .nc`<p>"
-                        ./bin/get_index $ensfile $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 $FORM_standardunits outfield ${ensout}_${j}_$$.nc 2>&1
-                        mv ${ensout}_${j}_$$.nc ${ensout}_$j.nc
-                    fi
-                    ensoutfiles="$ensoutfiles ${ensout}_$j.nc"
-                done
-                echo "Concatenating partial results...<p>"
-                cdo -r -f nc4 -z zip copy $ensoutfiles ${ensout}_$$.nc 2>&1
-                mv ${ensout}_$$.nc $ensout.nc
-                rm $ensoutfiles
+            if [ ! -s $outfile.nc ]; then
+                . ./myvinkfoot.cgi
+                exit
             fi
-            subsetname="${FORM_lat1}N-${FORM_lat2}N,${FORM_lon1}E-${FORM_lon2}E"
-          fi
         fi
-      fi
-      i=$((i+1))
-      ii=`printf $format $i`
-      allfiles=`echo $file | sed -e "s:\+\+\+:$ii:" -e "s:\%\%\%:$ii:" -e "s:\+\+:$ii:" -e "s:\%\%:$ii:"`
-    done
-    if [ -n "$LSMASK" -a -s "$LSMASK" ]; then
-        outmask=data/lsmask_`basename $outfile | tr '%' '0'`
-        if [ -n "$FORM_maskmetadata" ]; then
-            [ "$lwrite" = true ] && echo ./bin/get_index $LSMASK mask $masknetcdf outfield $outmask.nc
-            ./bin/get_index $LSMASK mask $masknetcdf $FORM_standardunits outfield $outmask.nc 2>&1
+    else
+        c3=`echo $file | egrep -c '%%%|\+\+\+'`
+        i=0
+        if [ $c3 = 0 ]; then
+            ii=00
+            nmax=100
+            format=%02i
         else
-            [ "$lwrite" = true ] && echo ./bin/get_index $LSMASK $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 $FORM_standardunits outfield $outmask.nc
-            ./bin/get_index $LSMASK $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 outfield $outmask.nc 2>&1
+            ii=000
+            nmax=1000
+            format=%03i
         fi
-        LSMASK=$outmask.nc
+        allfiles=`echo $file | sed -e "s:\+\+\+:$ii:" -e "s:\%\%\%:$ii:" -e "s:\+\+:$ii:" -e "s:\%\%:$ii:"`
+        while [ $i -lt $nmax ]; do
+            [ "$lwrite" = true ] && echo "i=$i, checking for $ensfile"
+            if [ "$splitfield" = true ]; then
+                ensfile=`ls -t $allfiles 2>&1 | head -1`
+            else
+                ensfile=$allfiles
+            fi
+            if [ -f $ensfile -o -f data/$ensfile ]; then
+                [ ! -s $ensfile ] && ensfile=data/$ensfile # I think
+                ensout=`echo $outfile | sed -e "s:\+\+\+:$ii:" -e "s:\%\%\%:$ii:" -e "s:\+\+:$ii:" -e "s:\%\%:$ii:" -e 's:??*-??*::'`
+                if [ -f $ensout.nc -a $ensout.nc -nt $ensfile ]; then
+                    echo "Ensemble member $ii already exists<br>"
+                else
+                    if [ -n "$FORM_maskmetadata" ]; then
+                        if [ 0 = 1 ]; then
+                            cdo maskregion,$masknetcdf $ensfile $ensout.nc
+                        else
+                            if [ "$splitfield" != true ]; then
+                                ./bin/get_index $ensfile mask $masknetcdf 5lan $FORM_standardunits outfield $ensout.nc 2>&1 | fgrep -v '# ' 
+                            else
+                                j=0
+                                ensoutfiles=""
+                                for ensfile in `echo $allfiles`; do
+                                    ((j++))
+                                    if [ ! -s ${ensout}_$j.nc -o ${ensout}_$j.nc -ot $ensfile ]; then
+                                        echo "`basename $ensfile .nc`<p>"
+                                        [ "$lwrite" = true ] && echo "./bin/get_index $ensfile mask $masknetcdf $FORM_standardunits outfield ${ensout}_${j}_$$.nc 2>&1 | fgrep -v '# ' <p>"
+                                        ./bin/get_index $ensfile mask $masknetcdf $FORM_standardunits outfield ${ensout}_${j}_$$.nc 2>&1 | fgrep -v '# ' 
+                                        mv ${ensout}_${j}_$$.nc ${ensout}_$j.nc
+                                    fi
+                                    ensoutfiles="$ensoutfiles ${ensout}_$j.nc"
+                                done
+                                echo "Concatenating partial results...<p>"
+                                cdo -r -f nc4 -z zip copy $ensoutfiles ${ensout}_$$.nc 2>&1
+                                echo "<br>"
+                                mv ${ensout}_$$.nc $ensout.nc
+                                rm $ensoutfiles
+                            fi
+                        fi
+                        subsetname="mask $maskname"
+                    else # not a mask, hence a rectangular box
+                        if [ "$splitfield" != true ]; then
+                            [ "$lwrite" = true ] && echo ./bin/get_index $ensfile $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 $FORM_standardunits $ensout.nc
+                            echo "generating ensemble member $ii...<p>"
+                            ./bin/get_index $ensfile $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 $FORM_standardunits outfield $ensout.nc 2>&1
+                        else
+                            j=0
+                            ensoutfiles=""
+                            for ensfile in `echo $allfiles`; do
+                                ((j++))
+                                if [ ! -s ${ensout}_$j.nc -o ${ensout}_$j.nc -ot $ensfile ]; then
+                                    echo "`basename $ensfile .nc`<p>"
+                                    ./bin/get_index $ensfile $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 $FORM_standardunits outfield ${ensout}_${j}_$$.nc 2>&1
+                                    mv ${ensout}_${j}_$$.nc ${ensout}_$j.nc
+                                fi
+                                ensoutfiles="$ensoutfiles ${ensout}_$j.nc"
+                            done
+                            echo "Concatenating partial results...<p>"
+                            cdo -r -f nc4 -z zip copy $ensoutfiles ${ensout}_$$.nc 2>&1
+                            mv ${ensout}_$$.nc $ensout.nc
+                            rm $ensoutfiles
+                        fi
+                        subsetname="${FORM_lat1}N-${FORM_lat2}N,${FORM_lon1}E-${FORM_lon2}E"
+                    fi
+                fi
+            fi
+            i=$((i+1))
+            ii=`printf $format $i`
+            allfiles=`echo $file | sed -e "s:\+\+\+:$ii:" -e "s:\%\%\%:$ii:" -e "s:\+\+:$ii:" -e "s:\%\%:$ii:"`
+        done
+        if [ -n "$LSMASK" -a -s "$LSMASK" ]; then
+            outmask=data/lsmask_`basename $outfile | tr '%' '0'`
+            if [ -n "$FORM_maskmetadata" ]; then
+                [ "$lwrite" = true ] && echo ./bin/get_index $LSMASK mask $masknetcdf outfield $outmask.nc
+                ./bin/get_index $LSMASK mask $masknetcdf $FORM_standardunits outfield $outmask.nc 2>&1
+            else
+                [ "$lwrite" = true ] && echo ./bin/get_index $LSMASK $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 $FORM_standardunits outfield $outmask.nc
+                ./bin/get_index $LSMASK $FORM_lon1 $FORM_lon2 $FORM_lat1 $FORM_lat2 outfield $outmask.nc 2>&1
+            fi
+            LSMASK=$outmask.nc
+        fi
     fi
-  fi
-  infofile=$outfile.$EMAIL.info
-  cat > $infofile <<EOF
+    infofile=$outfile.$EMAIL.info
+    cat > $infofile <<EOF
 $outfile.nc
 NPERYEAR=$NPERYEAR
 LSMASK=$LSMASK
 $newkindname
 $climfield
 EOF
-  FORM_field="$infofile"
-  splitfield=false # no longer a split field
-  STATION="" # otherwise the series menu pops up...
-  kindname=$newkindname
-  . ./select.cgi
+    FORM_field="$infofile"
+    splitfield=false # no longer a split field
+    STATION="" # otherwise the series menu pops up...
+    kindname=$newkindname
+    . ./select.cgi
 
 fi
