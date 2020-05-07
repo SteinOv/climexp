@@ -40,9 +40,15 @@ FORM_num=$$
 
 . ./myvinkhead.cgi "Running $moments" "$station $NAME" "noindex,nofollow"
 
-eval `./bin/getunits ./data/$TYPE$WMO.dat`
 for FORM_moment in $moments
 do
+
+eval `./bin/getunits ./data/$TYPE$WMO.dat`
+if [ ${FORM_moment#disp} != $FORM_moment -o ${FORM_moment#skew} != $FORM_moment -o \
+    ${FORM_moment#curt} != $FORM_moment ]; then
+    UNITS=1
+    NEWUNITS=1
+fi
 
 corrargs="./data/$TYPE$WMO.dat $FORM_moment"
 . ./getopts.cgi
@@ -102,7 +108,7 @@ else # treat all ensemble members separately
   rm /tmp/runningmoments$$.log
 fi
 
-. $DIR/setyaxis.cgi
+. ./setyaxis.cgi
 [ -n "$FORM_log" ] && ylabel="log $ylabel"
 [ -n "$FORM_sqrt" ] && ylabel="sqrt $ylabel"
 [ -n "$FORM_square" ] && ylabel="${ylabel}^2"

@@ -55,10 +55,11 @@ cat <<EOF
 <div class="formheader">Compute running mean, standard deviation, skewness, ...</div>
 <div class="formbody">
 <table style='width:100%' border='0' cellpadding='0' cellspacing='0'>
-<tr><td>Running: <td> 
+<tr><td>Running: <td>
 <select name="moment">
 <option $mean_selected>mean
 <option $sd_selected>s.d.
+<option $disp_selected>dispersion
 <option $skew_selected>skew
 <option $curtosis_selected>curtosis
 <option $all_selected>all
