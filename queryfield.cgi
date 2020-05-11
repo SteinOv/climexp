@@ -683,6 +683,7 @@ slp_mm) file=BernData/slp_mm.ctl;kindname="Luterbacher Maunders";climfield="SLP"
 slp_mm_1) file=BernData/slp_mm_1.ctl;kindname="Luterbacher Modern";climfield="SLP";map="set lon -25 30";;
 Luterbacherslp) file=RapidData/recon.1750.1849.hadslp2r.1850.2008.seasonal.nc;kindname="Kuettel et al.";climfield="Sea Level Pressure";NOMISSING=nomissing;NPERYEAR=4;map='set lat 20 70
 set lon -40 50';;
+sis_cmsaf) file=EUMETSAT/sis_cmsaf.nc;kindname="CM-SAF";climfield="sis";;
 fresco_cloud) file=FRESCO/fresco_cloud.nc;kindname="FRESCO";climfield="cloud fraction";flipcolor=11;;
 fresco_cloud_1) file=FRESCO/fresco_cloud_1.nc;kindname="FRESCO";climfield="cloud fraction";flipcolor=11;;
 fresco_cloud_5) file=FRESCO/fresco_cloud_5.nc;kindname="FRESCO";climfield="cloud fraction";flipcolor=11;LSMASK=FRESCO/lsmask_5.nc;;
