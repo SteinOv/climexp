@@ -25,7 +25,7 @@ The raw data are from the 8-8 observational network, the day is the day of the o
 <td><a href="http://www.knmi.nl/klimatologie/monv/reeksen/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 <tr>
 <td><div class="kalelink"><a href="getdutchstations.cgi?id=$EMAIL&TYPE=rh">Precipitation (0-24)</a><br>
-These observations are from automatic rain gauges, which on average records about 5% less rain than the manual rain gauges of the 8-8 network.<td><a
+These observations are from automatic rain gauges, which on average record about 5% less rain than the manual rain gauges of the 8-8 network.<td><a
 href="http://www.knmi.nl/klimatologie/daggegevens/download.cgi?language=eng"><img src="images/info-i.gif" alt="more information" border="0"></a>
 <tr>
 <td><div class="kalelink">Makkink evaporation minus precipitation averaged over
@@ -34,7 +34,7 @@ href="http://www.knmi.nl/klimatologie/daggegevens/download.cgi?language=eng"><im
 <a href="getindices.cgi?WMO=KNMIData/nt_mean_inland&STATION=precipitation_deficit_inland&TYPE=i&id=$EMAIL&NPERYEAR=366">inland</a>,
 <br>
 In the Netherlands, the precipitation deficit is defined as the cumulative potential evaporation (Makkink) minus precipitation starting from 1 April and set to zero when it would become negative.
-These series are based on the automatic rain gauges, which on average records about 5% less rain than the manual rain gauges of the 8-8 network that are used for the official series.<td><a
+These series are based on the automatic rain gauges, which on average record about 5% less rain than the manual rain gauges of the 8-8 network that are used for the official series.<td><a
 href="http://www.knmi.nl/klimatologie/daggegevens/download.cgi?language=eng"><img src="images/info-i.gif" alt="more information" border="0"></a>
 </table>
 EOF
