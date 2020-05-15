@@ -39,7 +39,9 @@ if [ -z "$init_done" ]; then
             echo
             echo
             echo "IP address $REMOTE_ADDR has been blacklisted" >> log/log
-            echo "IP address $REMOTE_ADDR has been blacklisted"
+            echo "IP address $REMOTE_ADDR has been blacklisted."
+            echo "This is usually due to attempting to crash the server by submitting too many commands in too short a time."
+            echo "Please contact me (oldenborgh@knmi.nl) if you think this was a mistake."
             exit
         fi
     fi
