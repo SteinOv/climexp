@@ -112,7 +112,13 @@ relative to 20S-20N: <a href="getindices.cgi?WMO=NCDCData/ersst_nino3.4a_rel&STA
 <a href="getindices.cgi?WMO=ERA5/era5_sam&STATION=SAM_ERA5&TYPE=i&id=$EMAIL">ERA5</a>,
 <a href="getindices.cgi?WMO=SEAustralia/sam_ECEARTH23_%%&STATION=EC-Earth_SAM&TYPE=i&id=$EMAIL">EC-Earth</a>,
 <a href="getindices.cgi?WMO=SEAustralia/sam_HadGEM3-A-N219_%%%&STATION=HadGEM3A_SAM&TYPE=i&id=$EMAIL">HadGEM3A</a>,
-<a href="getindices.cgi?WMO=CMIP5/SAM/sam_CanESM2_%%%&STATION=CanESM2_SAM&TYPE=i&id=$EMAIL">CanESM2</a>.
+<a href="getindices.cgi?WMO=CMIP5/SAM/sam_CanESM2_%%%&STATION=CanESM2_SAM&TYPE=i&id=$EMAIL">CanESM2</a>,
+<a href="getindices.cgi?WMO=SEAustralia/CESM1-CAM5_1920-2100_SAM_monthly_psl_@@&STATION=CESM1-CAM5_SAM&TYPE=i&id=$EMAIL">CESM1-CAM5</a>, 
+<a href="getindices.cgi?WMO=SEAustralia/CSIRO-Mk3-6-0_1850-2100_SAM_monthly_psl_@@&STATION=CSIRO_SAM&TYPE=i&id=$EMAIL">CSIRO Mk3.6.0</a>,
+<a href="getindices.cgi?WMO=SEAustralia/GFDL-CM3_1920-2100_SAM_monthly_psl_@@&STATION=GFDL-CM3_SAM&TYPE=i&id=$EMAIL">GFDL-CM3</a>, 
+<a href="getindices.cgi?WMO=SEAustralia/GFDL-ESM2M_1950-2100_SAM_monthly_psl_@@&STATION=GFDL-ESM2M_SAM&TYPE=i&id=$EMAIL">GFDL-ESM2M</a>, 
+<a href="getindices.cgi?WMO=SEAustralia/MPI-ESM_1850-2099_SAM_monthly_psl_@@&STATION=MPI-ESM_SAM&TYPE=i&id=$EMAIL">MPI-ESM</a>.
+
 
 <br>Ozone hole:
 <a href="getindices.cgi?WMO=TEMISData/ozon_mo&STATION=lost_ozone&TYPE=i&id=$EMAIL">lost ozone</a>
