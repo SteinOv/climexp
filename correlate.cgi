@@ -20,6 +20,7 @@ lwrite=false
 
 # check email address
 . ./checkemail.cgi
+. ./nosearchengine.cgi
 
 # real work
 . ./save_commonoptions.cgi
