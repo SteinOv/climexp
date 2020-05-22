@@ -31,6 +31,7 @@ Annual time series:
 <a href="getindices.cgi?WMO=SEAustralia/awap_tmax_-1_max_50_7v_mask0_5lan_su&STATION=AWAP_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">AWAP Tmax</a>,
 <a href="getindices.cgi?WMO=SEAustralia/era5_tmax_daily_-1_max_mask2_5lan_su_ext&STATION=ERA5_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">ERA5 Tmax</a>,
 <a href="getindices.cgi?WMO=SEAustralia/c3tmax_daily_-1_max_50_7v_trend_mask47_land_su&STATION=20CRv3_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">20CRv3 Tmax</a>,
+<a href="getindices.cgi?WMO=ERA-20C/SEAustralia/TX7x_era20c_bushfire&STATION=ERA-20C_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">ERA-20C Tmax</a>,
 <a href="getindices.cgi?WMO=SEAustralia/CERA20C_DJF_TX7x_region_@@&STATION=CERA-20C_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">CERA-20C Tmax</a>,
 <a href="getindices.cgi?WMO=SEAustralia/JRA55_TX7x_DJF_NSW&STATION=tmax_JRA55_bushfire&TYPE=i&NPERYEAR=1&id=$EMAIL">JRA55 Tmax</a>,
 <a href="getindices.cgi?WMO=SEAustralia/tasmax_day_ECEARTH23_rcp85___110-155E_-45--10N_su_info_4_max_7v_mask0_land_su_%%&STATION=EC-Earth_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=4">EC-Earth T159 Tmax</a>,
@@ -39,7 +40,7 @@ Annual time series:
 <a href="getindices.cgi?WMO=SEAustralia/CESM1-CAM5_1920-2100_SONDJF_max_tasmax_7day_runmean_@@&STATION=CESM1-CAM5_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">CESM1-CAM5 Tmax</a>,
 <a href="getindices.cgi?WMO=SEAustralia/GFDL-ESM2M_1950-2100_SONDJF_max_tasmax_7day_runmean_@@&STATION=GFDL-ESM2M_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">GFDL-ESM2M Tmax</a>,
 <a href="getindices.cgi?WMO=SEAustralia/ipsl_yearly_tmax_july-june_nsw_@@&STATION=IPSL_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">IPSL Tmax 7day rm Jul-Jun</a>,
-<a href="getindices.cgi?WMO=SEAustralia/ASF20C_TX7x_DJF_1900_2009_NSW_@@&STATION=ASF20C_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">ASF20C Tmax 7day DJF</a>.
+<a href="getindices.cgi?WMO=SEAustralia/ASF20C_TX7x_DJF_1900_2009_NSW_@@&STATION=ASF20C_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">ASF-20C Tmax 7day DJF</a>.
 <a href="getindices.cgi?WMO=SEAustralia/wah_yearly_tmax_seasmax_nsw_actual_@@&STATION=W@H_Tmax_actual&TYPE=i&id=$EMAIL&NPERYEAR=1">WAH Tmax 7day rm Sep-Feb Actual</a>,
 <a href="getindices.cgi?WMO=SEAustralia/wah_yearly_tmax_seasmax_nsw_natural_@@&STATION=W@H_Tmax_natural&TYPE=i&id=$EMAIL&NPERYEAR=1">WAH Tmax 7day rm Sep-Feb Natural</a>,
 
