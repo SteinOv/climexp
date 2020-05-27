@@ -11,7 +11,7 @@ sudo apt-get install gnuplot-nox netpbm grads gdal-bin
 sudo apt-get install libgsl-dev liblapack-dev libfftw3-dev
 sudo apt-get install texlive-font-utils # installs all of tex as well.  Oh well.
 sudo apt-get install r-base python-pip htdig
-sudo apt-get install ufw
+sudo apt-get install ufw s3cmd s3fs
 sudo pip install jinja2
 
 sudo ufw allow 80/tcp
@@ -32,6 +32,14 @@ cat /etc/fstab
 sudo mkdir /data1
 sudo mount -av
 fi # -d /data1
+
+if [ ! -s /mnt/climexp_data/data ]; then
+c=`fgrep -c s3fs /eetc/fstab`
+if [ $c = 0 ]; then
+sudo echo "s3fs#nl-knmi-climateexplorer-data /mnt/climexp_data fuse _netdev,allow_other,nodev,nosuid,uid=1001,gid=1001,use_path_request_style,url=https://storage.ecmwf.europeanweather.cloud 0 0" >> /etc/fstab
+fi
+sudo mount -a
+fi
 
 cd $HOME
 mkdir -p bin
@@ -113,3 +121,5 @@ sudo a2enmod cgid
 sudo a2enmod headers
 sudo apachectl start
 
+sudo mkdir -p /usr/local/lib/R
+sudo chown -R oldenbor /usr/local/lib/R

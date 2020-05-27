@@ -71,6 +71,22 @@ if [ -d /usr/share/grads ]; then
     cp -r /usr/share/grads/* $HOME/climexp/grads/
 fi
 
+cd ~/climexp_numerical/$PVM_ARCH
+R CMD SHLIB ../src/rkillfile.f
+R CMD SHLIB ../src/rkeepalive.f
+cd ~/climexp/r
+ln -s ../../climexp_numerical/src/rkillfile.so 
+ln -s ../../climexp_numerical/src/rkeepalive.so 
+R <<EOF
+install.packages("SpecsVerification")
+install.packages("RNetCDF")
+install.packages("evd")
+install.packages("ismev")
+install.packages("verification")
+quit()
+n
+EOF
+
 crontab - <<EOF
 0 3 * * * curl -s http://localhost/cleanup.cgi > /dev/null
 5,20,35,50 * * * * curl -s http://localhost/randomimage.cgi > /dev/null
