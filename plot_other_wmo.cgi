@@ -30,15 +30,22 @@ else
 fi
 eval `./bin/getunits $yearfile`
 plotyearfile=${yearfile%.dat}.txt
-plotdat $yearfile > $plotyearfile
+plotdat $yearfile | fgrep -v 'repeat last y' > $plotyearfile
 lowpassfile=${yearfile%.dat}_5yrlo.dat
 filteryearseries lo box 5 $yearfile > $lowpassfile
 pngfile=${yearfile%.dat}.png
 if [ $VAR = co2 ]; then
-    plotsmoth=""
+    plotsmooth=""
 else
     plotsmooth="\"$lowpassfile\" u 1:2 notitle with lines lt 4 lw 5, "
 fi
+# dashes are not available in the standard png terminal.
+#if [ $VAR = mass ]; then
+#    lines=linespoints
+#    plotdash=" dashtype 2"
+#else
+#    lines=lines
+#fi
 if [ "${name%heat content}" != "$name" ]; then
     setxrange="set xrange [1950:]"
     setyrange="set yrange [-10:]"
@@ -57,7 +64,7 @@ $setxrange
 $setyrange
 set title "$name"
 set ylabel "$VAR_ [$UNITS_]"
-plot $plotsmooth"$yearfile" u 1:2 notitle with lines lt 1 lw 2
+plot $plotsmooth"$yearfile" u 1:2 notitle with lines lt 0 lw 2, "$plotyearfile" u 1:2 notitle with $lines lt 1 lw 2
 EOF
 echo $pngfile
 exit
