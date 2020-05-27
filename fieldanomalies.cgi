@@ -31,7 +31,7 @@ fi
 
 iens=0
 cdo="cdo -r -f nc4 -z zip"
-echo "$EMAIL ($REMOTE_ADDR) cdo fieldanomalies $infile $file" >> log/log
+echo `date` "$EMAIL ($REMOTE_ADDR) cdo fieldanomalies $infile $file" >> log/log
 if [ -z "$ENSEMBLE" ]; then
     if [ -s $file -a $file -nt $infile ]; then
         echo "Using cached data<p>"
