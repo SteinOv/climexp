@@ -24,8 +24,8 @@ if [ -z "$alreadycalledgetargs" ]; then
     EMAIL=${EMAIL#id=}
     [ "$EMAIL" = FORM_EMAIL ] && EMAIL=""
     id=$EMAIL
-    FORM_type=`echo "$FORM_type" | tr -d -C '[a-zA-Z0-9_-]'`
-    FORM_TYPE=`echo "$FORM_TYPE" | tr -d -C '[a-zA-Z0-9_-]'`
+    FORM_type=`echo "$FORM_type" | tr -d -C '[a-zA-Z0-9_\-]'`
+    FORM_TYPE=`echo "$FORM_TYPE" | tr -d -C '[a-zA-Z0-9_\-]'`
     ###echo "EMAIL=$EMAIL<br>"
     # build a variable SCRIPTURL that can be used to reproduce this step later
     # do not include ID, so that it does not leak into plots.
