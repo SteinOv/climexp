@@ -28,11 +28,11 @@ fi
 
 . ./nosearchengine.cgi
 
-if [ $TYPE = gridpoints ]; then
+if [ "$TYPE" = gridpoints ]; then
   . ./myvinkhead.cgi "Trends in return times of extremes" "gridpoints of $kindname $climfield" "noindex,nofollow"
-elif [ $TYPE = field ]; then
+elif [ "$TYPE" = field ]; then
   . ./myvinkhead.cgi "Trends in return times of extremes" "$kindname $climfield" "noindex,nofollow"
-elif [ $TYPE = set ]; then
+elif [ "$TYPE" = set ]; then
   . ./myvinkhead.cgi "Trends in return times of extremes" "$station stations" "noindex,nofollow"
 else
   . ./myvinkhead.cgi "Trends in return times of extremes" "$station $NAME ($WMO)" "noindex,nofollow"
