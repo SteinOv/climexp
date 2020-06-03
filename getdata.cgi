@@ -579,7 +579,71 @@ Take anomalies and set standard deviation to one
 <tr><td>&nbsp;<td>
 <input type="submit" class="formbutton" value="Normalise">
 </form>
-</td></tr><tr><td>Combine:</td><td>
+</td></tr>
+EOF
+if [ $NPERYEAR -gt 1 ]; then
+    cat <<EOF
+<tr><td>Select ${month}:</td><td>
+<form action="selectdate.cgi" method="POST">
+<input type="hidden" name="EMAIL" value="$EMAIL">
+<input type="hidden" name="CLIMATE" value="$name">
+<input type="hidden" name="WMO" value="$WMO">
+<input type="hidden" name="TYPE" value="$TYPE">
+<input type="hidden" name="STATION" value="$STATION">
+<input type="hidden" name="NPERYEAR" value="$NPERYEAR">
+Select all values on
+EOF
+    if [ $NPERYEAR = 2 ]; then
+        cat <<EOF
+<select class="forminput" name="month">
+<option value=1>Oct-Mar
+<option value=2>Apr-sep
+</select>
+EOF
+    elif [ $NPERYEAR = 4 ]; then
+        cat <<EOF
+<select class="forminput" name="month">
+<option value=1>DJF
+<option value=2>MAM
+<option value=3>JJA
+<option value=4>SON
+</select>
+EOF
+    else
+        cat <<EOF
+<select class="forminput" name="month">
+<option value=1>Jan
+<option value=2>Feb
+<option value=3>Mar
+<option value=4>Apr
+<option value=5>May
+<option value=6>Jun
+<option value=7>Jul
+<option value=8>Aug
+<option value=9>Sep
+<option value=10>Oct
+<option value=11>Nov
+<option value=12>Dec
+</select>
+EOF
+        if [ $NPERYEAR -ge 360 ]; then
+            echo "<select class=forminput name=day>"
+            i=0
+            while [ $i -lt 31 ]; do
+                ((i++))
+                echo "<option>$i"
+            done
+            echo "</select>"
+        fi
+    fi
+    cat <<EOF
+<input type="submit" class="formbutton" value="Select">
+</form>
+</td></tr>
+EOF
+fi
+cat <<EOF
+<tr><td>Combine:</td><td>
 <a href="normdiffform.cgi?id=$EMAIL&TYPE=$TYPE&WMO=$wmo&STATION=$STATION&NAME=$name&NPERYEAR=$NPERYEAR">Combine with another timeseries to form a (normalised) index</a>
 </td><td><a href="javascript:pop_page('help/combineseries.shtml',284,450)"><img src="images/info-i.gif" alt="help" border="0"></a></td></tr>
 <tr><td>Mask out:</td><td><a href="maskseriesform.cgi?id=$EMAIL&TYPE=$TYPE&WMO=$wmo&STATION=$STATION&NAME=$name&NPERYEAR=$NPERYEAR">Mask out based on another time series</a>
