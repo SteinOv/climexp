@@ -77,7 +77,7 @@ target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a
 <tr><td>&nbsp;<td><div class="kalelink">first EOF of Atlantic SLP <a href="getindices.cgi?WMO=NCEPNCAR40/nao_ncepncar&STATION=NAO_R1&TYPE=i&id=$EMAIL">NCEP/NCAR R1 (1950-now)</a>, <a href="getindices.cgi?WMO=ERA-interim/nao_erai&STATION=NAO_ERAI&TYPE=i&id=$EMAIL">ERA-interim / ECMWF analyses (1979-now)</a></div>
 <td><a href="http://www.cdc.noaa.gov/cdc/reanalysis/reanalysis.shtml" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
-<tr><td>SNAO<td><div class="kalelink">Summer NAO from <a href="getindices.cgi?WMO=NCEPNCAR40/snao_ncepncar&STATION=SNAO_ncepncar&TYPE=i&id=$EMAIL">NCEP/NCAR</a> (1948-now), <a href="getindices.cgi?WMO=UCARData/snao_ucar&STATION=SNAO_ucar&TYPE=i&id=$EMAIL">UCAR</a> (1899-now), <a href="getindices.cgi?WMO=20C/snao_20c&STATION=SNAO_20C&TYPE=i&id=$EMAIL">20C</a> (1871-2008) SLP</div>
+<tr><td>SNAO<td><div class="kalelink">Summer NAO from <a href="getindices.cgi?WMO=NCEPNCAR40/snao_ncepncar&STATION=SNAO_ncepncar&TYPE=i&id=$EMAIL">NCEP/NCAR</a> (1948-now), <a href="getindices.cgi?WMO=UCARData/snao_ucar&STATION=SNAO_ucar&TYPE=i&id=$EMAIL">UCAR</a> (1899-now), <a href="getindices.cgi?WMO=20CRv3/snao_20c&STATION=SNAO_20CR&TYPE=i&id=$EMAIL">20CRv3</a> (1836-2015) SLP</div>
 <td><a href="javascript:pop_page('help/snao.shtml',568,450)" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>AO<td><div class="kalelink"><a href="getindices.cgi?WMO=ColostateData/ao_slp_ext&STATION=AO_SLP&TYPE=i&id=$EMAIL">Arctic Oscillation derived from SLP</a> (1899-2002, Thompson, Colorado State)</div>
