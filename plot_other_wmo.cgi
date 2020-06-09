@@ -64,7 +64,7 @@ $setxrange
 $setyrange
 set title "$name"
 set ylabel "$VAR_ [$UNITS_]"
-plot $plotsmooth"$yearfile" u 1:2 notitle with lines lt 0 lw 2, "$plotyearfile" u 1:2 notitle with $lines lt 1 lw 2
+plot $plotsmooth"$yearfile" u 1:2 notitle with lines lt 0 lw 2, "$plotyearfile" u 1:2 notitle with lines lt 1 lw 2
 EOF
 echo $pngfile
 exit
