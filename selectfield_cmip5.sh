@@ -5,6 +5,7 @@ if [ -z "$timescale" ]; then
     echo "usage: $0 monthly|annual"
     exit -1
 fi
+nvarmax=10
 # get the list of vars and models from concatenate_years.sh
 if [ $timescale = "monthly" ]; then
     vars1="tas tasmin tasmax pr evspsbl pme hurs taz psl" # prw clwvi # no space
@@ -17,9 +18,9 @@ if [ $timescale = "monthly" ]; then
 elif [ $timescale = 'annual' ]; then
     vars1="altcdd csdi altcwd dtr fd gsl id tr prcptot"
     namevars1="<tr><th colspan=$((2+nvarmax))><a name=mix></a>mixed variables"
-    vars2="r1mm r10mm r20mm r95p r99p rx1day rx5day sdii su"
+    vars2="r1mm r10mm r20mm r95p r99p rx1day rx5day sdii"
     namevars2="<tr><th colspan=$((2+nvarmax))><a name=prcp></a>precipitation extremes"
-    vars3="tn10p tn90p tnn tnx tx10p tx90p txn txx wsdi"
+    vars3="tn10p tn90p tnn tnx tx10p tx90p txn txx wsdi su"
     namevars3="<tr><th colspan=$((2+nvarmax))><a name=temp></a>temperature extremes"
 models="modmean onemean mod one ens ACCESS1-0 ACCESS1-3 bcc-csm1-1 bcc-csm1-1-m BNU-ESM CanESM2 CCSM4 CESM1-BGC CMCC-CM CMCC-CMS CNRM-CM5 CSIRO-Mk3-6-0 EC-EARTH FGOALS-g2 GFDL-CM3 GFDL-ESM2G GFDL-ESM2M GISS-E2-R HadGEM2-CC HadGEM2-ES inmcm4 IPSL-CM5A-LR IPSL-CM5A-MR IPSL-CM5B-LR MIROC5 MIROC-ESM MIROC-ESM-CHEM MPI-ESM-LR MPI-ESM-MR MPI-ESM-P MRI-CGCM3 MRI-ESM1 NorESM1-M"
 else
