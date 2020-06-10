@@ -575,13 +575,13 @@ obs_tas_values = [['giss_temp_1200', 'GISTEMP 1200'],
                   ['hadcrut4', 'HadCRUT4'],
                   ['cru4_tmp', 'CRU TS 4']]
 
-obs_tasmin_values = [['cru4_tmn', 'CRU TS 4.00']]
+obs_tasmin_values = [['cru4_tmn', 'CRU TS 4']]
 
-obs_tasmax_values = [['cru4_tmx', 'CRU TS 4.00']]
+obs_tasmax_values = [['cru4_tmx', 'CRU TS 4']]
 
-obs_pr_values = [['gpcc_25_n1', 'GPCC V8'],
+obs_pr_values = [['gpcc_25_n1', 'GPCC'],
                  ['prca', 'NCDC anomalies'],
-                 ['cru4_pre', 'CRU TS 4.01']]
+                 ['cru4_pre', 'CRU TS 4']]
 
 obs_psl_values = [['trenberthslp', 'UCAR ds010 (NH only)'],
                   ['hadslp2r', 'HadSLP2r']]
