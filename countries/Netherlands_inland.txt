@@ -1,0 +1,18 @@
+# Netherlands without the Caribbean islands
+# with mask inland NL 50km, 30km from Waddensea
+# only used for Dutch stations so with  a wide margin.
+7.16 53.24
+7.19731815 53.28227774
+7.5 52.5
+6 50.5
+4.26 51
+4.26 51.43
+4.76 51.77
+5.03 51.98
+5.25 52.29
+5.36 52.58
+5.81 52.99
+5.99 53.01
+6.26 53.05
+6.67 53.11
+7.16 53.24
