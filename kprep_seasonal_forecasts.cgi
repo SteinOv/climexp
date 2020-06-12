@@ -41,10 +41,9 @@ The system has been documented in <a href="http://www.geosci-model-dev.net/8/394
 
 <p><a href="http://climexp.knmi.nl/kprep_mdc">Seasonal forecasts of fire weather / Monthly Drought Code</a>.
 
-EOF
-
-cat <<EOF
 <p><a href="http://climexp.knmi.nl/kprep_fc">Seasonal forecasts of temperature, precipitation and sea level pressure</a>.
+
+<p><a href="forecast_verification.cgi?id=$EMAIL">Old seasonal verification page</a>
 EOF
 
 . ./myvinkfoot.cgi
