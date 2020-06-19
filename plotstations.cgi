@@ -205,6 +205,71 @@ if [ -n "$FORM_nocbar" ]; then
     echo "no legend requested"
   fi
 else
+# coordinate with plotbox.gs ...
+if [ $FORM_col = 'colour' -o $FORM_col = 'color' ]; then
+    c6=6
+    c2=2
+    c8=8
+    c12=12
+    c7=7
+    c15=50
+    c10=10
+    c3=3
+    c11=11
+    c4=4
+    c14=14
+elif [ $FORM_col = 'flipcolour' -o $FORM_col = 'flipcolor' ]; then
+    c6=14
+    c2=4
+    c8=11
+    c12=3
+    c7=10
+    c15=50
+    c10=7
+    c3=12
+    c11=8
+    c4=2
+    c14=6
+elif [ $FORM_col = 'newcolour' -o $FORM_col = 'newcolor' ]; then
+    c6=26
+    c2=22
+    c8=28
+    c12=32
+    c7=27
+    c15=50
+    c15a=50
+    c10=30
+    c3=23
+    c11=31
+    c4=24
+    c14=34
+elif [ $FORM_col = 'newflipcolour' -o $FORM_col = 'newflipcolor' ]; then
+    c6=34
+    c2=24
+    c8=31
+    c12=23
+    c7=30
+    c15=50
+    c15a=50
+    c10=27
+    c3=32
+    c11=28
+    c4=22
+    c14=26
+elif [ $FORM_col = precipitation ]; then
+    c6=21
+    c2=22
+    c8=23
+    c12=24
+    c7=25
+    c15=50
+    c15a=26
+    c10=27
+    c3=28
+    c11=29
+    c4=30
+    c14=31
+fi
 if [ "$lwrite" = true ]; then
   echo "cmax=$cmax x=$c o=$o <br>"
   echo "scale=$scale<br>"
@@ -215,8 +280,9 @@ if [ "$lwrite" = true ]; then
   echo "FORM_oper = $FORM_oper<br>"
   echo "Computing legend<br>"
 fi
-if [ "$FORM_oper" = "hivr" -o "$FORM_oper" = "hivR" -o "$FORM_oper" = "higr" -o "$FORM_oper" = "higR" -o "$FORM_oper" = "hipr" -o "$FORM_oper" = "hipR" -o "$FORM_oper" = "atr1" -o "$FORM_oper" = "atr2" ]; then
-  if [ $FORM_col = 'colour' -o "$FORM_col" = "flipcolour" -o $FORM_col = 'color' -o "$FORM_col" = "flipcolor" ]; then
+if [ "$FORM_oper" = "hivr" -o "$FORM_oper" = "hivR" -o "$FORM_oper" = "higr" \
+  -o "$FORM_oper" = "higR" -o "$FORM_oper" = "hipr" -o "$FORM_oper" = "hipR" \
+  -o "$FORM_oper" = "atr1" -o "$FORM_oper" = "atr2" ]; then
     FORM_cmax=return
 # coordinate with plotbox.gs ...
     legenda="\
@@ -276,11 +342,7 @@ draw mark 3 8 $y8 $size8
 set line 1
 draw mark 2 8 $y8 $size8
 "
-  else
-    echo "legend with return times and this colour scale not yet ready"
-  fi  
 elif [ "$FORM_var" = "sign" ]; then
-  if [ $FORM_col = 'colour' -o "$FORM_col" = "flipcolour" ]; then
 # coordinate with plotbox.gs ...
     legenda="\
 set string 1 tc
@@ -314,61 +376,8 @@ draw mark 3 6.75 $y8 $size8
 set line 1
 draw mark 2 6.75 $y8 $size8
 "
-  else
-    echo "legend with significance and this colour scale not yet ready"
-  fi  
 elif [ "$FORM_oper" = 'corr' ]; then
-  if [ $FORM_col = 'bw' ]; then
-    legenda="\
-set string 1 tc
-draw mark 2 3 $y8 $size8
-draw string 3 $y0 r=-0.8
-draw mark 2 4 $y5 $size5
-draw string 4 $y0 r=-0.5
-draw mark 2 5 $y2 $size2
-draw string 5 $y0 r=-0.2
-draw mark 3 6 $y2 $size2
-set line 0
-draw mark 2 6 $y2 $size2
-set line 1
-draw string 6 $y0 r=+0.2
-draw mark 3 7 $y5 $size5
-set line 0
-draw mark 2 7 $y5 $size5
-set line 1
-draw string 7 $y0 r=+0.5
-draw mark 3 8 $y8 $size8
-set line 0
-draw mark 2 8 $y8 $size8
-set line 1
-draw string 8 $y0 r=+0.8
-"
-  elif [ $FORM_col = 'flipbw' ]; then
-    legenda="\
-set string 1 tc
-draw mark 3 3 $y8 $size8
-set line 0
-draw mark 2 3 $y8 $size8
-set line 1
-draw string 3 $y0 r=-0.8
-draw mark 3 4 $y5 $size5
-set line 0
-draw mark 2 4 $y5 $size5
-set line 1
-draw string 4 $y0 r=-0.5
-draw mark 3 5 $y2 $size2
-set line 0
-draw mark 2 5 $y2 $size2
-set line 1
-draw string 5 $y0 r=-0.2
-draw mark 2 6 $y2 $size2
-draw string 6 $y0 r=+0.2
-draw mark 2 7 $y5 $size5
-draw string 7 $y0 r=+0.5
-draw mark 2 8 $y8 $size8
-draw string 8 $y0 r=+0.8
-"
-  elif [ $FORM_col = 'rb' ]; then
+  if [ $FORM_col = 'rb' ]; then
     legenda="\
 set string 1 tc
 set line 4
@@ -437,139 +446,78 @@ set line 1
 draw mark 2 8 $y8 $size8
 draw string 8 $y0 r=+0.8
 "
-  elif [ $FORM_col = 'colour' -o $FORM_col = 'color' ]; then
-# coordinate with plotbox.gs ...
+  elif [ $FORM_col = 'colour' -o $FORM_col = 'color' \
+      -o $FORM_col = 'newcolour' -o $FORM_col = 'newcolor' \
+      -o $FORM_col = 'flipcolour' -o $FORM_col = 'flipcolor' \
+      -o $FORM_col = 'newflipcolour' -o $FORM_col = 'newflipcolor' \
+      -o $FORM_col = "precipitation" ]; then
+    y0=0.15
     legenda="\
 set string 1 tc
-set line 14
-draw mark 3 3 $y8 $size8
+set line $c14
+draw mark 3 3 $y8 $size5
 set line 1
-draw mark 2 3 $y8 $size8
+draw mark 2 3 $y8 $size5
 draw string 3.25 $y0 -$val6
-set line 4
-draw mark 3 3.5 $y8 $size8
+set line $c4
+draw mark 3 3.5 $y8 $size5
 set line 1
-draw mark 2 3.5 $y8 $size8
+draw mark 2 3.5 $y8 $size5
 draw string 3.75 $y0 -$val5
-set line 11
-draw mark 3 4 $y8 $size8
+set line $c11
+draw mark 3 4 $y8 $size5
 set line 1
-draw mark 2 4 $y8 $size8
+draw mark 2 4 $y8 $size5
 draw string 4.25 $y0 -$val4
-set line 3
-draw mark 3 4.5 $y8 $size8
+set line $c3
+draw mark 3 4.5 $y8 $size5
 set line 1
-draw mark 2 4.5 $y8 $size8
+draw mark 2 4.5 $y8 $size5
 draw string 4.75 $y0 -$val3
-set line 10
-draw mark 3 5 $y8 $size8
+set line $c10
+draw mark 3 5 $y8 $size5
 set line 1
-draw mark 2 5 $y8 $size8
+draw mark 2 5 $y8 $size5
 draw string 5.25 $y0 -$val2
-set line 15
-draw mark 3 5.5 $y8 $size8
+set line $c15
+draw mark 3 5.5 $y8 $size5
 set line 1
-draw mark 2 5.5 $y8 $size8
+draw mark 2 5.5 $y8 $size5
 draw string 5.75 $y0 +$val2
-set line 7
-draw mark 3 6 $y8 $size8
+set line $c7
+draw mark 3 6 $y8 $size5
 set line 1
-draw mark 2 6 $y8 $size8
+draw mark 2 6 $y8 $size5
 draw string 6.25 $y0 +$val3
-set line 12
-draw mark 3 6.5 $y8 $size8
+set line $c12
+draw mark 3 6.5 $y8 $size5
 set line 1
-draw mark 2 6.5 $y8 $size8
+draw mark 2 6.5 $y8 $size5
 draw string 6.75 $y0 +$val4
-set line 8
-draw mark 3 7 $y8 $size8
+set line $c8
+draw mark 3 7 $y8 $size5
 set line 1
-draw mark 2 7 $y8 $size8
+draw mark 2 7 $y8 $size5
 draw string 7.25 $y0 +$val5
-set line 2
-draw mark 3 7.5 $y8 $size8
+set line $c2
+draw mark 3 7.5 $y8 $size5
 set line 1
-draw mark 2 7.5 $y8 $size8
+draw mark 2 7.5 $y8 $size5
 draw string 7.75 $y0 +$val6
-set line 6
-draw mark 3 8 $y8 $size8
+set line $c6
+draw mark 3 8 $y8 $size5
 set line 1
-draw mark 2 8 $y8 $size8
+draw mark 2 8 $y8 $size5
 
 set line 50
-draw mark 3 9 $y8 $size8
+draw mark 3 9 $y8 $size5
 set line 15
-draw mark 2 9 $y8 $size8
+draw mark 2 9 $y8 $size5
 set line 1
-draw string 9.25 $y0 P>${FORM_greycut}%
-"
-  elif [ $FORM_col = 'flipcolour' -o $FORM_col = 'flipcolor' ]; then
-# coordinate with plotbox.gs ...
-    legenda="\
-set string 1 tc
-set line 6
-draw mark 3 3 $y8 $size8
-set line 1
-draw mark 2 3 $y8 $size8
-draw string 3.25 $y0 -$val6
-set line 2
-draw mark 3 3.5 $y8 $size8
-set line 1
-draw mark 2 3.5 $y8 $size8
-draw string 3.75 $y0 -$val5
-set line 8
-draw mark 3 4 $y8 $size8
-set line 1
-draw mark 2 4 $y8 $size8
-draw string 4.25 $y0 -$val4
-set line 12
-draw mark 3 4.5 $y8 $size8
-set line 1
-draw mark 2 4.5 $y8 $size8
-draw string 4.75 $y0 -$val3
-set line 7
-draw mark 3 5 $y8 $size8
-set line 1
-draw mark 2 5 $y8 $size8
-draw string 5.25 $y0 -$val2
-set line 15
-draw mark 3 5.5 $y8 $size8
-set line 1
-draw mark 2 5.5 $y8 $size8
-draw string 5.75 $y0 +$val2
-set line 10
-draw mark 3 6 $y8 $size8
-set line 1
-draw mark 2 6 $y8 $size8
-draw string 6.25 $y0 +$val3
-set line 3
-draw mark 3 6.5 $y8 $size8
-set line 1
-draw mark 2 6.5 $y8 $size8
-draw string 6.75 $y0 +$val4
-set line 11
-draw mark 3 7 $y8 $size8
-set line 1
-draw mark 2 7 $y8 $size8
-draw string 7.25 $y0 +$val5
-set line 4
-draw mark 3 7.5 $y8 $size8
-set line 1
-draw mark 2 7.5 $y8 $size8
-draw string 7.75 $y0 +$val6
-set line 14
-draw mark 3 8 $y8 $size8
-set line 1
-draw mark 2 8 $y8 $size8
-
-set line 50
-draw mark 3 9 $y8 $size8
-set line 15
-draw mark 2 9 $y8 $size8
-set line 1
-draw string 9.25 $y0 P>${FORM_greycut}%
+draw string 9.25 $y0 p>${FORM_greycut}%
 "
   fi
+  [ "$lwrite" = true ] && echo "legenda=$legenda<br>"
 elif [ "$FORM_oper" != "grid" ]; then
 # not a correlation.  We would still like a legend, though...
   invscale=`echo "100000/$scale"|bc -l -q`
@@ -685,43 +633,7 @@ elif [ "$FORM_oper" != "grid" ]; then
   y1=`echo "0.15+$size1/2" | bc -l -q`
   y2=`echo "0.15+$size2/2" | bc -l -q`
   y0=0.12
-  if [ $FORM_col = 'bw' ]; then
-    legenda="\
-set string 1 tc
-draw mark 2 4 $y2 $size2
-draw string 4 $y0 -$legend2
-draw mark 2 5 $y1 $size1
-draw string 5 $y0 -$legend1
-draw mark 3 6 $y1 $size1
-set line 0
-draw mark 2 6 $y1 $size1
-set line 1
-draw string 6 $y0 +$legend1
-draw mark 3 7 $y2 $size2
-set line 0
-draw mark 2 7 $y2 $size2
-set line 1
-draw string 7 $y0 +$legend2
-"
-  elif [ $FORM_col = 'flipbw' ]; then
-    legenda="\
-set string 1 tc
-draw mark 3 4 $y2 $size2
-set line 0
-draw mark 2 4 $y2 $size2
-set line 1
-draw string 4 $y0 -$legend2
-draw mark 3 5 $y1 $size1
-set line 0
-draw mark 2 5 $y1 $size1
-set line 1
-draw string 5 $y0 -$legend1
-draw mark 2 6 $y1 $size1
-draw string 6 $y0 +$legend1
-draw mark 2 7 $y2 $size2
-draw string 7 $y0 +$legend2
-"
-  elif [ $FORM_col = 'rb' ]; then
+  if [ $FORM_col = 'rb' ]; then
     legenda="\
 set string 1 tc
 set line 4
@@ -769,274 +681,6 @@ draw mark 3 7 $y2 $size2
 set line 1
 draw mark 2 7 $y2 $size2
 draw string 7 $y0 +$legend2
-"
-  elif [ $FORM_col = 'newcolour' ]; then
-# coordinate with plotbox.gs ...
-    y0=0.15
-    legenda="\
-set string 1 tc
-set line 34
-draw mark 3 3 $y8 $size5
-set line 1
-draw mark 2 3 $y8 $size5
-draw string 3.25 $y0 -$val6
-set line 24
-draw mark 3 3.5 $y8 $size5
-set line 1
-draw mark 2 3.5 $y8 $size5
-draw string 3.75 $y0 -$val5
-set line 31
-draw mark 3 4 $y8 $size5
-set line 1
-draw mark 2 4 $y8 $size5
-draw string 4.25 $y0 -$val4
-set line 23
-draw mark 3 4.5 $y8 $size5
-set line 1
-draw mark 2 4.5 $y8 $size5
-draw string 4.75 $y0 -$val3
-set line 30
-draw mark 3 5 $y8 $size5
-set line 1
-draw mark 2 5 $y8 $size5
-draw string 5.25 $y0 -$val2
-set line 50
-draw mark 3 5.5 $y8 $size5
-set line 1
-draw mark 2 5.5 $y8 $size5
-draw string 5.75 $y0 +$val2
-set line 27
-draw mark 3 6 $y8 $size5
-set line 1
-draw mark 2 6 $y8 $size5
-draw string 6.25 $y0 +$val3
-set line 32
-draw mark 3 6.5 $y8 $size5
-set line 1
-draw mark 2 6.5 $y8 $size5
-draw string 6.75 $y0 +$val4
-set line 28
-draw mark 3 7 $y8 $size5
-set line 1
-draw mark 2 7 $y8 $size5
-draw string 7.25 $y0 +$val5
-set line 22
-draw mark 3 7.5 $y8 $size5
-set line 1
-draw mark 2 7.5 $y8 $size5
-draw string 7.75 $y0 +$val6
-set line 26
-draw mark 3 8 $y8 $size5
-set line 1
-draw mark 2 8 $y8 $size5
-
-set line 50
-draw mark 3 9 $y8 $size5
-set line 15
-draw mark 2 9 $y8 $size5
-set line 1
-draw string 9.25 $y0 P>${FORM_greycut}%
-"
-  elif [ $FORM_col = 'newflipcolour' ]; then
-# coordinate with plotbox.gs ...
-    y0=0.15
-    legenda="\
-set string 1 tc
-set line 26
-draw mark 3 3 $y8 $size5
-set line 1
-draw mark 2 3 $y8 $size5
-draw string 3.25 $y0 -$val6
-set line 22
-draw mark 3 3.5 $y8 $size5
-set line 1
-draw mark 2 3.5 $y8 $size5
-draw string 3.75 $y0 -$val5
-set line 28
-draw mark 3 4 $y8 $size5
-set line 1
-draw mark 2 4 $y8 $size5
-draw string 4.25 $y0 -$val4
-set line 32
-draw mark 3 4.5 $y8 $size5
-set line 1
-draw mark 2 4.5 $y8 $size5
-draw string 4.75 $y0 -$val3
-set line 27
-draw mark 3 5 $y8 $size5
-set line 1
-draw mark 2 5 $y8 $size5
-draw string 5.25 $y0 -$val2
-set line 15
-draw mark 3 5.5 $y8 $size5
-set line 1
-draw mark 2 5.5 $y8 $size5
-draw string 5.75 $y0 +$val2
-set line 30
-draw mark 3 6 $y8 $size5
-set line 1
-draw mark 2 6 $y8 $size5
-draw string 6.25 $y0 +$val3
-set line 23
-draw mark 3 6.5 $y8 $size5
-set line 1
-draw mark 2 6.5 $y8 $size5
-draw string 6.75 $y0 +$val4
-set line 31
-draw mark 3 7 $y8 $size5
-set line 1
-draw mark 2 7 $y8 $size5
-draw string 7.25 $y0 +$val5
-set line 24
-draw mark 3 7.5 $y8 $size5
-set line 1
-draw mark 2 7.5 $y8 $size5
-draw string 7.75 $y0 +$val6
-set line 34
-draw mark 3 8 $y8 $size5
-set line 1
-draw mark 2 8 $y8 $size5
-
-set line 50
-draw mark 3 9 $y8 $size5
-set line 15
-draw mark 2 9 $y8 $size5
-set line 1
-draw string 9.25 $y0 P>${FORM_greycut}%
-"
-  elif [ $FORM_col = 'colour' -o $FORM_col = color ]; then
-# coordinate with plotbox.gs ...
-    y0=0.15
-    legenda="\
-set string 1 tc
-set line 14
-draw mark 3 3 $y8 $size5
-set line 1
-draw mark 2 3 $y8 $size5
-draw string 3.25 $y0 -$val6
-set line 4
-draw mark 3 3.5 $y8 $size5
-set line 1
-draw mark 2 3.5 $y8 $size5
-draw string 3.75 $y0 -$val5
-set line 11
-draw mark 3 4 $y8 $size5
-set line 1
-draw mark 2 4 $y8 $size5
-draw string 4.25 $y0 -$val4
-set line 3
-draw mark 3 4.5 $y8 $size5
-set line 1
-draw mark 2 4.5 $y8 $size5
-draw string 4.75 $y0 -$val3
-set line 10
-draw mark 3 5 $y8 $size5
-set line 1
-draw mark 2 5 $y8 $size5
-draw string 5.25 $y0 -$val2
-set line 15
-draw mark 3 5.5 $y8 $size5
-set line 1
-draw mark 2 5.5 $y8 $size5
-draw string 5.75 $y0 +$val2
-set line 7
-draw mark 3 6 $y8 $size5
-set line 1
-draw mark 2 6 $y8 $size5
-draw string 6.25 $y0 +$val3
-set line 12
-draw mark 3 6.5 $y8 $size5
-set line 1
-draw mark 2 6.5 $y8 $size5
-draw string 6.75 $y0 +$val4
-set line 8
-draw mark 3 7 $y8 $size5
-set line 1
-draw mark 2 7 $y8 $size5
-draw string 7.25 $y0 +$val5
-set line 2
-draw mark 3 7.5 $y8 $size5
-set line 1
-draw mark 2 7.5 $y8 $size5
-draw string 7.75 $y0 +$val6
-set line 6
-draw mark 3 8 $y8 $size5
-set line 1
-draw mark 2 8 $y8 $size5
-
-set line 50
-draw mark 3 9 $y8 $size5
-set line 15
-draw mark 2 9 $y8 $size5
-set line 1
-draw string 9.25 $y0 P>${FORM_greycut}%
-"
-  elif [ $FORM_col = 'flipcolour' -o $FORM_col = flipcolor ]; then
-# coordinate with plotbox.gs ...
-    y0=0.15
-    legenda="\
-set string 1 tc
-set line 6
-draw mark 3 3 $y8 $size5
-set line 1
-draw mark 2 3 $y8 $size5
-draw string 3.25 $y0 -$val6
-set line 2
-draw mark 3 3.5 $y8 $size5
-set line 1
-draw mark 2 3.5 $y8 $size5
-draw string 3.75 $y0 -$val5
-set line 8
-draw mark 3 4 $y8 $size5
-set line 1
-draw mark 2 4 $y8 $size5
-draw string 4.25 $y0 -$val4
-set line 12
-draw mark 3 4.5 $y8 $size5
-set line 1
-draw mark 2 4.5 $y8 $size5
-draw string 4.75 $y0 -$val3
-set line 7
-draw mark 3 5 $y8 $size5
-set line 1
-draw mark 2 5 $y8 $size5
-draw string 5.25 $y0 -$val2
-set line 15
-draw mark 3 5.5 $y8 $size5
-set line 1
-draw mark 2 5.5 $y8 $size5
-draw string 5.75 $y0 +$val2
-set line 10
-draw mark 3 6 $y8 $size5
-set line 1
-draw mark 2 6 $y8 $size5
-draw string 6.25 $y0 +$val3
-set line 3
-draw mark 3 6.5 $y8 $size5
-set line 1
-draw mark 2 6.5 $y8 $size5
-draw string 6.75 $y0 +$val4
-set line 11
-draw mark 3 7 $y8 $size5
-set line 1
-draw mark 2 7 $y8 $size5
-draw string 7.25 $y0 +$val5
-set line 4
-draw mark 3 7.5 $y8 $size5
-set line 1
-draw mark 2 7.5 $y8 $size5
-draw string 7.75 $y0 +$val6
-set line 14
-draw mark 3 8 $y8 $size5
-set line 1
-draw mark 2 8 $y8 $size5
-
-set line 50
-draw mark 3 9 $y8 $size5
-set line 15
-draw mark 2 9 $y8 $size5
-set line 1
-draw string 9.25 $y0 P>${FORM_greycut}%
 "
   elif [ $FORM_col = 'precipitation' ]; then
 # coordinate with plotbox.gs ...
@@ -1106,19 +750,80 @@ draw mark 3 9 $y8 $size5
 set line 15
 draw mark 2 9 $y8 $size5
 set line 1
-draw string 9.25 $y0 P>${FORM_greycut}%
+draw string 9.25 $y0 p>${FORM_greycut}%
+"
+  else
+# coordinate with plotbox.gs ...
+    y0=0.15
+    legenda="\
+set string 1 tc
+set line $c14
+draw mark 3 3 $y8 $size5
+set line 1
+draw mark 2 3 $y8 $size5
+draw string 3.25 $y0 -$val6
+set line $c4
+draw mark 3 3.5 $y8 $size5
+set line 1
+draw mark 2 3.5 $y8 $size5
+draw string 3.75 $y0 -$val5
+set line $c11
+draw mark 3 4 $y8 $size5
+set line 1
+draw mark 2 4 $y8 $size5
+draw string 4.25 $y0 -$val4
+set line $c3
+draw mark 3 4.5 $y8 $size5
+set line 1
+draw mark 2 4.5 $y8 $size5
+draw string 4.75 $y0 -$val3
+set line $c10
+draw mark 3 5 $y8 $size5
+set line 1
+draw mark 2 5 $y8 $size5
+draw string 5.25 $y0 -$val2
+set line $c15
+draw mark 3 5.5 $y8 $size5
+set line 1
+draw mark 2 5.5 $y8 $size5
+draw string 5.75 $y0 +$val2
+set line $c7
+draw mark 3 6 $y8 $size5
+set line 1
+draw mark 2 6 $y8 $size5
+draw string 6.25 $y0 +$val3
+set line $c12
+draw mark 3 6.5 $y8 $size5
+set line 1
+draw mark 2 6.5 $y8 $size5
+draw string 6.75 $y0 +$val4
+set line $c8
+draw mark 3 7 $y8 $size5
+set line 1
+draw mark 2 7 $y8 $size5
+draw string 7.25 $y0 +$val5
+set line $c2
+draw mark 3 7.5 $y8 $size5
+set line 1
+draw mark 2 7.5 $y8 $size5
+draw string 7.75 $y0 +$val6
+set line $c6
+draw mark 3 8 $y8 $size5
+set line 1
+draw mark 2 8 $y8 $size5
+
+set line 50
+draw mark 3 9 $y8 $size5
+set line 15
+draw mark 2 9 $y8 $size5
+set line 1
+draw string 9.25 $y0 p>${FORM_greycut}%
 "
   fi
 fi
 fi # nocbar
 
-if [ -z "$grads20" ]; then
-    printeps="enable print $f.gm
-print
-disable print"
-else
-    printeps="$gxprint $f.eps $gxprintoptions"
-fi
+printeps="$gxprint $f.eps $gxprintoptions"
 
 export HOME=/tmp
 if [ ${FORM_mapformat:-png} = geotiff ]; then
@@ -1154,6 +859,9 @@ EOF
 	echo "<a href=\"$f.tif\">GeoTIFF</a> of"
 
 else # normal PNG figure
+    if [ "$lwrite" = true ]; then
+        echo "legenda=$legenda"
+    fi
 	$grads -l -b -c 'run grads/startup.gs' << EOF > /tmp/grads$id.log
 $map
 $setxlint
