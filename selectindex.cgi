@@ -445,10 +445,6 @@ Hadley Centre)</div>
 
 <tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=WURData/BVnootjes&STATION=beechnuts&TYPE=i&id=$EMAIL">beech nuts</a> (1930-1967), <a href="getindices.cgi?WMO=WURData/HPnootjes&STATION=beechcrop&TYPE=i&id=$EMAIL">beech crop</a> (1930-1996)</div>
 <td>&nbsp;
-
-<tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=KNMIData/hist_Ptekort&STATION=potential_precipitation_deficit&TYPE=i&NPERYEAR=1&id=$EMAIL">Annual maximum of the potential evaporation deficit</a> (1906-2017)</div>
-<td><a href="https://www.knmi.nl/nederland-nu/klimatologie/geografische-overzichten/neerslagtekort_droogte" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
-
 <tr><td>Currents<td><div class="kalelink"><a href="getindices.cgi?WMO=AOMLData/FC_monthly&STATION=Florida_Current&TYPE=i&id=$EMAIL">Strength of the Florida Current</a> (1982-now, Florida Current Project)</div>
 <td><a href="http://www.aoml.noaa.gov/phod/floridacurrent/"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
