@@ -6,9 +6,12 @@ if [ $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 ]; then
 fi
 if [ "$lwrite" = true ]; then
     echo "Turned on debug printing<p>"
+    which grads
     ###set -x
 fi
 hiresmap=true
+# to find netpbm on MacOS X
+export PATH=/sw/bin:/usr/local/bin:$PATH
 if [ "$hiresmap" = true ]; then
     doublesize="x1804 y1394"
 else
@@ -17,8 +20,6 @@ fi
 . ./config_grads.cgi
 # expects variables: ...
 #
-# to find netpbm on MacOS X
-export PATH=/sw/bin:/usr/local/bin:$PATH
 if [ -z "$alreadyprinted" ]
 then
     echo "<p>Plotting with <a href=\"http://cola.gmu.edu/grads/\" target=_top>GrADS $gradsver</a>..."
