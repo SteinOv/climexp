@@ -22,7 +22,7 @@ cat <<EOF
 <table class="realtable" width="100%" cellspacing=0 cellpadding=0>
 <tr><th colspan=2>References
 EOF
-file0=`echo "$file" | tr '%+' '00'`
+file0=`echo "$file" | sed -e 's/%%%/000/' -e 's/%%/00/' -e 's/+++/000/' -e 's/++/01/'`
 [ "$splitfield" = true ] && file0=`ls $file0 | head -n 1`
 if [ ! -s $file0 ]; then
     file0=`echo "$file" | sed -e 's/%%%/001/' -e 's/%%/01/' -e 's/+++/001/' -e 's/++/01/'`
