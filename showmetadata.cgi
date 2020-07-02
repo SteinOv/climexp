@@ -154,6 +154,7 @@ else
     ncdump -h $file0 | cut -b 1-10000 | sed \
         -e '/{/,/global attributes/d' \
         -e 's/^[ \t]*:/\<tr\>\<td\>/' \
+        -e 's/^[ 	]*:/\<tr\>\<td\>/' \
         -e 's/ = */\<td\>/' \
         -e 's/ ;//' \
         -e 's/"//g' \
