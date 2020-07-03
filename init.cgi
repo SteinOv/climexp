@@ -97,7 +97,7 @@ if [ -z "$init_done" ]; then
     # netcdf libraries on bhlclim, bvlclim - hard-coded
     export LD_LIBRARY_PATH=/home/oldenbor/lib:/usr/local/free/lib:$LD_LIBRARY_PATH
     # for a few routines this seems needed
-    export PATH=./bin:/sw/bin:/opt/sw/bin:/usr/local/bin:/usr/local/free/bin:/sbin:$PATH
+    export PATH=./bin:/sw/bin:/opt/sw/bin:/usr/local/bin:/usr/local/free/bin:/sbin:/Library/TeX/texbin:$PATH
     # finally, avoid commas instead of decimal points :-(
     export LANG=C
     # start with modest parallel processing
@@ -114,13 +114,14 @@ if [ -z "$init_done" ]; then
     # set a standard TTF font for gnuplot.   GNUPLOT_DEFAULT_GDFONT is not used
     # if all is well, but is there as a fall-back.
     export gnuplot_version=`gnuplot --version`
-    if [ "${gnuplot_version#gnuplot 4}" = "$gnuplot_version" ]; then
-        export gnuplot_init="set colors classic"
-        setxzeroaxis="set xzeroaxis" # bug in gnuplot 5.0 patchlevel 0
-    else
-        setxzeroaxis="set xzeroaxis"
-    fi
+    export gnuplot_init="set colors classic"
+    setxzeroaxis="set xzeroaxis" # bug in gnuplot 5.0 patchlevel 0
     export GDFONTPATH=`pwd`/truetype
+    if [ `uname` = Darwin ]; then
+        export GNUPLOT_FONTPATH=$GNUPLOT_FONTPATH:$HOME/climexp/truetype:$HOME/Library/Fonts
+    else
+        export GNUPLOT_FONTPATH=$GNUPLOT_FONTPATH:$HOME/climexp/truetype
+    fi
     export GNUPLOT_DEFAULT_GDFONT="DejaVuSansCondensed"
     export gnuplot_png_font_hires="size 1280,960 crop font DejaVuSansCondensed 15"
     export gnuplot_png_font="size 640,480 crop font DejaVuSansCondensed 8.5"
