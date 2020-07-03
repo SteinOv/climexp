@@ -1,6 +1,10 @@
 #!/bin/bash
 # move information from the old email-based log/list to the new md5-based newlist
-md5=`echo $EMAIL | md5sum | cut -f 1 -d ' '`
+if [ `uname = Darwin` ]; then
+    md5=`echo $EMAIL | md5`
+else
+    md5=`echo $EMAIL | md5sum | cut -f 1 -d ' '`
+fi
 username=`fgrep "$EMAIL" ./log/list|cut -f 2 -d ' '|tail -1`
 institute=`fgrep "$EMAIL" ./log/list|cut -f 3 -d ' '|tail -1`
 echo "^$EMAIL $username $institute $md5 `date`" >> ./log/newlist
