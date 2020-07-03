@@ -15,9 +15,8 @@ if [ $EMAIL = someone@somewhere ]; then
     . ./myvinkheadfoot.cgi
 fi
 if [ $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 ]; then
-    lwrite=true # false
+    lwrite=false # true
 fi
-
 [ ! -d synthesis/$EMAIL ] && mkdir synthesis/$EMAIL
 prefs=prefs/$EMAIL.synthesis
 
@@ -224,8 +223,15 @@ plot ${line} notitle w line lt 0, \
 quit
 EOF
     gnuplot < ${root}.gnuplot >& /dev/null
-    epstopdf ${root}.eps
-    gs -q -r450 -dTextAlphaBits=4 -dNOPAUSE -sDEVICE=ppmraw -sOutputFile=- $root.eps -c quit | pnmcrop | pnmrotate -90 | pnmtopng > $root.png
+    epstopdf ${root}.eps > /tmp/epstopdf$$$.log 2>&1
+    if [ ! -f ${root}.pdf ]; then
+        echo "Something went wrong generating ${root}.pdf"
+        echo "epstopdf ${root}.eps"
+        cat /tmp/epstopdf$$$.log
+    else
+        rm 
+    fi
+    gs -q -r450 -sPAPERSIZE=a2 -dTextAlphaBits=4 -dNOPAUSE -sDEVICE=ppmraw -sOutputFile=- $root.eps -c quit | pnmcrop | pnmrotate -90 | pnmtopng > $root.png
 
     echo "<div class=bijschrift>Synthesis of "
     fgrep '#' $root.txt | sed -e 's/ *#//' -e 's/ *$/,/'
