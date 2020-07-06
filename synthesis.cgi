@@ -158,9 +158,16 @@ if [ -z "$nocomputation" ]; then
 
     [ "$lwrite" = true ] && echo "./bin/synthesis $args<br>"
     echo `date` "$EMAIL ($REMOTE_ADDR) synthesis $args" >> log/log
-    ./bin/synthesis $args > $ofile
-    if [ ! -s $ofile -o `fgrep -c 'error:' $ofile` != 0 ]; then
-        echo "Something went wrong in synthesis $args"
+    (./bin/synthesis $args > $ofile) 2>&1
+    if [ -x $ofile ]; then
+        c1=`fgrep -c 'error:' $ofile`
+        c2=`wc -l $ofile`
+    else
+        c1=1
+        c2=0
+    fi
+    if [ ! -s $ofile -o "$c1" != 0 -o "$c2" -le 2 ]; then
+        echo "<p>Something went wrong in<br>synthesis $args"
         echo '<pre>'
         cat $ofile 2>&1
         echo '</pre>'
