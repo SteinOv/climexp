@@ -155,11 +155,12 @@ if [ -z "$nocomputation" ]; then
 
     root=data/synthesis_`date -u "+%Y%m%d_%H%M%S"`_$EMAIL
     ofile=$root.txt
+    echo '<p>'
 
     [ "$lwrite" = true ] && echo "./bin/synthesis $args<br>"
     echo `date` "$EMAIL ($REMOTE_ADDR) synthesis $args" >> log/log
     (./bin/synthesis $args > $ofile) 2>&1
-    if [ -x $ofile ]; then
+    if [ -s $ofile ]; then
         c1=`fgrep -c 'error:' $ofile`
         c2=`wc -l $ofile`
     else
