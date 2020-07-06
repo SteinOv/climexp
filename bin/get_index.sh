@@ -1,77 +1,78 @@
 #!/bin/sh
 lwrite=false
 if [ -n "$EMAIL" -a "$EMAIL" = ec8907341dfc63c526d08e36d06b7ed8 ]; then
-	lwrite=true
+    lwrite=false # true
+    ###set -x
 fi
 if [ -z "$DIR" ]; then
-	DIR=`pwd`
+    DIR=`pwd`
 fi
 PROG=`basename $0 .sh`
 if [ -z "$file" ]; then
-	echo "error: \$file is undefined!"
-	exit -1
+    echo "error: \$file is undefined!"
+    exit -1
 fi
 if [ -z "$TYPE$WMO" ]; then
-	echo "error: \$TYPE\$WMO is undefined!"
-	exit -1
+    echo "error: \$TYPE\$WMO is undefined!"
+    exit -1
 fi
 c1=`echo $file | fgrep -c '%%'`
 c2=`echo $file | fgrep -c '++'`
 c3=`echo $file | egrep -c '%%%|\+\+\+'`
 if [ $c1 -eq 0 -a $c2 -eq 0 ]
 then
-	outfile=data/$TYPE$WMO.dat
-	allfiles=`echo $file | sed -e "s:\+\+\+:$ii:" -e "s:\%\%\%:$ii:" -e "s:\+\+:$ii:" -e "s:\%\%:$ii:"`
-	if [ "$splitfield" = true ]; then
-    	onefile=`ls -t $allfiles 2>&1 | head -1`
+    outfile=data/$TYPE$WMO.dat
+    allfiles=`echo $file | sed -e "s:\+\+\+:$ii:" -e "s:\%\%\%:$ii:" -e "s:\+\+:$ii:" -e "s:\%\%:$ii:"`
+    if [ "$splitfield" = true ]; then
+        onefile=`ls -t $allfiles 2>&1 | head -1`
     else
         onefile=$allfiles
     fi
-	if [ ! -s $outfile -o $outfile -ot $onefile ]; then
-	    if [ "$splitfield" != true ]; then
-    		[ $lwrite = true ] && echo "# $DIR/bin/$PROG $*"
-	    	$DIR/bin/$PROG $*
-	    else
-	        outfile=/tmp/get_index.$$
-	        touch $outfile
-	        allfiles=`echo $file`
-	        for f in $allfiles; do
-	            args=`echo "$*" | sed -e "s@$file@$f@" -e "s@$allfiles@$f@"`
-        		[ "$lwrite" = true ] && echo "# $DIR/bin/$PROG $args" 1>&2
-	            $DIR/bin/$PROG $args >> $outfile
-	        done
-	        # collect all the metadata at the top. note it will give duplicate history etc attributes
-	        sed -e 's/^ *//' $outfile | sort | uniq
-	        rm $outfile
-	    fi
-	else
-	    cat $outfile
-	fi
+    if [ ! -s $outfile -o $outfile -ot $onefile ]; then
+        if [ "$splitfield" != true ]; then
+            [ $lwrite = true ] && echo "# $DIR/bin/$PROG $*"
+            $DIR/bin/$PROG $*
+        else
+            outfile=/tmp/get_index.$$
+            touch $outfile
+            allfiles=`echo $file`
+            for f in $allfiles; do
+                args=`echo "$*" | sed -e "s@$file@$f@" -e "s@$allfiles@$f@"`
+                [ "$lwrite" = true ] && echo "# $DIR/bin/$PROG $args" 1>&2
+                $DIR/bin/$PROG $args >> $outfile
+            done
+            # collect all the metadata at the top. note it will give duplicate history etc attributes
+            sed -e 's/^ *//' $outfile | sort | uniq
+            rm $outfile
+        fi
+    else
+        cat $outfile
+    fi
 else
-	i=0
-	if [ $c3 = 0 ]; then
-		ii=00
-		nmax=100
-		format="%02i"
-	else
-		ii=000
-		nmax=1000
-		format="%03i"
-	fi
-	allfiles=`echo $file | sed -e "s:\+\+\+:$ii:" -e "s:\%\%\%:$ii:" -e "s:\+\+:$ii:" -e "s:\%\%:$ii:"`
-	if [ "$splitfield" = true ]; then
-    	ensfile=`ls -t $allfiles 2>&1 | head -1`
+    i=0
+    if [ $c3 = 0 ]; then
+        ii=00
+        nmax=100
+        format="%02i"
+    else
+        ii=000
+        nmax=1000
+        format="%03i"
+    fi
+    allfiles=`echo $file | sed -e "s:+++:$ii:" -e "s:\%\%\%:$ii:" -e "s:++:$ii:" -e "s:\%\%:$ii:"`
+    if [ "$splitfield" = true ]; then
+        ensfile=`ls -t $allfiles 2>&1 | head -1`
     else
         ensfile=$allfiles
     fi
     [ "$lwrite" = true ] && echo "log..." > /tmp/aap
-	while [ $i -lt $nmax ]
-	do
-	    
-		[ "$lwrite" = true ] && echo "ensfile = $ensfile" >> /tmp/aap
-		if [ -s "$ensfile" -o -s "data/$ensfile" ]
-		then
-			ensout=`echo data/$TYPE$WMO.dat | sed -e "s@\+\+\+@$ii@" -e "s@\%\%\%@$ii@" -e "s@\+\+@$ii@" -e "s@\%\%@$ii@"`
+    while [ $i -lt $nmax ]
+    do
+
+        [ "$lwrite" = true ] && echo "ensfile = $ensfile" >> /tmp/aap
+        if [ -s "$ensfile" -o -s "data/$ensfile" ]
+        then
+            ensout=`echo data/$TYPE$WMO.dat | sed -e "s@+++@$ii@" -e "s@\%\%\%@$ii@" -e "s@++@$ii@" -e "s@\%\%@$ii@"`
             if [ ! -s $ensout ]; then
                 touch $ensout.tmp$$
                 [ "$lwrite" = true ] && echo "allfiles=$allfiles" >> /tmp/aap
@@ -110,10 +111,10 @@ else
                 sed -e 's/^ *//' $ensout.tmp$$ | sort | uniq > $ensout
                 rm $ensout.tmp$$
             fi
-			echo "# $ensout"
-		fi
-		i=$((i+1))
-		ii=`printf $format $i`
+            echo "# $ensout"
+        fi
+        i=$((i+1))
+        ii=`printf $format $i`
         allfiles=`echo $file | sed -e "s:\+\+\+:$ii:" -e "s:\%\%\%:$ii:" -e "s:\+\+:$ii:" -e "s:\%\%:$ii:"`
         if [ "$splitfield" = true ]; then
             ensfile=`ls -t $allfiles 2>&1 | head -1`
@@ -122,8 +123,8 @@ else
             ensfile=$allfiles
         fi
         [ "$lwrite" = true ] && echo "ensfile=$ensfile" >> /tmp/aap
-		if [ $((i%100)) = 0 -a \( -s "$ensfile" -o -s "data/$ensfile" \) ]; then
-		    echo "Processing $i...<p>" 1>&2
-		fi
-	done
+        if [ $((i%100)) = 0 -a \( -s "$ensfile" -o -s "data/$ensfile" \) ]; then
+            echo "Processing $i...<p>" 1>&2
+        fi
+    done
 fi
