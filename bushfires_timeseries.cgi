@@ -17,7 +17,7 @@ Monthly: <a href="getindices.cgi?WMO=SEAustralia/fwi_era5_monmean_97-18_nsw&STAT
 
 
 
-<p><i><b>Heat (only reliable after 1910)</b></i><br> 
+<p><i><b>Heat (observations unreliable before 1910)</b></i><br> 
 Monthly: <a href="getindices.cgi?WMO=SEAustralia/giss_temp_250_mask0_5lan_su&STATION=GISS250_bushfire&TYPE=i&id=$EMAIL">GISTEMP T2m</a>,
 <a href="getindices.cgi?WMO=SEAustralia/berkeley_tavg_mask0_5lan_su_ext&STATION=t2m_Berkeley_bushfire&TYPE=i&id=$EMAIL">Berkeley T2m</a>,
 <a href="getindices.cgi?WMO=SEAustralia/berkeley_tmax_mask0_5lan_su_ext&STATION=tmax_Berkeley_bushfire&TYPE=i&id=$EMAIL">Berkeley Tmax</a>.
@@ -29,7 +29,7 @@ Annual time series:
 <a href="getindices.cgi?WMO=SEAustralia/berkeley_tmax_daily_-1_max_50_7v_mask0_5lan_su_ext&STATION=Berkeley_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">Berkeley Tmax</a>,
 <a href="getindices.cgi?WMO=SEAustralia/tmax_acorn_ave&STATION=ACORN_stations_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">ACORN stations Tmax</a>,
 <a href="getindices.cgi?WMO=SEAustralia/awap_tmax_-1_max_50_7v_mask0_5lan_su&STATION=AWAP_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">AWAP Tmax</a>,
-<a href="getindices.cgi?WMO=SEAustralia/era5_tmax_daily_-1_max_mask2_5lan_su_ext&STATION=ERA5_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">ERA5 Tmax</a>,
+<a href="getindices.cgi?WMO=SEAustralia/era5_tmax_daily_-1_max_50_mask2_5lan_su&STATION=ERA5_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">ERA5 Tmax</a>,
 <a href="getindices.cgi?WMO=SEAustralia/c3tmax_daily_-1_max_50_7v_trend_mask47_land_su&STATION=20CRv3_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">20CRv3 Tmax</a>,
 <a href="getindices.cgi?WMO=ERA-20C/SEAustralia/TX7x_era20c_bushfire&STATION=ERA-20C_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">ERA-20C Tmax</a>,
 <a href="getindices.cgi?WMO=SEAustralia/CERA20C_DJF_TX7x_region_@@&STATION=CERA-20C_Tmax&TYPE=i&id=$EMAIL&NPERYEAR=1">CERA-20C Tmax</a>,
