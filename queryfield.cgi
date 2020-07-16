@@ -629,13 +629,14 @@ spei_*) n=${FORM_field#spei_};file=CSICData/spei$n.nc;kindname="CSIC";climfield=
 PSI_*) dataset=${FORM_field#PSI_};file=UCData/PSI_$dataset.nc;kindname="GIDMaPS";climfield="PSI $dataset";flipcolor=11;;
 SPI_*) dataset=${FORM_field#SPI_};file=UCData/SPI_$dataset.nc;kindname="GIDMaPS";climfield="SPI $dataset";flipcolor=11;;
 SSI_*) dataset=${FORM_field#SSI_};file=UCData/SSI_$dataset.nc;kindname="GIDMaPS";climfield="SSI $dataset";flipcolor=11;;
+
 gpcc_25_8) file=GPCCData/gpcc_V8_25.nc;kindname="GPCC V8 2.5";climfield="precipitation";flipcolor=11;;
 gpcc_10_8) file=GPCCData/gpcc_V8_10.nc;kindname="GPCC V8 1.0";climfield="precipitation";flipcolor=11;;
 gpcc_05_8) file=GPCCData/gpcc_V8_05.nc;kindname="GPCC V8 0.5";climfield="precipitation";flipcolor=11;;
-gpcc_25_n1_8) file=GPCCData/gpcc_V8_25_n1.nc;kindname="GPCC V8 2.5";climfield="precipitation";flipcolor=11;;
+gpcc_25_n1_8) file=GPCCData/gpcc_V8_25_n1.nc;kindname="GPCC V8 2.5";climfield="precipitation";flipcolor=11;LSMASK=GPCCData/lsmask_25.nc;;
 gpcc_10_n1_8) file=GPCCData/gpcc_V8_10_n1.nc;kindname="GPCC V8 1.0";climfield="precipitation";flipcolor=11;;
 gpcc_05_n1_8) file=GPCCData/gpcc_V8_05_n1.nc;kindname="GPCC V8 0.5";climfield="precipitation";flipcolor=11;;
-gpcc_25) file=GPCCData/gpcc_25.nc;kindname="GPCC 2.5";climfield="precipitation";flipcolor=11;;
+gpcc_25) file=GPCCData/gpcc_25.nc;kindname="GPCC 2.5";climfield="precipitation";flipcolor=11;LSMASK=GPCCData/lsmask_25.nc;;
 gpcc_10) file=GPCCData/gpcc_10.nc;kindname="GPCC 1.0";climfield="precipitation";flipcolor=11;;
 gpcc_05) file=GPCCData/gpcc_05.nc;kindname="GPCC 0.5";climfield="precipitation";flipcolor=11;LSMASK=GPCCData/lsmask_05.nc;;
 gpcc_025) file=GPCCData/gpcc_025.nc;kindname="GPCC 0.25";climfield="precipitation";flipcolor=11;;
