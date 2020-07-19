@@ -149,6 +149,7 @@ if [ $doit = true -a "${WMO#corr}" = "$WMO" -a "${WMO#sign}" = "$WMO" ]; then
             fgrep -v "# repeat last"  ./${base}a.plt > ./${base}a.txt
         fi
 	    ###title="anomalies of $station $NAME$period"
+	    ylabel=`echo "$VAR anomalies $plotunits" | tr '_' ' '`
         gnuplot << EOF
 $gnuplot_init
 set size .7057,.4
@@ -156,6 +157,7 @@ set size .7057,.4
 set ylabel "$ylabel"
 set term postscript epsf color solid
 set zeroaxis
+set ylabel "$ylabel"
 set output "./${base}a.eps"
 plot "./${base}a.plt" title "$name_ $station_ anomalies$period" with steps
 set term png $gnuplot_png_font_hires
