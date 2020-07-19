@@ -112,6 +112,9 @@ root=`echo data/h${TYPE}${WMO}_$$ | tr -d \\\\`
 probfile=${root}_prob.txt
 obsplotfile=${root}_obsplot.txt
 resfile=${root}_residuals.dat
+if [ ${resfile#data/hi} != $resfile ]; then
+    resfile=data/i${resfile#data/hi}
+fi
 if [ "$TYPE" = set -o "$TYPE" = setmap -o "$TYPE" = gridpoints -o $TYPE = field -o "$ENSEMBLE" = true ]; then
     resfile=${resfile%.dat}_@@.dat
 fi
