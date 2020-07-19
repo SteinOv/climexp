@@ -102,20 +102,26 @@ none)      covstation="none";sfile="none";;
            sfile=$DIR/`head -1 $FORM_timeseries | tr '\`#;' '?'`
            ;;
 esac
-root=`echo data/h${TYPE}${WMO}_$$ | tr -d \\\\`
-[ "$lwrite" = true ] && echo "root=$root<br>"
-probfile=${root}_prob.txt
-obsplotfile=${root}_obsplot.txt
-corrargs="$corrargs $sfile $FORM_fit assume $FORM_assume"
-if [ "$TYPE" != field -a "$TYPE" != setmap ]; then
-    corrargs="$corrargs dump $probfile obsplot $obsplotfile"
-fi
-n=0
 c1=`echo ./data/$TYPE$WMO.dat $file | fgrep -c '%%'`
 c2=`echo ./data/$TYPE$WMO.dat $file | fgrep -c '++'`
 if [ $c1 != 0 -o $c2 != 0 ]; then
   ENSEMBLE=true
 fi
+root=`echo data/h${TYPE}${WMO}_$$ | tr -d \\\\`
+[ "$lwrite" = true ] && echo "root=$root<br>"
+probfile=${root}_prob.txt
+obsplotfile=${root}_obsplot.txt
+resfile=${root}_residuals.dat
+if [ "$TYPE" = set -o "$TYPE" = setmap -o "$TYPE" = gridpoints -o $TYPE = field -o "$ENSEMBLE" = true ]; then
+    resfile=${resfile%.dat}_@@.dat
+fi
+wmofile=`basename ${resfile} .dat`
+wmofile=`dirname $resfile`/${wmofile#h}
+corrargs="$corrargs $sfile $FORM_fit assume $FORM_assume"
+if [ "$TYPE" != field -a "$TYPE" != setmap ]; then
+    corrargs="$corrargs dump $probfile obsplot $obsplotfile residuals $resfile"
+fi
+n=0
 . ./getopts.cgi
 
 if [ $EMAIL != someone@somewhere ]; then
@@ -453,7 +459,7 @@ EOF
             plotvariable="position parameter"
         fi
         echo "<div class=\"bijschrift\">Fitted points, value in $FORM_year,  $plotvariable &mu; and the 6 and 40 yr return values"
-        echo "(<a href=\"${root}_obsplot.eps.gz\">eps</a>, <a href=\"ps2pdf.cgi?file=${root}_obsplot.eps.gz\">pdf</a>, <a href=\"${obsplotfile}\">raw data</a>, <a href=\"${root}_obsplot.gnuplot\">plot script</a>)</div>"
+        echo "(<a href=\"${root}_obsplot.eps.gz\">eps</a>, <a href=\"ps2pdf.cgi?file=${root}_obsplot.eps.gz\">pdf</a>, <a href=\"${obsplotfile}\">raw data</a>, <a href=\"${root}_obsplot.gnuplot\">plot script</a>, <a href=\"getindices.cgi?WMO=$wmofile&TYPE=h&NPERYEAR=$NPERYEAR\">analyse residuals</a>)</div>"
         echo "<center><img src=\"${root}_obsplot.png\" alt=\"$FORM_which\" width=\"$halfwidth\" border=0 class=\"realimage\" hspace=0 vspace=0></center>"
     fi
 
