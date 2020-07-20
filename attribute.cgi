@@ -462,7 +462,7 @@ EOF
             plotvariable="position parameter"
         fi
         echo "<div class=\"bijschrift\">Fitted points, value in $FORM_year,  $plotvariable &mu; and the 6 and 40 yr return values"
-        echo "(<a href=\"${root}_obsplot.eps.gz\">eps</a>, <a href=\"ps2pdf.cgi?file=${root}_obsplot.eps.gz\">pdf</a>, <a href=\"${obsplotfile}\">raw data</a>, <a href=\"${root}_obsplot.gnuplot\">plot script</a>, <a href=\"getindices.cgi?WMO=$wmofile&TYPE=h&NPERYEAR=$NPERYEAR\">analyse residuals</a>)</div>"
+        echo "(<a href=\"${root}_obsplot.eps.gz\">eps</a>, <a href=\"ps2pdf.cgi?file=${root}_obsplot.eps.gz\">pdf</a>, <a href=\"${obsplotfile}\">raw data</a>, <a href=\"${root}_obsplot.gnuplot\">plot script</a>, <a href=\"getindices.cgi?id=$EMAIL&WMO=$wmofile&TYPE=h&NPERYEAR=$NPERYEAR\">analyse residuals</a>)</div>"
         echo "<center><img src=\"${root}_obsplot.png\" alt=\"$FORM_which\" width=\"$halfwidth\" border=0 class=\"realimage\" hspace=0 vspace=0></center>"
     fi
 
