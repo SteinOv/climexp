@@ -451,6 +451,9 @@ EOF
 		    . ./myvinkfoot.cgi
 		    exit
 	    fi
+        [ "$lwrite" = true ] && echo ./bin/diamond2year "$corrroot.eps" "data/$TYPE$WMO${FORM_num}.dump$ext1" ${FORM_xlo:--3e33} ${FORM_xhi:-3e33} ${FORM_ylo:--3e33} ${FORM_yhi:-3e33}
+        ./bin/diamond2year "${root}_obsplot.eps" "$obsplotfile" ${FORM_xlo:--3e33} ${FORM_xhi:-3e33} ${FORM_ylo:--3e33} ${FORM_yhi:-3e33} > "${root}_obsplot_yr.eps"
+        epstopdf ${root}_obsplot_yr.eps
         gzip -f ${root}_obsplot.eps
         pngfile=${root}_obsplot.png
         getpngwidth
@@ -461,8 +464,8 @@ EOF
         else
             plotvariable="position parameter"
         fi
-        echo "<div class=\"bijschrift\">Fitted points, value in $FORM_year,  $plotvariable &mu; and the 6 and 40 yr return values"
-        echo "(<a href=\"${root}_obsplot.eps.gz\">eps</a>, <a href=\"ps2pdf.cgi?file=${root}_obsplot.eps.gz\">pdf</a>, <a href=\"${obsplotfile}\">raw data</a>, <a href=\"${root}_obsplot.gnuplot\">plot script</a>, <a href=\"getindices.cgi?id=$EMAIL&WMO=$wmofile&TYPE=h&NPERYEAR=$NPERYEAR\">analyse residuals</a>)</div>"
+        echo "<div class=\"bijschrift\">Fitted points, value in $FORM_year, $plotvariable &mu; and the 6 and 40 yr return values"
+        echo "(<a href=\"${root}_obsplot.eps.gz\">eps</a>, <a href=\"ps2pdf.cgi?file=${root}_obsplot.eps.gz\">pdf</a>, <a href=\"${root}_obsplot_yr.eps\">month.year format</a>, <a href=\"${root}_obsplot_yr.pdf\">pdf</a>, <a href=\"${obsplotfile}\">raw data</a>, <a href=\"${root}_obsplot.gnuplot\">plot script</a>, <a href=\"getindices.cgi?id=$EMAIL&WMO=$wmofile&TYPE=h&NPERYEAR=$NPERYEAR\">analyse residuals</a>)</div>"
         echo "<center><img src=\"${root}_obsplot.png\" alt=\"$FORM_which\" width=\"$halfwidth\" border=0 class=\"realimage\" hspace=0 vspace=0></center>"
     fi
 
