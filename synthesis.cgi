@@ -50,6 +50,7 @@ FORM_log=$FORM_log;
 FORM_plotlog=$FORM_plotlog;
 FORM_perc=$FORM_perc;
 FORM_ref=$FORM_ref;
+FORM_nomodels=$FORM_nomodels;
 FORM_flipsign=$FORM_flipsign;
 EOF
     useprefs=false
@@ -80,6 +81,9 @@ if [ -n "$FORM_log" ]; then
 fi
 if [ -n "$FORM_plotlog" ]; then
     plotlog_checked=checked
+fi
+if [ -n "$FORM_nomodels" ]; then
+    nomodels_checked=checked
 fi
 if [ -n "$FORM_perc" ]; then
     perc_checked=checked
@@ -141,6 +145,7 @@ cat <<EOF
 to transform all begin dates to the earliest one.
 <tr><td>Reverse:<td>
 <input type=checkbox class=formcheck name=flipsign $flipsign_checked>compute deviations from the last date, not the first.
+<tr><td>Plot:<td><input type=checkbox class=formcheck name=nomodels $nomodels_checked>suppress individual models.
 <tr><td>Plot range:<td>
 <input type="$number" class="forminput" name="xmin" $textsize4 value="${FORM_xmin}"> - 
 <input type="$number" class="forminput" name="xmax" $textsize4 value="${FORM_xmax}">
@@ -181,6 +186,13 @@ if [ -z "$nocomputation" ]; then
         . ./myvinkfoot.cgi
         exit
     fi
+    if [ -n "$FORM_nomodels" ]; then
+        root=${root}_nomodels
+        oofile=$root.txt
+        fgrep -v ' 3 "' $ofile > $oofile
+        ofile=$oofile
+    fi
+
     version=`gnuplot --version | cut -b 9`
     if [ $version != "4" ]; then
         sed -e 's/@/\\\\@/g' ${root}.txt > /tmp/synthesis$$.txt
@@ -189,9 +201,6 @@ if [ -z "$nocomputation" ]; then
     fi
     mv /tmp/synthesis$$.txt ${root}.txt
 
-    if [ -n "$FORM_plotlog" ]; then
-        setlogscaley="set logscale y"
-    fi
     if [ -n "$FORM_xmin" ]; then
         xmin=$FORM_xmin
     else
@@ -203,9 +212,12 @@ if [ -z "$nocomputation" ]; then
         xmax="(SSTATS_max*1.1)"
     fi
     if [  -n "$FORM_plotlog" ]; then
+        setlogscaley="set logscale y"
         line=1
+        labelposition="STATS_min**1.05/STATS_max**0.05"
     else
         line=0
+        labelposition="1.05*STATS_min-0.05*STATS_max"
     fi
 
     cat > ${root}.gnuplot <<EOF
@@ -230,7 +242,7 @@ set linetype 3 lc rgb "#f05252"
 set linetype 4 lc rgb "red"
 set linetype 5 lc rgb "#c000ff"
 plot ${line} notitle w line lt 0, \
-    '${root}.txt' using (\$0):(STATS_min):9 notitle with labels rotate right, \
+    '${root}.txt' using (\$0):($labelposition):9 notitle with labels rotate right, \
     '${root}.txt' using (\$0):3:(\$0-0.22):(\$0+0.22):6:7:8 notitle with boxxyerrorbars fs solid 0 border -1 lw 2, \
     '${root}.txt' using (\$0):3:(\$0-0.2):(\$0+0.2):4:5:8 notitle with boxxyerrorbars fs solid 0.70 lc variable, \
     '${root}.txt' using (\$0):3:(0.2) notitle with xerrorbars lt -1 lw 5
@@ -265,6 +277,7 @@ FORM_plotlog=$FORM_plotlog;
 FORM_perc=$FORM_perc;
 FORM_flipsign=$FORM_flipsign;
 FORM_ref=$FORM_ref;
+FORM_nomodels=$FORM_nomodels;
 FORM_xmin=$FORM_xmin;
 FORM_xmax=$FORM_xmax;
 EOF
