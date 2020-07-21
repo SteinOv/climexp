@@ -47,6 +47,7 @@ if [ -n "$FORM_data" ]; then
     cat > $file.prefs << EOF
 FORM_weighted=$FORM_weighted;
 FORM_log=$FORM_log;
+FORM_plotlog=$FORM_plotlog;
 FORM_perc=$FORM_perc;
 FORM_ref=$FORM_ref;
 FORM_flipsign=$FORM_flipsign;
@@ -76,6 +77,9 @@ case "$FORM_weighted" in
 esac
 if [ -n "$FORM_log" ]; then
     log_checked=checked
+fi
+if [ -n "$FORM_plotlog" ]; then
+    plotlog_checked=checked
 fi
 if [ -n "$FORM_perc" ]; then
     perc_checked=checked
@@ -124,7 +128,9 @@ cat <<EOF
 <input type="radio" class="formradio" name="weighted" value="unweighted" $unweighted_checked>unweighted, or
 <input type="radio" class="formradio" name="weighted" value="noave" $noave_checked>no average.
 <tr><td>Logarithm:<td>
-<input type=checkbox class=formcheck name=log $log_checked>data should be evaluated and plotted on a logarithmic axis (like PRs).
+<input type=checkbox class=formcheck name=log $log_checked>data should be evaluated on a logarithmic axis (like PRs).
+<tr><td>&nbsp;<td>
+<input type=checkbox class=formcheck name=plotlog $plotlog_checked>data should be plotted on a logarithmic axis.
 <tr><td>Percentiles:<td>
 <input type=checkbox class=formcheck name=perc $perc_checked>values are given as percentiles.
 <tr><td>Reference:<td>use 
@@ -183,7 +189,7 @@ if [ -z "$nocomputation" ]; then
     fi
     mv /tmp/synthesis$$.txt ${root}.txt
 
-    if [ -n "$FORM_log" ]; then
+    if [ -n "$FORM_plotlog" ]; then
         setlogscaley="set logscale y"
     fi
     if [ -n "$FORM_xmin" ]; then
@@ -196,7 +202,7 @@ if [ -z "$nocomputation" ]; then
     else
         xmax="(SSTATS_max*1.1)"
     fi
-    if [  -n "$FORM_log" ]; then
+    if [  -n "$FORM_plotlog" ]; then
         line=1
     else
         line=0
@@ -255,6 +261,7 @@ EOF
     cat > $prefs <<EOF
 FORM_weighted=$FORM_weighted;
 FORM_log=$FORM_log;
+FORM_plotlog=$FORM_plotlog;
 FORM_perc=$FORM_perc;
 FORM_flipsign=$FORM_flipsign;
 FORM_ref=$FORM_ref;
