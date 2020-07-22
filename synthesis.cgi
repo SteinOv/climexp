@@ -20,6 +20,13 @@ fi
 [ ! -d synthesis/$EMAIL ] && mkdir synthesis/$EMAIL
 prefs=prefs/$EMAIL.synthesis
 
+# convert to old convention
+case "$FORM_datatype" in
+    perc) FORM_perc=on;;
+    log) FORM_log=on;;
+    *) FORM_lin=on;;
+esac
+
 if [ -n "$FORM_data" ]; then
     tmpfile=synthesis/$EMAIL/synthesis$$.txt
     echo "$FORM_data" | tr '\r' '\n' > $tmpfile
@@ -47,7 +54,6 @@ if [ -n "$FORM_data" ]; then
     cat > $file.prefs << EOF
 FORM_weighted=$FORM_weighted;
 FORM_log=$FORM_log;
-FORM_plotlog=$FORM_plotlog;
 FORM_perc=$FORM_perc;
 FORM_ref=$FORM_ref;
 FORM_nomodels=$FORM_nomodels;
@@ -76,17 +82,15 @@ case "$FORM_weighted" in
     weighted) weighted_checked="checked";;
     *) unweighted_checked="checked";;
 esac
-if [ -n "$FORM_log" ]; then
+if [ -n "$FORM_perc" ]; then
+    perc_checked=checked
+elif [ -n "$FORM_log" ]; then
     log_checked=checked
-fi
-if [ -n "$FORM_plotlog" ]; then
-    plotlog_checked=checked
+else
+    lin_checked=checked
 fi
 if [ -n "$FORM_nomodels" ]; then
     nomodels_checked=checked
-fi
-if [ -n "$FORM_perc" ]; then
-    perc_checked=checked
 fi
 case "$FORM_ref" in
     CO2) CO2_checked="checked";;
@@ -101,9 +105,6 @@ fi
 . ./myvinkhead.cgi "Synthesis" "$title"
 
 cat <<EOF
-<font color=Red>This is the second test version, incompatible with the first. Use at your own risk. 
-Please check results and report errors back.</font>
-
 <div class='formheader'>Synthesis input</div>
 <div class='formbody'>
 <table style='width:100%' border='0' cellpadding='0' cellspacing='0'>
@@ -131,18 +132,18 @@ cat <<EOF
 <input type="radio" class="formradio" name="weighted" value="weighted" $weighted_checked>weighted.
 <input type="radio" class="formradio" name="weighted" value="unweighted" $unweighted_checked>unweighted, or
 <input type="radio" class="formradio" name="weighted" value="noave" $noave_checked>no average.
-<tr><td>Logarithm:<td>
-<input type=checkbox class=formcheck name=log $log_checked>data should be evaluated on a logarithmic axis (like PRs).
+<tr><td>Data type:<td>
+<input type=radio class=formradio name=datatype value=log $log_checked>data are assumed to be log-normal distributed (like PRs),
 <tr><td>&nbsp;<td>
-<input type=checkbox class=formcheck name=plotlog $plotlog_checked>data should be plotted on a logarithmic axis.
-<tr><td>Percentiles:<td>
-<input type=checkbox class=formcheck name=perc $perc_checked>values are given as percentiles.
-<tr><td>Reference:<td>use 
+<input type=radio class=formradio name=datatype value=lin $lin_checked>data are assumed to be normally distributed (like changes in intensity with a shift fit),
+<tr><td>&nbsp;<td>
+<input type=radio class=formradio name=datatype value=perc $perc_checked>data are assumed to be percentage changes (like changes in intensity with a scale fit).
+<tr><td>Reference series:<td>use 
 <input type="radio" class="formradio" name="ref" value="GMST" $GMST_checked>GMST,
 <input type="radio" class="formradio" name="ref" value="CO2" $CO2_checked>CO2,
 <input type="radio" class="formradio" name="ref" value="time" $time_checked>time, or
 <input type="radio" class="formradio" name="ref" value="none" $none_checked>nothing
-to transform all begin dates to the earliest one.
+to transform all begin dates to the earliest one and end dates to the last one.
 <tr><td>Reverse:<td>
 <input type=checkbox class=formcheck name=flipsign $flipsign_checked>compute deviations from the last date, not the first.
 <tr><td>Plot:<td><input type=checkbox class=formcheck name=nomodels $nomodels_checked>suppress individual models.
@@ -211,7 +212,7 @@ if [ -z "$nocomputation" ]; then
     else
         xmax="(SSTATS_max*1.1)"
     fi
-    if [  -n "$FORM_plotlog" ]; then
+    if [  -n "$FORM_log" ]; then
         setlogscaley="set logscale y"
         line=1
         labelposition="STATS_min**1.05/STATS_max**0.05"
@@ -273,7 +274,6 @@ EOF
     cat > $prefs <<EOF
 FORM_weighted=$FORM_weighted;
 FORM_log=$FORM_log;
-FORM_plotlog=$FORM_plotlog;
 FORM_perc=$FORM_perc;
 FORM_flipsign=$FORM_flipsign;
 FORM_ref=$FORM_ref;
