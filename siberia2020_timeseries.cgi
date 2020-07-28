@@ -14,6 +14,7 @@ There are two "events"/ regions: <br>
 
 <p><i><b>CMIP6 data</b></i><br> 
 Contact: Mathias Hauser
+<br><br>
 <i>Station - Verkhoyansk: Tglob and daily TX (tasmax)</i><br>
 <a href="getindices.cgi?WMO=Siberia2020/tglob_station_ACCESS-CM2_@@&STATION=ACCESS-CM2_Tglob_stat&TYPE=i&id=$EMAIL">ACCESS-CM2 Tglob station</a>
 <a href="getindices.cgi?WMO=Siberia2020/txx_station_ACCESS-CM2_@@&STATION=ACCESS-CM2_TX_stat&TYPE=i&id=$EMAIL">ACCESS-CM2 TX station</a><br>
@@ -70,10 +71,11 @@ Contact: Mathias Hauser
 <a href="getindices.cgi?WMO=Siberia2020/tglob_station_NorESM2-MM_@@&STATION=NorESM2-MM_Tglob_stat&TYPE=i&id=$EMAIL">NorESM2-MM Tglob station</a>
 <a href="getindices.cgi?WMO=Siberia2020/txx_station_NorESM2-MM_@@&STATION=NorESM2-MM_TX_stat&TYPE=i&id=$EMAIL">NorESM2-MM TX station</a><br>
 <a href="getindices.cgi?WMO=Siberia2020/tglob_station_UKESM1-0-LL_@@&STATION=UKESM1-0-LL_Tglob_stat&TYPE=i&id=$EMAIL">UKESM1-0-LL Tglob station</a>
-<a href="getindices.cgi?WMO=Siberia2020/txx_station_UKESM1-0-LL_@@&STATION=UKESM1-0-LL_TX_stat&TYPE=i&id=$EMAIL">UKESM1-0-LL TX station</a><br>
+<a href="getindices.cgi?WMO=Siberia2020/txx_station_UKESM1-0-LL_@@&STATION=UKESM1-0-LL_TX_stat&TYPE=i&id=$EMAIL">UKESM1-0-LL TX station</a>
+<br>
+<br>
 
 <i>Region - Siberia: Tglob and monthly T (tas)</i><br>
-
 <a href="getindices.cgi?WMO=Siberia2020/tglob_regional_ACCESS-CM2_@@&STATION=ACCESS-CM2_Tglob_region&TYPE=i&id=$EMAIL">ACCESS-CM2 Tglob region</a>,
 <a href="getindices.cgi?WMO=Siberia2020/tas_regional_ACCESS-CM2_@@&STATION=ACCESS-CM2_tas_region&TYPE=i&id=$EMAIL">ACCESS-CM2 tas region</a><br>
 <a href="getindices.cgi?WMO=Siberia2020/tglob_regional_ACCESS-ESM1-5_@@&STATION=ACCESS-ESM1-5_Tglob_region&TYPE=i&id=$EMAIL">ACCESS-ESM1-5 Tglob region</a>,
@@ -150,6 +152,41 @@ Contact: Mathias Hauser
 <a href="getindices.cgi?WMO=Siberia2020/tas_regional_NorESM2-MM_@@&STATION=NorESM2-MM_tas_region&TYPE=i&id=$EMAIL">NorESM2-MM tas region</a><br>
 <a href="getindices.cgi?WMO=Siberia2020/tglob_regional_UKESM1-0-LL_@@&STATION=UKESM1-0-LL_Tglob_region&TYPE=i&id=$EMAIL">UKESM1-0-LL Tglob region</a>,
 <a href="getindices.cgi?WMO=Siberia2020/tas_regional_UKESM1-0-LL_@@&STATION=UKESM1-0-LL_tas_region&TYPE=i&id=$EMAIL">UKESM1-0-LL tas region</a><br>
+<br>
+<br>
+
+<p><i><b>SMILE data</b></i><br> 
+Contact: Flavio Lehner
+<i>Station - Verkhoyansk: txx (tasmax)</i><br>
+<a href="getindices.cgi?WMO=txx_station_CESM1-CAM5_@@.nc&STATION=CESM1-CAM5_txx_station&TYPE=i&id=$EMAIL">CESM1-CAM5 TXx station</a>
+<a href="getindices.cgi?WMO=txx_station_CSIRO-Mk3-6-0_@@.nc&STATION=CSIRO-Mk3-6-0_txx_station&TYPE=i&id=$EMAIL">CSIRO-Mk3-6-0 TXx station</a>
+<a href="getindices.cgi?WMO=txx_station_CanESM2_@@.nc&STATION=CanESM2_txx_station&TYPE=i&id=$EMAIL">CanESM2 TXx station</a>
+<a href="getindices.cgi?WMO=txx_station_EC-EARTH_@@.nc&STATION=EC-EARTH_txx_station&TYPE=i&id=$EMAIL">EC-EARTH TXx station</a>
+<a href="getindices.cgi?WMO=txx_station_GFDL-CM3_@@.nc&STATION=GFDL-CM3_txx_station&TYPE=i&id=$EMAIL">GFDL-CM3 TXx station</a>
+<a href="getindices.cgi?WMO=txx_station_GFDL-ESM2M_@@.nc&STATION=GFDL-ESM2M_txx_station&TYPE=i&id=$EMAIL">GFDL-ESM2M TXx station</a>
+<br>
+<br>
+
+<i>Region - Siberia: tas</i><br>
+<a href="getindices.cgi?WMO=tas_regional_CESM1-CAM5_@@.nc&STATION=CESM1-CAM5_tas_region&TYPE=i&id=$EMAIL">CESM1-CAM5 tas region</a>
+<a href="getindices.cgi?WMO=tas_regional_CSIRO-Mk3-6-0_@@.nc&STATION=CSIRO-Mk3-6-0_tas_region&TYPE=i&id=$EMAIL">CSIRO-Mk3-6-0 tas region</a>
+<a href="getindices.cgi?WMO=tas_regional_CanESM2_@@.nc&STATION=CanESM2_tas_region&TYPE=i&id=$EMAIL">CanESM2 tas region</a>
+<a href="getindices.cgi?WMO=tas_regional_EC-EARTH_@@.nc&STATION=EC-EARTH_tas_region&TYPE=i&id=$EMAIL">EC-EARTH tas region</a>
+<a href="getindices.cgi?WMO=tas_regional_GFDL-CM3_@@.nc&STATION=GFDL-CM3_tas_region&TYPE=i&id=$EMAIL">GFDL-CM3 tas region</a>
+<a href="getindices.cgi?WMO=tas_regional_GFDL-ESM2M_@@.nc&STATION=GFDL-ESM2M_tas_region&TYPE=i&id=$EMAIL">GFDL-ESM2M tas region</a>
+<br>
+<br>
+
+<i>Region - Tglob</i><br>
+<a href="getindices.cgi?WMO=tglob_CESM1-CAM5_@@.nc&STATION=CESM1-CAM5_tglob&TYPE=i&id=$EMAIL">CESM1-CAM5 Tglob</a>
+<a href="getindices.cgi?WMO=tglob_CSIRO-Mk3-6-0_@@.nc&STATION=CSIRO-Mk3-6-0_tglob&TYPE=i&id=$EMAIL">CSIRO-Mk3-6-0 Tglob</a>
+<a href="getindices.cgi?WMO=tglob_CanESM2_@@.nc&STATION=CanESM2_tglob&TYPE=i&id=$EMAIL">CanESM2 Tglob</a>
+<a href="getindices.cgi?WMO=tglob_EC-EARTH_@@.nc&STATION=EC-EARTH_tglob&TYPE=i&id=$EMAIL">EC-EARTH Tglob</a>
+<a href="getindices.cgi?WMO=tglob_GFDL-CM3_@@.nc&STATION=GFDL-CM3_tglob&TYPE=i&id=$EMAIL">GFDL-CM3 Tglob</a>
+<a href="getindices.cgi?WMO=tglob_GFDL-ESM2M_@@.nc&STATION=GFDL-ESM2M_tglob&TYPE=i&id=$EMAIL">GFDL-ESM2M Tglob</a>
+<br>
+<br>
+
 
 EOF
 
