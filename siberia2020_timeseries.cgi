@@ -12,6 +12,12 @@ There are two "events"/ regions: <br>
   <li>'Siberia' region: land points in 60°N - 75°N and (60 - 75N, 60°E - 180°E </li>
 </ul>  
 
+<p><i><b>Observational data</b></i><br> 
+Contact: Geert Jan van Oldenborgh
+<br><br>
+<i>Station - Verkhoyansk: <a href="gdcntmax.cgi?id=$EMAIL&WMO=RSM00024266&STATION=VERHOJANSK">daily TX (tasmax)</a></i><br>
+<i>Region - Siberia: <a href="get_index.cgi?email=$EMAIL&field=giss_temp_250&gridpoints=false&intertype=nearest&lat1=60&lat2=75&lon1=60&lon2=180&masktype=5lan&minfac=30">monthly T (tas)</a></i><br>
+
 <p><i><b>CMIP6 data</b></i><br> 
 Contact: Mathias Hauser
 <br><br>
