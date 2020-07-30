@@ -57,6 +57,10 @@ if [ "${wmo#data}" != "$wmo}" ]; then
   wmo="${wmo##i}"
 fi
 ###echo "wmo=$wmo<br>"
+# also accept .nc extension
+if [ "${WMO%.nc}" != "$WMO" ]; then
+    WMO=${WMO%.nc}
+fi
 file=$WMO.dat
 newfile=data/$TYPE$wmo.dat
 c=`echo $file | egrep -c '\+\+|%%'`
