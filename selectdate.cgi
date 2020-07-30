@@ -8,7 +8,13 @@ export DIR=`pwd`
 
 WMO="${FORM_WMO}_${FORM_month}"
 [ -n "FORM_day" ] && WMO="${WMO}_${FORM_day}"
-STATION="$FORM_STATION"
+. ./month2string.cgi
+if [ -z "$FORM_month" ]; then
+    STATION="$seriesmonth $FORM_STATION"
+    if [ -n "$FORM_day" ]; then
+        STATION="$FORM_day $seriesmonth $FORM_STATION"
+    fi
+fi
 TYPE=$FORM_TYPE
 NPERYEAR=1
 PROG="selectdate $DIR/data/$TYPE$FORM_WMO.dat $FORM_month $FORM_day"

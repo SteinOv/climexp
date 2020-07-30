@@ -591,7 +591,7 @@ if [ $NPERYEAR -gt 1 ]; then
 <input type="hidden" name="TYPE" value="$TYPE">
 <input type="hidden" name="STATION" value="$STATION">
 <input type="hidden" name="NPERYEAR" value="$NPERYEAR">
-Select all values on
+Select all values in
 EOF
     if [ $NPERYEAR = 2 ]; then
         cat <<EOF
