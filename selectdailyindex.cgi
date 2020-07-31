@@ -73,7 +73,12 @@ cat <<EOF
 <tr><td>Netherlands precipitation<td><div class="kalelink"><a href="PhomNL.cgi?id=$EMAIL">Moved to a separate page</a> (1906-now, KNMI)</div>
 <td><a href="http://www.knmi.nl/klimatologie/daggegevens/nsl-download.cgi?language=eng" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
-<tr><td>Netherlands discharge<td><div class="kalelink"><a href="getindices.cgi?WMO=RWSData/debiet_lobith_ext&STATION=Rhine_Lobith&TYPE=i&id=$EMAIL&NPERYEAR=366">Rhine at Lobith 1901-now</a>, <a href="getindices.cgi?WMO=RWSData/debiet_eijsden_ext&STATION=Meuse_Eijsden&TYPE=i&id=$EMAIL&NPERYEAR=366">Meuse at Eijsden 1950-now</a> (RWS)</div>
+<tr><td>Netherlands discharge<td><div class="kalelink"><a href="getindices.cgi?WMO=RWSData/debiet_lobith_ext&STATION=Rhine_Lobith&TYPE=i&id=$EMAIL&NPERYEAR=366">Rhine at Lobith 1901-now</a>, 
+<a href="getindices.cgi?WMO=RWSData/debiet_eijsden_ext&STATION=Meuse_Eijsden&TYPE=i&id=$EMAIL&NPERYEAR=366">Meuse at Eijsden 1950-now</a>, 
+<a href="getindices.cgi?WMO=RWSData/debiet_monsin_eijsden_ext&STATION=Meuse_Monsin_Eijsden&TYPE=i&id=$EMAIL&NPERYEAR=366">Meuse at Monsin Eijsden 1911-now</a>, 
+<a href="getindices.cgi?WMO=RWSData/lith&STATION=Meuse_Lith&TYPE=i&id=$EMAIL&NPERYEAR=366">Meuse at Lith 1911-2016</a>, 
+<a href="getindices.cgi?WMO=RWSData/borg&STATION=Meuse_Borgharen_Dorp&TYPE=i&id=$EMAIL&NPERYEAR=366">Meuse at Borgharen Dorp 1911-2016</a>, 
+<a href="getindices.cgi?WMO=RWSData/mons&STATION=Meuse_Monsin&TYPE=i&id=$EMAIL&NPERYEAR=366">Meuse at Monsin 1911-2016</a> (RWS)</div>
 <td>&nbsp;
 
 <tr><td>Noise<td><div class="kalelink"><form action="ar1.cgi" method="POST">Red noise: 
