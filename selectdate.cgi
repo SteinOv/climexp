@@ -8,11 +8,14 @@ export DIR=`pwd`
 
 WMO="${FORM_WMO}_${FORM_month}"
 [ -n "FORM_day" ] && WMO="${WMO}_${FORM_day}"
-. ./month2string.cgi
-if [ -z "$FORM_month" ]; then
-    STATION="$seriesmonth $FORM_STATION"
+STATION="$FORM_STATION"
+if [ -n "$FORM_month" ]; then
+    export NPERYEAR=FORM_NPERYEAR
+    export sumstring=1
+    . ./month2string.cgi
+    STATION="$seriesmonth $STATION"
     if [ -n "$FORM_day" ]; then
-        STATION="$FORM_day $seriesmonth $FORM_STATION"
+        STATION="$FORM_day $seriesmonth $STATION"
     fi
 fi
 TYPE=$FORM_TYPE
