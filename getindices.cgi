@@ -5,6 +5,14 @@ export DIR=`pwd`
 . ./init.cgi
 . ./getargs.cgi
 
+lwrite=false
+if [ "$EMAIL" = ec8907341dfc63c526d08e36d06b7ed8 ]; then
+    lwrite=true
+    echo 'Content-Type: text/html'
+    echo
+    echo
+fi
+
 STATION="$FORM_STATION"
 WMO="$FORM_WMO"
 TYPE="$FORM_TYPE"
@@ -58,8 +66,25 @@ if [ "${wmo#data}" != "$wmo}" ]; then
 fi
 ###echo "wmo=$wmo<br>"
 # also accept .nc extension
+# bring over remote files here
+if [ "${WMO#http}" != "$WMO" ]; then
+    # if no extension assume netcdf
+    if [ "${WMO%.nc}" = "$WMO" ]; then
+        WMO=$WMO.nc
+    fi
+    newfile=data/`basename $WMO`
+    [ -f $newfile ] && rm $newfile
+    if [ "$lwrite" = true ]; then
+        echo "wget -q -O $newfile $WMO"
+    fi
+    wget -q -O $newfile $WMO
+    WMO=$newfile
+fi
 if [ "${WMO%.nc}" != "$WMO" ]; then
     WMO=${WMO%.nc}
+fi
+if [ "${WMO%.dat}" != "$WMO" ]; then
+    WMO=${WMO%.dat}
 fi
 file=$WMO.dat
 newfile=data/$TYPE$wmo.dat
