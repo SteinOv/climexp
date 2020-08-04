@@ -443,7 +443,7 @@ if [ $NPERYEAR = 12 ]; then
 #echo "<option>120"
 		echo "</select>month(s) of the $index,"
 	fi
-else
+elif [ $NPERYEAR -gt 12 ]; then
 	echo "<tr><td>Running mean:<td>"
 	echo "<select class=\"forminput\" name=\"sum\">"
 	echo "<option $sum_1_selected>1"
