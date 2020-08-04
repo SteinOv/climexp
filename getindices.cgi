@@ -7,7 +7,9 @@ export DIR=`pwd`
 
 lwrite=false
 if [ "$EMAIL" = ec8907341dfc63c526d08e36d06b7ed8 ]; then
-    lwrite=true
+    lwrite=false # true
+fi
+if [ $lwrite = true ]; then
     echo 'Content-Type: text/html'
     echo
     echo
