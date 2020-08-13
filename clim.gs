@@ -83,14 +83,30 @@ if ( varying = 'varying' )
   endif
 endif
 if ( yr1 > 0 | yr2 > 0 )
-    say 'define clim'yy1 yy2' = 'field'.2'
-    'define clim'yy1 yy2' = 'field'.2'
+     haakje=2
+     while ( haakje < 20 )
+       if ( substr(field,haakje,1) = '(' ); break; endif
+       haakje = haakje + 1
+    endwhile
+    if ( haakje < 20 )
+        d1 = substr(field,1,haakje-1)
+        d2 = substr(field,haakje,5)
+        say 'define clim'yy1 yy2' = 'd1'.2'd2
+        'define clim'yy1 yy2' = 'd1'.2'd2
+    else
+        say 'define clim'yy1 yy2' = 'field'.2'
+        'define clim'yy1 yy2' = 'field'.2'
+    endif
 else
     say 'define clim = 'field'.2'
     'define clim = 'field'.2'
 endif
 if ( nperyear = 12 )
-    'modify clim seasonal'
+    if ( yr1 > 0 | yr2 > 0 )
+        'modify clim'yy1 yy2' seasonal'
+    else
+        'modify clim seasonal'
+    endif
 endif
 'set dfile 1'
 'set z 1'
