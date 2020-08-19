@@ -20,6 +20,10 @@ case $PROG in
     becatemp|ecatemp) NAME="mean temperature";char=t;;
     becatmax|ecatmax) NAME="maximum temperature";char=x;;
     becatmin|ecatmin) NAME="minimum temperature";char=n;;
+    becaglob|ecaglob) NAME="global radiation";char=q;;
+    becawspd|ecawspd) NAME="wind speed";char=w;;
+    becagust|ecagust) NAME="wind gust";char=g;;
+    becawdir|ecawdir) NAME="wind direction";char=v;;
     *) echo "Content-Type: text/html"; echo; . ./myvinkhead.cgi "Error" "Unknown ECA data type" ""; . ./myvinkfoot.cgi; exit;;
 esac
 TYPE=${blend}${char}eca

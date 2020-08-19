@@ -91,12 +91,29 @@ cat <<EOF
  <input type="radio" class="formradio" name="climate" value="becasnow" $climate_becasnow>snow depth
 </td><td>
 &nbsp;
-</td></tr><tr><td>
-(<a href="allstationsform_daily.cgi?id=$EMAIL">full lists</a>)
+</td></tr><tr><td>&nbsp;
 </td><td>
  <input type="radio" class="formradio" name="climate" value="ecaclou" $climate_ecaclou>cloud cover
 </td><td>
  <input type="radio" class="formradio" name="climate" value="becaclou" $climate_becaclou>cloud cover
+</td><td>
+&nbsp;
+</td></tr><tr><td>&nbsp;
+</td><td>
+ <input type="radio" class="formradio" name="climate" value="ecaglob" $climate_ecaglob>global radiation
+</td><td>
+ <input type="radio" class="formradio" name="climate" value="becaglob" $climate_becaglob>global radiation
+</td><td>
+&nbsp;
+</td></tr><tr><td>(<a href="allstationsform_daily.cgi?id=$EMAIL">full lists</a>)
+</td><td>
+wind <input type="radio" class="formradio" name="climate" value="ecawspd" $climate_ecawspd>speed
+<input type="radio" class="formradio" name="climate" value="ecagust" $climate_ecagust>gust
+<input type="radio" class="formradio" name="climate" value="ecawdir" $climate_ecawdir>direction
+</td><td>
+wind <input type="radio" class="formradio" name="climate" value="becawspd" $climate_becawspd>speed
+<input type="radio" class="formradio" name="climate" value="becagust" $climate_becagust>gust
+<input type="radio" class="formradio" name="climate" value="becawdir" $climate_becawdir>direction
 </td><td>
 &nbsp;
 </td></tr><tr><th colspan="4">

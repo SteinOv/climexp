@@ -94,6 +94,10 @@ else
             teca) prog=ecatemp;;
             xeca) prog=ecatmax;;
             neca) prog=ecatmin;;
+            qeca) prog=ecaglob;;
+            weca) prog=ecawspd;;
+            geca) prog=ecagust;;
+            veca) prog=ecawdir;;
             bceca) prog=becaclou;;
             bpeca) prog=becaprcp;;
             bseca) prog=becapres;;
@@ -101,6 +105,10 @@ else
             bteca) prog=becatemp;;
             bxeca) prog=becatmax;;
             bneca) prog=becatmin;;
+            bqeca) prog=becaglob;;
+            bweca) prog=becawspd;;
+            bgeca) prog=becagust;;
+            bveca) prog=becawdir;;
         esac
     fi
     if [ -n "$prog" ]; then
