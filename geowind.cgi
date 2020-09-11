@@ -29,7 +29,7 @@ if [ -z "$ENSEMBLE" ]; then
     [ -f $gsouth.ctl ] && rm $gsouth.???
     [ -f $gwest.ctl ] && rm $gwest.???
     ###echo ./bin/geowind $file $gwest.ctl $gsouth.ctl $vort.ctl
-    ./bin/geowind $file $gwest.ctl $gsouth.ctl $vort.ctl
+    (./bin/geowind $file $gwest.ctl $gsouth.ctl $vort.ctl) 2>&1
   fi
   if [ \( ! -s $gwest.ctl \) -o \( ! -s $gsouth.ctl \) -o \( ! -s $vort.ctl \) ]; then
     echo "Something went wrong.  Please send the following line to <a href="mailto:oldenborgh@knmi.nl">me</a> and I'll try to fix it."
