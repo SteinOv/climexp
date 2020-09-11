@@ -1351,6 +1351,7 @@ era5_trbflx) file=ERA5/era5_trbflx.nc;kindname="ERA5";climfield="turbulent heat 
 era5_snetflx) file=ERA5/era5_snetflx.nc;kindname="ERA5";climfield="sfc net heat flux";LSMASK=ERA5/era5_000000_lsm.nc;;
 era5_huss) file=ERA5/era5_huss.nc;kindname="ERA5";climfield="spec humidity";LSMASK=ERA5/lsmask075.nc;;
 era5_evap) file=ERA5/era5_evap.nc;kindname="ERA5";climfield="evaporation";LSMASK=ERA5/era5_000000_lsm.nc;;
+era5_potevap) file=ERA5/era5_potevap.nc;kindname="ERA5";climfield="potential evaporation";LSMASK=ERA5/era5_000000_lsm.nc;;
 era5_pme) file=ERA5/era5_pme.nc;kindname="ERA5";climfield="P-E";LSMASK=ERA5/era5_000000_lsm.nc;;
 era5_tp|era5_pr) file=ERA5/era5_tp.nc;kindname="ERA5";climfield="precipitation";LSMASK=ERA5/era5_000000_lsm.nc;;
 era5_tp_e|era5_pr_e) file=ERA5/era5_tp_extended.nc;kindname="ERA5";climfield="precipitation";LSMASK=ERA5/era5_000000_lsm_05.nc;;
