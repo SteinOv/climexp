@@ -21,7 +21,6 @@ case $KIND in
     half) kind="half year";;
     *) kind="$KIND"
 esac
-
 . ./nosearchengine.cgi
 
 . ./myvinkhead.cgi "Time series plots per $kind" "$station $name" "noindex,nofollow"
@@ -35,6 +34,18 @@ else
 fi
 mywmo=`echo "$WMO" | tr '+' '%'`
 (./bin/series ./data/$TYPE$WMO_new.dat plot ./data/ts$TYPE$WMO.plt > ./data/ts$TYPE$WMO.txt) 2>&1
+
+# look for the first and last year.
+yrbeg=`head -200 ./data/ts$TYPE$WMO.txt | fgrep -v '#' | head -1 | awk '{print $1}' | cut -b 1-4`
+yrend=`tail -200 ./data/ts$TYPE$WMO.txt | fgrep -v '#' | egrep -v '^ *$' | tail -1 | awk '{print $1}' | cut -b 1-4`
+###echo "yrbeg,yrend=$yrbeg,$yrend<p>"
+if [ -n "$yrbeg" ]; then
+    firstyr=$((yrbeg-1))
+fi
+if [ -n "$yrbeg" ]; then
+    lastyr=$((yrend+2))
+fi
+
 echo "<div class=\"bijschrift\">Time series plots of $station $name per $kind. The thick line is a 10-year running average "
 echo "(<a href=\"data/ts$TYPE$WMO$KIND.eps.gz\">eps</a>, <a href="ps2pdf.cgi?file=data/ts$TYPE$mywmo$KIND.eps.gz">pdf</a>, <a href=\"data/ts$TYPE$WMO.txt\">raw data</a>)</div>"
 
@@ -67,6 +78,7 @@ set term $term
 set output "./data/ts$TYPE$WMO$KIND.$ext"
 set format y "%8.2f"
 set title
+set xrange[$firstyr:$lastyr]
 set multiplot
 set size 0.70,0.225
 set origin 0,2.2
@@ -131,6 +143,7 @@ set term $term size $mosize
 set output "./data/ts$TYPE$WMO$KIND.$ext"
 set format y "%8.2f"
 set title
+set xrange[$firstyr:$lastyr]
 set multiplot
 set size 1,0.091
 set origin 0,0.88
@@ -198,6 +211,7 @@ set term $term
 set output "./data/ts$TYPE$WMO$KIND.$ext"
 set format y "%8.2f"
 set title
+set xrange[$firstyr:$lastyr]
 set multiplot
 set size 0.7,0.275
 set origin 0,0.75
@@ -235,6 +249,7 @@ set term $term
 set output "./data/ts$TYPE$WMO$KIND.$ext"
 set format y "%8.2f"
 set ylabel "$var [$UNITS]"
+set xrange[$firstyr:$lastyr]
 set multiplot
 set size 0.7,0.5
 set origin 0,0.5
@@ -259,6 +274,7 @@ set size 0.7,0.5
 set term $term
 set title "$name $station ($wmo)"
 set ylabel "$var [$UNITS]"
+set xrange[$firstyr:$lastyr]
 set output "./data/ts$TYPE$WMO$KIND.$ext"
 plot "./data/ts$TYPE$WMO.plt" u 1:40 notitle with lines lt 2 lw 5, \
      "./data/ts$TYPE$WMO.plt" u 1:20 notitle with steps lt 1
@@ -275,6 +291,7 @@ set size 0.7,0.5
 set term $term
 set title "Jan-Dec $name $station ($wmo)"
 set ylabel "$var [$UNITS]"
+set xrange[$firstyr:$lastyr]
 set output "./data/ts$TYPE$WMO$KIND.$ext"
 plot "./data/ts$TYPE$WMO.plt" u 1:40 notitle with lines lt 2 lw 5, \
      "./data/ts$TYPE$WMO.plt" u 1:20 notitle with steps lt 1
@@ -291,6 +308,7 @@ set size 0.7,0.5
 set term $term
 set title "Jul-Jun $name $station ($wmo)"
 set ylabel "$var [$UNITS]"
+set xrange[$firstyr:$lastyr]
 set output "./data/ts$TYPE$WMO$KIND.$ext"
 plot "./data/ts$TYPE$WMO.plt" u 1:41 notitle with lines lt 2 lw 5, \
      "./data/ts$TYPE$WMO.plt" u 1:21 notitle with steps lt 1
