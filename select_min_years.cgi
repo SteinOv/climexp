@@ -26,10 +26,10 @@ fi
 args="$oldlistname $FORM_min"
 if [ -n "$FORM_coast" -a "$FORM_coast" != all ]; then
     case $FORM_coast in
-        coast) args="$args mask countries/Netherlands_coastal.txt"
+        coast) args="$args mask countries/Netherlands_coastal_stations.txt"
             listname=${listname%.txt}_mask_Netherlands_coastal.txt
             FORM_climate="coastal $FORM_climate";;
-        inland) args="$args mask countries/Netherlands_inland.txt"
+        inland) args="$args mask countries/Netherlands_inland_stations.txt"
             listname=${listname%.txt}_mask_Netherlands_inland.txt
             FORM_climate="inland $FORM_climate";;
     esac
