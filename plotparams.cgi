@@ -146,7 +146,7 @@ label distance <input type="$number" class="forminput" name="xlint" value="$FORM
 </td></tr><tr>
 <td>Contents:</td><td>(can be edited)</td>
 </tr></table>
-<textarea name="list" rows="5" cols="40">
+<textarea name="list" rows="5" cols="70">
 EOF
 cat $plotlist
 cat <<EOF
