@@ -406,7 +406,7 @@ $dano
 quit
 EOF
     f=data/g${uniq}_$i
-    c=`pngtopnm $f.png | pnmcrop | pamfile | fgrep -c PPM`
+    c=`(pngtopnm $f.png | pnmcrop | pamfile) 2>&1 | fgrep -c PPM`
     if [ $c = 1 ]; then
         [ "$lwrite" = true ] && echo "$f.png is non-empty<br>"
         ok=true
