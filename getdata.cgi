@@ -582,6 +582,31 @@ Take anomalies and set standard deviation to one
 </td></tr>
 EOF
 if [ $NPERYEAR -gt 1 ]; then
+    if [ -n "$EMAIL" -a "$EMAIL" != someone@somewhere ]; then
+        def=./prefs/$EMAIL.selectdate
+        if [ -s $def ]; then
+            eval `egrep '^FORM_[a-z0-9]*=[a-z]*[-+0-9.]*;$' $def`
+        fi
+        if [ -n "$FORM_month" ]; then
+            case $FORM_month in
+                1) month1=selected;;
+                2) month2=selected;;
+                3) month3=selected;;
+                4) month4=selected;;
+                5) month5=selected;;
+                6) month6=selected;;
+                7) month7=selected;;
+                8) month8=selected;;
+                9) month9=selected;;
+                10) month10=selected;;
+                11) month11=selected;;
+                12) month12=selected;;
+            esac
+        fi
+    fi
+    if [ -n "$FORM_day" ]; then
+        day[$FORM_day]=selected
+    fi
     cat <<EOF
 <tr><td>Select ${month}:</td><td>
 <form action="selectdate.cgi" method="POST">
@@ -596,34 +621,34 @@ EOF
     if [ $NPERYEAR = 2 ]; then
         cat <<EOF
 <select class="forminput" name="month">
-<option value=1>Oct-Mar
-<option value=2>Apr-sep
+<option value=1 $month1>Oct-Mar
+<option value=2 $month2>Apr-sep
 </select>
 EOF
     elif [ $NPERYEAR = 4 ]; then
         cat <<EOF
 <select class="forminput" name="month">
-<option value=1>DJF
-<option value=2>MAM
-<option value=3>JJA
-<option value=4>SON
+<option value=1 $month1>DJF
+<option value=2 $month2>MAM
+<option value=3 $month3>JJA
+<option value=4 $month4>SON
 </select>
 EOF
     else
         cat <<EOF
 <select class="forminput" name="month">
-<option value=1>Jan
-<option value=2>Feb
-<option value=3>Mar
-<option value=4>Apr
-<option value=5>May
-<option value=6>Jun
-<option value=7>Jul
-<option value=8>Aug
-<option value=9>Sep
-<option value=10>Oct
-<option value=11>Nov
-<option value=12>Dec
+<option value=1 $month1>Jan
+<option value=2 $month2>Feb
+<option value=3 $month3>Mar
+<option value=4 $month4>Apr
+<option value=5 $month5>May
+<option value=6 $month6>Jun
+<option value=7 $month7>Jul
+<option value=8 $month8>Aug
+<option value=9 $month9>Sep
+<option value=10 $month10>Oct
+<option value=11 $month11>Nov
+<option value=12 $month12>Dec
 </select>
 EOF
         if [ $NPERYEAR -ge 360 ]; then
@@ -631,7 +656,7 @@ EOF
             i=0
             while [ $i -lt 31 ]; do
                 ((i++))
-                echo "<option>$i"
+                echo "<option ${day[$i]}>$i"
             done
             echo "</select>"
         fi
