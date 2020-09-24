@@ -107,6 +107,7 @@ fi
 
 FORM_field=ens_${FORM_system}_t2m_feb
 . ./queryfield.cgi
+FORM_field=""
 ###echo "file=$file<br>"
 describefield=`./bin/describefield.sh $file`
 ###echo "describefield=$describefield<br>"
