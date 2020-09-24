@@ -1,6 +1,5 @@
 #!/bin/bash
 # to be sourced from other scripts
-###echo "<div class=\"alineakop\">Annual cycle and anomalies</div>"
 if [ -z "$EMAIL" ]; then
 	EMAIL=FORM_EMAIL
 fi
@@ -116,7 +115,7 @@ EOF
             gzip -f ./${base}_$suffix.eps
         fi # does plot already exist?
     done # Jan-Dec and Jul-JUn
-    echo "<center>"
+    echo "</div><center>" # close bijschrift
     for type in 1 -1; do
         if [ $type = -1 ]; then
             suffix=yrm1
