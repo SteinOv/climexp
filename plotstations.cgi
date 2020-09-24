@@ -904,7 +904,7 @@ EOF
 		rm $f.gm
 	fi
 	gzip $f.eps &
-	echo "<div class=\"bijschrift\">$title (<a href=\"$f.eps.gz\">eps</a>, <a href=\"ps2pdf.cgi?file=$f.eps.gz\">pdf</a>)"
+	echo "<div class=\"bijschrift\">$title (<a href=\"$f.eps.gz\">eps</a>, <a href=\"ps2pdf.cgi?file=$f.eps.gz\">pdf</a>)</div>"
 	if [ "$hiresmap" = true ]; then
 		pngfile=$f.png
 		getpngwidth
