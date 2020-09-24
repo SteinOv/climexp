@@ -1,6 +1,7 @@
 {# begin form #}
 
 <div class="kalelink">
+<div class="regform">
 <form id="climexp_form" action="plot_atlas_form.py" method="POST">
 <table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
 
@@ -19,7 +20,7 @@ Type:
 {% for val in region_values %}
     <input class=formradio type=radio name=region value={{val[0]}} {{ 'checked' if FORM_region == val[0] }} onchange=this.form.submit();>{{val[1]}}
 {% endfor %}
-</td><td align="right"><a href="javascript:pop_page('help/atlas_chooseareas.shtml',284,450)"><img src="images/info-i.gif" alt="help" border="0"></a>
+</td><td align="right"><a href="javascript:pop_page('help/atlas_chooseareas.shtml',500,550)"><img src="images/info-i.gif" alt="help" border="0"></a>
 {% if FORM_region == 'srex' %}
     </td></tr><tr><td>
     IPCC WG1:
@@ -75,7 +76,7 @@ Type:
     <input type="radio" class="formradio" name="masktype" value="all" {{ 'checked' if FORM_masktype == 'all' }}>everything
     <input type="radio" class="formradio" name="masktype" value="5lan" {{ 'checked' if FORM_masktype == '5lan' }}>only land points
     <input type="radio" class="formradio" name="masktype" value="5sea" {{ 'checked' if FORM_masktype == '5sea' }}>only sea points<br>
-    </td><td align="right"><a href="javascript:pop_page('help/landseamask.shtml',284,450)"><img src="images/info-i.gif" alt="help" border="0"></a></td></tr>
+    </td><td align="right"><a href="javascript:pop_page('help/landseamask.shtml',500,550)"><img src="images/info-i.gif" alt="help" border="0"></a></td></tr>
 {% else %}
     {# save the variables #}
     <input type=hidden name=lon1 value="{{FORM_lon1}}">
@@ -126,7 +127,7 @@ Annual data
 <input type=hidden name=mon value="{{FORM_mon}}">
 <input type=hidden name=sum value="{{FORM_sum}}">
 {% endif %}
-</td><td><a href="javascript:pop_page('help/atlas_selectseason.shtml',568,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td><td><a href="javascript:pop_page('help/atlas_selectseason.shtml',568,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
 
 {# Dataset #}
 </td></tr><tr><th colspan=3>
@@ -140,7 +141,7 @@ Dataset:
     <option value="{{dataset_val[0]}}" {{ 'selected' if FORM_dataset|default(CMIP5one) == dataset_val[0] }}>{{dataset_val[1]}}</option>
 {% endfor %}
 </select> 
-</td><td><a href="javascript:pop_page('help/atlas_dataset.shtml',568,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td><td><a href="javascript:pop_page('help/atlas_dataset.shtml',568,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
 
 </td></tr><tr><td>
 Variable:
@@ -183,14 +184,14 @@ Variable:
     internal error: unknown dataset 
 {% endif %}
 </select>
-</td><td><a href="javascript:pop_page('help/atlas_variable.shtml',248,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td><td><a href="javascript:pop_page('help/atlas_variable.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
 </td></tr><tr><td>
 &nbsp;
 </td><td>
 <input type=radio class="formradio" name="normsd" value="absolute" {{ 'checked' if not FORM_normsd }}>absolute
 <input type=radio class="formradio" name="normsd" value="normsd" {{ 'checked' if FORM_normsd }}>relative
 </select> changes are shown
-</td><td><a href="javascript:pop_page('help/atlas_relative.shtml',248,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td><td><a href="javascript:pop_page('help/atlas_relative.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
 
 {# map or time series #}
 </td></tr><tr><td>
@@ -200,7 +201,7 @@ Output:
 {% for output_val in output_values %}
     <input type=radio class="formradio" name="output" value="{{output_val[0]}}" {{ 'checked' if FORM_output == output_val[0] }} onchange=this.form.submit();>{{output_val[1]}} 
 {% endfor %}
-</td><td><a href="javascript:pop_page('help/atlas_map_timeseries.shtml',248,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td><td><a href="javascript:pop_page('help/atlas_map_timeseries.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
 
 {% if FORM_output in ['map', 'histogram'] %}
     {# map & histogram options #}
@@ -225,7 +226,7 @@ Output:
             <option value={{val[0]}} {{ 'selected' if FORM_scenario_cmip5 == val[0] }}>{{val[1]}}</option>
         {% endfor %}
         </select>
-</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
     {% elif FORM_dataset in ['CORDEX-EUR44'] %}
         </td><td>
         <select class=forminput name=scenario_cmip5>
@@ -233,7 +234,7 @@ Output:
             <option value={{val[0]}} {{ 'selected' if FORM_scenario_cmip5 == val[0] }}>{{val[1]}}</option>
         {% endfor %}
         </select>
-</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
     {% else %}
         <input type=hidden name=scenario_cmip5 value={{FORM_scenario_cmip5}}>
     {% endif %}
@@ -241,7 +242,7 @@ Output:
     {% if FORM_dataset == 'CMIP3' %}
         <input type=hidden name=scenario_cmip3 value=sresa1b>
         </td><td>SRES A1B
-</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
     {% else %}
         <input type=hidden name=scenario_cmip3 value=sresa1b>
     {% endif %}
@@ -249,7 +250,7 @@ Output:
     {% if FORM_dataset == 'RT2b' %}
         <input type=hidden name=scenario_rt2b value=A1B>
         </td><td>SRES A1B
-</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
     {% else %}
         <input type=hidden name=scenario_rt2b value=A1B>
     {% endif %}
@@ -342,7 +343,7 @@ Output:
         <option value={{val[0]}} {{ 'selected' if FORM_measure|default(diff) == val[0] }}>{{val[1]}}</option>
     {% endfor %}
     </select>
-</td><td><a href="javascript:pop_page('help/atlas_measure.shtml',248,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td><td><a href="javascript:pop_page('help/atlas_measure.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
 
     {% if FORM_measure == 'diff' %}
         </td></tr><tr><td>
@@ -396,7 +397,7 @@ Output:
             <input type=hidden name=plotvar value='mean'>
         {% endif %}
         </select>
-</td><td><a href="javascript:pop_page('help/atlas_percentiles.shtml',248,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td><td><a href="javascript:pop_page('help/atlas_percentiles.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
 
         {# submit #}
         </td></tr><tr><td colspan=2>
@@ -458,7 +459,7 @@ Output:
             <input type=checkbox class=formcheck name=rcp60 {{ 'checked' if FORM_rcp60 }}>RCP6.0
         {% endif %}
         <input type=checkbox class=formcheck name=rcp85 {{ 'checked' if FORM_rcp85 }}>RCP8.5
-</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
     {% else %}
         <input type=hidden name=rcp26 value={{FORM_rcp26}}>
         <input type=hidden name=rcp45 value={{FORM_rcp45}}>
@@ -468,13 +469,13 @@ Output:
      
     {% if FORM_dataset == 'CMIP3' %}
         {{ FORM_scenario_cmip3 }}
-<a href="javascript:pop_page('help/atlas_scenario.shtml',248,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+<a href="javascript:pop_page('help/atlas_scenario.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
     {% endif %}
 
     {% if FORM_dataset == 'RT2b' %}
         <input type=hidden name=scenario_rt2b value=A1B>
         SRES A1B
-</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
     {% else %}
         <input type=hidden name=scenario_rt2b value=A1B>
     {% endif %}
@@ -541,13 +542,13 @@ Output:
     <input type=radio class=formradio value="on" name=anomaly {{ 'checked' if FORM_anomaly|default(on) == 'on' }}>Take anomalies wrt 
     <input type="text" min={{yr1}} max={{yr2}} step=1 name="anom1" {{textsize4}} value="{{FORM_anom1|default('1986', true)}}">-<input type="text" min={{yr1}} max={{yr2}} step=1 name="anom2" {{textsize4}} value="{{FORM_anom2|default('2005', true)}}">
     <input type=radio class=formradio value="off" name=anomaly {{ 'checked' if FORM_anomaly == 'off' }}>Full values
-</td><td><a href="javascript:pop_page('help/atlas_anomalies.shtml',248,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td><td><a href="javascript:pop_page('help/atlas_anomalies.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
     </td></tr><tr><td>
     Transparency:
     </td><td>
     <input type=radio class="formradio" name="transparency" value="on" {{ 'checked' if FORM_transparency|default(on) == 'on' }}>on
     <input type=radio class="formradio" name="transparency" value="off" {{ 'checked' if FORM_transparency == 'off' }}>off
-    </td><td align="right"><a href="javascript:pop_page('help/atlas_transparency.shtml',284,450)"><img src="images/info-i.gif" alt="help" border="0"></a>
+    </td><td align="right"><a href="javascript:pop_page('help/atlas_transparency.shtml',500,550)"><img src="images/info-i.gif" alt="help" border="0"></a>
  
     {# submit #}
     </td></tr><tr><td colspan=2>
@@ -573,15 +574,11 @@ Output:
 </table>
 </form>
 </div>
+</div>
+</div>
 
-         </div>
-         </div>
-<!-- Insert the body of the page above this line -->
-      </td>
-<td width="1%">&nbsp;</td>
-      <td width="27.5%" valign=top>
-Users are strongly advised to study the <a href="javascript:pop_page('help/atlas.shtml',450,450)">short introduction</a>. Specific help is available under the <a href="javascript:pop_page('help/atlas.shtml',284,450)"><img src="images/info-i.gif" alt="help" border="0"></a> icons.
-
+<div class="col-md-4">
+Users are strongly advised to study the <a href="javascript:pop_page('help/atlas.shtml',550,550)">short introduction</a>. Specific help is available under the <a href="javascript:pop_page('help/atlas.shtml',500,550)"><img src="images/info-i.gif" alt="help" border="0"></a> icons.
       <div class="menukopje">Further information</div>
       <div class="menulink"><a href="help/atlas.shtml" target="_new">Short introduction</a></div>
       <div class="menulink"><a href="http://www.climatechange2013.org/report/" target="_new">IPCC WG1 AR5 report, notably Annex I "Atlas"</a></div>
@@ -592,14 +589,5 @@ Users are strongly advised to study the <a href="javascript:pop_page('help/atlas
       <div class="menulink"><a href="http://www.specs-fp7.eu" target="_new">SPECS</a></div>
       <div class="menulink"><a href="http://www.climatecentre.org" target="_new">Red Cross / Red Crescent Climate Centre</a></div>
       <div class="menulink"><a href="http://www.government.nl/ministries/ienm/organisation" target="_new">Dutch Ministry of Infrastructure and Environment, DGMI</a></div>
-      </td>
-   </tr>
-</table>
-<table border="0" width="95.25%" cellspacing="0" cellpadding="0">
-   <tr>
-      <td width="10%">&nbsp;</td>
-      <td width="56.375%" valign=top>
-         <div id="printable" name="printable">
-         <!-- div -->
-<!-- Voeg hieronder de inhoud van de pagina in -->
-
+</div>
+</div>

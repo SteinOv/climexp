@@ -7,43 +7,48 @@ if [ -n "$3" ]; then
 fi
 if [ -n "$absolute_paths" ]; then
     prfx="https://climexp.knmi.nl/"
+    prfx="http://localhost/" # maybe better
 else
     prfx=""
 fi
 cat <<EOF
-<html>
+<!doctype html>
+<html lang="en">
 <head>
 <!-- beheerder: Geert Jan van Oldenborgh -->
-<link rel="stylesheet" href="${prfx}styles/rccstyle.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script language="javascript" src="${prfx}library/javascript/hidden_info_switch.js"></script>
-<script language="javascript" src="${prfx}library/javascript/pop_page.js"></script> 
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 $extrahead
 $robot
+<link rel="stylesheet" href="${prfx}styles/rccstyle.css" type="text/css">
 <link rel="shortcut icon" href="/favicon.ico"> 
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <title>Climate Explorer: $1</title>
 <style type="text/css">
 a { text-decoration: none }
 </style>
 </head>
 <body>
+<div id="top"></div>
+<!-- font import WMO style-->
+<script language="javascript" src="${prfx}library/javascript/hidden_info_switch.js"></script>
+<script language="javascript" src="${prfx}library/javascript/pop_page.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 EOF
 . ./searchengine.cgi
 # in case it does not come from getopts filter the EMAIL string 
 EMAIL=`echo "$EMAIL" | sed -e 's/[^A-Za-z0-9_.@-]/_/g'`
 sed -e "s/FORM_EMAIL/$EMAIL/" ./vinklude/rcc_pagehead.html 
+echo '<!-- <div class="container-fluid"> -->'
+sed -e "s/FORM_EMAIL/$EMAIL/" ./vinklude/kruimel.html
 cat <<EOF
-<table border="0" width="95.25%" cellspacing="0" cellpadding="0">
-   <tr>
-      <td width="10%">&nbsp;</td>
-      <td width="56.375%" valign=top>
-         <div id="printable" name="printable">
-         <!-- div -->
+            <div class="col-md-8">
+            <div class="breadc2020"><a href="start.cgi">Home</a> <img src="${prfx}vinklude/images/separator_bdc.png">   $1</div>
+            <h2>$1</h2>
+            $2<br>
 <!-- Voeg hieronder de inhoud van de pagina in -->
-<br>
-         <div class="hoofdkop">$1</div>
-         <div class="subkop">$2</div>
-<div class="kalelink">
 EOF
 fi
 . ./init.cgi

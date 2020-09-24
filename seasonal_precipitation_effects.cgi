@@ -9,7 +9,7 @@ echo
 . ./myvinkhead.cgi "Climate Explorer results" "Effects of El Ni&ntilde;o on world weather: all seasons" "index,follow"
 
 cat | sed -e "s/FORM_EMAIL/$EMAIL/" <<EOF
-         El Ni&ntilde;o</a> affects the
+         <p>El Ni&ntilde;o</a> affects the
          weather in large parts of the world.  The effects depend
          strongly on the location and the season.  We have studied the
          GPCC V7 analyses of precipitation over land. White areas did 
@@ -53,13 +53,8 @@ locations.
 <a href="effects/nino34_gpcc_25_n1_DJF.pdf"><img src="effects/nino34_gpcc_25_n1_DJF.png" alt="Relationship between El Ni&ntilde;o and precipitation in December-February" border=0 width="100%" class="realimage" hspace=0 vspace=0></a>
 <br>
 </center>
-
-
-<!-- Insert the body of the page above this line -->
-      </td>
-      <td width="1%">&nbsp;</td>
-      <td width="27.5%" valign=top>
-<!-- Voeg hieronder de lijst met links in -->
+</div>
+<div class="col-md-4">
          <div class="menukopje">Standard seasons</div>
          <div class="menulink"><a href="effects.cgi?id=FORM_EMAIL">Precipitation, temperature and tropical storms</a></div>
 
@@ -68,14 +63,12 @@ locations.
          <div class="menulink">Seasonal precipitation</div>
          <div class="menulink"><a href="monthly_temperature_effects.cgi?id=FORM_EMAIL">Monthly temperature</a></div>
          <div class="menulink"><a href="seasonal_temperature_effects.cgi?id=FORM_EMAIL">Seasonal temperature</a></div>
-<!-- Insert the link list above this line -->
-      </td>
-   </tr>
-</table>
+</div>
+</div>
 EOF
 
 cat ./vinklude/bottom_en.html
- cat <<EOF
+cat <<EOF
 </body>
 </html>
 EOF

@@ -44,7 +44,7 @@ of El Ni&ntilde;o.
 
 <div class="bijschrift"><b>March-May</b> In boreal spring the
 strongest effects are in the western Pacific Ocean: along the equator
-rainfall increases during El Ni&ntilde; and at 10&deg;-15&deg; North
+rainfall increases during El Ni&ntilde;o and at 10&deg;-15&deg; North
 and South rainfall decreases.  The north of Mexico and the desert
 states of the U.S. usually get more rain.  The North-East of Brasil
 often stays drier than usual during El Ni&ntilde;o.  Even in our part
@@ -53,14 +53,13 @@ of Europe it rains more on average during El Ni&ntilde;o.</div>
 <center>
 <a href="effects/nino34_gpcc_25_n1_MAM.pdf"><img src="effects/nino34_gpcc_25_n1_MAM.png" alt="Relationship between El Ni&ntilde;o and rainfall in March-May" border=0 width="100%" class="realimage" hspace=0 vspace=0></a>
 <br>
-</div>
 </center>
 
 <div class="bijschrift"><b>June-August</b> In these months eastern
 Indonesia often suffers droughts during El Ni&ntilde;o.  The rain zone
 has moved east to the islands along the equator in the Pacific Ocean.
 The Indian Monsoon is often weaker during El Ni&ntilde;o, although by
-no means always.
+no means always.</div>
 
 <center>
 <a href="effects/nino34_gpcc_25_n1_JJA.pdf"><img src="effects/nino34_gpcc_25_n1_JJA.png" 
@@ -92,7 +91,7 @@ Antilles.  In Uruguay en South Brasil rainfall increases on average.
 Along the coasts of Ecuador and Peru rainfall increases when the
 coastal waters heat up, an effect also named El Ni&ntilde;o but not
 always coincident with the warming along the equator that affects the
-rest of the world.
+rest of the world.</div>
 
 <center>
 <a href="effects/nino34_gpcc_25_n1_DJF.pdf"><img src="effects/nino34_gpcc_25_n1_DJF.png" 
@@ -113,7 +112,7 @@ effect of El Ni&ntilde;o.
 causes warmer weather in most of the tropics.  The north-western coast
 of North America is also warmer than usual.  In constrast, the
 south-east of the U.S. and north-eastern Mexico are often warmer
-during La Ni&ntilde;a.
+during La Ni&ntilde;a.</div>
 
 <center>
 <a href="effects/nino34_cru_tmp_25_MAM.pdf"><img src="effects/nino34_cru_tmp_25_MAM.png" 
@@ -123,7 +122,7 @@ alt="Relationship between El Ni&ntilde;o and temperature in March-May" border=0 
 
 <div class="bijschrift"><b>June-August</b> The heat signal is very
 clear in India, West Africa and eastern South America.  Summer in 
-East-Asia and eastern Canada is often somewhat cooler than normal.
+East-Asia and eastern Canada is often somewhat cooler than normal.</div>
 
 <center>
 <a href="effects/nino34_cru_tmp_25_JJA.pdf"><img src="effects/nino34_cru_tmp_25_JJA.png" 
@@ -133,7 +132,7 @@ alt="Relationship between El Ni&ntilde;o and temperature in Jun-August" border=0
 
 <div class="bijschrift"><b>September-November</b> The east coast of
 Central and South America, India and southern Australia are often
-warmer during El Ni&ntilde;o.
+warmer during El Ni&ntilde;o.</div>
 
 <center>
 <a href="effects/nino34_cru_tmp_25_SON.pdf"><img src="effects/nino34_cru_tmp_25_SON.png" 
@@ -145,7 +144,7 @@ alt="Relationship between El Ni&ntilde;o and temperature in September-November" 
 Ni&ntilde;o on temperature are clearest in boreal winter, when El
 Ni&ntilde;o normally is strongest.  Northern North and South 
 America, Australia and also southern Africa usually have warmer
-weather than normal during El Ni&ntilde;o.
+weather than normal during El Ni&ntilde;o.</div>
 
 <center>
 <a href="effects/nino34_cru_tmp_25_DJF.pdf"><img src="effects/nino34_cru_tmp_25_DJF.png" 
@@ -156,7 +155,7 @@ alt="Relationship between El Ni&ntilde;o and temperature in December-February" b
 <div class="alineakop"><a name="cyclones"></a>Tropical Cyclones</div>
 
 During El Ni&ntilde;o there are on average fewer hurricanes over
-the Atlantic Ocean, the Caribian Sea and the Gulf of Mexico.  La
+the Atlantic Ocean, the Caribbian Sea and the Gulf of Mexico.  La
 Ni&ntilde;a often brings more.  The west coast of Mexico and the
 United States see more landfalling hurricanes during El Ni&ntilde;o.
 In the central Pacific Ocean El Ni&ntilde;o brings more typhoons,
@@ -170,12 +169,8 @@ are no effects on the number of cyclones over the Indian Ocean.
 alt="Relationship between El Ni&ntilde;o and the number of tropical stroms" border=0 width="100%" class="realimage" hspace=0 vspace=0>
 <br>
 </center>
-
-<!-- Insert the body of the page above this line -->
-      </td>
-      <td width="1%">&nbsp;</td>
-      <td width="27.5%" valign=top>
-<!-- Voeg hieronder de lijst met links in -->
+</div>
+<div class="col-md-4">
          <div class="menukopje">Standard seasons</div>
          <div class="menulink">Precipitation, temperature and tropical storms</div>
 
@@ -184,14 +179,12 @@ alt="Relationship between El Ni&ntilde;o and the number of tropical stroms" bord
          <div class="menulink"><a href="seasonal_precipitation_effects.cgi?id=FORM_EMAIL">Seasonal precipitation</a></div>
          <div class="menulink"><a href="monthly_temperature_effects.cgi?id=FORM_EMAIL">Monthly temperature</a></div>
          <div class="menulink"><a href="seasonal_temperature_effects.cgi?id=FORM_EMAIL">Seasonal temperature</a></div>
-<!-- Insert the link list above this line -->
-      </td>
-   </tr>
-</table>
+</div>
+</div>
 EOF
 
 cat ./vinklude/bottom_en.html
- cat <<EOF
+cat <<EOF
 </body>
 </html>
 EOF

@@ -7,7 +7,7 @@ echo
 . ./myvinkhead.cgi "About the Climate Explorer" ""
 
 cat <<EOF
-The KNMI Climate Explorer is a web application to analysis climate data statistically.  It started in late 1999 as a <a href="history/">sinple web page</a> to analyse ENSO teleconnections and has grown over the years to more than 10 TB of climate data and dozens of analysis tools.  It is now part of the WMO Regional Climate Centre at KNMI, together with <a href="http://www.ecad.eu">ECA&amp;D</a>.
+<p>The KNMI Climate Explorer is a web application to analysis climate data statistically.  It started in late 1999 as a <a href="history/">sinple web page</a> to analyse ENSO teleconnections and has grown over the years to more than 10 TB of climate data and dozens of analysis tools.  It is now part of the WMO Regional Climate Centre at KNMI, together with <a href="http://www.ecad.eu">ECA&amp;D</a>.
 
 <p>This is scientific tool. Please verify yourself that the data you use is good enough for your purpose, and <a href="contact.cgi?id=$EMAIL">report errors back</a>. In publications the original data source should be cited, a link to a web page describing the data is always provided.
 

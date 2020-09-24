@@ -402,7 +402,7 @@ if [ "$anomalie" = ja -a \( "$var" = prcp_gpcc -o "$var" = prcp_cmorph -o "$var"
   units=""
 fi
 
-echo '<table class="onelinetable" width="100%" border=0 cellpadding=0 cellspacing=0><tr class="trcolor">'
+echo '<table class="realtable" width="100%" border=0 cellpadding=0 cellspacing=0><tr class="trcolor">'
 echo "<th colspan=3>$navigatie</th></tr><tr><td align=left>"
 
 file=$((FORM_year1-1))/${field}_${mon1}$((FORM_year1-1))$ext.png
@@ -720,7 +720,7 @@ if [ "$naam" = "wereldgemiddelde temperatuur" \
   -o "$naam" = "wereldgemiddelde landtemperatuur" \
   -o "$naam" = "global mean temperature" \
   -o "$naam" = "global mean land temperature" ]; then
-    echo '<table class="onelinetable" width="100%" border=0 cellpadding=0 cellspacing=0><tr class="trcolor"><td>'
+    echo '<table class="realtable" width="100%" border=0 cellpadding=0 cellspacing=0><tr class="trcolor"><td>'
     echo "$alternatieve_reeksen: "
     if [ "$naam" = "wereldgemiddelde temperatuur" \
       -o "$naam" = "global mean temperature" ]; then

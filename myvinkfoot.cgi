@@ -1,12 +1,7 @@
 #!/bin/bash
 cat <<EOF
          </div>
-         </div>
-<!-- Insert the body of the page above this line -->
-      </td>
-      <td width="1%">&nbsp;</td>
-      <td width="27.5%" valign=top>
-<!-- Voeg hieronder de lijst met links in -->
+<div class="col-md-4">
 EOF
 [ -z "$EMAIL" ] && EMAIL=someone@somewhere
 ###sed -e "s/EMAIL/$EMAIL/" ./menu_standard.html
@@ -33,9 +28,10 @@ fi
 [ -x "./$1.cgi" ] && . "./$1.cgi"
 ###cat ./menu_contact.html
 cat <<EOF
-      </td>
-   </tr>
-</table>
+        </div>
+<!-- </div> -->
+</div>
+</div>
 EOF
 if [ -z "$nobottom" ]; then
     cat ./vinklude/bottom_en.html
