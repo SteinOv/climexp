@@ -52,5 +52,4 @@ cat <<EOF
 <div class="menulink"><a href="runningmomentsform.cgi?id=$EMAIL&TYPE=$TYPE&WMO=$wmo&STATION=$STATION&NAME=$name&NPERYEAR=$NPERYEAR">Running mean/s.d./skew/curtosis</a></div>
 <div class="menulink"><a href="attributeform.cgi?id=$EMAIL&TYPE=$TYPE&WMO=$wmo&STATION=$STATION&NAME=$name&NPERYEAR=$NPERYEAR">Trends in return times of extremes</a></div>
 <div class="menulink"><a href="histogramform.cgi?id=$EMAIL&TYPE=$TYPE&WMO=$wmo&STATION=$STATION&NAME=$name&NPERYEAR=$NPERYEAR">Plot and fit distribution</a></div>
-</div>
 EOF
