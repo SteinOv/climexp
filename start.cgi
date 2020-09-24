@@ -30,7 +30,7 @@ else
     randomimage=imageoftheweek.png # pa61223.png
 
     cat <<EOF
-Please enter the KNMI Climate Explorer, a research tool to investigate the climate.  This web site collects a lot of climate data and analysis tools.  Please verify yourself that the data you use is good enough for your purpose, and report errors back.  In publications the original data source should be cited, a link to a web page describing the data is always provided.
+<p>Please enter the KNMI Climate Explorer, a research tool to investigate the climate.  This web site collects a lot of climate data and analysis tools.  Please verify yourself that the data you use is good enough for your purpose, and report errors back.  In publications the original data source should be cited, a link to a web page describing the data is always provided.
 
 <p>Start by selecting a class of climate data from the right-hand menu.  After you have selected the time series or fields of interest, you will be able to investigate it, correlate it to other data, and generate derived data from it.
 
@@ -41,7 +41,7 @@ EOF
 fi
 
 if [ "$EMAIL" = someone@somewhere ]; then
-    echo "<p>Some restrictions are in force, notably the possibility to define your own indices, to upload data into the Climate Explorer and to handle large datasets.  If you want to use these features please <a href="registerform.cgi">log in or register</a>."
+    echo "<p>Some restrictions are in force, notably the possibility to define your own indices, to upload data into the Climate Explorer and to handle large datasets.  If you want to use these features please <a href=\"registerform.cgi\">log in or register</a>."
 fi
 
 . ./check_ie.cgi
