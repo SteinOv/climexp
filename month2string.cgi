@@ -21,7 +21,7 @@ elif [ $NPERYEAR = 4 ]; then
   period="season"
 elif [ $NPERYEAR = 12 ]; then
   period="month"
-elif [ $NPERYEAR = 360 -o $NPERYEAR -eq 365 -o $NPERYEAR -eq 366 ]; then
+elif [ $NPERYEAR = 360 -o $NPERYEAR = 365 -o $NPERYEAR = 366 ]; then
   period="day"
 else
   period="period"
