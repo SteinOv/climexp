@@ -709,4 +709,5 @@ fi
 echo "<a name=\"plots\"></a>"
 . ./showplots.cgi
 
+STATION=$FORM_STATION # to trigger investigate menu
 . ./myvinkfoot.cgi
