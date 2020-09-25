@@ -29,7 +29,6 @@ fi
 ###cat ./menu_contact.html
 cat <<EOF
         </div>
-<!-- </div> -->
 </div>
 </div>
 EOF
