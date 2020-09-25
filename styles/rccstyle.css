@@ -291,6 +291,15 @@ line-height: 2em!important;
 						padding: 8px;
 						margin: 5px;
 						}
+   .formbuttonreverse   {
+						background-color: #D5E3F0;
+						color: #000000;
+						border: none;
+						font-weight: 400;
+						font-size: 14px;
+						padding: 8px;
+						margin: 5px;
+						}
    .formsingle         {background-color:#D5E3F0;}
 
    .onzichtbaar        {display: none;}

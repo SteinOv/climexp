@@ -9,9 +9,9 @@ echo
 cat <<EOF
 <form action="select.cgi" method="POST">
 <input type="hidden" name="email" value="$EMAIL">
-<table class="realTable" width="100%" border=0 cellspacing=0 cellpadding=0>
-<tr><th colspan="13"><input type="submit" class="formbutton" value="Select field">
-Choose a field and press this button</td></tr>
+<table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
+<tr><th><input type="submit" class="formbuttonreverse" value="Select field"></th>
+<th colspan="12">Choose a field and press this button</th></tr>
 EOF
 
 echo '<tr><th colspan=13>FULL ENSEMBLES</th>'

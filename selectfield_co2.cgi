@@ -15,8 +15,8 @@ For even more historical interest you can access the <a href="selectfield_tar.cg
 <form action="select.cgi" method="POST">
 <input type="hidden" name="email" value="$EMAIL">
 <table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
-<tr><th colspan="13"><input type="submit" class="formbutton" value="Select field">
-Choose a field and press this button</td></tr>
+<tr><th><input type="submit" class="formbuttonreverse" value="Select field">
+<th colspan="12">Choose a field and press this button
 EOF
 
 sed -e "s/EMAIL/$EMAIL/" ./selectfield_ipcc.html

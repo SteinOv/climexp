@@ -14,8 +14,8 @@ First batch of CNIP6 runs downlaoded November 2019, will be updated shortly.
 <form action="select.cgi" method="POST">
 <input type="hidden" name="email" value="$EMAIL">
 <table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
-<tr valign="baseline"><th colspan="13"><input type="submit" class="formbutton" value="Select field">
-Choose a field and press this button</td></tr>
+<tr valign="baseline"><th><input type="submit" class="formbuttonreverse" value="Select field">
+<th colspan="12">Choose a field and press this button
 EOF
 
 cat selectfield_cmip6.html
@@ -34,6 +34,8 @@ cat <<EOF
 <a href="getindices.cgi?WMO=CMIP6/forcing/cmip6_kp&STATION=CMIP6_Kp&TYPE=i&id=$EMAIL">Kp</a>
 </td></tr>
 </table>
+</form>
+</div>
 EOF
 
 . ./myvinkfoot.cgi

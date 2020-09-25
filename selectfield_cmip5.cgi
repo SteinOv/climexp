@@ -24,8 +24,8 @@ Global mean temperatures can be <a href="cmip5_indices.cgi?id=$EMAIL">analysed</
 <form action="select.cgi" method="POST">
 <input type="hidden" name="email" value="$EMAIL">
 <table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
-<tr valign="baseline"><th colspan="13"><input type="submit" class="formbutton" value="Select field">
-Choose a field and press this button</td></tr>
+<tr valign="baseline"><th><input type="submit" class="formbuttonreverse" value="Select field">
+<th colspan="12">Choose a field and press this button
 EOF
 
 sed -e "s/EMAIL/$EMAIL/" ./selectfield_cmip5.html

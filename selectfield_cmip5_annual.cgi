@@ -20,8 +20,8 @@ Tne annual extremes of the daily CMIP5 data have been obtained from the <a href=
 <form action="select.cgi" method="POST">
 <input type="hidden" name="email" value="$EMAIL">
 <table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
-<tr valign="baseline"><th colspan="11"><input type="submit" class="formbutton" value="Select field">
-Choose a field and press this button</td></tr>
+<tr valign="baseline"><th><input type="submit" class="formbuttonreverse" value="Select field">
+<th colspan="11">Choose a field and press this button
 EOF
 
 sed -e "s/EMAIL/$EMAIL/" ./selectfield_cmip5_annual.html

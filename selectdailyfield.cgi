@@ -13,7 +13,7 @@ cat <<EOF
 <input type="hidden" name="email" value="$EMAIL">
 
 <table class="realtable" width="100%" border=0 cellpadding=0 cellspacing=0>
-<tr><td colspan="10"><input type="submit" class="formbutton" value="Select field"> Choose a field and press this button (<a href="selectdailyfield2.cgi?id=$EMAIL">alternative</a>)</td></tr>
+<tr><th><input type="submit" class="formbuttonreverse" value="Select field"><th colspan="9">Choose a field and press this button (<a href="selectdailyfield2.cgi?id=$EMAIL">alternative</a>)</td></tr>
 </table>
 <table class="realtable" width="100%" border=0 cellpadding=0 cellspacing=0>
 EOF

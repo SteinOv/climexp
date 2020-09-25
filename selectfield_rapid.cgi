@@ -11,7 +11,7 @@ cat <<EOF
 <form action="select.cgi" method="POST">
 <input type="hidden" name="email" value="$EMAIL">
 <table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
-<tr><th colspan="3"><input type="submit" class="formbutton" value="Select field"> Choose a field and press this button</td></tr>
+<tr><th><input type="submit" class="formbuttonreverse" value="Select field"><th colspan="2">Choose a field and press this button</td></tr>
 EOF
 
 sed -e "s/EMAIL/$EMAIL/" ./selectfield_rapid.html

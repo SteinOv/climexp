@@ -12,7 +12,7 @@ if [ "$EMAIL" != "someone@somewhere" ]; then
 <form action="select.cgi" method="POST">
 <input type="hidden" name="email" value="$EMAIL">
 <div class="formheader">
-<input type="submit" class="formbutton" value="Select field"> Choose a field and press this button
+<input type="submit" class="formbuttonreverse" value="Select field">Choose a field and press this button
 </div>
 <div class="formbody">
 EOF

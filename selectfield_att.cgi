@@ -13,22 +13,15 @@ cat <<EOF
 <form action="select.cgi" method="POST">
 <input type="hidden" name="email" value="$EMAIL">
 <table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
-<tr valign="baseline"><th colspan="14"><input type="submit" class="formbutton" value="Select field">
-Choose a field and press this button</td></tr>
+<tr valign="baseline"><th><input type="submit" class="formbuttonreverse" value="Select field"></th><th colspan="7">Choose a field and press this button</td></tr>
 <tr><th>EC-Earth 2.3<br>T159 coupled 1860-2100
 <th>scenario
 <th>tas
-<th>tas<br>min
-<th>tas<br>max
+<th>tasmin
+<th>tasmax
 <th>pr
-<th>evsp<br>sbl
+<th>evspsbl
 <th>pme
-<th>ssr
-<th>uas
-<th>vas
-<th>wspd
-<th>max<br>wspd
-<th>psl
 <tr><td>16 daily
 <td>RCP8.5
 <td><input type=radio class=formradio name=field value=knmi14_tas_Aday_ECEARTH23_rcp85>
@@ -37,12 +30,6 @@ Choose a field and press this button</td></tr>
 <td><input type=radio class=formradio name=field value=knmi14_pr_Aday_ECEARTH23_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_evspsbl_Aday_ECEARTH23_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_pme_Aday_ECEARTH23_rcp85>
-<td><input type=radio class=formradio name=field value=knmi14_ssr_Aday_ECEARTH23_rcp85>
-<td><input type=radio class=formradio name=field value=knmi14_uas_Aday_ECEARTH23_rcp85>
-<td><input type=radio class=formradio name=field value=knmi14_vas_Aday_ECEARTH23_rcp85>
-<td><input type=radio class=formradio name=field value=knmi14_sfcWind_Aday_ECEARTH23_rcp85>
-<td><input type=radio class=formradio name=field value=knmi14_sfcWindmax_Aday_ECEARTH23_rcp85>
-<td><input type=radio class=formradio name=field value=knmi14_psl_Aday_ECEARTH23_rcp85>
 <tr><td>16 monthly
 <td>RCP8.5
 <td><input type=radio class=formradio name=field value=knmi14_tas_Amon_ECEARTH23_rcp85>
@@ -51,6 +38,24 @@ Choose a field and press this button</td></tr>
 <td><input type=radio class=formradio name=field value=knmi14_pr_Amon_ECEARTH23_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_evspsbl_Amon_ECEARTH23_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_pme_Amon_ECEARTH23_rcp85>
+<tr><th>&nbsp;
+<th>&nbsp;
+<th>ssr
+<th>uas
+<th>vas
+<th>wspd
+<th>maxwspd
+<th>psl
+<tr><td>16 daily
+<td>RCP8.5
+<td><input type=radio class=formradio name=field value=knmi14_ssr_Aday_ECEARTH23_rcp85>
+<td><input type=radio class=formradio name=field value=knmi14_uas_Aday_ECEARTH23_rcp85>
+<td><input type=radio class=formradio name=field value=knmi14_vas_Aday_ECEARTH23_rcp85>
+<td><input type=radio class=formradio name=field value=knmi14_sfcWind_Aday_ECEARTH23_rcp85>
+<td><input type=radio class=formradio name=field value=knmi14_sfcWindmax_Aday_ECEARTH23_rcp85>
+<td><input type=radio class=formradio name=field value=knmi14_psl_Aday_ECEARTH23_rcp85>
+<tr><td>16 monthly
+<td>RCP8.5
 <td><input type=radio class=formradio name=field value=knmi14_ssr_Amon_ECEARTH23_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_uas_Amon_ECEARTH23_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_vas_Amon_ECEARTH23_rcp85>
@@ -68,12 +73,6 @@ Choose a field and press this button</td></tr>
 <th>Rx1day
 <th>Rx3day
 <th>Rx5day
-<th>Txx
-<th>Tx3x
-<th>Txn
-<th>Tnx
-<th>Tnn
-<th>&nbsp;
 <th>&nbsp;
 <th>&nbsp;
 <th>&nbsp;
@@ -82,14 +81,24 @@ Choose a field and press this button</td></tr>
 <td><input type=radio class=formradio name=field value=knmi14_rx1day_yr_ECEARTH23_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_rx3day_yr_ECEARTH23_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_rx5day_yr_ECEARTH23_rcp85>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<tr><th>&nbsp;
+<th>&nbsp;
+<th>Txx
+<th>Tx3x
+<th>Txn
+<th>Tnx
+<th>Tnn
+<th>&nbsp;
+<tr><td>&nbsp;
+<td>RCP8.5
 <td><input type=radio class=formradio name=field value=knmi14_txx_yr_ECEARTH23_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_tx3x_yr_ECEARTH23_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_txn_yr_ECEARTH23_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_tnx_yr_ECEARTH23_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_tnn_yr_ECEARTH23_rcp85>
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
 <td>&nbsp;
 EOF
 if [   $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 \
@@ -105,12 +114,6 @@ if [   $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 \
 <th>&nbsp;
 <th>pot evap
 <th>soil moist.
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
 <tr><td>&nbsp;
 <td>RCP8.5
 <td>&nbsp;
@@ -119,12 +122,6 @@ if [   $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 \
 <td>&nbsp;
 <td><input type=radio class=formradio name=field value=knmi14pcglob_evappot_Amon_ECEARTH23_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14pcglob_soilmoisture_Lmon_ECEARTH23_rcp85>
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
 <tr><th>EC-Earth 2.3<br>T159 coupled time slices
 <th>scenario
 <th>tas
@@ -133,24 +130,12 @@ if [   $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 \
 <th>pr
 <th>evsp<br>sbl
 <th>pme
-<th>ssr
-<th>uas
-<th>vas
-<th>wspd
-<th>max<br>wspd
-<th>psl
 <tr><td>400 daily 5yr
 <td>present
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
 <td><input type=radio class=formradio name=field value=hiwaves3_pr_Aday_ECEarth_PD>
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
 <tr><td>400 daily 5yr
@@ -161,12 +146,6 @@ if [   $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 \
 <td><input type=radio class=formradio name=field value=hiwaves3_pr_Aday_ECEarth_2C>
 <td>&nbsp;
 <td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
 <tr><th>PCR-GLOBWB S Asia
 <th>input
 <th colspan=2>discharge
@@ -174,8 +153,6 @@ if [   $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 \
 <th colspan=2>snowmelt
 <th colspan=2>satdeglow
 <th colspan=2>satdegupp
-<th>&nbsp;
-<th>&nbsp;
 <tr><td>1979-2017
 <td>CPC
 <td colspan=2><input type=radio class=formradio name=field value=hiwaves3_discharge_Aday_CPC_hist>
@@ -183,8 +160,6 @@ if [   $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 \
 <td colspan=2><input type=radio class=formradio name=field value=hiwaves3_snowMelt_Aday_CPC_hist>
 <td colspan=2><input type=radio class=formradio name=field value=hiwaves3_satDegLow_Aday_CPC_hist>
 <td colspan=2><input type=radio class=formradio name=field value=hiwaves3_satDegUpp_Aday_CPC_hist>
-<td>&nbsp;
-<td>&nbsp;
 <tr><td>1979-2017
 <td>ERA-interim
 <td colspan=2><input type=radio class=formradio name=field value=hiwaves3_discharge_Aday_ERA_hist>
@@ -192,8 +167,6 @@ if [   $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 \
 <td colspan=2><input type=radio class=formradio name=field value=hiwaves3_snowMelt_Aday_ERA_hist>
 <td colspan=2><input type=radio class=formradio name=field value=hiwaves3_satDegLow_Aday_ERA_hist>
 <td colspan=2><input type=radio class=formradio name=field value=hiwaves3_satDegUpp_Aday_ERA_hist>
-<td>&nbsp;
-<td>&nbsp;
 EOF
 fi
 cat <<EOF
@@ -491,6 +464,50 @@ cat <<EOF
 <th>RX2day
 <th>RX3day
 <th>RX5day
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<tr><td>16 annual
+<td>RCP8.5
+<td><input type=radio class=formradio name=field value=knmi14_RX1day_yr_RACMO22E_rcp85_year>
+<td><input type=radio class=formradio name=field value=knmi14_RX2day_yr_RACMO22E_rcp85_year>
+<td><input type=radio class=formradio name=field value=knmi14_RX3day_yr_RACMO22E_rcp85_year>
+<td><input type=radio class=formradio name=field value=knmi14_RX5day_yr_RACMO22E_rcp85_year>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<tr><td>16 Oct-Mar
+<td>RCP8.5
+<td><input type=radio class=formradio name=field value=knmi14_RX1day_yr_RACMO22E_rcp85_ONDJFM>
+<td><input type=radio class=formradio name=field value=knmi14_RX2day_yr_RACMO22E_rcp85_ONDJFM>
+<td><input type=radio class=formradio name=field value=knmi14_RX3day_yr_RACMO22E_rcp85_ONDJFM>
+<td><input type=radio class=formradio name=field value=knmi14_RX5day_yr_RACMO22E_rcp85_ONDJFM>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<tr><td>16 Apr-Sep
+<td>RCP8.5
+<td><input type=radio class=formradio name=field value=knmi14_RX1day_yr_RACMO22E_rcp85_AMJJAS>
+<td><input type=radio class=formradio name=field value=knmi14_RX2day_yr_RACMO22E_rcp85_AMJJAS>
+<td><input type=radio class=formradio name=field value=knmi14_RX3day_yr_RACMO22E_rcp85_AMJJAS>
+<td><input type=radio class=formradio name=field value=knmi14_RX5day_yr_RACMO22E_rcp85_AMJJAS>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<tr><th>&nbsp;
+<th>&nbsp;
 <th>TXx
 <th>TX3x
 <th>TXn
@@ -499,12 +516,10 @@ cat <<EOF
 <th>TN3x
 <th>TNn
 <th>TN3n
+<th>&nbsp;
+<th>&nbsp;
 <tr><td>16 annual
 <td>RCP8.5
-<td><input type=radio class=formradio name=field value=knmi14_RX1day_yr_RACMO22E_rcp85_year>
-<td><input type=radio class=formradio name=field value=knmi14_RX2day_yr_RACMO22E_rcp85_year>
-<td><input type=radio class=formradio name=field value=knmi14_RX3day_yr_RACMO22E_rcp85_year>
-<td><input type=radio class=formradio name=field value=knmi14_RX5day_yr_RACMO22E_rcp85_year>
 <td><input type=radio class=formradio name=field value=knmi14_TXx_yr_RACMO22E_rcp85_year>
 <td><input type=radio class=formradio name=field value=knmi14_TX3x_yr_RACMO22E_rcp85_year>
 <td><input type=radio class=formradio name=field value=knmi14_TXn_yr_RACMO22E_rcp85_year>
@@ -513,12 +528,10 @@ cat <<EOF
 <td><input type=radio class=formradio name=field value=knmi14_TN3x_yr_RACMO22E_rcp85_year>
 <td><input type=radio class=formradio name=field value=knmi14_TNn_yr_RACMO22E_rcp85_year>
 <td><input type=radio class=formradio name=field value=knmi14_TN3n_yr_RACMO22E_rcp85_year>
+<td>&nbsp;
+<td>&nbsp;
 <tr><td>16 Oct-Mar
 <td>RCP8.5
-<td><input type=radio class=formradio name=field value=knmi14_RX1day_yr_RACMO22E_rcp85_ONDJFM>
-<td><input type=radio class=formradio name=field value=knmi14_RX2day_yr_RACMO22E_rcp85_ONDJFM>
-<td><input type=radio class=formradio name=field value=knmi14_RX3day_yr_RACMO22E_rcp85_ONDJFM>
-<td><input type=radio class=formradio name=field value=knmi14_RX5day_yr_RACMO22E_rcp85_ONDJFM>
 <td><input type=radio class=formradio name=field value=knmi14_TXx_yr_RACMO22E_rcp85_ONDJFM>
 <td><input type=radio class=formradio name=field value=knmi14_TX3x_yr_RACMO22E_rcp85_ONDJFM>
 <td><input type=radio class=formradio name=field value=knmi14_TXn_yr_RACMO22E_rcp85_ONDJFM>
@@ -527,12 +540,10 @@ cat <<EOF
 <td><input type=radio class=formradio name=field value=knmi14_TN3x_yr_RACMO22E_rcp85_ONDJFM>
 <td><input type=radio class=formradio name=field value=knmi14_TNn_yr_RACMO22E_rcp85_ONDJFM>
 <td><input type=radio class=formradio name=field value=knmi14_TN3n_yr_RACMO22E_rcp85_ONDJFM>
+<td>&nbsp;
+<td>&nbsp;
 <tr><td>16 Apr-Sep
 <td>RCP8.5
-<td><input type=radio class=formradio name=field value=knmi14_RX1day_yr_RACMO22E_rcp85_AMJJAS>
-<td><input type=radio class=formradio name=field value=knmi14_RX2day_yr_RACMO22E_rcp85_AMJJAS>
-<td><input type=radio class=formradio name=field value=knmi14_RX3day_yr_RACMO22E_rcp85_AMJJAS>
-<td><input type=radio class=formradio name=field value=knmi14_RX5day_yr_RACMO22E_rcp85_AMJJAS>
 <td><input type=radio class=formradio name=field value=knmi14_TXx_yr_RACMO22E_rcp85_AMJJAS>
 <td><input type=radio class=formradio name=field value=knmi14_TX3x_yr_RACMO22E_rcp85_AMJJAS>
 <td><input type=radio class=formradio name=field value=knmi14_TXn_yr_RACMO22E_rcp85_AMJJAS>
@@ -541,6 +552,8 @@ cat <<EOF
 <td><input type=radio class=formradio name=field value=knmi14_TN3x_yr_RACMO22E_rcp85_AMJJAS>
 <td><input type=radio class=formradio name=field value=knmi14_TNn_yr_RACMO22E_rcp85_AMJJAS>
 <td><input type=radio class=formradio name=field value=knmi14_TN3n_yr_RACMO22E_rcp85_AMJJAS>
+<td>&nbsp;
+<td>&nbsp;
 <tr><th>EURO-CORDEX 11km
 <th>scenario
 <th>tas<br>bias-corrected
@@ -589,16 +602,15 @@ cat <<EOF
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
-<tr><th>ISIMIP 1861-2099<th>scenario<th>potevap<th colspan=3>&nbsp<th>soilmoist<th colspan=7>&nbsp
+<tr><th>ISIMIP 1861-2099<th>scenario<th>potevap<th colspan=3>&nbsp<th>soilmoist<th colspan=3>&nbsp
 <tr><td>16 monthly<td>RCP6.0
 <td><input type=radio class=formradio name=field value=isimip_potevap_all_all_rcp60>
 <td colspan=3>&nbsp;
 <td><input type=radio class=formradio name=field value=isimip_soilmoist_all_all_rcp60>
-<td colspan=7>&nbsp;
+<td colspan=3>&nbsp;
 <tr><th>&nbsp;<th>&nbsp;
 <th>GFDL<th>HadGEM<th>IPSL<th>MIROC5
 <th>GFDL<th>HadGEM<th>IPSL<th>MIROC5
-<th colspan=4>&nbsp
 <tr><td>H08<td>RCP6.0
 <td><input type=radio class=formradio name=field value=isimip_potevap_GFDL_H08_rcp60>
 <td><input type=radio class=formradio name=field value=isimip_potevap_HadGEM_H08_rcp60>
