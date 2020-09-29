@@ -43,7 +43,7 @@ EMAIL=`echo "$EMAIL" | sed -e 's/[^A-Za-z0-9_.@-]/_/g'`
 sed -e "s/FORM_EMAIL/$EMAIL/" ./vinklude/rcc_pagehead.html 
 cat <<EOF
             <div class="col-md-8">
-            <div class="breadc2020"><a href="start.cgi">Home</a> <img src="${prfx}vinklude/images/separator_bdc.png">   $1: $2</div>
+            <div class="breadc2020"><a href="start.cgi?id=$EMAIL">Home</a> <img src="${prfx}vinklude/images/separator_bdc.png">   $1: $2</div>
             <h2>$1</h2>
             $2<br>
 <!-- Voeg hieronder de inhoud van de pagina in -->
