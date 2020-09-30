@@ -177,11 +177,11 @@ At least <input type="$number" step=any class="forminput" name="dist" $textsize4
 </form>
 
 <table class="realtable" width="100%" border=0 cellpadding=0 cellspacing=0>
-<tr><th colspan="3"><a href="javascript:pop_page('help/dutchdailydata.shtml',284,450)"><img align="right" src="images/info-i.gif" alt="help" border="0">Dutch daily data</th></tr>
-<tr><td colspan="3">1901-now, <a
-href="http://www.knmi.nl/klimatologie/daggegevens/download.cgi?language=eng">KNMI Climatological Service</a>.  These series have not
+<tr><th colspan="3"><a href="javascript:pop_page('help/dutchdailydata.shtml',284,450)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>Dutch daily data</th></tr>
+<tr><td colspan="3" class=kalelink>1901-now, <a
+href="http://www.knmi.nl/klimatologie/daggegevens/download.cgi?language=eng">KNMI Climatological Service</a>.  Most series have not
 yet been homogenised. Homogenised daily precipitation series are available <a href="/PhomNL.cgi?id=$EMAIL">here</a> and monthly homogenised mean temperature series <a href="getdutchstations.cgi?id=$EMAIL&TYPE=temphom">here</a></td><tr>
-<tr><td>
+<tr><td class=kalelink>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=tg">mean temperature</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=tn">minimum temperature</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=tx">maximum temperature</a><br>
@@ -194,7 +194,7 @@ yet been homogenised. Homogenised daily precipitation series are available <a hr
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=preciphom1951">precip (8-8) 1951- hom</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=rx">max hourly precip (0-24)</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=ev">Makkink evaporation</a><br>
-</td><td>
+</td><td class=kalelink>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=pg">mean surface pressure</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=pn">minimum surface pressure</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=px">maximum surface pressure</a><br>
@@ -209,7 +209,7 @@ yet been homogenised. Homogenised daily precipitation series are available <a hr
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=fx">maximum wind gust</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=dx">zonal wind direction</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=dy">meridional wind direction</a><br>
-</td><td>
+</td><td class=kalelink>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=td">max dew point temp</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=ug">mean relative humidity</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=un">minimum relative humidity</a><br>
