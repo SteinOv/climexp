@@ -119,6 +119,7 @@ sudo patch -b /etc/apache2/mods-available/mime.conf mime.conf.ubuntu.patch
 sudo a2ensite 000-default
 sudo a2enmod cgid
 sudo a2enmod headers
+sudo a2enmod include
 sudo apachectl start
 
 sudo mkdir -p /usr/local/lib/R
