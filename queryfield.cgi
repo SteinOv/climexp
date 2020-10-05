@@ -1169,15 +1169,19 @@ cdswrf) file=20C/dswrf.sfc.mon.mean.nc;kindname="20C";climfield="surface downwar
 
 c3slp|cpsl|cprmsl) file=20CRv3/prmsl.mon.mean.nc;kindname="20CRv3";climfield="SLP";LSMASK=20CRv3/land.nc;;
 c3prmsl_daily) file=20CRv3/prmsl_daily.nc;kindname="20CRv3";climfield="SLP";NPERYEAR=366;LSMASK=20CRv3/land.nc;;
-c3slp_extended) file=20CRv3/prmsl.mon.mean_extended.nc;kindname="20C+";climfield="SLP";LSMASK=20CRv3/land.nc;;
+c3slp_e) file=20CRv3/prmsl.mon.mean_extended.nc;kindname="20CRv3+";climfield="SLP";LSMASK=20CRv3/land.nc;;
+c3prmsl_daily_e) file=20CRv3/prmsl_daily_extended.nc;kindname="20CRv3+";climfield="SLP";NPERYEAR=366;LSMASK=20CRv3/land.nc;;
 c3z850) file=20CRv3/hgt850.nc;kindname="20CRv3";climfield="850mb height";;
 c3z700) file=20CRv3/hgt700.nc;kindname="20CRv3";climfield="700mb height";;
 c3z500_daily) file=20CRv3/hgt500_daily.nc;kindname="20CRv3";climfield="500mb height";NPERYEAR=366;;
+c3z500_daily_e) file=20CRv3/hgt500_daily_extended.nc;kindname="20CRv3+";climfield="500mb height";NPERYEAR=366;;
 c3z500) file=20CRv3/hgt500.nc;kindname="20CRv3";climfield="500mb height";;
+c3z500_e) file=20CRv3/hgt500_extended.nc;kindname="20CRv3+";climfield="500mb height";;
 c3z300) file=20CRv3/hgt300.nc;kindname="20CRv3";climfield="300mb height";;
 c3z200) file=20CRv3/hgt200.nc;kindname="20CRv3";climfield="200mb height";;
 c3taux) file=20CRv3/uflx.mon.mean.nc;kindname="20CRv3";climfield="zonal windstress";LSMASK=20CRv3/land.nc;;
 c3u10m) file=20CRv3/uwnd.10m.mon.mean.nc;kindname="20CRv3";climfield="10m zonal wind";LSMASK=20CRv3/land.nc;;
+c3u10m_daily) file=20CRv3/uwnd.10m_daily.nc;kindname="20CRv3";climfield="10m zonal wind";LSMASK=20CRv3/land.nc;;
 c3u850) file=20CRv3/uwnd850.nc;kindname="20CRv3";climfield="850mb zonal wind";;
 c3u700) file=20CRv3/uwnd700.nc;kindname="20CRv3";climfield="700mb zonal wind";;
 c3u500) file=20CRv3/uwnd500.nc;kindname="20CRv3";climfield="500mb zonal wind";;
@@ -1185,6 +1189,7 @@ c3u300) file=20CRv3/uwnd300.nc;kindname="20CRv3";climfield="300mb zonal wind";;
 c3u200) file=20CRv3/uwnd200.nc;kindname="20CRv3";climfield="200mb zonal wind";;
 c3tauy) file=20CRv3/vflx.mon.mean.nc;kindname="20CRv3";climfield="meridional windstress";LSMASK=20CRv3/land.nc;;
 c3v10m) file=20CRv3/vwnd.10m.mon.mean.nc;kindname="20CRv3";climfield="10m meridional wind";LSMASK=20CRv3/land.nc;;
+c3v10m_daily) file=20CRv3/vwnd_daily.nc;kindname="20CRv3";climfield="10m meridional wind";LSMASK=20CRv3/land.nc;;
 c3wspd) file=20CRv3/wspd.10m.mon.mean.nc;kindname="20CRv3";climfield="10m wind speed";LSMASK=20CRv3/land.nc;;
 c3wspd_daily) file=20CRv3/wspd.10m.max.mean.nc;kindname="20CRv3";climfield="daily max 10m wind speed";LSMASK=20CRv3/land.nc;NPERYEAR=366;;
 c3v850) file=20CRv3/vwnd850.nc;kindname="20CRv3";climfield="850mb meridional wind";;

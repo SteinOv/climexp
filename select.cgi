@@ -316,6 +316,11 @@ if [ "${FORM_field#ensembles_025}" != "${FORM_field}" -a -s ${file%u.nc}e.nc ]; 
     text="(Preliminary data, should be updated every morning)<br>"
     extension="SYNOPs"
 fi
+if [ "${FORM_field#c3}" != "${FORM_field}" -a -s ${file%.nc}_extended.nc -a $EMAIL != someone@somewhere ]; then
+    extended=true
+    text="(Please contact <a href=\"mailto:oldenborgh@knmi.nl\">me</a> if you need an up-to-date version)<br>"
+    extension="ERA5 / ECMWF operational analyses"
+fi
 if [ $extended = true ]; then
     echo "<div class=\"alineakop\"><a name=\"extend\">Analyse $kindname $climfield extended with $extension</a></div>"
     echo $text 
