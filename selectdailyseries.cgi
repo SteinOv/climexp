@@ -207,6 +207,8 @@ yet been homogenised. Homogenised daily precipitation series are available <a hr
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=upx_coast">coast</a>,
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=upx_sea">sea</a>)<br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=fx">maximum wind gust</a><br>
+<a href="getdutchstations.cgi?id=$EMAIL&TYPE=fu">zonal wind speed</a><br>
+<a href="getdutchstations.cgi?id=$EMAIL&TYPE=fv">meridional wind speed</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=dx">zonal wind direction</a><br>
 <a href="getdutchstations.cgi?id=$EMAIL&TYPE=dy">meridional wind direction</a><br>
 </td><td class=kalelink>
