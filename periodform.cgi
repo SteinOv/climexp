@@ -63,6 +63,7 @@ cat <<EOF
 <tr><td>Normalise:<td><input type="radio" name="normplot" value="height" $height_checked>height or <input type="radio" name="normplot" value="area" $area_checked>area of peaks in spectrum
 <tr><td colspan=2><input type="submit" class="formbutton" value="do it">
 </table>
+</div>
 </form>
 EOF
 
