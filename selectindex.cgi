@@ -57,7 +57,7 @@ href="http://hadobs.metoffice.gov.uk/hadisst/" target="_new"><img src="images/in
 <td><a href="http://www.pmel.noaa.gov/tao/elnino/wwv/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=BMRCData/wwv_poama&STATION=WWV&TYPE=i&id=$EMAIL">WWV</a>
-(5&deg;S-5&deg;N, 120&deg;E-80&deg;W, 1960-now, POAMA/PEODAS)</div>
+(5&deg;S-5&deg;N, 120&deg;E-80&deg;W, 1960-sep2020, POAMA/PEODAS)</div>
 <td><a href="http://poama.bom.gov.au/ocean_monitoring.shtml" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=NCEPData/cpc_eq_heat300&STATION=eq_heat300&TYPE=i&id=$EMAIL">temperature averaged to 300m</a>
