@@ -9,6 +9,7 @@ WMO="$FORM_WMO"
 STATION="$FORM_STATION"
 station=` echo "$STATION" | tr '_' ' '`
 NAME="$FORM_NAME"
+name=`echo "$NAME" | tr '_' ' '`
 NPERYEAR="$FORM_NPERYEAR"
 
 . ./nosearchengine.cgi
@@ -19,7 +20,7 @@ if [ $c1 -gt 0 -o $c2 -gt 0 ]; then
   ENSEMBLE=true
 fi
 
-. ./myvinkhead.cgi "Running moments" "$station $NAME" "noindex,nofollow"
+. ./myvinkhead.cgi "Running moments" "$station $name" "noindex,nofollow"
 
 if [ -z "$NPERYEAR" ]; then
   NPERYEAR=12 # I hope
@@ -44,6 +45,7 @@ if [ -n "$FORM_separate" ]; then
 fi
 
 cat <<EOF
+<p>
 <form action="runningmoments.cgi" method="POST">
 <input type="hidden" name="EMAIL" value="$EMAIL">
 <input type="hidden" name="NPERYEAR" value="$NPERYEAR">

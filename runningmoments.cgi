@@ -9,6 +9,8 @@ export DIR=`pwd`
 WMO=$FORM_WMO
 TYPE=$FORM_TYPE
 NPERYEAR=$FORM_NPERYEAR
+NAME=$FORM_NAME
+name=`echo "$NAME" | tr '_' ' '`
 
 if [ $EMAIL = oldenbor@knmi.nl ]; then
     lwrite=false
@@ -38,7 +40,7 @@ fi
 n=0
 FORM_num=$$
 
-. ./myvinkhead.cgi "Running $moments" "$station $NAME" "noindex,nofollow"
+. ./myvinkhead.cgi "Running $moments" "$station $name" "noindex,nofollow"
 
 for FORM_moment in $moments
 do
@@ -114,10 +116,18 @@ fi
 [ -n "$FORM_square" ] && ylabel="${ylabel}^2"
 ylabel="$FORM_moment $ylabel"
 
-if [ -n "$FORM_sum" ]; then
-  eval `$DIR/bin/month2string "$FORM_month" "$FORM_sum" 0`
-  seriesmonth="$seriesmonth "
-  ylabel="$seriesmonth $ylabel"
+if [ $NPERYEAR = 12 ]; then
+    if [ -n "$FORM_sum" ]; then
+        eval `$DIR/bin/month2string "$FORM_month" "$FORM_sum" 0`
+    fi
+elif [ $NPERYEAR -gt 12 ]; then
+    if [ -n "$FORM_sel" ]; then
+        eval `$DIR/bin/month2string "$FORM_month" "$FORM_sel" 0`
+    fi
+fi
+if [ -n "$seriesmonth" ]; then
+    seriesmonth="$seriesmonth "
+    ylabel="$seriesmonth $ylabel"
 fi
 ylabel=`echo $ylabel | tr '_' ' '`
 
