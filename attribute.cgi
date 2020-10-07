@@ -47,6 +47,8 @@ else
 	CLIM=`echo "$FORM_NAME"  | tr '[:upper:]' '[:lower:]'`
     station=`echo $FORM_STATION | tr '_%' ' +'`
 fi
+clim=`echo $CLIM | tr '_' ' '`
+
 # common options
 if [ -z "$FORM_hist" ]; then
 	FORM_hist=none
@@ -135,15 +137,15 @@ fi
 if [ -n "$FORM_year" ]; then
     corrargs="$corrargs end2 $FORM_year"
 else
-    if [ -n "$FORM_xyear" -a ! "$FORM_timeseries" = none ]; then
-        . ./myvinkhead.cgi "Trends in return times of extremes" "$CLIM $station" "noindex,nofollow"
+    if [ "$FORM_timeseries" != none ]; then
+        . ./myvinkhead.cgi "Trends in return times of extremes" "$clim $station" "noindex,nofollow"
         echo "Error: please give the year for which to evaluate the value"
         . ./myvinkfoot.cgi
         exit
     fi
 fi
 if [ -z "$FORM_begin2" -a ! "$FORM_timeseries" = none ]; then
-    . ./myvinkhead.cgi "Trends in return times of extremes" "$CLIM $station" "noindex,nofollow"
+    . ./myvinkhead.cgi "Trends in return times of extremes" "$clim $station" "noindex,nofollow"
     echo "Error: please give the year with which to compare"
     . ./myvinkfoot.cgi
     exit
@@ -163,7 +165,7 @@ if [ "$FORM_TYPE" = "field" ]; then
     exit
 fi
 
-. ./myvinkhead.cgi "Trends in return times of extremes" "$CLIM $station" "noindex,nofollow"
+. ./myvinkhead.cgi "Trends in return times of extremes" "$clim $station" "noindex,nofollow"
 [ "$TYPE" != "set" -a "$TYPE" != "setmap" ] && listname="" && FORM_listname="" # otherwise we get the wrong menu
 
 if [ ! \( -s $sfile -a -f $sfile -o $sfile = none \) ]; then
