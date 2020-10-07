@@ -137,7 +137,7 @@ fi
 if [ -n "$FORM_year" ]; then
     corrargs="$corrargs end2 $FORM_year"
 else
-    if [ -z "$FORM_biasrt" -a "$FORM_timeseries" != none ]; then
+    if [ "$FORM_timeseries" != none ]; then
         . ./myvinkhead.cgi "Trends in return times of extremes" "$clim $station" "noindex,nofollow"
         echo "Error: please give the year for which to evaluate the value"
         . ./myvinkfoot.cgi
