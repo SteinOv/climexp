@@ -629,7 +629,7 @@ else # NPERYEAR = 1
 fi
 
 if [ $var != maunaloa_ch4 ]; then
-    echo '<table class="onelinetable" width="100%" border=0 cellpadding=0 cellspacing=0><tr class="trcolor">'
+    echo '<table class="realtable" width="100%" border=0 cellpadding=0 cellspacing=0><tr class="trcolor">'
     echo "<th align=left colspan=3>$navigatie</th></tr><tr><td>&nbsp</td><td align=center>"
     if [ "$prefix" = tsi -a $NPERYEAR != 1 ]; then
         naam="$dezemaand $naam"
