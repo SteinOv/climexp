@@ -331,13 +331,13 @@ case "$var" in
 		name=NCDC_global_land_temperature
 		climexpseries=NCDCData/$var
 		units=[Celsius];;
-	era5_t2msst_gl)
+	era5_t2m_gl)
 		if [ "$FORM_lang" = nl ]; then			
 			naam="wereldgemiddelde temperatuur"
 		else
 			naam="global mean temperature"
 		fi
-		bron=ECMWF
+		bron=ERA5
 		url=http://www.ecmwf.int/research/era/
 		name=era5_global_temperature
 		climexpseries=ERA5/$var
