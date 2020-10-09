@@ -55,7 +55,7 @@ fi
 if [ $NPERYEAR = 4 ]; then
     case "$FORM_mon1" in
         nov|dec)     FORM_mon1=SON;;
-        jan)             FORM_mon1=SON;FORM_year1=$((FORM_year1-1));;
+        jan)         FORM_mon1=SON;FORM_year1=$((FORM_year1-1));;
         feb|mar|apr) FORM_mon1=DJF;;
         may|jun|jul) FORM_mon1=MAM;;
         aug|sep|oct) FORM_mon1=JJA;;
@@ -408,25 +408,25 @@ echo "<th colspan=3>$navigatie</th></tr><tr><td align=left>"
 file=$((FORM_year1-1))/${field}_${mon1}$((FORM_year1-1))$ext.png
 ###echo "Looking for $file<br>"
 if [ -s "$file" ]; then
-    echo "<a href=index.cgi?var=$var&mon1=$FORM_mon1&year1=$((FORM_year1-1))&anomalie=$anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type>$vorigjaar</a>"
+    echo "<a href=\"index.cgi?var=$var&mon1=$FORM_mon1&year1=$((FORM_year1-1))&anomalie=$anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">$vorigjaar</a>"
 else
     echo "$vorigjaar"
 fi
 echo '</td><td align="center">'
 if [ "$anomalie" = nee ]; then
-    echo "<a href=index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$andere&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type>$ano</a>"
+    echo "<a href=\"index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$andere&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">$ano</a>"
 else
     echo "$ano"
 fi
 echo '</td><td align=right>'
 if [ -s "$((FORM_year1+1))/${field}_${FORM_mon1}$((FORM_year1+1))$ext.png" ]; then
-    echo "<a href=index.cgi?var=$var&mon1=$FORM_mon1&year1=$((FORM_year1+1))&anomalie=$anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type>$volgendjaar</a>"
+    echo "<a href=\"index.cgi?var=$var&mon1=$FORM_mon1&year1=$((FORM_year1+1))&anomalie=$anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">$volgendjaar</a>"
 else
     echo "$volgendjaar"
 fi
 echo '</td></tr><tr><td align="left">'
 if [ -s "${prevyr}/${field}_${prevfile}${prevyr}$ext.png" ]; then
-    echo "<a href=index.cgi?var=$var&mon1=$prev&year1=$prevyr&anomalie=$anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type>$vorigemaand</a>"
+    echo "<a href=\"index.cgi?var=$var&mon1=$prev&year1=$prevyr&anomalie=$anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">$vorigemaand</a>"
 else
     echo "$vorigemaand"
 fi
@@ -434,11 +434,11 @@ echo '</td><td align=center>'
 if [ "$anomalie" = nee -o "$var" = tlt_uah ]; then
     echo "$vol"
 else
-    echo "<a href=index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$andere&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type>$vol</a>"
+    echo "<a href=\"index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$andere&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">$vol</a>"
 fi
 echo '</td><td align=right>'
 if [ -s "${nextyr}/${field}_${nextfile}${nextyr}$ext.png" ]; then
-    echo "<a href=index.cgi?var=$var&mon1=$next&year1=$nextyr&anomalie=$anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type>$volgendemaand</a>"
+    echo "<a href=\"index.cgi?var=$var&mon1=$next&year1=$nextyr&anomalie=$anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">$volgendemaand</a>"
 else
     echo "$volgendemaand"
 fi
@@ -513,9 +513,9 @@ else # not a field but a series
 
 if [ $NPERYEAR = 12 ]; then
     if [ "$prefix" != tsi ]; then
-        txtfile=`ls -t 201?/i${var}_????[a-z]??.txt|head -1`
+        txtfile=`ls -t 20??/i${var}_????[a-z]??.txt|head -1`
     else
-        txtfile=`ls -t 201?/i${var}_????"$FORM_mon1".txt|head -1`
+        txtfile=`ls -t 20??/i${var}_????"$FORM_mon1".txt|head -1`
         mo="$FORM_mon1"
     fi
     if [ -n "$txtfile" -a -s "$txtfile" ]; then
@@ -640,16 +640,16 @@ if [ $var != maunaloa_ch4 ]; then
         else
             pngfile=i${var}_$mon1.png
             extra="$helereeks"
-            echo "<a href=index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=ja&expert=$FORM_expert&type=$FORM_type>1975-$nu</a>"
+            echo "<a href=\"index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=ja&expert=$FORM_expert&type=$FORM_type\">1975-$nu</a>"
         fi
-        echo "</td><td>&nbsp</td></tr><tr><td align=left><a href=index.cgi?var=$var&mon1=$prev&year1=$prevyr&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type>$vorigekalendermaand</td><td align=center>"
+        echo "</td><td>&nbsp</td></tr><tr><td align=left><a href=\"index.cgi?var=$var&mon1=$prev&year1=$prevyr&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">$vorigekalendermaand</td><td align=center>"
         if [ "$FORM_kort" = ja ]; then
-            echo "<a href=index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=nee&expert=$FORM_expert&type=$FORM_type>$helereeks</a>"
+            echo "<a href=\"index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=nee&expert=$FORM_expert&type=$FORM_type\">$helereeks</a>"
         else
             echo "$helereeks"
         fi
         echo "</td><td align=right>"
-        echo "<a href=index.cgi?var=$var&mon1=$next&year1=$nextyr&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type>$volgendekalendermaand"
+        echo "<a href=\"index.cgi?var=$var&mon1=$next&year1=$nextyr&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">$volgendekalendermaand"
     elif [ $NPERYEAR != 1 ]; then # no separate months
         if [ "$FORM_kort" = ja ] ; then
             period=_1975_now
@@ -658,11 +658,11 @@ if [ $var != maunaloa_ch4 ]; then
         else
             period=""
             extra="$helereeks"
-            echo "<a href=index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=ja&expert=$FORM_expert&type=$FORM_type>1975-$nu</a>"
+            echo "<a href=\"index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=ja&expert=$FORM_expert&type=$FORM_type\">1975-$nu</a>"
         fi
         echo '</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td align=center>'
         if [ "$FORM_kort" = ja ] ; then
-            echo "<a href=index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=nee&expert=$FORM_expert&type=$FORM_type>$helereeks</a>"
+            echo "<a href=\"index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=nee&expert=$FORM_expert&type=$FORM_type\">$helereeks</a>"
         else
             echo "$helereeks"
         fi
@@ -680,11 +680,11 @@ if [ $var != maunaloa_ch4 ]; then
         else
             pngfile=i${var}_yr1.png
             extra="${mjul}-${mjun}"
-            echo "<a href=index.cgi?var=$var&mon1=dec&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type>${mjan}-${mdec}</a>"
+            echo "<a href=\"index.cgi?var=$var&mon1=dec&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">${mjan}-${mdec}</a>"
         fi
         echo '</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td align=center>'
         if [ "$mon1" = yr0 ] ; then
-            echo "<a     href=index.cgi?var=$var&mon1=jun&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type>${mjul}-${mjun}</a>"
+            echo "<a href=\"index.cgi?var=$var&mon1=jun&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">${mjul}-${mjun}</a>"
         else
             echo "${mjul}-${mjun}"
         fi
@@ -738,7 +738,7 @@ if [ "$naam" = "wereldgemiddelde temperatuur" \
             var=$alt
             ###echo "calling database with var=\"$var\""
             . ./database.cgi
-            echo "<a href=index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type>$bron</a>"
+            echo "<a href=\"index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">$bron</a>"
             var=$bewaar
         fi
     done
