@@ -2,6 +2,8 @@
 # generates the vink headers with a user-defied title and subtitle
 if [ -z "$myvinkhead" ]; then
 myvinkhead="done"
+# this should not be needed, just to make sure.
+. ./init.cgi
 if [ -n "$3" ]; then
   robot="<meta name=\"robots\" content=\""$3"\">"
 fi
@@ -43,10 +45,9 @@ EMAIL=`echo "$EMAIL" | sed -e 's/[^A-Za-z0-9_.@-]/_/g'`
 sed -e "s/FORM_EMAIL/$EMAIL/" ./vinklude/rcc_pagehead.html 
 cat <<EOF
             <div class="col-md-8">
-            <div class="breadc2020"><a href="start.cgi?id=$EMAIL">Home</a> &mdash; $1: $2</div>
+            <div class="breadc2020"><a href="/start.cgi?id=$EMAIL">Home</a> &mdash; $1: $2</div>
             <h2>$1</h2>
             $2<br>
 <!-- Voeg hieronder de inhoud van de pagina in -->
 EOF
 fi
-. ./init.cgi
