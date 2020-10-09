@@ -546,7 +546,7 @@ margin-right: 1px;
 	display: block;
 	height: auto;
 	padding: 20px;
-	float: left;
+	min-height: 230px;
 	}
 
 .footercontainer {
