@@ -988,6 +988,7 @@ nv700) file=NCEPNCAR40/v700.nc;kindname="NCEP/NCAR";climfield="700mb meridional 
 nv500) file=NCEPNCAR40/v500.nc;kindname="NCEP/NCAR";climfield="500mb meridional wind";;
 nv300) file=NCEPNCAR40/v300.nc;kindname="NCEP/NCAR";climfield="300mb meridional wind";;
 nv200) file=NCEPNCAR40/v200.nc;kindname="NCEP/NCAR";climfield="200mb meridional wind";;
+nv200_daily) file=NCEPNCAR40/vwnd200.daily.nc;kindname="NCEP/NCAR";climfield="200mb meridional wind";NPERYEAR=366;;
 nwspd) file=NCEPNCAR40/nwindspeed.ctl;kindname="NCEP/NCAR";climfield="10m wind speed";LSMASK=NCEPNCAR40/lsmask.nc;;
 nt2m)  file=NCEPNCAR40/nt2m.ctl;kindname="R2";climfield="2m temperature";LSMASK=NCEPNCAR40/lsmask.nc;;
 nair)  file=NCEPNCAR40/air.2m.mon.mean.nc;kindname="NCEP/NCAR";climfield="2m temperature";LSMASK=NCEPNCAR40/lsmask.nc;;
