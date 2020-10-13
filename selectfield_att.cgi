@@ -64,7 +64,7 @@ cat <<EOF
 <td><input type=radio class=formradio name=field value=knmi14_psl_Amon_ECEARTH23_rcp85>
 <tr><td>&nbsp;
 <td>RCP8.5
-<td colspan=12>
+<td colspan=6>
 <a href="getindices.cgi?WMO=KNMI14Data/Tglobal/iknmi14_tas_Amon_ECEARTH23_rcp85_0-360E_-90-90N_n_su_%%&STATION=Tglobal_EC-Earth23&TYPE=t&NPERYEAR=12&id=$EMAIL">Global mean temperature</a>,
 <a href="getindices.cgi?WMO=KNMI14Data/Tglobal/iknmi14_tas_Amon_ECEARTH23_rcp85_0-360E_-90-90N_n_5lan_su_%%&STATION=Tland_EC-Earth23&TYPE=t&NPERYEAR=12&id=$EMAIL">land only</a>;
 <a href="getindices.cgi?WMO=KNMI14Data/Nino/nino34r_ecearth23_%%&STATION=EC-Earth23_Nino3.4r&TYPE=i&NPERYEAR=12&id=$EMAIL">relative Ni&ntilde;o3.4</a>.
