@@ -458,7 +458,7 @@ EOF
             echo "<input type=\"submit\" class=\"formbutton\" value=\"and create new timeseries\">"
             echo "</form>"
         else
-            taillines=16
+            taillines=10
         fi
         if [ -n "$FORM_log" ]; then
             y='(10**$2)'
