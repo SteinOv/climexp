@@ -423,7 +423,7 @@ case "$var" in
 	nino5)
 		if [ "$FORM_lang" = nl ]; then			
 			verderlezen="El Ni&ntilde;o en La Ni&ntilde;a"
-		verderlezenurl=http://www.knmi.nl/cms/content/72473/el_nino_en_la_nina
+		    verderlezenurl=http://www.knmi.nl/cms/content/72473/el_nino_en_la_nina
 		fi
 		naam="Ni&ntilde;o 3.4 index"
 		bron="NCEP"
@@ -464,6 +464,13 @@ case "$var" in
 		prefix=tsi;postfix=season
 		climexpseries=NCEPNCAR40/$var
 		units=[1];;
+	nqbo)
+		naam="QBO index"
+		bron="NCEPNCAR"
+		url=https://psl.noaa.gov/data/climateindices/list/#QBO
+		name=QBO
+		climexpseries=NCEPNCAR40/$var
+		units=[m/s];;
 	nh_snow)
 		if [ "$FORM_lang" = nl ]; then			
 			naam="sneeuwbedekking (noordelijk halfrond)"
