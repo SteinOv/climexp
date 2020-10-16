@@ -43,22 +43,22 @@ echo "<div class=menukopje>$tijdschaal</div>"
 if [ $NPERYEAR = 12 ]; then
     echo "<div class=\"menulink\">$maand</div>"
 else
-    echo "<div class=\"menulink\"><a href=\"../$maanddir/index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">$maand</a></div>"
+    echo "<div class=\"menulink\"><a href=\"../$maanddir/index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type&id=$EMAIL\">$maand</a></div>"
 fi
 if [ $NPERYEAR = 4 ]; then
     echo "<div class=\"menulink\">$seizoen</div>"
 else
-    echo "<div class=\"menulink\"><a href=\"../$seizoendir/index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">$seizoen</a></div>"
+    echo "<div class=\"menulink\"><a href=\"../$seizoendir/index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type&id=$EMAIL\">$seizoen</a></div>"
 fi
 if [ $NPERYEAR = 2 ]; then
     echo "<div class=\"menulink\">$halfjaar</div>"
 else
-    echo "<div class=\"menulink\"><a href=\"../$halfjaardir/index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">$halfjaar</a></div>"
+    echo "<div class=\"menulink\"><a href=\"../$halfjaardir/index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type&id=$EMAIL\">$halfjaar</a></div>"
 fi
 if [ $NPERYEAR = 1 ]; then
     echo "<div class=\"menulink\">$jaar</div>"
 else
-    echo "<div class=\"menulink\"><a href=\"../$jaardir/index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">$jaar</a></div>"
+    echo "<div class=\"menulink\"><a href=\"../$jaardir/index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type&id=$EMAIL\">$jaar</a></div>"
 fi
 
 oldvar=$var
@@ -102,17 +102,17 @@ do
     if [ $var = "$oldvar" -o \( $var = tlt_uah -a "$FORM_anomalie" = nee \) ]; then
         echo "<div class="menulink">$naam</div>"
     else
-        echo "<div class="menulink"><a href=\"index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type\">$naam</a></div>"
+        echo "<div class="menulink"><a href=\"index.cgi?var=$var&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=$FORM_expert&type=$FORM_type&id=$EMAIL\">$naam</a></div>"
 	fi
 done
 
 if [ "$FORM_type" != $type ]; then
-	echo "<div class="menulink"><a href=\"index.cgi?var=$oldvar&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=nee&type=$type\">$meer...</a></div>"    
+	echo "<div class="menulink"><a href=\"index.cgi?var=$oldvar&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=nee&type=$type&id=$EMAIL\">$meer...</a></div>"    
 elif [ "$FORM_type" != kaarteuropa ]; then
     if [ "$FORM_expert" = ja ]; then
-	echo "<div class="menulink"><a href=\"index.cgi?var=$oldvar&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=nee&type=$FORM_type\">$minder...</a></div>"
+	echo "<div class="menulink"><a href=\"index.cgi?var=$oldvar&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=nee&type=$FORM_type&id=$EMAIL\">$minder...</a></div>"
     else
-	echo "<div class="menulink"><a href=\"index.cgi?var=$oldvar&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=ja&type=$FORM_type\">$meer...</a></div>"
+	echo "<div class="menulink"><a href=\"index.cgi?var=$oldvar&mon1=$FORM_mon1&year1=$FORM_year1&anomalie=$FORM_anomalie&kort=$FORM_kort&expert=ja&type=$FORM_type&id=$EMAIL\">$meer...</a></div>"
     fi
 fi
 done
@@ -135,10 +135,10 @@ if [ -n "$climexpfield" ]; then
     if [ "${FORM_var%eobs}" = "$FORM_var" ]; then
 	echo "<div class=menukopje>$datavandeze $kaart</div>"
     fi
-    echo "<div class=\"menulink\"><a href=\"http://climexp.knmi.nl/select.cgi?id=someone@somewhere&field=$climexpfield\">via KNMI Climate Explorer</a></div>"
+    echo "<div class=\"menulink\"><a href=\"http://climexp.knmi.nl/select.cgi?id=$EMAIL&field=$climexpfield\">via KNMI Climate Explorer</a></div>"
 else
     echo "<div class=menukopje>$datavandeze $tijdreeks</div>"
-    echo "<div class=\"menulink\"><a href=\"http://climexp.knmi.nl/getindices.cgi?WMO=${climexpseries}&STATION=${name}&TYPE=i&id=someone@somewhere\">via KNMI Climate Explorer</a></div>"
+    echo "<div class=\"menulink\"><a href=\"http://climexp.knmi.nl/getindices.cgi?WMO=${climexpseries}&STATION=${name}&TYPE=i&id=$EMAIL\">via KNMI Climate Explorer</a></div>"
 fi
 
 cat <<EOF
