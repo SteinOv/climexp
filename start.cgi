@@ -27,7 +27,7 @@ if [ "$EMAIL" != someone@somewhere ]; then
     fi
 else
     echo "<div class=\"alineakop\">Welcome, anonymous user</div>"
-    randomimage=`ls -t ls -t monthly_overview_world_weather/2020/t2m_ecmwf_w_[a-z]??20??.png | head -1`
+    randomimage=`ls -t monthly_overview_world_weather/2020/t2m_ecmwf_w_[a-z]??20??.png | head -1`
 
     cat <<EOF
 <p>Please enter the KNMI Climate Explorer, a research tool to investigate the climate.  This web site collects a lot of climate data and analysis tools.  Please verify yourself that the data you use is good enough for your purpose, and report errors back.  In publications the original data source should be cited, a link to a web page describing the data is always provided.
