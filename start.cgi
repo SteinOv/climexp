@@ -25,9 +25,28 @@ if [ "$EMAIL" != someone@somewhere ]; then
             fi
         done
     fi
+    bijschrift=""
 else
     echo "<div class=\"alineakop\">Welcome, anonymous user</div>"
     randomimage=`ls -t monthly_overview_world_weather/2020/t2m_ecmwf_w_[a-z]??20??.png | head -1`
+    mon=`echo $randomimage | cut -b 49-51`
+    year=`echo $randomimage | cut -b 52-55`
+    case $mon in
+        jan) month=January;;
+        feb) month=February;;
+        mar) month=March;;
+        apr) month=April;;
+        may) month=May;;
+        jun) month=June;;
+        jul) month=July;;
+        aug) month=August;;
+        sep) month=September;;
+        oct) month=October;;
+        nov) month=November;;
+        dec) month=December;;
+        *) month=mon;;
+    esac
+    bijschrift="2m temperature anomalies wrt 1981-2010 [&deg;C] in $month $year (source: ERA5)."
 
     cat <<EOF
 <p>Please enter the KNMI Climate Explorer, a research tool to investigate the climate.  This web site collects a lot of climate data and analysis tools.  Please verify yourself that the data you use is good enough for your purpose, and report errors back.  In publications the original data source should be cited, a link to a web page describing the data is always provided.
@@ -53,7 +72,7 @@ fi
 pngfile=$randomimage
 getpngwidth
 cat <<EOF
-<div class="bijschrift"></div>
+<div class="bijschrift">$bijschrift</div>
 <center>
 <img src="$randomimage" alt="random image" border=0 class="realimage" hspace=0 vspace=0 width=$halfwidth>
 </center>
