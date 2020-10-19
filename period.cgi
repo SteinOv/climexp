@@ -81,7 +81,7 @@ if [ $FORM_which = period ]; then
   fi
   if [ ! -s $root$a.png ]; then
     if [ -n "$FORM_sum$FORM_sel" ]; then
-      sumstring=$FORM_sel
+      sumstring=$FORM_sum
       . ./month2string.cgi
       seriesmonth="$seriesmonth "
     fi
@@ -129,7 +129,7 @@ else
   (./bin/autocor $corrargs >> $root.txt )2>&1
   echo "The horizontal lines give the 95% significance for a single point in the case of white noise, assuming all measurements are independent."
   if [ -n "$FORM_sum$FORM_month" ]; then
-    sumstring=$FORM_sel
+    sumstring=$FORM_sum
     . ./month2string.cgi
     seriesmonth="$seriesmonth "
   fi
