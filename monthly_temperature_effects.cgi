@@ -6,10 +6,10 @@ echo
 . ./getargs.cgi
 . ./init.cgi
 . ./searchengine.cgi
-. ./myvinkhead.cgi "Climate Explorer results" "Effects of El Ni&ntilde;o on world weather: all months" "index,follow"
+. ./myvinkhead.cgi "Climate Explorer results" "Effects of El Ni&ntilde;o and La Ni&ntilde;a on world weather: all months" "index,follow"
 
 cat | sed -e "s/FORM_EMAIL/$EMAIL/" <<EOF
-         <p>El Ni&ntilde;o</a> affects the
+         <p>El Ni&ntilde;o and La Ni&ntilde;a</a> affect the
          weather in large parts of the world.  The effects depend
          strongly on the location and the season.  We have studied the
          CRU TS 3.22 analyses of 2-meter
@@ -17,7 +17,7 @@ cat | sed -e "s/FORM_EMAIL/$EMAIL/" <<EOF
          relationship we used the correlation coefficient with the 
          Ni&ntilde;o3.4 index. The square of this number gives the 
          fraction of the variance that is explained by this aspect
-         of El Ni&ntilde;o.
+         of El Ni&ntilde;o and La Ni&ntilde;a.
 
 <div class="alineakop"><a name="temperature"></a>Temperature</div>
 

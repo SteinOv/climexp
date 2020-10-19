@@ -6,7 +6,7 @@ echo
 . ./getargs.cgi
 . ./init.cgi
 . ./searchengine.cgi
-. ./myvinkhead.cgi "Climate Explorer results" "Effects of El Ni&ntilde;o on world weather" "index,follow"
+. ./myvinkhead.cgi "Climate Explorer results" "Effects of El Ni&ntilde;o and La Ni&ntilde;a on world weather" "index,follow"
 
 cat | sed -e "s/FORM_EMAIL/$EMAIL/" <<EOF
          <div class="subkop"></div>
@@ -16,7 +16,7 @@ cat | sed -e "s/FORM_EMAIL/$EMAIL/" <<EOF
            <div class="inhoudlink"><a href="#cyclones">Tropical Cyclones</a></div>
          </div>
 	 <p>
-         <span class="inleiding">El Ni&ntilde;o</a> affects the
+         <span class="inleiding">El Ni&ntilde;o and La Ni&ntilde;a</a> affect the
          weather in large parts of the world.  The effects depend
          strongly on the location and the season.  The strongest
          effects on precipitation are in South-East Asia and the
