@@ -30,9 +30,11 @@ else
     echo "<div class=\"alineakop\">Welcome, anonymous user</div>"
     number=`date +%M | cut -b 2`
     case $number in
-        1|2|3) file=iera5_t2m_gl_yr0.png
+        1|2) file=iera5_t2m_gl_yr0.png
             bijschrift="Global mean 2m temperature anomalies wrt 1981-2010 [&deg;C] with 10-yr running mean";source="ERA5";;
-        4|5|6]) file=prcp_gpcc_;ext="_frac";range1="47-49";range2="50-53"
+        3|4) file=igiss_al_gl_m_yr0.png
+            bijschrift="Global mean SST/T2m anomalies wrt 1981-2010 [&deg;C] with 10-yr running mean";source="GISTEMP";;
+        5|6|7]) file=prcp_gpcc_;ext="_frac";range1="47-49";range2="50-53"
             bijschrift="Relative precipitation anomalies wrt 1981-2010 [fraction] in";source="GPCC";;
         *) file=t2m_ecmwf_w_;ext="";range1="49-51";range2="52-55"
             bijschrift="2m temperature anomalies wrt 1981-2010 [&deg;C] in";source="ERA5";;
@@ -67,7 +69,7 @@ EOF
 fi
 
 if [ "$EMAIL" = someone@somewhere ]; then
-    echo "<p>Some restrictions are in force, notably the possibility to define your own indices, to upload data into the Climate Explorer and to handle large datasets. If you want to use these features please <a href=\"registerform.cgi\">log in or register</a>."
+    echo "<p>Some restrictions are in force: the site does not remember how you filled out the forms, you cannot define your own indices, nor upload data into the Climate Explorer or handle large datasets. If you want to use these features please <a href=\"registerform.cgi\">log in or register</a>."
 fi
 
 . ./check_ie.cgi
