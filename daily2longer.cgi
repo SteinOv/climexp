@@ -35,6 +35,7 @@ fi
 NPERYEAR="$FORM_nperyearnew"
 
 corrargs="$DIR/data/$TYPE$WMO.dat $NPERYEAR $FORM_oper"
+OLDWMO=$WMO
 WMO=${WMO}_$FORM_oper$NPERYEAR
 if [ "$FORM_lgt" = "lt" -o "$FORM_lgt" = "gt" ]; then
   if [ -z "$FORM_cut" -a "$FORM_typecut" != "n" ]; then
