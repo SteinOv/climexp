@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 lwrite=false
 if [ -n "$EMAIL" -a "$EMAIL" = ec8907341dfc63c526d08e36d06b7ed8 ]; then
     lwrite=false # true
