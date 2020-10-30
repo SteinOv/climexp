@@ -170,6 +170,19 @@ EOF
   else
       (./bin/$PROG $wmo > ./data/$TYPE$WMO.dat.$$ ) 2>&1
   fi
+  newwmo=`echo $wmo | sed -e 's/\@\@/\+\+\+/'`
+  newfirstfile=./data/$TYPE$newwmo.dat
+  if [ $wmo != $newwmo ]; then
+    # a whole series of Fortran programs cannot yet handle '@@' type arrays with an ensemble
+    # dimension inside the file, the wrapper splits this up to an old-fashioned array for the 
+    # time being
+    NEWWMO=`echo $WMO | sed -e 's/\@\@/\+\+\+/'`
+    [ -s ./data/$TYPE$WMO.dat ] && mv ./data/$TYPE$WMO.dat ./data/$TYPE$newwmo.dat
+    [ -s ./data/$TYPE$WMO.nc ] && mv ./data/$TYPE$WMO.nc ./data/$TYPE$newwmo.nc
+    [ -s ./data/$TYPE$WMO.dat.$$ ] && mv ./data/$TYPE$WMO.dat.$$ ./data/$TYPE$newwmo.dat.$$
+    wmo=$newwmo
+    WMO=$newwmo
+  fi
   if [ "$PROG" = getindices ]; then
     ncfile=${file%.dat}.nc
     if [ -s $ncfile ]; then

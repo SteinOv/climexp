@@ -19,6 +19,36 @@ fi
 c1=`echo $file | fgrep -c '%%'`
 c2=`echo $file | fgrep -c '++'`
 c3=`echo $file | egrep -c '%%%|\+\+\+'`
+c4=`echo $file | fgrep -c '@@'`
+if [ "$c4" = 1 ]; then
+    # one file with multiple ensemble members, the programs called from this script cannot handle that
+    # convert to old-fashioned ensemble
+    eval `getunits $file`
+    iens=-1
+    alloutfile=`echo $file | sed -e "s/@@/\+\+\+/"`
+    touch $alloutfile
+    while [ $iens -lt $NENS ]; do
+        ((iens++))
+        iiens=`printf %03i $iens`
+        outfile=`echo $file | sed -e "s/\@\@/$iiens/"`
+        echo -n $iens 1>&2
+        if [ ! -s $outfile ]; then
+            seriesensanomal $iens $file noanom > $outfile
+            c=`fgrep -v '#' $outfile | wc -l`
+            if [ $c -lt 10 ]; then
+                rm $outfile
+            fi
+        fi
+        if [ -s $outfile ]; then
+            echo "# $outfile" >> $alloutfile
+        fi
+    done
+    c3=1 # it is an old-fashioned ensemble now, quite a bit of redundant information...
+    c2=1 # need both :-(
+    file=$alloutfile
+    WMO=`echo $WMO | sed -e "s/\@\@/\+\+\+/"`
+    lwrite=true
+fi
 if [ $c1 -eq 0 -a $c2 -eq 0 ]
 then
     outfile=data/$TYPE$WMO.dat
@@ -79,7 +109,7 @@ else
                 for ensfile in `echo $allfiles`
                 do
                     [ "$splitfield" = true ] && echo "`basename $ensfile .nc`<p>" 1>&2
-                    ensargs=`echo $* | sed -e "s@$file@$ensfile@"`
+                    ensargs=`echo $* | sed -e 's/\@\@/\+\+\+/' | sed -e "s@$file@$ensfile@"`
                     [ "$lwrite" = true ] && echo "$DIR/bin/$PROG $ensargs >> $ensout.tmp$$" >> /tmp/aap
                     $DIR/bin/$PROG $ensargs >> $ensout.tmp$$
                     c=`fgrep -v '#' $ensout.tmp$$ | wc -l`
