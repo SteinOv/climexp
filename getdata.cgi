@@ -170,14 +170,16 @@ EOF
   else
       (./bin/$PROG $wmo > ./data/$TYPE$WMO.dat.$$ ) 2>&1
   fi
-  NEWWMO=`echo $OLDWMO | sed -e 's/\@\@/\+\+\+/'`
-  if [ $WMO != $OLDWMO -a -s ./data/$TYPE$NEWWMO.dat ]; then
-    NEWWMO=`echo $WMO | sed -e 's/\@\@/\+\+\+/'`
-    [ -s ./data/$TYPE$WMO.dat ] && mv ./data/$TYPE$WMO.dat ./data/$TYPE$NEWWMO.dat
-    [ -s ./data/$TYPE$WMO.nc ] && mv ./data/$TYPE$WMO.nc ./data/$TYPE$NEWWMO.nc
-    [ -s ./data/$TYPE$WMO.dat.$$ ] && mv ./data/$TYPE$WMO.dat.$$ ./data/$TYPE$NEWWMO.dat.$$
-    WMO=$NEWWMO
-    file=`echo $file | sed -e 's/\@\@/\+\+\+/'`
+  if [ -n "$OLDWMO" ]; then
+    NEWWMO=`echo $OLDWMO | sed -e 's/\@\@/\+\+\+/'`
+    if [ $WMO != $OLDWMO -a -s ./data/$TYPE$NEWWMO.dat ]; then
+      NEWWMO=`echo $WMO | sed -e 's/\@\@/\+\+\+/'`
+      [ -s ./data/$TYPE$WMO.dat ] && mv ./data/$TYPE$WMO.dat ./data/$TYPE$NEWWMO.dat
+      [ -s ./data/$TYPE$WMO.nc ] && mv ./data/$TYPE$WMO.nc ./data/$TYPE$NEWWMO.nc
+      [ -s ./data/$TYPE$WMO.dat.$$ ] && mv ./data/$TYPE$WMO.dat.$$ ./data/$TYPE$NEWWMO.dat.$$
+      WMO=$NEWWMO
+      file=`echo $file | sed -e 's/\@\@/\+\+\+/'`
+    fi
   fi
   if [ "$PROG" = getindices ]; then
     ncfile=${file%.dat}.nc
