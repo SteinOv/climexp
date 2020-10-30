@@ -31,7 +31,7 @@ if [ "$c4" = 1 ]; then
         ((iens++))
         iiens=`printf %03i $iens`
         outfile=`echo $file | sed -e "s/\@\@/$iiens/"`
-        echo -n $iens 1>&2
+        echo -n " $iens" 1>&2
         if [ ! -s $outfile ]; then
             seriesensanomal $iens $file noanom > $outfile
             c=`fgrep -v '#' $outfile | wc -l`
