@@ -50,7 +50,7 @@ Monthly: <a href="getindices.cgi?WMO=SEAustralia/gpccall_10_mask0_su&STATION=GPC
 <a href="getindices.cgi?WMO=SEAustralia/awap_prcp_mo_mask0_land_su&STATION=AWAP_bushfire&TYPE=i&id=$EMAIL">AWAP pr</a>,
 <a href="getindices.cgi?WMO=SEAustralia/pr_Amon_ECEARTH23_rcp85_mask0_land_su_%%&STATION=EC-Earth_bushfire&TYPE=i&id=$EMAIL">EC-Earth pr</a>,
 <a href="getindices.cgi?WMO=SEAustralia/pr_Amon_HadGEM3-A-N216_historical_mask0_land_su_%%%&STATION=HadGEM3-A_bushfire&TYPE=i&id=$EMAIL">HadGEM3-A pr</a>,
-<a href="getindices.cgi?WMO=SEAustralia/ipsl_monthly_pr_nsw_@@&STATION=IPSL_bushfire&TYPE=i&id=$EMAIL">IPSL pr</a>.
+<a href="getindices.cgi?WMO=SEAustralia/ipsl_monthly_pr_nsw_@@_ce&STATION=IPSL_bushfire&TYPE=i&id=$EMAIL">IPSL pr</a>.
 <a href="getindices.cgi?WMO=SEAustralia/wah_monthly_pr_nsw_actual_@@&STATION=WAH_bushfire_actual&TYPE=i&id=$EMAIL">WAH pr actual</a>,
 <a href="getindices.cgi?WMO=SEAustralia/wah_monthly_pr_nsw_natural_@@&STATION=WAH_bushfire_natural&TYPE=i&id=$EMAIL">WAH pr natural</a>.
 <br>Annual mean: <a href="getindices.cgi?WMO=SEAustralia/CanESM2_1950-2100_Jan-Dec_annual_mean_pr_@@&STATION=CanESM2_pr&TYPE=i&id=$EMAIL&NPERYEAR=1">CanESM2 pr</a>,
