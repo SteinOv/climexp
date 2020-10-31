@@ -291,7 +291,7 @@ if [ "$whichvar" = true ]; then
 fi
 echo "<tr><td>"
 if [ $NPERYEAR = 1 ]; then
-  echo "<input type=hidden name=month value=1>"
+    echo "<input type=hidden name=month value=1>"
 elif [ $NPERYEAR = 2 ]; then
   echo "Starting season: <td>"
   echo "<select class="forminput" name=\"month\">"
@@ -589,6 +589,23 @@ if [ -z "$ONLYONE" ]; then
 fi
 echo "<tr><td>Years: <td><input type=\"$number\" min="1" max="2400" step=1 name=\"begin\" $textsize4 value=\"$FORM_begin\">"
 echo "&ndash;<input type=\"$number\" name=\"end\" min="1" max="2400" step=1 $textsize4 value=\"$FORM_end\"><td><a href=\"javascript:pop_page('help/beginendyear.shtml',284,450)\"><img align=\"right\" src=\"images/info-i.gif\" alt=\"help\" border=\"0\"></a>"
+if [ "$NPERYEAR" = 1 -a -n "$RUNNINGMEAN" ]; then
+    echo "<tr><td>Averaging:<td>"
+    echo "<input type=hidden name=operation value=averaging>"
+	echo "<select class=\"forminput\" name=\"sum\">"
+	echo "<option $sum_1_selected>1"
+	echo "<option $sum_2_selected>2"
+	echo "<option $sum_3_selected>3"
+	echo "<option $sum_4_selected>4"
+	echo "<option $sum_5_selected>5"
+	echo "<option $sum_6_selected>6"
+	echo "<option $sum_7_selected>7"
+	echo "<option $sum_8_selected>8"
+	echo "<option $sum_9_selected>9"
+	echo "<option $sum_10_selected>10"
+    echo "</select> years"
+    echo "<td>"
+fi
 if [ -z "$NORANGE" ]; then
     if [ -z "$ONLYONE" ]; then
 	    echo "<tr><td>Only for: <td><input type=\"$number\" step=any name=\"gt\" $textsize4 value=\"$FORM_gt\"> &lt; $index selected above "
