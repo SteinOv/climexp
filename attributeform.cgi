@@ -216,6 +216,7 @@ INCLUDE_SQUARE=true
 INCLUDE_TWOTHIRD=true
 NORANGE=true
 NOFILTERS=true
+RUNNINGMEAN=true
 . ./commonoptions.cgi
 NAME=$save_name
 
