@@ -44,7 +44,7 @@ cat <<EOF
 <th>uas
 <th>vas
 <th>wspd
-<th>maxwspd
+<th>max<br>wspd
 <th>psl
 <tr><td>16 daily
 <td>RCP8.5
@@ -430,9 +430,9 @@ cat <<EOF
 <th>pr
 <th>&nbsp;
 <th>mrso
-<th>mrso1m
-<th>mrso10cm
-<th>evappot
+<th>mrso<br>1m
+<th>mrso<br>10cm
+<th>evap<br>pot
 <th>psl
 <tr><td>16 daily
 <td>RCP8.5
@@ -556,10 +556,10 @@ cat <<EOF
 <td>&nbsp;
 <tr><th>EURO-CORDEX 11km
 <th>scenario
-<th>tas<br>bias-corrected
+<th>tas<br>bias-corr.
 <th>&nbsp;
 <th>&nbsp;
-<th>pr<br>bias-corrected
+<th>pr<br>bias-corr.
 <th>&nbsp;
 <th>&nbsp;
 <th>&nbsp;
@@ -602,7 +602,7 @@ cat <<EOF
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
-<tr><th>ISIMIP 1861-2099<th>scenario<th>potevap<th colspan=3>&nbsp<th>soilmoist<th colspan=3>&nbsp
+<tr><th>ISIMIP 1861-2099<th>scenario<th>pot<br>evap<th colspan=3>&nbsp<th>soil<br>moist<th colspan=3>&nbsp
 <tr><td>16 monthly<td>RCP6.0
 <td><input type=radio class=formradio name=field value=isimip_potevap_all_all_rcp60>
 <td colspan=3>&nbsp;
