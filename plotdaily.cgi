@@ -11,6 +11,9 @@ echo
 
 . ./getargs.cgi
 NPERYEAR="$FORM_NPERYEAR"
+if [ 0 = 1 -a $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 ]; then
+    yrange="set yrange [0:350]"
+fi
 if [ $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 ]; then
     lwrite=false # true
 fi
@@ -146,7 +149,9 @@ else
     else
         timefmt="'%Y%m'"
     fi
-    if [ \( \( "$NEWUNITS" = "mm/day" -o "$NEWUNITS" = "mm/dy" \) -a "${VAR#ev}" = "$VAR" \) -o "$VAR" = "soilw" ]; then
+    if [ \( \( "$NEWUNITS" = "mm/day" -o "$NEWUNITS" = "mm/dy" \) \
+            -a "${VAR#ev}" = "$VAR" -a "${VAR#nt}" = "$VAR" -a "${VAR#precipitation_def}" = "$VAR" \) \
+            -o "$VAR" = "soilw" ]; then
         above=3
         below=1
     else
@@ -167,6 +172,7 @@ set output "./$root.png"
 set xdata time
 set timefmt $timefmt
 set format x $timefmt
+$yrange
 set xrange ["$firstdate":"$lastdate"]
 set ylabel "$var_ [$UNITS]"
 set title "$name $station ($wmo_)"
