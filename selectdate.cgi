@@ -10,7 +10,7 @@ WMO="${FORM_WMO}_${FORM_month}"
 [ -n "FORM_day" ] && WMO="${WMO}_${FORM_day}"
 STATION="$FORM_STATION"
 if [ -n "$FORM_month" ]; then
-    export NPERYEAR=FORM_NPERYEAR
+    export NPERYEAR=$FORM_NPERYEAR
     export sumstring=1
     . ./month2string.cgi
     STATION="$seriesmonth $STATION"
