@@ -11,7 +11,7 @@ cat <<EOF
 <div class="inhoudsopgave">
 <div class="inhoudlink"><a href="#mix">Periods, days above/below thresholds</a></div>
 <div class="inhoudlink"><a href="#prcp">Precipitation extremes</a></div>
-<div class="inhoudlink"><a href="#temp">Temperature extrems</a></div>
+<div class="inhoudlink"><a href="#temp">Temperature extremes</a></div>
 </div>
 
 <div class="kalelink">
