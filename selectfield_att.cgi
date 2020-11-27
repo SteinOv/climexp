@@ -456,7 +456,16 @@ cat <<EOF
 <td><input type=radio class=formradio name=field value=knmi14_mrso_mon_RACMO22E_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_mrso1m_mon_RACMO22E_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_mrso10cm_mon_RACMO22E_rcp85>
-<td><input type=radio class=formradio name=field value=knmi14_evappot_mon_RACMO22E_rcp85>
+EOF
+if [   $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 \
+    -o $EMAIL = e279dd4de035b5fd9edc95ba4df755f7 \
+    -o $EMAIL = bd113ded9265e569c369d53ff59bf69a \
+    -o $EMAIL = f9646e78b5dbcaee3d001eb713252e3e ]; then
+    echo '<td><input type=radio class=formradio name=field value=knmi14_evappot_mon_RACMO22E_rcp85>'
+else
+    echo '<td>&nbsp;'
+fi
+cat <<EOF
 <td>&nbsp;
 <tr><th>&nbsp;
 <th>&nbsp;
