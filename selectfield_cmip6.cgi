@@ -11,6 +11,8 @@ cat <<EOF
 <div class="kalelink">
 First batch of CNIP6 runs downlaoded November 2019, will be updated shortly.
 <p>
+Global mean temperatures can be <a href="cmip6_indices.cgi?id=$EMAIL">analysed</a> or <a href="CMIP6/Tglobal/index.cgi?email=$EMAIL">downloaded</a> separately.
+<p>
 <form action="select.cgi" method="POST">
 <input type="hidden" name="email" value="$EMAIL">
 <table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
