@@ -305,8 +305,10 @@ Sea level--><td><div class="kalelink"><a href="getindices.cgi?WMO=CUData/sl_glob
 <tr><td>Rotation<td><div class="kalelink"><a href="getindices.cgi?WMO=IERSData/lod_12&STATION=length_of_day&TYPE=i&id=$EMAIL">Length Of Day</a> (1962-now, IERS)</div>
 <td><a href="http://www.iers.org/IERS/EN/DataProducts/EarthOrientationData/eop.html" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
-<tr><td>Tropical cyclones<td><div class="kalelink">Number of <a href="getindices.cgi?WMO=AOMLData/landsea_ns&STATION=Number_of_named_storms_(Atl)&TYPE=i&id=$EMAIL">named storms</a>, <a href="getindices.cgi?WMO=AOMLData/landsea_ih&STATION=Number_of_intense_hurricanes_(Atl)&TYPE=i&id=$EMAIL">intense hurricanes</a> per season over the North Atlantic (1944-2008, Landsea plus FAQ</a>)</div>
-<td><a href="http://www.aoml.noaa.gov/hrd/Landsea/predAtl/table.html#table1" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a><br><a href="http://www.aoml.noaa.gov/hrd/tcfaq/tcfaqF.html#F3" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+<tr><td>Tropical cyclones<td><div class="kalelink">Number of <a href="getindices.cgi?WMO=AOMLData/landsea_ns&STATION=number_of_named_storms_(Atl)&TYPE=i&NPERYEAR=1&id=$EMAIL">named storms</a>, <a href="getindices.cgi?WMO=AOMLData/landsea_hu&STATION=number_of_hurricanes_(Atl)&TYPE=i&NPERYEAR=1&id=$EMAIL">hurricanes</a>, <a href="getindices.cgi?WMO=AOMLData/landsea_ih&STATION=number_of_intense_hurricanes_(Atl)&TYPE=i&NPERYEAR=1&id=$EMAIL">intense hurricanes</a> per season over the North Atlantic (1944-2018, AOML</a>)</div>
+<td><a href="https://www.aoml.noaa.gov/hrd-faq/#tcs-after-1930" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+<tr><td>&nbsp;<td><div class="kalelink">Number of <a href="getindices.cgi?WMO=AOMLData/atlantic_ns&STATION=number_of_named_storms_(Atl)&TYPE=i&NPERYEAR=1&id=$EMAIL">named storms</a>, <a href="getindices.cgi?WMO=AOMLData/atlantic_hu&STATION=number_of_hurricanes_(Atl)&TYPE=i&NPERYEAR=1&id=$EMAIL">hurricanes</a>, <a href="getindices.cgi?WMO=AOMLData/atlantic_ih&STATION=number_of_intense_hurricanes_(Atl)&TYPE=i&NPERYEAR=1&id=$EMAIL">intense hurricanes</a> per season over the North Atlantic (1850-now, Wikipedia)</div>
+<td><a href="https://en.wikipedia.org/wiki/Atlantic_hurricane_season" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <a name="hurricanes"></a>
 <tr><td>&nbsp;<td><div class="kalelink">Annual number of hurricanes over the Atlantic

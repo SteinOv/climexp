@@ -168,6 +168,7 @@ EOF
   if [ "$makenetcdf" = true -a "$splitfield" != true ]; then
       (./bin/$PROG $wmo ./data/$TYPE$WMO.dat ) 2>&1
   else
+      ###echo "./bin/$PROG $wmo > ./data/$TYPE$WMO.dat.$$"
       (./bin/$PROG $wmo > ./data/$TYPE$WMO.dat.$$ ) 2>&1
   fi
   if [ -n "$OLDWMO" ]; then
