@@ -486,7 +486,8 @@ imerg_daily_02) file=GPMData/imerg_daily_02.nc;kindname="IMERG";climfield=precip
 imerg_daily_05) file=GPMData/imerg_daily_05.nc;kindname="IMERG";climfield=precipitation;flipcolor=11;NPERYEAR=366;;
 ssmi_1) file=NCDCData/ssmi_1.ctl;kindname="NCDC SSMI/I";climfield="precipitation";flipcolor=11;;
 hulme) file=CRUData/hulme23.ctl;kindname="CRU";climfield="precipitation";flipcolor=11;;
-hulme-nino3) file=CRUData/hulme23-nino3.ctl;kindname="CRU";climfield="precipitation - nino3";flipcolor=11;;
+prcp_vietnam) file=Vietnam/VnGP_0.10_1980_2010.nc;kindname="Vietnam";climfield="precipitation";flipcolor=11;map='set lon 100 112
+set lat 8 24';;
 
 cru4_tmp) file=CRUData/cru_ts4.04.1901.2019.tmp.dat.nc;kindname="CRU TS4.04";climfield="temperature";LSMASK=CRUData/lsmask_05.nc;;
 cru4_tmp_stn) file=CRUData/cru_ts4.04.1901.2019.tmp.stn.nc;kindname="CRU TS4.04 stn";climfield="#temperature";LSMASK=CRUData/lsmask_05.nc;;
