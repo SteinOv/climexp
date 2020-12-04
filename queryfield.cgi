@@ -5483,6 +5483,8 @@ eurocordex_prAdjust_day_ens_rcp85) file=CORDEX/EU-11-BC/prAdjust_day_eu11bc_rcp8
 eurocordex_prAdjust_mon_ens_rcp45) file=CORDEX/EU-11-BC/prAdjust_mon_eu11bc_rcp45_%%.nc;kindname="EURO-CORDEX-11 BC";climfield="pr";;
 eurocordex_prAdjust_mon_ens_rcp85) file=CORDEX/EU-11-BC/prAdjust_mon_eu11bc_rcp85_%%.nc;kindname="EURO-CORDEX-11 BC";climfield="pr";;
 
+eascordex_pr_day_ens_rcp85) file=CORDEX/EAS-22/day/pr/pr_EAS-22_HISTRCP85_cordex_%%.nc;kindname="EAS-CORDEX-22";climfield="pr";;
+
 RCP*) file="IIASAData/${FORM_field}.nc";kindname=${FORM_field%%_*}
       climfield=${FORM_field%_*}
       climfield=${climfield%_*}

@@ -611,6 +611,78 @@ cat <<EOF
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
+<tr><th>EURO-CORDEX 11km
+<th>scenario
+<th>tas<br>bias-corr.
+<th>&nbsp;
+<th>&nbsp;
+<th>pr<br>bias-corr.
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<tr><td>10 daily
+<td>RCP4.5
+<td><input type=radio class=formradio name=field value=eurocordex_tasAdjust_day_ens_rcp45>
+<td>&nbsp;
+<td>&nbsp;
+<td><input type=radio class=formradio name=field value=eurocordex_prAdjust_day_ens_rcp45>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<tr><td>10 daily
+<td>RCP8.5
+<td><input type=radio class=formradio name=field value=eurocordex_tasAdjust_day_ens_rcp85>
+<td>&nbsp;
+<td>&nbsp;
+<td><input type=radio class=formradio name=field value=eurocordex_prAdjust_day_ens_rcp85>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<tr><td>10 monthly
+<td>RCP4.5
+<td><input type=radio class=formradio name=field value=eurocordex_tasAdjust_mon_ens_rcp45>
+<td>&nbsp;
+<td>&nbsp;
+<td><input type=radio class=formradio name=field value=eurocordex_prAdjust_mon_ens_rcp45>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<tr><th>EAS-CORDEX 22km
+<th>scenario
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>pr
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<tr><td>5 daily
+<td>RCP8.5
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td><input type=radio class=formradio name=field value=eascordex_pr_day_ens_rcp85>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
 <tr><th>ISIMIP 1861-2099<th>scenario<th>pot<br>evap<th colspan=3>&nbsp<th>soil<br>moist<th colspan=3>&nbsp
 <tr><td>16 monthly<td>RCP6.0
 <td><input type=radio class=formradio name=field value=isimip_potevap_all_all_rcp60>
