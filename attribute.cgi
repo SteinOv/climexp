@@ -213,7 +213,7 @@ elif [ "$TYPE" = set ]; then
         i=$((i+1))
         if [ -z "$FORM_extraargs" ]; then
             # watch out, two extraarg names end with an "n" also...
-            f=`ls -t ./data/${NAME}*[0-9ni].dat | egrep -v '_mean|_min' | head -1`
+            f=`ls -t ./data/${NAME}*[0-9ni].dat | egrep -v '_mean|_min|_max' | head -1`
         else
             f=`ls -t ./data/${NAME}*_$FORM_extraargs.dat | head -1`
         fi
