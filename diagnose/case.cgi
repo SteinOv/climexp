@@ -27,7 +27,7 @@ case $var in
         climyear1=1981
         climyear2=2010
         ;;
-  slp_w|slp_w_f) field=era5_msl_e # nslp
+  slp_w|slp_w_f) field=era5_msl_e # ERA5 msl
         name=slp_w_ecmwf
         mproj=latlon
         lon1=-180
@@ -37,7 +37,7 @@ case $var in
         cmax=1500
         cmaxsea=500
         cmaxhalf=250
-        cmaxyr=100
+        cmaxyr=250
         c1=98000
         c2=103000
         plotanomaly=on
@@ -51,8 +51,8 @@ case $var in
         colour=10
         colour_f=10
         cmax=1500
-        cmaxsea=1000
-        cmaxhalf=500
+        cmaxsea=500
+        cmaxhalf=250
         cmaxyr=250
         c1=98000
         c2=103000
