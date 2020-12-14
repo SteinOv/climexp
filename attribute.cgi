@@ -388,7 +388,13 @@ if [ $FORM_plot = "gumbel" -o $FORM_plot = "log" -o $FORM_plot = "sqrtlog" ]; th
 		bottomtop=bottom
 		plus="+"
 	fi
-	fittext=$FORM_fit
+	case $FORM_fit in
+	    gev) fittext=GEV;;
+	    gpd) fittext=GPD;;
+	    gumbel) fittext=Gumbel;;
+	    gauss) fittext=Gauss;;
+	    *) fittext=$FORM_fit;;
+	esac
 	if [ $FORM_fit = gpd ]; then
 	    fittext="$fittext >${FORM_dgt}"
 	fi
