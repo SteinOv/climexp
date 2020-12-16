@@ -406,6 +406,7 @@ isimip*)
 tempa) file=NCDCData/temp_anom.nc;kindname="NCDC v3";climfield="T2m anom";LSMASK=NCDCData/ls_temp_anom.nc;;
 noaa_temp) file=NCDCData/NOAAGlobalTemp_v5.0.0_gridded.nc;kindname="NOAA v5";climfield="SST/T2m anom";LSMASK=NCDCData/ls_noaatemp.nc;;
 hadcrut4) file=UKMOData/HadCRUT.4.6.0.0.median.nc;kindname="HadCRUT4.6";climfield="SST/T2m anom";LSMASK=UKMOData/lsmask_5.nc;;
+hadcrut5) file=UKMOData/HadCRUT.5.0.0.0.median.nc;kindname="HadCRUT5.0";climfield="SST/T2m anom";LSMASK=UKMOData/lsmask_5.nc;;
 crutem1) file=CRUData/crutem1.ctl;kindname="CRUTEM1";climfield="T2m anom";;
 ncrutem1) file=CRUData/ncrutem1.ctl;kindname="CRUTEM1";climfield="number of stations";;
 crutem1v) file=CRUData/crutem1v.ctl;kindname="CRUTEM1v";climfield="T2m anom";;
@@ -484,6 +485,7 @@ set lat 50.5 54';;
 imerg_daily) file=GPMData/imerg_daily.nc;kindname="IMERG";climfield=precipitation;flipcolor=11;NPERYEAR=366;;
 imerg_daily_02) file=GPMData/imerg_daily_02.nc;kindname="IMERG";climfield=precipitation;flipcolor=11;NPERYEAR=366;;
 imerg_daily_05) file=GPMData/imerg_daily_05.nc;kindname="IMERG";climfield=precipitation;flipcolor=11;NPERYEAR=366;;
+imerg_02) file=GPMData/imerg_02_mo.nc;kindname="IMERG";climfield=precipitation;flipcolor=11;;
 ssmi_1) file=NCDCData/ssmi_1.ctl;kindname="NCDC SSMI/I";climfield="precipitation";flipcolor=11;;
 hulme) file=CRUData/hulme23.ctl;kindname="CRU";climfield="precipitation";flipcolor=11;;
 prcp_vietnam) file=Vietnam/VnGP_0.10_1980_2010.nc;kindname="Vietnam";climfield="precipitation";flipcolor=11;map='set lon 100 112
