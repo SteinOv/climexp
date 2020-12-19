@@ -30,6 +30,24 @@ lwrite=false
 if [ $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 ]; then
 	lwrite=false # true
 fi
+if [ -n "$FORM_begin2" -a -n "$FORM_cov1" ]; then
+    . ./myvinkhead.cgi "Trends in return times of extremes" "Error" "noindex,nofollow"
+    echo "Please select either a year or a covariate value to compare with but not both."
+    . ./myvinkfoot.cgi
+    exit
+fi
+if [ -z "$FORM_begin2" -a -z "$FORM_cov1" ]; then
+    . ./myvinkhead.cgi "Trends in return times of extremes" "Error" "noindex,nofollow"
+    echo "Please select either a year or a covariate value to compare with."
+    . ./myvinkfoot.cgi
+    exit
+fi
+if [ -n "$FORM_end3" -a -n "$FORM_cov3" ]; then
+    . ./myvinkhead.cgi "Trends in return times of extremes" "Error" "noindex,nofollow"
+    echo "Please select either a year or a covariate value as optional third value but not both."
+    . ./myvinkfoot.cgi
+    exit
+fi
 
 if [ -n "$FORM_field" ]; then
     . ./queryfield.cgi
@@ -144,9 +162,9 @@ else
         exit
     fi
 fi
-if [ -z "$FORM_begin2" -a ! "$FORM_timeseries" = none ]; then
+if [ -z "$FORM_begin2" -a -z "FORM_cov1" -a ! "$FORM_timeseries" = none ]; then
     . ./myvinkhead.cgi "Trends in return times of extremes" "$clim $station" "noindex,nofollow"
-    echo "Error: please give the year with which to compare"
+    echo "Error: please give the year or covariate value with which to compare"
     . ./myvinkfoot.cgi
     exit
 fi
@@ -292,6 +310,15 @@ if [ -s "$startstop" ]; then
 	yrstop=`tail -1 $startstop`
 	rm $startstop
 fi
+if [ -n "FORM_cov1" ]; then
+    FORM_begin2="$FORM_cov1" # for plots
+fi
+if [ -n "$FORM_cov3" ]; then
+    FORM_cov3=`echo "$FORM_cov3" | sed -e 's/^ *//'`
+    [ "${FORM_cov3#+}" = "$FORM_cov3" -a "${FORM_cov3#-}" = "$FORM_cov3" ] && FORM_cov3="+$FORM_cov3"
+    FORM_end3="$FORM_cov3" # for plots
+fi
+[ "FORM_fit" = gumbel -o "$FORM_fit" = gev ] && CLIM="max of $CLIM"
 
 if [ "$FORM_plot" = "hist" ]; then
 	title="$seriesmonth $CLIM $station"

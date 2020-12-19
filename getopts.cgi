@@ -142,6 +142,8 @@ fi
 [ -n "$FORM_restrain" ] && corrargs="$corrargs restrain $FORM_restrain"
 [ -n "$FORM_normalization" ] && corrargs="$corrargs normalization $FORM_normalization"
 [ -n "$FORM_xyear" ] && corrargs="$corrargs xyear $FORM_xyear"
+[ -n "$FORM_cov1" ] && corrargs="$corrargs cov1 $FORM_cov1"
+[ -n "$FORM_cov3" ] && corrargs="$corrargs cov3 $FORM_cov3"
 [ -n "$FORM_includelast" ] && corrargs="$corrargs includelast"
 [ -n "$FORM_ci" ] && corrargs="$corrargs confidenceinterval $FORM_ci"
 [ -n "$FORM_biasmul" ] && corrargs="$corrargs biasmul ${FORM_biasmul}%" # UI gives percentage
