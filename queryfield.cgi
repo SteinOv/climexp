@@ -418,6 +418,7 @@ ncrutem3) file=CRUData/CRUTEM3_nobs_ce.nc;kindname="CRUTEM3";climfield="number o
 crutem3v) file=CRUData/CRUTEM3v_ce.nc;kindname="CRUTEM3v";climfield="T2m anom";;
 crutem4) file=UKMOData/CRUTEM.4.6.0.0.anomalies.nc;kindname="CRUTEM4.6";climfield="T2m anom";LSMASK=UKMOData/lsmask_5.nc;;
 crutem4v) file=UKMOData/CRUTEM.4.6.0.0.variance_adjusted.nc;kindname="CRUTEM4.6v";climfield="T2m anom";LSMASK=UKMOData/lsmask_5.nc;;
+crutem5) file=UKMOData/CRUTEM.5.0.0.0.anomalies.nc;kindname="CRUTEM5.0";climfield="T2m anom";LSMASK=UKMOData/lsmask_5.nc;;
 giss_temp_250) file=NASAData/giss_temp_both_250.nc;kindname="GISS 250";climfield="T2m/SST anom";LSMASK=NASAData/lsmask.nc;;
 giss_temp_land_250) file=NASAData/giss_temp_land_250.nc;kindname="GISS 250";climfield="T2m anom";LSMASK=NASAData/lsmask.nc;;
 giss_temp_1200) file=NASAData/giss_temp_both_1200.nc;kindname="GISS 1200";climfield="T2m/SST anom";LSMASK=NASAData/lsmask.nc;;
