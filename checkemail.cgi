@@ -6,6 +6,9 @@
 # common typo?
 [ "$EMAIL" = someone@somehere ] && EMAIL=someone@somewhere
 # new system
+if [ $EMAIL != someone@somewhere ]; then
+    EMAIL=`echo "${EMAIL}XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" | cut -b 1-32` 
+fi
 c=`fgrep -c " $EMAIL " ./log/newlist`
 if [ $c != 0 ]; then
     realemail=`fgrep " $EMAIL " log/newlist | tail -1 | cut -f 1 -d ' ' | cut -b 2-`
@@ -15,7 +18,7 @@ if [ $c != 0 ]; then
         md5=`echo "$realemail" | md5sum | cut -f 1 -d ' '`
     fi
     if [ "$md5" != "$EMAIL" ]; then
-        . ./myvinkhead.cgi "Error" "Id \"$EMAIL\" does not correspond to email address $realemail" "noindex,nofollow"
+        . ./myvinkhead.cgi "Error" "Id \"$EMAIL\" does not correspond to email address" "noindex,nofollow"
         EMAIL="someone@somewhere"
         id=someone@somewhere
         FORM_id=someone@somewhere
@@ -24,7 +27,6 @@ if [ $c != 0 ]; then
     fi
 fi
 
-# convert from old system
 if [ $c = 0 -a $EMAIL != someone@somewhere ]; then
     c=`fgrep -c "^$EMAIL " ./log/newlist`
     if [ $c != 0 ]; then
@@ -43,9 +45,6 @@ if [ $c = 0 -a $EMAIL != someone@somewhere ]; then
             FORM_id=someone@somewhere
             . ./myvinkhead.cgi "User $string unknown" "" "noindex,follow"
             echo "Please <a href=\"registerform.cgi\">register or log in</a>, default is to use the site anonymously (with restrictions)"
-        fi
-        if [ $EMAIL != someone@somewhere ]; then
-            . ./email2md5.cgi
         fi
     fi
 fi    
