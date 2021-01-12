@@ -6,6 +6,7 @@
 # common typo?
 [ "$EMAIL" = someone@somehere ] && EMAIL=someone@somewhere
 # new system
+EMAIL=`echo "${EMAIL}XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" | cut -b 1-32` 
 c=`fgrep -c " $EMAIL " ./log/newlist`
 if [ $c != 0 ]; then
     realemail=`fgrep " $EMAIL " log/newlist | tail -1 | cut -f 1 -d ' ' | cut -b 2-`
@@ -15,7 +16,7 @@ if [ $c != 0 ]; then
         md5=`echo "$realemail" | md5sum | cut -f 1 -d ' '`
     fi
     if [ "$md5" != "$EMAIL" ]; then
-        . ./myvinkhead.cgi "Error" "Id \"$EMAIL\" does not correspond to email address $realemail" "noindex,nofollow"
+        . ./myvinkhead.cgi "Error" "Id \"$EMAIL\" does not correspond to email address" "noindex,nofollow"
         EMAIL="someone@somewhere"
         id=someone@somewhere
         FORM_id=someone@somewhere
