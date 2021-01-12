@@ -34,17 +34,10 @@ if [ $c = 0 -a $EMAIL != someone@somewhere ]; then
         EMAIL=$md5
         id=$md5
     else
-        c=`fgrep -c "^$EMAIL " ./log/list`
-        if [ $c = 0 ]; then
-            string=$EMAIL
-            if [ ${string#p.della} != $string ]; then
-                string=spam
-            fi
-            EMAIL=someone@somewhere
-            id=someone@somewhere
-            FORM_id=someone@somewhere
-            . ./myvinkhead.cgi "User $string unknown" "" "noindex,follow"
-            echo "Please <a href=\"registerform.cgi\">register or log in</a>, default is to use the site anonymously (with restrictions)"
-        fi
+        EMAIL=someone@somewhere
+        id=someone@somewhere
+        FORM_id=someone@somewhere
+        . ./myvinkhead.cgi "User $string unknown" "" "noindex,follow"
+        echo "Please <a href=\"registerform.cgi\">register or log in</a>, default is to use the site anonymously (with restrictions)"
     fi
 fi    
