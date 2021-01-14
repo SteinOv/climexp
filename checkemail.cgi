@@ -5,6 +5,12 @@
 [ -z "$EMAIL" ] && EMAIL=someone@somewhere  && id=$EMAIL
 # common typo?
 [ "$EMAIL" = someone@somehere ] && EMAIL=someone@somewhere
+c=`fgrep -c "^$EMAIL " ./log/newlist`
+if [ $c != 0 ]; then # the user gave a real aemail address. Cpnvert to md5 hash.
+    md5=`fgrep "^$EMAIL " ./log/newlist | cut -f 4 -d ' ' | tail -1`
+    EMAIL=$md5
+    id=$md5
+fi
 # new system
 if [ $EMAIL != someone@somewhere ]; then
     EMAIL=`echo "${EMAIL}XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" | cut -b 1-32` 
@@ -28,16 +34,9 @@ if [ $c != 0 ]; then
 fi
 
 if [ $c = 0 -a $EMAIL != someone@somewhere ]; then
-    c=`fgrep -c "^$EMAIL " ./log/newlist`
-    if [ $c != 0 ]; then
-        md5=`fgrep "^$EMAIL " ./log/newlist | cut -f 4 -d ' ' | tail -1`
-        EMAIL=$md5
-        id=$md5
-    else
-        EMAIL=someone@somewhere
-        id=someone@somewhere
-        FORM_id=someone@somewhere
-        . ./myvinkhead.cgi "User $string unknown" "" "noindex,follow"
-        echo "Please <a href=\"registerform.cgi\">register or log in</a>, default is to use the site anonymously (with restrictions)"
-    fi
+    EMAIL=someone@somewhere
+    id=someone@somewhere
+    FORM_id=someone@somewhere
+    . ./myvinkhead.cgi "User $string unknown" "" "noindex,follow"
+    echo "Please <a href=\"registerform.cgi\">register or log in</a>, default is to use the site anonymously (with restrictions)"
 fi    
