@@ -70,8 +70,24 @@ case ${FORM_plotanomalykind:-absolute} in
 esac
 
 if [ -n "$FORM_year" ]; then
-  y2=$FORM_year
-  m2=$FORM_month
+  y1=$FORM_year
+  m1=$FORM_month
+  case $m1 in
+    1) mon1=Jan;;
+    2) mon1=Feb;;
+    3) mon1=Mar;;
+    4) mon1=Apr;;
+    5) mon1=May;;
+    6) mon1=Jun;;
+    7) mon1=Jul;;
+    8) mon1=Aug;;
+    9) mon1=Sep;;
+    10) mon1=Oct;;
+    11) mon1=Nov;;
+    12) mon1=Dec;;
+  esac
+  y2=$FORM_year2
+  m2=$FORM_month2
   case $m2 in
     1) mon2=Jan;;
     2) mon2=Feb;;
