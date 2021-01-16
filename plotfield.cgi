@@ -33,12 +33,14 @@ if [ -n "$FORM_year2" ]; then
     if [ -z "$FORM_lon1" ]; then
       if [ -z "$FORM_lat2" ]; then
         if [ -z "$FORM_lat1" ]; then
-          echo "Error: specifiy at least one latitude or longitude"
-          . ./myvinkfoot.cgi
-          exit
+          if [ "$NX" != 1 ]; then
+            echo "Error: specifiy at least one latitude or longitude"
+            . ./myvinkfoot.cgi
+            exit
+          fi
         fi
         plotyear="${FORM_lat1}N"
-      elif [ "$FORM_lat1" != "$FORM_lat2" ]; then
+      elif [ "$NX" != 1 -a "$FORM_lat1" != "$FORM_lat2" ]; then
         FORM_var="ave($FORM_var,lat=$FORM_lat1,lat=$FORM_lat2)"
         FORM_lat2=$FORM_lat1
         plotyear="${FORM_lat1}-${FORM_lat2}N"
