@@ -6,6 +6,11 @@ then
   echo "$0: cannot find EOFID" 1>&2
   exit -1
 fi
+if [ -n "$2" ]; then
+    string="$2"
+else
+    string="Computing eigenvalues"
+fi
 i=0
 j=0
 ###echo "This is stillcomputing.cgi with arg $1 and EOFID $EOFID" 1>&2
@@ -13,7 +18,7 @@ j=0
 while [ `ps $EOFID | wc -l` -gt 1 ]
 do
   if [ $j -gt 30 ]; then
-    echo "Computing eigenvalues, $i/$1<p>" 1>&2
+    echo "$string, $i/$1<p>" 1>&2
     i=$(($i+1))
     j=0
   fi

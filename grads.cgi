@@ -389,7 +389,12 @@ $sum
 $dano
 quit
 EOF
-# on the SurfSARA cloud system it can take a while for the netcdf to become avilable on the SSD...
+# on the SurfSARA cloud system it can take a while for the netcdf to become available on the SSD...
+if [ "${FORM_var#ave}" != "$FORM_var" ]; then
+    # the averaging may take more than the 3 minute time-out
+    export EOFID=$$
+    (./stillcomputing.cgi 0 "Computing average" 2>&1) &
+fi
 ok=false
 n=0
 while [ $ok = false -a $n -lt 4 ]; do
