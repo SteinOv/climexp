@@ -18,8 +18,8 @@ j=0
 while [ `ps $EOFID | wc -l` -gt 1 ]
 do
   if [ $j -gt 30 ]; then
-    echo "$string, $i/$1<p>" 1>&2
     i=$(($i+1))
+    echo "$string, $i/$1<p>" 1>&2
     j=0
   fi
   sleep 1
