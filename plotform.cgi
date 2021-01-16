@@ -389,25 +389,6 @@ month: <select class="forminput" name="month2">
 <option value="11" $ss11>Nov
 <option value="12" $ss12>Dec
 </select>
-</td></tr><tr><td>&nbsp;</td><td>
-average over <select class="forminput" name="plotsum">
-<option $sum_1_selected>1
-<option $sum_2_selected>2
-<option $sum_3_selected>3
-<option $sum_4_selected>4
-<option $sum_5_selected>5
-<option $sum_6_selected>6
-<option $sum_7_selected>7
-<option $sum_8_selected>8
-<option $sum_9_selected>9
-<option $sum_10_selected>10
-<option $sum_11_selected>11
-<option $sum_12_selected>12
-<option $sum_13_selected>13
-<option $sum_14_selected>14
-<option $sum_15_selected>15
-</select>
-month
 </td></tr><tr><td>Anomalies:</td><td>
 <input type="checkbox" class="formcheck" name="plotanomaly"> 
 <select class="forminput" name="plotanomalykind"><option>absolute<option>relative<option>logrelative</select>anomalies wrt to
