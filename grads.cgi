@@ -87,7 +87,11 @@ fi
 [ -z "$var" ] && var=$FORM_var
 if [ -n "$FORM_plotsum" ]; then
     if [ "$FORM_plotsum" -gt 1 ]; then
-        ###sum="run sum ${FORM_var:-corr} $FORM_plotsum"
+        if [ -n "$FORM_year2" ]; then # Hovmuller
+            echo "<p>Grads cannot handle summing a varying dimension, please compute the running mean yourself first."
+            . ./myvinkfoot.cgi
+            exit
+        fi
         FORM_var="ave(${FORM_var:-corr},t+0,t+$((FORM_plotsum-1)))"
         [ "$lwrite" = true ] && echo "FORM_var=$FORM_var<br>"
     fi
@@ -415,6 +419,9 @@ EOF
         sleep 1
     fi
 done
+if [ "$ok" != true ]; then
+    echo "Something went wrong making the plot, please send <a href="mailto:oldenborgh@knmi.nl">me</a> screendump of the previous page and I will try to fix it."
+fi
 if [ "$FORM_mapformat" = kml ]; then
     alreadyprinted=
     if [ -n "$map" ]; then
