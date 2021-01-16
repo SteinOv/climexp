@@ -27,6 +27,9 @@ if [ "${FORM_field#erai}" != "$FORM_field" -o "${FORM_field#era5}" != "$FORM_fie
         FORM_var="$FORM_var-273.15"
     fi
 fi
+# to save the correct defaults (should not change FORM_ variables but too lazy to make the code good).
+export save_lat1=$FORM_lat2
+export save_lon2=$FORM_lon2
 if [ -n "$FORM_year2" ]; then
 # some sanity checking
   if [ -z "$FORM_lon2" ]; then
@@ -70,7 +73,7 @@ if [ -n "$FORM_year2" ]; then
     fi
   fi
 fi
-. $DIR/getfieldopts.cgi
+. ./getfieldopts.cgi
 
 if [ $EMAIL != someone@somewhere ]; then
   cat > prefs/$EMAIL.plotfield.$NPERYEAR <<EOF

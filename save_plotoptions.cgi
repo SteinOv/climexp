@@ -2,6 +2,14 @@
 if [ "$FORM_EMAIL" != someone@somewhere ]; then
 # remember plotoptions for next plot
 ###echo "saving preferences in ./prefs/$FORM_EMAIL.plotoptions"
+if [ -n "$save_lon2" ]; then
+    here_lon2=$FORM_lon2
+    FORM_lon2=$save_lon2
+fi
+if [ -n "$save_lat2" ]; then
+    here_lat2=$FORM_lat2
+    FORM_lat2=$save_lat2
+fi
 cat > ./prefs/$FORM_EMAIL.plotoptions <<EOF
 FORM_mproj=$FORM_mproj;
 FORM_lat1=$FORM_lat1;
@@ -34,4 +42,10 @@ FORM_masktype=$FORM_masktype;
 FORM_standardunits=$FORM_standardunits;
 FORM_log=$FORM_log;
 EOF
+if [ -n $here_lon2 ]; then
+    FORM_lon2=$here_lon2
+fi
+if [ -n $here_lat2 ]; then
+    FORM_lat2=$here_lat2
+fi
 fi
