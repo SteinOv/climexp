@@ -1,0 +1,57 @@
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
+
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# set PATH so it includes the Climate Exporer bin directory
+if [ -d "$HOME/climexp/bin" ] ; then
+    PATH="$HOME/climexp/bin:$PATH"
+fi
+
+if [ ! -d /data/climexp_data ]; then
+    sudo mount /dev/vdb /data
+fi
+c=`mount | fgrep climexp_tmp | wc -c -l`
+if [ "$c" = 0 ]; then
+    sudo mount /dev/vdc /climexp_tmp/
+    sudo mkdir /climexp_tmp/data
+    sudo chmod 777 /climexp_tmp/data
+    sudo mkdir /climexp_tmp/tmp
+    sudo chmod 777 /climexp_tmp/tmp
+fi
+c=`mount | fgrep climexp_cmip6 | wc -c -l`
+if [ "$c" = 0 ]; then
+    sudo mount /data/climexp_cmip6
+    sudo mount /data/climexp_cmip6_new
+fi
+if [ ! -f /var/run/apache2/apache2.pid ]; then
+    sudo apachectl start
+fi
+
+ulimit -s unlimited
+export PVM_ARCH=LINUX
+
+
