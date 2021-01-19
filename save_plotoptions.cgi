@@ -42,10 +42,10 @@ FORM_masktype=$FORM_masktype;
 FORM_standardunits=$FORM_standardunits;
 FORM_log=$FORM_log;
 EOF
-if [ -n $here_lon2 ]; then
+if [ -n "$here_lon2" ]; then
     FORM_lon2=$here_lon2
 fi
-if [ -n $here_lat2 ]; then
+if [ -n "$here_lat2" ]; then
     FORM_lat2=$here_lat2
 fi
 fi
