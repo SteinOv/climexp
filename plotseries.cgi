@@ -51,6 +51,9 @@ echo "(<a href=\"data/ts$TYPE$WMO$KIND.eps.gz\">eps</a>, <a href="ps2pdf.cgi?fil
 
 . ./setyaxis.cgi
 var=`echo "$VAR" | tr '_' ' '`
+if [ -n "$FORM_ylo" -o -n "$FORM_yhi" ]; then
+    setyrange="set yrange [${FORM_ylo}:${FORM_yhi}]"
+fi
 
 for ext in eps png
 do
@@ -79,6 +82,7 @@ set output "./data/ts$TYPE$WMO$KIND.$ext"
 set format y "%8.2f"
 set title
 set xrange[$firstyr:$lastyr]
+$setyrange
 set multiplot
 set size 0.70,0.225
 set origin 0,2.2
@@ -144,6 +148,7 @@ set output "./data/ts$TYPE$WMO$KIND.$ext"
 set format y "%8.2f"
 set title
 set xrange[$firstyr:$lastyr]
+$setyrange
 set multiplot
 set size 1,0.091
 set origin 0,0.88
@@ -212,6 +217,7 @@ set output "./data/ts$TYPE$WMO$KIND.$ext"
 set format y "%8.2f"
 set title
 set xrange[$firstyr:$lastyr]
+$setyrange
 set multiplot
 set size 0.7,0.275
 set origin 0,0.75
@@ -250,6 +256,7 @@ set output "./data/ts$TYPE$WMO$KIND.$ext"
 set format y "%8.2f"
 set ylabel "$var [$UNITS]"
 set xrange[$firstyr:$lastyr]
+$setyrange
 set multiplot
 set size 0.7,0.5
 set origin 0,0.5
@@ -275,6 +282,7 @@ set term $term
 set title "$name $station ($wmo)"
 set ylabel "$var [$UNITS]"
 set xrange[$firstyr:$lastyr]
+$setyrange
 set output "./data/ts$TYPE$WMO$KIND.$ext"
 plot "./data/ts$TYPE$WMO.plt" u 1:40 notitle with lines lt 2 lw 5, \
      "./data/ts$TYPE$WMO.plt" u 1:20 notitle with steps lt 1
@@ -292,6 +300,7 @@ set term $term
 set title "Jan-Dec $name $station ($wmo)"
 set ylabel "$var [$UNITS]"
 set xrange[$firstyr:$lastyr]
+$setyrange
 set output "./data/ts$TYPE$WMO$KIND.$ext"
 plot "./data/ts$TYPE$WMO.plt" u 1:40 notitle with lines lt 2 lw 5, \
      "./data/ts$TYPE$WMO.plt" u 1:20 notitle with steps lt 1
@@ -308,7 +317,8 @@ set size 0.7,0.5
 set term $term
 set title "Jul-Jun $name $station ($wmo)"
 set ylabel "$var [$UNITS]"
-set xrange[$firstyr:$lastyr]
+set xrange [$firstyr:$lastyr]
+$setyrange
 set output "./data/ts$TYPE$WMO$KIND.$ext"
 plot "./data/ts$TYPE$WMO.plt" u 1:41 notitle with lines lt 2 lw 5, \
      "./data/ts$TYPE$WMO.plt" u 1:21 notitle with steps lt 1
