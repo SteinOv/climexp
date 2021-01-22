@@ -13,15 +13,20 @@ file=$FORM_WMO.dat
 name=`echo "$FORM_STATION" | tr "_" " "`
 
 if [ ! -s $file ]; then
-    echo "$0: cannot find file $file"
-    exit -1
+    file=$FORM_WMO.nc
+    if [ ! -s $file ]; then
+        echo "$0: cannot find file $file"
+        exit -1
+    fi
 fi
 if [ -z "$name" ]; then
     echo "$0: cannot find name $name"
     exit -1
 fi
 
-yearfile=data/`basename $file .dat`_1mean_80_trend.dat
+b=`basename $file .dat`
+b=${b%.nc}
+yearfile=data/${b}_1mean_80_trend.dat
 daily2longer $file 1 mean minfac 80 add_trend > $yearfile
 anofile=${yearfile%.dat}_1981-2010.dat
 plotdat anom 1981 2010 $yearfile | fgrep -v 'disregarding' > $anofile
