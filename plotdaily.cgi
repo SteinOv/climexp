@@ -11,9 +11,6 @@ echo
 
 . ./getargs.cgi
 NPERYEAR="$FORM_NPERYEAR"
-if [ 0 = 1 -a $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 ]; then
-    yrange="set yrange [0:350]"
-fi
 if [ $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 ]; then
     lwrite=false # true
 fi
@@ -158,10 +155,24 @@ else
         above=1
         below=3
     fi
+    if [ -n "$FORM_ylo" -o -n "$FORM_yhi" ]; then
+        setyrange="set yrange [${FORM_ylo}:${FORM_yhi}]"
+    fi
+    if [ -n "$FORM_whitehi" ]; then
+        threehi="($FORM_whitehi)"
+    else
+        threehi=3
+    fi
+    if [ -n "$FORM_whitelo" ]; then
+        threelo="($FORM_whitelo)"
+    else
+        threelo=3
+    fi
 
     wmo_=`echo "$WMO" | tr '_' ' '`
     var_=`echo "$VAR" | tr '_' ' '`
-    gnuplot << EOF
+    plotfile=data/plotdaily$$.gnuplot
+    cat > $plotfile << EOF
 $gnuplot_init
 set size 0.8,0.6
 set datafile missing "-999.900"
@@ -172,12 +183,12 @@ set output "./$root.png"
 set xdata time
 set timefmt $timefmt
 set format x $timefmt
-$yrange
+$setyrange
 set xrange ["$firstdate":"$lastdate"]
 set ylabel "$var_ [$UNITS]"
 set title "$name $station ($wmo_)"
-plot "./$root.txt" using 1:2:3 notitle with filledcurves above lt $above, \
-     "./$root.txt" using 1:2:3 notitle with filledcurves below lt $below, \
+plot "./$root.txt" using 1:2:$threehi notitle with filledcurves above lt $above, \
+     "./$root.txt" using 1:2:$threelo notitle with filledcurves below lt $below, \
      "./$root.txt" using 1:2 notitle with lines lt -1, \
      "./$root.txt" using 1:3 notitle with lines lt -1
 
@@ -186,6 +197,12 @@ set output "./$root.eps"
 replot
 quit
 EOF
+    if [ "$lwrite" = true ]; then
+        echo '<pre>'
+        cat $plotfile
+        echo '</pre>'
+    fi
+    gnuplot < $plotfile
 
     pngfile="./$root.png"
     getpngwidth
