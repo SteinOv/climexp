@@ -310,7 +310,7 @@ if [ -s "$startstop" ]; then
 	yrstop=`tail -1 $startstop`
 	rm $startstop
 fi
-if [ -n "FORM_cov1" ]; then
+if [ -n "$FORM_cov1" ]; then
     FORM_begin2="$FORM_cov1" # for plots
 fi
 if [ -n "$FORM_cov3" ]; then
