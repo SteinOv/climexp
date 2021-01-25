@@ -5621,6 +5621,10 @@ pr_miroc5_kenya_actualclim_clim)
     map='set lon 33 42
 set lat -5 5';;
 
+Vietnam/*)
+    kindname=${FORM_field#Vietnam/maxyearlypr15D_HighResSST_};kindname=${kindname%_*nc}
+    file=$FORM_field;climfield=RX15day;flipcolor=11;NPERYEAR=1;map='set lon 102 110
+set lat 8 24';;
 
 *) echo 
 [ -x ./myvinkhead.cgi ] && . ./myvinkhead.cgi "Error" "" "noindex,nofollow"
