@@ -1,5 +1,9 @@
 #!/bin/bash
 # set the time-independent part of the title
+if [ -n "$lwrite" -a $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 ]; then
+    lwrite=false # true
+fi
+
 case "${NPERYEAR:-12}" in
 -1) timescale="year";timely="annual (Jul-Jun)";;
 1) timescale="year";timely="annual";;
@@ -25,7 +29,13 @@ if [ "${FORM_month:-0}" = "0" ]; then
     indexmonth="${FORM_lag}$timescale-lag"
   fi
 fi
-if [ ${NPERYEAR:-12} != 12 ]; then
+if [ "$NPERYEAR" = 1 -o "$NPERYEAR" = -1 ]; then
+  seriesmonth=$timely
+  indexmonth=$timely
+  if [ "${FORM_lag:-0}" != "0" ]; then
+    indexmonth="${FORM_lag}-lag"
+  fi
+elif [ ${NPERYEAR:-12} != 12 ]; then
   if [ "${FORM_lag:-0}" != "0" ]; then
     indexmonth="${FORM_lag}$timescale-lag"
     if [ ${FORM_sum:-1} != 1 -a $NPERYEAR -gt 12 ]; then
