@@ -20,13 +20,13 @@ Primavera GCMs:
 
 <p><i>Fields</i><br>
 Primavera GCMs: 
-<a href="select.cgi?field=Vietnam/maxyearlypr15D_HighResSST_all_%%.nc">all</a>,
-<a href="select.cgi?field=Vietnam/maxyearlypr15D_HighResSST_CMCC_%%.nc">CMCC</a>,
-<a href="select.cgi?field=Vietnam/maxyearlypr15D_HighResSST_CNRM_%%.nc&STATION=max_RX15day_CNRM&TYPE=i&id=$EMAIL&NPERYEAR=1">CNRM</a>,
-<a href="select.cgi?field=Vietnam/maxyearlypr15D_HighResSST_EC-Earth_%%.nc">EC-Earth</a>,
-<a href="select.cgi?field=Vietnam/maxyearlypr15D_HighResSST_ECMWF_%%.nc">ECMWF</a>,
-<a href="select.cgi?field=Vietnam/maxyearlypr15D_HighResSST_HadGEM_%%.nc">HadGEM</a>,
-<a href="select.cgi?field=Vietnam/maxyearlypr15D_HighResSST_MPI_%%.nc">MPI</a>.
+<a href="select.cgi?field=Vietnam/maxyearlypr15D_HighResSST_all_%%.nc&id=$EMAIL">all</a>,
+<a href="select.cgi?field=Vietnam/maxyearlypr15D_HighResSST_CMCC_%%.nc&id=$EMAIL">CMCC</a>,
+<a href="select.cgi?field=Vietnam/maxyearlypr15D_HighResSST_CNRM_%%.nc&id=$EMAIL">CNRM</a>,
+<a href="select.cgi?field=Vietnam/maxyearlypr15D_HighResSST_EC-Earth_%%.nc&id=$EMAIL">EC-Earth</a>,
+<a href="select.cgi?field=Vietnam/maxyearlypr15D_HighResSST_ECMWF_%%.nc&id=$EMAIL">ECMWF</a>,
+<a href="select.cgi?field=Vietnam/maxyearlypr15D_HighResSST_HadGEM_%%.nc&id=$EMAIL">HadGEM</a>,
+<a href="select.cgi?field=Vietnam/maxyearlypr15D_HighResSST_MPI_%%.nc&id=$EMAIL">MPI</a>.
 EOF
 
 . ./myvinkfoot.cgi
