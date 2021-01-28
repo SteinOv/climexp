@@ -37,6 +37,10 @@ cdf=$FORM_cdf
 anom=$FORM_anom
 climyear1=$FORM_climyear1
 climyear2=$FORM_climyear2
+whitelo=$FORM_whitelo
+whitehi=$FORM_whitehi
+ylo=$FORM_ylo
+yhi=$FORM_yhi
 if [ "$lwrite" = true ]; then
     echo "After argument processing nday=$nday<br>"
 fi
@@ -58,6 +62,10 @@ fi
 # do not use values from savefile if called with empty arguments from form
 [ -z "$climyear1" -a "$arg_enddate" = last ] && climyear1=$FORM_climyear1
 [ -z "$climyear2" -a "$arg_enddate" = last ] && climyear2=$FORM_climyear2
+[ -z "$whitelo" ] && whitelo=$FORM_whitelo
+[ -z "$whitehi" ] && whitehi=$FORM_whitehi
+[ -z "$ylo" ] && ylo=$FORM_ylo
+[ -z "$yhi" ] && yhi=$FORM_yhi
 if [ "$lwrite" = true ]; then
     echo "After remembering last time nday=$nday<br>"
 fi
@@ -155,16 +163,16 @@ else
         above=1
         below=3
     fi
-    if [ -n "$FORM_ylo" -o -n "$FORM_yhi" ]; then
-        setyrange="set yrange [${FORM_ylo}:${FORM_yhi}]"
+    if [ -n "$ylo" -o -n "$yhi" ]; then
+        setyrange="set yrange [${ylo}:${yhi}]"
     fi
-    if [ -n "$FORM_whitehi" ]; then
-        threehi="($FORM_whitehi)"
+    if [ -n "$whitehi" ]; then
+        threehi="($whitehi)"
     else
         threehi=3
     fi
-    if [ -n "$FORM_whitelo" ]; then
-        threelo="($FORM_whitelo)"
+    if [ -n "$whitelo" ]; then
+        threelo="($whitelo)"
     else
         threelo=3
     fi
@@ -230,6 +238,8 @@ FORM_cdf=$cdf;
 FORM_anom=$anom;
 FORM_climyear1=$climyear1;
 FORM_climyear2=$climyear2;
+FORM_ylo=$FORM_ylo;
+FORM_yhi=$FORM_yhi;
 EOF
 fi
 
@@ -244,15 +254,15 @@ cat <<EOF
 <input type="hidden" name="NPERYEAR" value="$NPERYEAR">
 <table style='width:100%' border='0' cellpadding='0' cellspacing='0'>
 <tr><td>Replot: 
-<td><input type="$number" min="1" max="1000" step=1 name="nday" $textsize3 value="$nday">
+<td><input type="$number" class=forminput min="1" max="1000" step=1 name="nday" $textsize3 value="$nday">
 ${month}s with end date
-<input type="$number" min="1" max="2400" step=1 name="yr" $textsize4 value="$yr">
+<input type="$number" class=forminput min="1" max="2400" step=1 name="yr" $textsize4 value="$yr">
 EOF
 if [ ${NPERYEAR:-12} -gt 1 ]; then
-    echo "<input type="$number" min="1" max="12" step=1 name="mo" $textsize2 value="$mo">"
+    echo "<input type="$number" class=forminput min="1" max="12" step=1 name="mo" $textsize2 value="$mo">"
 fi
 if [ ${NPERYEAR:-12} -gt 12 ]; then
-    echo "<input type="$number" min="1" max="31" step=1 name="dy" $textsize2 value="$dy">"
+    echo "<input type="$number" class=forminput min="1" max="31" step=1 name="dy" $textsize2 value="$dy">"
 fi
 cat <<EOF
 <tr><td>Plot:
@@ -262,9 +272,21 @@ cat <<EOF
 <tr><td>Compare with:
 <td>
 <input type=radio class=formradio name="anom" value="range" $range_checked>climatology
-<input type="$number" min="1" max="2400" step=1 name="climyear1" $textsize4 value="$climyear1">-<input type="$number" min="1" max="2400" step=1 name="climyear2" $textsize4 value="$climyear2">
+<input type="$number" class=forminput min="1" max="2400" step=1 name="climyear1" $textsize4 value="$climyear1">
+-
+<input type="$number" class=forminput min="1" max="2400" step=1 name="climyear2" $textsize4 value="$climyear2">
 <br>
 <input type=radio class=formradio name="anom" value="zero" $zero_checked>zero, data are already anomalies
+<tr><td>
+White centre<td>leave white values between
+<input type="$number" class=forminput name="whitelo" $textsize4 value="$whitelo">
+and
+<input type="$number" class=forminput name="whitehi" $textsize4 value="$whitehi">
+<tr><td>
+Y axis<td>
+<input type="$number" class=forminput name="ylo" $textsize4 value="$ylo">
+-
+<input type="$number" class=forminput name="yhi" $textsize4 value="$yhi">
 <tr><td>
 <input type="submit" class="formbutton" value="plot">
 </table>
