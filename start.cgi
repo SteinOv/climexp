@@ -18,7 +18,7 @@ if [ "$EMAIL" != someone@somewhere ]; then
         randomimage=data/randomimage.png
     else
         tmpfile=/tmp/start$$.txt
-        list=`ls -t data/ | fgrep .png | egrep '(^[dghR])|(.*corr.*)' | egrep -v 'kml|tmp' `
+        list=`ls -t data/ atlas/maps/*/rcp*/| fgrep .png | egrep '(^[dghrRw])|(.*corr.*)' | egrep -v 'kml|tmp|_far|_cdf' | fgrep -v .trc.`
         for file in $list; do
             if [ -z "$randomimage" -a -s data/$file ]; then
                 randomimage=data/$file
