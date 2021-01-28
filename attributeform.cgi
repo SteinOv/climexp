@@ -96,6 +96,9 @@ fi
 if [ -n "$FORM_includelast" ]; then
   includelast_checked="checked"
 fi
+if [ -n "$FORM_includepossibility" ]; then
+  includelast_possibility="checked"
+fi
 
 if [ -n "$FORM_amoeba" ]; then
   amoeba_checked="checked"
@@ -282,7 +285,7 @@ fi
 cat <<EOF
 <tr><td>Return time:<td>year <input type="$number" min=1 max=2500 step=1 class="forminput" name="year" $textsize4 value="$FORM_year"> (with value <input class="forminput" name="xyear" $textsize6 value="$FORM_xyear">),
 this year is excluded from the fit unless the value is specified or you
-<input type="checkbox" class="formcheck" name="includelast" $includelast_checked>choose to include it
+<input type="checkbox" class="formcheck" name="includelast" $includelast_checked>choose to include it or <input type="checkbox" class="formcheck" name="includepossibility" $includepossibility_checked>the possibility it occurred.
 <tr><td>Compare:<td>return time if it had occurred in year <input type="$number" min=1 max=2500 step=1 class="forminput" name="begin2" $textsize4 value="$FORM_begin2"> or at covariate value <input class=forminput name=cov1 $textsize4 value="$FORM_cov1"> relative to the time of the event
 <tr><td>Optionally plot:<td>return time if it had occurred in year <input type="$number" min=1 max=2500 step=1 class="forminput" name="end3" $textsize4 value="$FORM_end3"> or at covariate value <input class=forminput name=cov3 $textsize4 value="$FORM_cov3"> relative to the time of the event
 <tr><td>Bias correction:<td>evaluate for a return period of
