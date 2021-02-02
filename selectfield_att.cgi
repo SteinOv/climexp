@@ -183,7 +183,7 @@ cat <<EOF
 <th>vas
 <th>psl
 <tr><td>6 daily
-<td>together
+<td>4 time slices
 <td><input type=radio class=formradio name=field value=futureweather_tas_Aday_ECEARTH23_alldays>
 <td><input type=radio class=formradio name=field value=futureweather_tasmin_Aday_ECEARTH23_alldays>
 <td><input type=radio class=formradio name=field value=futureweather_tasmax_Aday_ECEARTH23_alldays>
@@ -194,56 +194,8 @@ cat <<EOF
 <td><input type=radio class=formradio name=field value=futureweather_uas_Aday_ECEARTH23_alldays>
 <td><input type=radio class=formradio name=field value=futureweather_vas_Aday_ECEARTH23_alldays>
 <td><input type=radio class=formradio name=field value=futureweather_psl_Aday_ECEARTH23_alldays>
-<tr><td>&nbsp;
-<td>1850-1854
-<td><input type=radio class=formradio name=field value=futureweather_tas_Aday_ECEARTH23_18500101-18541231>
-<td><input type=radio class=formradio name=field value=futureweather_tasmin_Aday_ECEARTH23_18500101-18541231>
-<td><input type=radio class=formradio name=field value=futureweather_tasmax_Aday_ECEARTH23_18500101-18541231>
-<td><input type=radio class=formradio name=field value=futureweather_pr_Aday_ECEARTH23_18500101-18541231>
-<td><input type=radio class=formradio name=field value=futureweather_evspsbl_Aday_ECEARTH23_18500101-18541231>
-<td><input type=radio class=formradio name=field value=futureweather_pme_Aday_ECEARTH23_18500101-18541231>
-<td><input type=radio class=formradio name=field value=futureweather_ssr_Aday_ECEARTH23_18500101-18541231>
-<td><input type=radio class=formradio name=field value=futureweather_uas_Aday_ECEARTH23_18500101-18541231>
-<td><input type=radio class=formradio name=field value=futureweather_vas_Aday_ECEARTH23_18500101-18541231>
-<td><input type=radio class=formradio name=field value=futureweather_psl_Aday_ECEARTH23_18500101-18541231>
-<tr><td>&nbsp;
-<td>2002-2006
-<td><input type=radio class=formradio name=field value=futureweather_tas_Aday_ECEARTH23_20020101-20061231>
-<td><input type=radio class=formradio name=field value=futureweather_tasmin_Aday_ECEARTH23_20020101-20061231>
-<td><input type=radio class=formradio name=field value=futureweather_tasmax_Aday_ECEARTH23_20020101-20061231>
-<td><input type=radio class=formradio name=field value=futureweather_pr_Aday_ECEARTH23_20020101-20061231>
-<td><input type=radio class=formradio name=field value=futureweather_evspsbl_Aday_ECEARTH23_20020101-20061231>
-<td><input type=radio class=formradio name=field value=futureweather_pme_Aday_ECEARTH23_20020101-20061231>
-<td><input type=radio class=formradio name=field value=futureweather_ssr_Aday_ECEARTH23_20020101-20061231>
-<td><input type=radio class=formradio name=field value=futureweather_uas_Aday_ECEARTH23_20020101-20061231>
-<td><input type=radio class=formradio name=field value=futureweather_vas_Aday_ECEARTH23_20020101-20061231>
-<td><input type=radio class=formradio name=field value=futureweather_psl_Aday_ECEARTH23_20020101-20061231>
-<tr><td>&nbsp;
-<td>2030-2034
-<td><input type=radio class=formradio name=field value=futureweather_tas_Aday_ECEARTH23_20300101-20341231>
-<td><input type=radio class=formradio name=field value=futureweather_tasmin_Aday_ECEARTH23_20300101-20341231>
-<td><input type=radio class=formradio name=field value=futureweather_tasmax_Aday_ECEARTH23_20300101-20341231>
-<td><input type=radio class=formradio name=field value=futureweather_pr_Aday_ECEARTH23_20300101-20341231>
-<td><input type=radio class=formradio name=field value=futureweather_evspsbl_Aday_ECEARTH23_20300101-20341231>
-<td><input type=radio class=formradio name=field value=futureweather_pme_Aday_ECEARTH23_20300101-20341231>
-<td><input type=radio class=formradio name=field value=futureweather_ssr_Aday_ECEARTH23_20300101-20341231>
-<td><input type=radio class=formradio name=field value=futureweather_uas_Aday_ECEARTH23_20300101-20341231>
-<td><input type=radio class=formradio name=field value=futureweather_vas_Aday_ECEARTH23_20300101-20341231>
-<td><input type=radio class=formradio name=field value=futureweather_psl_Aday_ECEARTH23_20300101-20341231>
-<tr><td>&nbsp;
-<td>2094-2098
-<td><input type=radio class=formradio name=field value=futureweather_tas_Aday_ECEARTH23_20940101-20981231>
-<td><input type=radio class=formradio name=field value=futureweather_tasmin_Aday_ECEARTH23_20940101-20981231>
-<td><input type=radio class=formradio name=field value=futureweather_tasmax_Aday_ECEARTH23_20940101-20981231>
-<td><input type=radio class=formradio name=field value=futureweather_pr_Aday_ECEARTH23_20940101-20981231>
-<td><input type=radio class=formradio name=field value=futureweather_evspsbl_Aday_ECEARTH23_20940101-20981231>
-<td><input type=radio class=formradio name=field value=futureweather_pme_Aday_ECEARTH23_20940101-20981231>
-<td><input type=radio class=formradio name=field value=futureweather_ssr_Aday_ECEARTH23_20940101-20981231>
-<td><input type=radio class=formradio name=field value=futureweather_uas_Aday_ECEARTH23_20940101-20981231>
-<td><input type=radio class=formradio name=field value=futureweather_vas_Aday_ECEARTH23_20940101-20981231>
-<td><input type=radio class=formradio name=field value=futureweather_psl_Aday_ECEARTH23_20940101-20981231>
 <tr><td>6 monthly
-<td>together
+<td>4 time slices
 <td><input type=radio class=formradio name=field value=futureweather_tas_Amon_ECEARTH23_allmonths>
 <td><input type=radio class=formradio name=field value=futureweather_tasmin_Amon_ECEARTH23_allmonths>
 <td><input type=radio class=formradio name=field value=futureweather_tasmax_Amon_ECEARTH23_allmonths>
@@ -254,54 +206,6 @@ cat <<EOF
 <td><input type=radio class=formradio name=field value=futureweather_uas_Amon_ECEARTH23_allmonths>
 <td><input type=radio class=formradio name=field value=futureweather_vas_Amon_ECEARTH23_allmonths>
 <td><input type=radio class=formradio name=field value=futureweather_psl_Amon_ECEARTH23_allmonths>
-<tr><td>&nbsp;
-<td>1850-1854
-<td><input type=radio class=formradio name=field value=futureweather_tas_Amon_ECEARTH23_185001-185412>
-<td><input type=radio class=formradio name=field value=futureweather_tasmin_Amon_ECEARTH23_185001-185412>
-<td><input type=radio class=formradio name=field value=futureweather_tasmax_Amon_ECEARTH23_185001-185412>
-<td><input type=radio class=formradio name=field value=futureweather_pr_Amon_ECEARTH23_185001-185412>
-<td><input type=radio class=formradio name=field value=futureweather_evspsbl_Amon_ECEARTH23_185001-185412>
-<td><input type=radio class=formradio name=field value=futureweather_pme_Amon_ECEARTH23_185001-185412>
-<td><input type=radio class=formradio name=field value=futureweather_ssr_Amon_ECEARTH23_185001-185412>
-<td><input type=radio class=formradio name=field value=futureweather_uas_Amon_ECEARTH23_185001-185412>
-<td><input type=radio class=formradio name=field value=futureweather_vas_Amon_ECEARTH23_185001-185412>
-<td><input type=radio class=formradio name=field value=futureweather_psl_Amon_ECEARTH23_185001-185412>
-<tr><td>&nbsp;
-<td>2002-2006
-<td><input type=radio class=formradio name=field value=futureweather_tas_Amon_ECEARTH23_200201-200612>
-<td><input type=radio class=formradio name=field value=futureweather_tasmin_Amon_ECEARTH23_200201-200612>
-<td><input type=radio class=formradio name=field value=futureweather_tasmax_Amon_ECEARTH23_200201-200612>
-<td><input type=radio class=formradio name=field value=futureweather_pr_Amon_ECEARTH23_200201-200612>
-<td><input type=radio class=formradio name=field value=futureweather_evspsbl_Amon_ECEARTH23_200201-200612>
-<td><input type=radio class=formradio name=field value=futureweather_pme_Amon_ECEARTH23_200201-200612>
-<td><input type=radio class=formradio name=field value=futureweather_ssr_Amon_ECEARTH23_200201-200612>
-<td><input type=radio class=formradio name=field value=futureweather_uas_Amon_ECEARTH23_200201-200612>
-<td><input type=radio class=formradio name=field value=futureweather_vas_Amon_ECEARTH23_200201-200612>
-<td><input type=radio class=formradio name=field value=futureweather_psl_Amon_ECEARTH23_200201-200612>
-<tr><td>&nbsp;
-<td>2030-2034
-<td><input type=radio class=formradio name=field value=futureweather_tas_Amon_ECEARTH23_203001-203412>
-<td><input type=radio class=formradio name=field value=futureweather_tasmin_Amon_ECEARTH23_203001-203412>
-<td><input type=radio class=formradio name=field value=futureweather_tasmax_Amon_ECEARTH23_203001-203412>
-<td><input type=radio class=formradio name=field value=futureweather_pr_Amon_ECEARTH23_203001-203412>
-<td><input type=radio class=formradio name=field value=futureweather_evspsbl_Amon_ECEARTH23_203001-203412>
-<td><input type=radio class=formradio name=field value=futureweather_pme_Amon_ECEARTH23_203001-203412>
-<td><input type=radio class=formradio name=field value=futureweather_ssr_Amon_ECEARTH23_203001-203412>
-<td><input type=radio class=formradio name=field value=futureweather_uas_Amon_ECEARTH23_203001-203412>
-<td><input type=radio class=formradio name=field value=futureweather_vas_Amon_ECEARTH23_203001-203412>
-<td><input type=radio class=formradio name=field value=futureweather_psl_Amon_ECEARTH23_203001-203412>
-<tr><td>&nbsp;
-<td>2094-2098
-<td><input type=radio class=formradio name=field value=futureweather_tas_Amon_ECEARTH23_209401-209812>
-<td><input type=radio class=formradio name=field value=futureweather_tasmin_Amon_ECEARTH23_209401-209812>
-<td><input type=radio class=formradio name=field value=futureweather_tasmax_Amon_ECEARTH23_209401-209812>
-<td><input type=radio class=formradio name=field value=futureweather_pr_Amon_ECEARTH23_209401-209812>
-<td><input type=radio class=formradio name=field value=futureweather_evspsbl_Amon_ECEARTH23_209401-209812>
-<td><input type=radio class=formradio name=field value=futureweather_pme_Amon_ECEARTH23_209401-209812>
-<td><input type=radio class=formradio name=field value=futureweather_ssr_Amon_ECEARTH23_209401-209812>
-<td><input type=radio class=formradio name=field value=futureweather_uas_Amon_ECEARTH23_209401-209812>
-<td><input type=radio class=formradio name=field value=futureweather_vas_Amon_ECEARTH23_209401-209812>
-<td><input type=radio class=formradio name=field value=futureweather_psl_Amon_ECEARTH23_209401-209812>
 <tr><th>&nbsp;
 <th>&nbsp;
 <th>Rx1day
@@ -315,11 +219,59 @@ cat <<EOF
 <th>&nbsp;
 <th>&nbsp;
 <tr><td>6 annual
-<td>together
+<td>4 time slices
 <td><input type=radio class=formradio name=field value=futureweather_rx1day_Amon_ECEARTH23>
 <td><input type=radio class=formradio name=field value=futureweather_rx3day_Amon_ECEARTH23>
 <td><input type=radio class=formradio name=field value=futureweather_rx5day_Amon_ECEARTH23>
 <td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<tr><th>PRIMAVERA<br>SST-forced
+<th>period
+<th>tas
+<th>tas<br>min
+<th>tas<br>max
+<th>pr
+<th>evsp<br>sbl
+<th>pme
+<th>ssr
+<th>uas
+<th>vas
+<th>psl
+<tr><td>1 CMCC daily
+<td>1950-2014
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CMCC_historical>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<tr><td>1 CNRM daily
+<td>1950-2014
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CNRM_historical>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<tr><td>1 CMCC daily
+<td>1950-2014
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CMCC_historical>
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
@@ -734,6 +686,9 @@ cat <<EOF
 <p>Observations and model output used in attribution studies are listed below per project.
 Resources not listed are either easily accessible through  other Climate Explorer pages
 or available from the authors (except for non-public data such as the IMD analyses).
+
+<div class=alineakop>Baltic temperature anomly November 2020</div>
+<a href="baltic_timeseries.cgi?id=$EMAIL">Separate page</a>
 
 <div class=alineakop>Siberian heat 2020</div>
 <a href="siberia2020_timeseries.cgi?id=$EMAIL">Separate page</a>
