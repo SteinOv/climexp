@@ -20,9 +20,9 @@ if [ -n "$FORM_month" ]; then
 fi
 TYPE=$FORM_TYPE
 NPERYEAR=1
-PROG="selectdate $DIR/data/$TYPE$FORM_WMO.dat $FORM_month $FORM_day"
+PROG="selectdate.sh $DIR/data/$TYPE$FORM_WMO.dat $FORM_month $FORM_day"
 export WMO
-export file
+export file=$DIR/data/$TYPE$FORM_WMO.dat
 export TYPE
 
 if [ -n "$EMAIL" -a "$EMAIL" != someone@somewhere ]; then
