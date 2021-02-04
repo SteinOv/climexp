@@ -1,8 +1,8 @@
 #!/bin/bash
 lwrite=false
 if [ -n "$EMAIL" -a "$EMAIL" = ec8907341dfc63c526d08e36d06b7ed8 ]; then
-    lwrite=false # true
-    ###set -x
+    lwrite=true
+    echo "log..." > /tmp/aap
 fi
 if [ -z "$DIR" ]; then
     DIR=`pwd`
@@ -20,6 +20,10 @@ c1=`echo $file | fgrep -c '%%'`
 c2=`echo $file | fgrep -c '++'`
 c3=`echo $file | egrep -c '%%%|\+\+\+'`
 c4=`echo $file | fgrep -c '@@'`
+if [ $lwrite = true ]; then
+    echo "file=$file<br>" >> /tmp/aap
+    echo "c1-c4 = $c1,$c2,$c3,$c4<br>" >> /tmp/aap
+fi
 if [ "$c4" = 1 ]; then
     # one file with multiple ensemble members, the programs called from this script cannot handle that
     # convert to old-fashioned ensemble
@@ -60,7 +64,7 @@ then
     fi
     if [ ! -s $outfile -o $outfile -ot $onefile ]; then
         if [ "$splitfield" != true ]; then
-            [ $lwrite = true ] && echo "# $DIR/bin/$PROG $*"
+            [ $lwrite = true ] && echo "# $DIR/bin/$PROG $*" >> /tmp/aap
             $DIR/bin/$PROG $*
         else
             outfile=/tmp/get_index.$$
@@ -68,7 +72,7 @@ then
             allfiles=`echo $file`
             for f in $allfiles; do
                 args=`echo "$*" | sed -e "s@$file@$f@" -e "s@$allfiles@$f@"`
-                [ "$lwrite" = true ] && echo "# $DIR/bin/$PROG $args" 1>&2
+                [ "$lwrite" = true ] && echo "# $DIR/bin/$PROG $args" >> /tmp/aap
                 $DIR/bin/$PROG $args >> $outfile
             done
             # collect all the metadata at the top. note it will give duplicate history etc attributes
@@ -95,7 +99,6 @@ else
     else
         ensfile=$allfiles
     fi
-    [ "$lwrite" = true ] && echo "log..." > /tmp/aap
     while [ $i -lt $nmax ]
     do
 
