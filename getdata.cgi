@@ -207,7 +207,7 @@ EOF
   # in case two people retrieve the same data at the same time - make atomic
   [ -s ./data/$TYPE$WMO.dat.$$ ] && mv ./data/$TYPE$WMO.dat.$$ ./data/$TYPE$WMO.dat
   fgrep 'annot locate' $DIR/data/$TYPE$WMO.dat
-  if [ $? = 0 ]; then
+  if [ "$?" = 0 ]; then
 	echo '<pre>'
 	cat $DIR/data/$TYPE$WMO.dat
 	echo "</pre>"
@@ -222,7 +222,7 @@ EOF
     daily2longer $infile `echo $extraargs | tr '_' ' '` > $outfile
   fi
 else
-    if [ -z "$PROG" -o $skipit = true ]; then
+    if [ -z "$PROG" -o "$skipit" = true ]; then
         if [ 0 = 1 ]; then
             if [ -z "$PROG" ]; then
                 echo "PROG unset, data should be there"
