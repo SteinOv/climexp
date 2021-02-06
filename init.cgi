@@ -108,6 +108,7 @@ if [ -z "$init_done" ]; then
     fi
     if [ `uname` = Darwin ]; then
         ulimit -s 65532
+        ulimit -n 10240 # I seem to forget to close files in readsetseries...
     else
         ulimit -s unlimited
     fi
