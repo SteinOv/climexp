@@ -219,6 +219,7 @@ cmip6*|cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_
                 if [ -e $file -o -L $file ]; then
                     file=CMIP5/$dir/$var/${var}_${type}_${model}_${exp}_%%.nc
                 else
+                    echo
                     echo "queryfield: error: cannot locate $datasetname file $oldfile or $file"
                     exit -1
                 fi
