@@ -190,34 +190,34 @@ cat <<EOF
 <table style='width:100%' border='0' cellpadding='0' cellspacing='0'>
 EOF
 if [ $NPERYEAR != 0 ]; then
-    echo "<tr><td>Time:<td>year: <input type=$number min=1 max=2500 step=1 name="year" $textsize4 value=\"$y2\">"
+    echo "<tr><td>Time:<td>year: <input type=$number min=1 max=2500 step=1 name="year" $textsize4 value=\"$y1\">"
 fi
 if [ $NPERYEAR -ge 12 ]; then
 periods=months
 cat <<EOF
 month: <select class="forminput" name="month">
-<option value="1" $ss1>Jan
-<option value="2" $ss2>Feb
-<option value="3" $ss3>Mar
-<option value="4" $ss4>Apr
-<option value="5" $ss5>May
-<option value="6" $ss6>Jun
-<option value="7" $ss7>Jul
-<option value="8" $ss8>Aug
-<option value="9" $ss9>Sep
-<option value="10" $ss10>Oct
-<option value="11" $ss11>Nov
-<option value="12" $ss12>Dec
+<option value="1" $s1>Jan
+<option value="2" $s2>Feb
+<option value="3" $s3>Mar
+<option value="4" $s4>Apr
+<option value="5" $s5>May
+<option value="6" $s6>Jun
+<option value="7" $s7>Jul
+<option value="8" $s8>Aug
+<option value="9" $s9>Sep
+<option value="10" $s10>Oct
+<option value="11" $s11>Nov
+<option value="12" $s12>Dec
 </select>
 EOF
 elif [ $NPERYEAR -eq 4 ]; then
 periods=seasons
 cat <<EOF
 month: <select class="forminput" name="month">
-<option value="1" $ss1>DJF
-<option value="2" $ss2>MAM
-<option value="3" $ss3>JJA
-<option value="4" $ss4>SON
+<option value="1" $s1>DJF
+<option value="2" $s2>MAM
+<option value="3" $s3>JJA
+<option value="4" $s4>SON
 </select>
 EOF
 else
