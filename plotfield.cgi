@@ -178,6 +178,7 @@ fi
 echo "date = $date $date2<br>"
 station=$kindname
 CLIM=$climfield
+plotyear=$FORM_year
 
 . ./grads.cgi
 
