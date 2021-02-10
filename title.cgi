@@ -1,6 +1,6 @@
 #!/bin/bash
 # set the time-independent part of the title
-if [ -n "$lwrite" -a $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 ]; then
+if [ -z "$lwrite" -a $EMAIL = ec8907341dfc63c526d08e36d06b7ed8 ]; then
     lwrite=false # true
 fi
 
