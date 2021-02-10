@@ -354,6 +354,7 @@ EOF
                 if [ -f $ensout.nc -a $ensout.nc -nt $ensfile ]; then
                     echo "Ensemble member $ii already exists<br>"
                 else
+                    echo -n "$ii "
                     if [ -n "$FORM_maskmetadata" ]; then
                         if [ 0 = 1 ]; then
                             cdo maskregion,$masknetcdf $ensfile $ensout.nc
