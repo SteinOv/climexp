@@ -232,48 +232,84 @@ cat <<EOF
 <td>&nbsp;
 <tr><th>PRIMAVERA<br>SST-forced
 <th>period
-<th>tas
-<th>tas<br>min
-<th>tas<br>max
-<th>pr
-<th>evsp<br>sbl
-<th>pme
-<th>ssr
-<th>uas
-<th>vas
-<th>psl
-<tr><td>1 CMCC daily
+<th>pr eu
+<th>pr af
+<th>pr as
+<th>pr au
+<th>pr na
+<th>pr sa
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<th>&nbsp;
+<tr><td>1 CMCC-CM2 0.25&deg; daily
 <td>1950-2014
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CMCC-CM2-VHR4_historical_eu>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CMCC-CM2-VHR4_historical_af>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CMCC-CM2-VHR4_historical_as>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CMCC-CM2-VHR4_historical_au>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CMCC-CM2-VHR4_historical_na>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CMCC-CM2-VHR4_historical_sa>
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
-<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CMCC_historical>
 <td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<tr><td>1 CNRM daily
+<tr><td>1 CNRM-CM6-1 0.5&deg; daily
 <td>1950-2014
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CNRM-CM6-1-HR_historical_eu>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CNRM-CM6-1-HR_historical_af>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CNRM-CM6-1-HR_historical_as>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CNRM-CM6-1-HR_historical_au>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CNRM-CM6-1-HR_historical_na>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CNRM-CM6-1-HR_historical_sa>
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
-<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CNRM_historical>
 <td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<tr><td>1 CMCC daily
+<tr><td>3 EC-Earth3P 0.35&deg; daily
 <td>1950-2014
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_EC-Earth3P-HR_historical_eu>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_EC-Earth3P-HR_historical_af>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_EC-Earth3P-HR_historical_as>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_EC-Earth3P-HR_historical_au>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_EC-Earth3P-HR_historical_na>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_EC-Earth3P-HR_historical_sa>
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
-<td><input type=radio class=formradio name=field value=primavera_pr_Aday_CMCC_historical>
+<td>&nbsp;
+<tr><td>6 ECMWF-IFS 0.5&deg; daily
+<td>1950-2014
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_ECMWF-IFS-HR_historical_eu>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_ECMWF-IFS-HR_historical_af>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_ECMWF-IFS-HR_historical_as>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_ECMWF-IFS-HR_historical_au>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_ECMWF-IFS-HR_historical_na>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_ECMWF-IFS-HR_historical_sa>
 <td>&nbsp;
 <td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<tr><td>3 HadGEM3-GC31-HM 0.3&deg; daily
+<td>1950-2014
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_HadGEM3-GC31-HM_historical_eu>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_HadGEM3-GC31-HM_historical_af>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_HadGEM3-GC31-HM_historical_as>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_HadGEM3-GC31-HM_historical_au>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_HadGEM3-GC31-HM_historical_na>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_HadGEM3-GC31-HM_historical_sa>
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<td>&nbsp;
+<tr><td>1 MPI-ESM1-2-XR 0.5&deg; daily
+<td>1950-2014
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_MPI-ESM1-2-XR_historical_eu>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_MPI-ESM1-2-XR_historical_af>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_MPI-ESM1-2-XR_historical_as>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_MPI-ESM1-2-XR_historical_au>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_MPI-ESM1-2-XR_historical_na>
+<td><input type=radio class=formradio name=field value=primavera_pr_Aday_MPI-ESM1-2-XR_historical_sa>
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;
@@ -557,78 +593,6 @@ cat <<EOF
 <td>&nbsp;
 <td>&nbsp;
 <td><input type=radio class=formradio name=field value=eurocordex_prAdjust_mon_ens_rcp45>
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<tr><th>EURO-CORDEX 11km
-<th>scenario
-<th>tas<br>bias-corr.
-<th>&nbsp;
-<th>&nbsp;
-<th>pr<br>bias-corr.
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<tr><td>10 daily
-<td>RCP4.5
-<td><input type=radio class=formradio name=field value=eurocordex_tasAdjust_day_ens_rcp45>
-<td>&nbsp;
-<td>&nbsp;
-<td><input type=radio class=formradio name=field value=eurocordex_prAdjust_day_ens_rcp45>
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<tr><td>10 daily
-<td>RCP8.5
-<td><input type=radio class=formradio name=field value=eurocordex_tasAdjust_day_ens_rcp85>
-<td>&nbsp;
-<td>&nbsp;
-<td><input type=radio class=formradio name=field value=eurocordex_prAdjust_day_ens_rcp85>
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<tr><td>10 monthly
-<td>RCP4.5
-<td><input type=radio class=formradio name=field value=eurocordex_tasAdjust_mon_ens_rcp45>
-<td>&nbsp;
-<td>&nbsp;
-<td><input type=radio class=formradio name=field value=eurocordex_prAdjust_mon_ens_rcp45>
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<tr><th>EAS-CORDEX 22km
-<th>scenario
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>pr
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<th>&nbsp;
-<tr><td>5 daily
-<td>RCP8.5
-<td>&nbsp;
-<td>&nbsp;
-<td>&nbsp;
-<td><input type=radio class=formradio name=field value=eascordex_pr_day_ens_rcp85>
 <td>&nbsp;
 <td>&nbsp;
 <td>&nbsp;

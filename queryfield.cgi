@@ -42,7 +42,7 @@ knmi14pcglob*)
     LSMASK=UUData/lsmask.nc
     ;;
 
-cmip6*|cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_var_Amon_model_exp
+cmip6*|cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*|primavera*) # expecting cmip5_var_Amon_model_exp
     field=$FORM_field
     dataset=${field%%_*}
     field=${field#*_}
@@ -126,6 +126,7 @@ cmip6*|cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_
          eucleia) datasetname=EUCLEIA;;
          futureweather) datasetname=FutureWeather;;
          hiwaves3) datasetname=HIWAVES3;;
+         primavera) datasetname=PRIMAVERA;;
          *) echo "unknown dataset $dataset"; exit -1;;
     esac
     if [ $var = pr -o $var = pme -o $var = huss -o $var = hurs -o \
@@ -194,6 +195,13 @@ cmip6*|cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*) # expecting cmip5_
             file=HIWAVES3/${type}/$var/$file
             ###echo "file=$file"
             LSMASK=KNMI14Data/sftlf_ns.nc
+        elif [ $dataset = primavera ]; then
+            region=$rip
+            rip=""
+            file=${var}_mmday_${model}_${exp}_${region}_%%.nc
+            file=PRIMAVERA/$var/$file
+            ###echo "file=$file"
+            LSMASK=PRIMAVERA/lsmask_$model.nc
         elif [ $dataset = eucleia ]; then
             if [ "$splitfield" = true ]; then
                 file=${var}_${type}_${model}_${exp}_????????-????????_%%%.nc
@@ -635,12 +643,6 @@ PSI_*) dataset=${FORM_field#PSI_};file=UCData/PSI_$dataset.nc;kindname="GIDMaPS"
 SPI_*) dataset=${FORM_field#SPI_};file=UCData/SPI_$dataset.nc;kindname="GIDMaPS";climfield="SPI $dataset";flipcolor=11;;
 SSI_*) dataset=${FORM_field#SSI_};file=UCData/SSI_$dataset.nc;kindname="GIDMaPS";climfield="SSI $dataset";flipcolor=11;;
 
-gpcc_25_8) file=GPCCData/gpcc_V8_25.nc;kindname="GPCC V8 2.5";climfield="precipitation";flipcolor=11;;
-gpcc_10_8) file=GPCCData/gpcc_V8_10.nc;kindname="GPCC V8 1.0";climfield="precipitation";flipcolor=11;;
-gpcc_05_8) file=GPCCData/gpcc_V8_05.nc;kindname="GPCC V8 0.5";climfield="precipitation";flipcolor=11;;
-gpcc_25_n1_8) file=GPCCData/gpcc_V8_25_n1.nc;kindname="GPCC V8 2.5";climfield="precipitation";flipcolor=11;LSMASK=GPCCData/lsmask_25.nc;;
-gpcc_10_n1_8) file=GPCCData/gpcc_V8_10_n1.nc;kindname="GPCC V8 1.0";climfield="precipitation";flipcolor=11;;
-gpcc_05_n1_8) file=GPCCData/gpcc_V8_05_n1.nc;kindname="GPCC V8 0.5";climfield="precipitation";flipcolor=11;;
 gpcc_25) file=GPCCData/gpcc_25.nc;kindname="GPCC 2.5";climfield="precipitation";flipcolor=11;LSMASK=GPCCData/lsmask_25.nc;;
 gpcc_10) file=GPCCData/gpcc_10.nc;kindname="GPCC 1.0";climfield="precipitation";flipcolor=11;;
 gpcc_05) file=GPCCData/gpcc_05.nc;kindname="GPCC 0.5";climfield="precipitation";flipcolor=11;LSMASK=GPCCData/lsmask_05.nc;;
