@@ -8,7 +8,7 @@ if [ -z "$alreadycalledgetargs" ]; then
     else
         export SCRIPTURL="http://$SERVER_NAME$SCRIPT_NAME?"
     fi
-    EMAIL="$FORM_id"
+    export EMAIL="$FORM_id"
     [ -z "$EMAIL" ] && EMAIL="$FORM_EMAIL"
     [ -z "$EMAIL" ] && EMAIL="$FORM_email"
     if [ -z "$EMAIL" ]; then
@@ -23,7 +23,7 @@ if [ -z "$alreadycalledgetargs" ]; then
     EMAIL=`echo "$EMAIL" | tr -cd '[:alnum:]@.-_' | fgrep -v "/" | egrep -v '(@|\.|-)sexy(@|\.|-)|(@|\.|-)sex(@|\.|-)|(@|\.|-)porn(@|\.|-)|(@|\.|-)porno(@|\.|-)|youtube.com|fynalcut.com|shop.*ru$|della-marta'`
     EMAIL=${EMAIL#id=}
     [ "$EMAIL" = FORM_EMAIL ] && EMAIL=""
-    id=$EMAIL
+    export id=$EMAIL
     FORM_type=`echo "$FORM_type" | tr -d -C '[a-zA-Z0-9_\-]'`
     FORM_TYPE=`echo "$FORM_TYPE" | tr -d -C '[a-zA-Z0-9_\-]'`
     ###echo "EMAIL=$EMAIL<br>"
