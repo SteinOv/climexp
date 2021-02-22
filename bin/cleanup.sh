@@ -30,6 +30,7 @@ find ./atlas -type d -empty -exec rmdir {} \;
 find ./pid/ -atime +1 -exec rm -f {} \;
 find ./prefs/ -ctime +7 -exec rm -f {} \;
 find ./metadata/ -name 'cache*' -ctime +7 -exec rm -f {} \;
+find ./metadata/data -ctime +7 -exec rm -f {} \;
 fgrep -l "cannot" ./metadata/*.txt | xargs -n 20 rm -f
 fgrep -l "cannot" ./metadata/*.txt.eval | xargs -n 20 rm -f
 fgrep -l "does not exist" ./metadata/*.txt | xargs rm -f
