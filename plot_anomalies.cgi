@@ -194,7 +194,7 @@ Redisplay the anomalies using the years
 <input type="hidden" name="type"    value="$TYPE">
 <input type="hidden" name="name"    value="$NAME">
 <input type="hidden" name="NPERYEAR" value="$NPERYEAR">
-<input type="$number" min=1 max=2500 step=1 name="climyear1" size="4"  style="width: 5em;" value="${FORM_climyear1:-1981}">-<input type="$number" min=1 max=2500 step=1 name="climyear2" size="4" style="width: 5em;" value="${FORM_climyear2:-2010}">
+<input type="$number" min=1 max=2500 step=1 name="climyear1" size="4"  style="width: 5em;" value="${FORM_climyear1:-1991}">-<input type="$number" min=1 max=2500 step=1 name="climyear2" size="4" style="width: 5em;" value="${FORM_climyear2:-2020}">
 <input type="submit" value="select">
 </form>
 EOF
