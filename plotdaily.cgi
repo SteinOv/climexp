@@ -101,11 +101,15 @@ if [ -z "$FORM_climyear1" -a -n "$FORM_climyear2" ]; then
 fi
 if [ -z "$FORM_climyear1" -a -z "$FORM_climyear2" ]; then
     computed="computed with all data available"
-    period=""
+    if [ "$anom" != zero ]; then
+        period="all data"
+    fi
     beginend=""
 else
     computed="computed over the period ${FORM_climyear1}:${FORM_climyear2}"
-    period=" (${FORM_climyear1}:${FORM_climyear2})"
+    if [ "$anom" != zero ]; then
+        period="${FORM_climyear1}:${FORM_climyear2}"
+    fi
     beginend="begin ${FORM_climyear1} end ${FORM_climyear2}"
 fi
 
@@ -179,6 +183,8 @@ else
 
     wmo_=`echo "$WMO" | tr '_' ' '`
     var_=`echo "$VAR" | tr '_' ' '`
+    title="$name $station ($wmo_)"
+    [ -n "$period" -a "$anom" != zero ] && title="$title wrt $period"
     plotfile=data/plotdaily$$.gnuplot
     cat > $plotfile << EOF
 $gnuplot_init
@@ -194,7 +200,7 @@ set format x $timefmt
 $setyrange
 set xrange ["$firstdate":"$lastdate"]
 set ylabel "$var_ [$UNITS]"
-set title "$name $station ($wmo_)"
+set title "$title"
 plot "./$root.txt" using 1:2:$threehi notitle with filledcurves above lt $above, \
      "./$root.txt" using 1:2:$threelo notitle with filledcurves below lt $below, \
      "./$root.txt" using 1:2 notitle with lines lt -1, \
