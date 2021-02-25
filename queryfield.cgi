@@ -529,6 +529,14 @@ cru4_vap) file=CRUData/cru_ts4.04.1901.2019.vap.dat.nc;kindname="CRU TS4.04";cli
 cru4_vap_stn) file=CRUData/cru_ts4.04.1901.2019.vap.stn.nc;kindname="CRU TS4.04";climfield="#vapour pressure";flipcolor=11;LSMASK=CRUData/lsmask_05.nc;;
 cru4_vap_10) file=CRUData/cru_ts4.04.1901.2019.vap.dat_1.nc;kindname="CRU TS4.04";climfield="vapour pressure";flipcolor=11;LSMASK=CRUData/lsmask_10.nc;;
 cru4_vap_25) file=CRUData/cru_ts4.04.1901.2019.vap.dat_25.nc;kindname="CRU TS4.04";climfield="vapour pressure";flipcolor=11;LSMASK=CRUData/lsmask_25.nc;;
+cru4_pet) file=CRUData/cru_ts4.04.1901.2019.pet.dat.nc;kindname="CRU TS4.04";climfield="potential evaporation";LSMASK=CRUData/lsmask_05.nc;;
+cru4_pet_stn) file=CRUData/cru_ts4.04.1901.2019.pet.stn.nc;kindname="CRU TS4.04 stn";climfield="#potential evaporation";LSMASK=CRUData/lsmask_05.nc;;
+cru4_pet_10) file=CRUData/cru_ts4.04.1901.2019.pet.dat_1.nc;kindname="CRU TS4.04";climfield="potential evaporation";LSMASK=CRUData/lsmask_10.nc;;
+cru4_pet_25) file=CRUData/cru_ts4.04.1901.2019.pet.dat_25.nc;kindname="CRU TS4.04";climfield="potential evaporation";LSMASK=CRUData/lsmask_25.nc;;
+cru4_frs) file=CRUData/cru_ts4.04.1901.2019.frs.dat.nc;kindname="CRU TS4.04";climfield="ground frost days";flipcolor=11;LSMASK=CRUData/lsmask_05.nc;;
+cru4_frs_stn) file=CRUData/cru_ts4.04.1901.2019.frs.stn.nc;kindname="CRU TS4.04";climfield="ground frost days";flipcolor=11;LSMASK=CRUData/lsmask_05.nc;;
+cru4_frs_10) file=CRUData/cru_ts4.04.1901.2019.frs.dat_1.nc;kindname="CRU TS4.04";climfield="ground frost days";flipcolor=11;LSMASK=CRUData/lsmask_10.nc;;
+cru4_frs_25) file=CRUData/cru_ts4.04.1901.2019.frs.dat_25.nc;kindname="CRU TS4.04";climfield="ground frost days";flipcolor=11;LSMASK=CRUData/lsmask_25.nc;;
 
 cru4_tmp_old) file=CRUData/cru_ts4.03.1901.2018.tmp.dat.nc;kindname="CRU TS4.03";climfield="temperature";LSMASK=CRUData/lsmask_05.nc;;
 cru4_tmp_stn_old) file=CRUData/cru_ts4.03.1901.2018.tmp.stn.nc;kindname="CRU TS4.03 stn";climfield="#temperature";LSMASK=CRUData/lsmask_05.nc;;
