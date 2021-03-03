@@ -707,7 +707,9 @@ clm_wfdei_rain) file=ETHData/RAIN_wfdei_clm.nc;kindname="CLM/WFDEI";climfield="r
 clm_wfdei_et) file=ETHData/ET_wfdei_clm.nc;kindname="CLM/WFDEI";climfield="evapotranspiration";;
 clm_wfdei_etp) file=ETHData/ETp_wfdei_clm.nc;kindname="CLM/WFDEI";climfield="potential evaporation";;
 
-grun) file=ETHZData/GRUN_v1_GSWP3_WGS84_05_1902_2014_ce.nc;kindname="GRUN";climfield="runoff";;
+grun) file=ETHZData/GRUN_v1_GSWP3_WGS84_05_1902_2014_ce.nc;kindname="GRUN";climfield="runoff";flipcolor=11;;
+
+glofas_discharge_??) file=CDSData/$FORM_field.nc;kindname="GloFAS";climfield="discharge";flipcolor=11;;
 
 emulate) file=CRUData/emulate_3.2_1850-2003.nc;kindname="EMULATE 3.2";climfield="SLP";NPERYEAR=366;map="set lon -70 50
 set lat 25 70";;
@@ -778,7 +780,7 @@ thw_depth_m) file=NSIDCData/thw_depth_m.ctl;kindname=NSIDC;climfield="thaw depth
 camsopi) file=NCEPData/camsopi.nc;kindname="CAMSOPI";climfield="prcp";;
 camsopi_perc) file=NCEPData/camsopi_perc.nc;kindname="CAMSOPI";climfield="perc";;
 noaa_olr) file=NOAAData/olr.mon.mean.nc;kindname="NOAA";climfield="OLR";;
-msla) file=CLSData/msla_merged_1deg.ctl;kindname="CLS merged";climfield="sea level anomalies";;
+cls_sla) file=CLSData/sla_cls.nc;kindname="CLS merged";climfield="sea level anomalies";;
 esa_sla) file=ESAData/esacci_sla.nc;kindname="ESA CCI";climfield="sea level anomalies";;
 copernicus_sla_daily) file=CDSData/copernicus_sla_daily.nc;kindname="C3S";climfield="sea level anomalies";NPERYEAR=366;;
 copernicus_adt_daily) file=CDSData/copernicus_adt_daily.nc;kindname="C3S";climfield="dynamic topography";NPERYEAR=366;;
