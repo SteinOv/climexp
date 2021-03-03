@@ -106,10 +106,10 @@ gpd)    FORM_plot=log;;
 esac
 
 case $FORM_timeseries in
-nino12)    covstation="NINO12";sfile="NCDCData/ersst_nino12a.dat";;
-nino3)     covstation="NINO3";sfile="NCDCData/ersst_nino3a.dat";;
-nino34)    covstation="NINO3.4";sfile="NCDCData/ersst_nino3.4a.dat";;
-nino4)     covstation="NINO4";sfile="NCDCData/ersst_nino4a.dat";;
+nino12)    covstation="rel NINO12";sfile="NCDCData/ersst_nino12a_rel.dat";;
+nino3)     covstation="rel NINO3";sfile="NCDCData/ersst_nino3a_rel.dat";;
+nino34)    covstation="rel NINO3.4";sfile="NCDCData/ersst_nino3.4a_rel.dat";;
+nino4)     covstation="rel NINO4";sfile="NCDCData/ersst_nino4a_rel.dat";;
 soi)       covstation="SOI";sfile="CRUData/soi.dat";;
 nao)       covstation="NAO-Gibraltar";sfile="CRUData/nao.dat";;
 sunspots)  covstation="sunspots";sfile="SIDCData/sunspots.dat";;

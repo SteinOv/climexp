@@ -13,17 +13,21 @@ echo
 cat <<EOF
 <table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
 <tr><th colspan="3">Select a time series by clicking on the name
-<tr><td>ENSO<td><div class="kalelink">absolute <a href="getindices.cgi?WMO=NCDCData/ersst_nino12a&STATION=NINO12&TYPE=i&id=$EMAIL">NINO12</a>,
-<a href="getindices.cgi?WMO=NCDCData/ersst_nino3a&STATION=NINO3&TYPE=i&id=$EMAIL">NINO3</a>,
-<a href="getindices.cgi?WMO=NCDCData/ersst_nino3.4a&STATION=NINO3.4&TYPE=i&id=$EMAIL">NINO3.4</a>,  
-<a href="getindices.cgi?WMO=NCDCData/ersst_nino4a&STATION=NINO4&TYPE=i&id=$EMAIL">NINO4</a>, relative 
+<tr><td>ENSO<td><div class="kalelink">Relative 
 <a href="getindices.cgi?WMO=NCDCData/ersst_nino12a_rel&STATION=NINO12_rel&TYPE=i&id=$EMAIL">NINO12</a>,
 <a href="getindices.cgi?WMO=NCDCData/ersst_nino3a_rel&STATION=NINO3_rel&TYPE=i&id=$EMAIL">NINO3</a>,
 <a href="getindices.cgi?WMO=NCDCData/ersst_nino3.4a_rel&STATION=NINO3.4_rel&TYPE=i&id=$EMAIL">NINO3.4</a>,
 <a href="getindices.cgi?WMO=NCDCData/ersst_nino4a_rel&STATION=NINO4_rel&TYPE=i&id=$EMAIL">NINO4</a>
-(1880-now, ERSST v5, relative is relative to 20S-20N, i.e., without global warming, recommended)</div>
+(1880-now, ERSST v5, relative to 20S-20N, i.e., without global warming trend)</div>
 <td><a
-href="https://www.ncdc.noaa.gov/data-access/marineocean-data/extended-reconstructed-sea-surface-temperature-ersst-v4" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+href="https://doi.org/10.1088/1748-9326/abe9ed" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+<tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=NCDCData/ersst_nino12a&STATION=NINO12&TYPE=i&id=$EMAIL">NINO12</a>,
+<a href="getindices.cgi?WMO=NCDCData/ersst_nino3a&STATION=NINO3&TYPE=i&id=$EMAIL">NINO3</a>,
+<a href="getindices.cgi?WMO=NCDCData/ersst_nino3.4a&STATION=NINO3.4&TYPE=i&id=$EMAIL">NINO3.4</a>,  
+<a href="getindices.cgi?WMO=NCDCData/ersst_nino4a&STATION=NINO4&TYPE=i&id=$EMAIL">NINO4</a> 
+(1880-now, ERSST v5)</div>
+<td><a
+href="https://www.ncdc.noaa.gov/data-access/marineocean-data/extended-reconstructed-sea-surface-temperature-ersst-v5" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=UKMOData/hadisst1_nino12a&STATION=NINO12&TYPE=i&id=$EMAIL">NINO12</a>,
 <a href="getindices.cgi?WMO=UKMOData/hadisst1_nino3a&STATION=NINO3&TYPE=i&id=$EMAIL">NINO3</a>,

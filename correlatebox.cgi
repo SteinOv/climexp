@@ -58,10 +58,10 @@ if [ -n "$FORM_timeseries" ]; then
   case "$FORM_timeseries" in
   "")        index="station $FORM_climate";;
   #echo "<html><head><title>error</title><body bgcolor=\"#ffffff\">Please select a predictor (index)</body></html>";exit;;
-  nino12)    index="NINO12";sfile="$DIR/NCDCData/ersst_nino12a.dat";;
-  nino3)     index="NINO3";sfile="$DIR/NCDCData/ersst_nino3a.dat";;
-  nino34)    index="NINO3.4";sfile="$DIR/NCDCData/ersst_nino3.4a.dat";;
-  nino4)     index="NINO4";sfile="$DIR/NCDCData/ersst_nino4a.dat";;
+  nino12)    index="rel NINO12";sfile="$DIR/NCDCData/ersst_nino12a_rel.dat";;
+  nino3)     index="rel NINO3";sfile="$DIR/NCDCData/ersst_nino3a_rel.dat";;
+  nino34)    index="rel NINO3.4";sfile="$DIR/NCDCData/ersst_nino3.4a_rel.dat";;
+  nino4)     index="rel NINO4";sfile="$DIR/NCDCData/ersst_nino4a_rel.dat";;
   soi)       index="SOI";sfile="$DIR/CRUData/soi.dat";;
   nao)       index="NAO-Gibraltar";sfile="$DIR/CRUData/nao.dat";;
   sunspots)  index="sunspots";sfile="$DIR/SIDCData/sunspots.dat";;

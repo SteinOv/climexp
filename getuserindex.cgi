@@ -1,10 +1,10 @@
 #!/bin/bash
 n=0
 [ -n "$FORM_soi" ] && corrargs="$corrargs soi"        && let n=n+1 && index="$index SOI"
-[ -n "$FORM_nino12" ] && corrargs="$corrargs nino12"  && let n=n+1 && index="$index NINO12"
-[ -n "$FORM_nino3" ] && corrargs="$corrargs nino3"    && let n=n+1 && index="$index NINO3"
-[ -n "$FORM_nino34" ] && corrargs="$corrargs nino3.4" && let n=n+1 && index="$index NINO3.4"
-[ -n "$FORM_nino4" ] && corrargs="$corrargs nino4"    && let n=n+1 && index="$index NINO4"
+[ -n "$FORM_nino12" ] && corrargs="$corrargs nino12"  && let n=n+1 && index="$index NINO12 rel"
+[ -n "$FORM_nino3" ] && corrargs="$corrargs nino3"    && let n=n+1 && index="$index NINO3 rel"
+[ -n "$FORM_nino34" ] && corrargs="$corrargs nino3.4" && let n=n+1 && index="$index NINO3.4 rel"
+[ -n "$FORM_nino4" ] && corrargs="$corrargs nino4"    && let n=n+1 && index="$index NINO4 rel"
 [ -n "$FORM_nao" ] && corrargs="$corrargs nao"        && let n=n+1 && index="$index NAO"
 if [ ${NPERYEAR:-12} = 12 ]; then
 [ -n "$FORM_co2" ] && corrargs="$corrargs file CDIACData/co2_monthly.dat" \
