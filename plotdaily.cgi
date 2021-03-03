@@ -160,7 +160,7 @@ else
     fi
     if [ \( \( "$NEWUNITS" = "mm/day" -o "$NEWUNITS" = "mm/dy" \) \
             -a "${VAR#ev}" = "$VAR" -a "${VAR#nt}" = "$VAR" -a "${VAR#precipitation_def}" = "$VAR" \) \
-            -o "$VAR" = "soilw" ]; then
+            -o "$VAR" = "soilw" -o "$VAR" = "dis24" ]; then
         above=3
         below=1
     else
