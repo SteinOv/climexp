@@ -43,7 +43,7 @@ href="http://hadobs.metoffice.gov.uk/hadisst/" target="_new"><img src="images/in
 
 <tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=NCEPData/cpc_soi&STATION=SOI&TYPE=i&id=$EMAIL">SOI</a>
 (1882-now, NCEP)</div>
-<td><a href="http://www.cpc.noaa.gov/data/indices/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+<td><a href="http://www.cpc.ncep.noaa.gov/data/indices/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>&nbsp;<td><div class="kalelink">Precipitation Ni&ntilde;o indices:  <a href="getindices.cgi?WMO=GPCCData/telecon_nino34_gpcc&STATION=Nino34_prcp_land&TYPE=i&id=$EMAIL">GPCC</a>, <a href="getindices.cgi?WMO=CRUData/telecon_nino34_cruts&STATION=Nino34_prcp_cruts&TYPE=i&id=$EMAIL">CRU TS land </a>, <a href="getindices.cgi?WMO=NCEPData/telecon_nino34_cmorph&STATION=Nino34_prcp_sat&TYPE=i&id=$EMAIL">CMORPH satellite</a></div>
 <td><a href="help/prcp_nino_indices.shtml" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
@@ -104,20 +104,20 @@ and
 <a href="getindices.cgi?WMO=NCEPData/cpc_pol&STATION=CPC_POL&TYPE=i&id=$EMAIL">Polar/Eurasia</a>
 patterns (1950-now, CPC)</div>
 <td> <a
-href="http://www.cpc.noaa.gov/data/teledoc/telecontents.shtml"
+href="http://www.cpc.ncep.noaa.gov/data/teledoc/telecontents.shtml"
 target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=NCEPData/cpc_wp&STATION=CPC_WP&TYPE=i&id=$EMAIL">West
 Pacific</a>,
 <a href="getindices.cgi?WMO=NCEPData/cpc_epnp&STATION=CPC_EP/NP&TYPE=i&id=$EMAIL">East Pacific/North Pacific</a> patterns (1950-now, CPC)</div>
-<td> <a href="http://www.cpc.noaa.gov/data/teledoc/telecontents.shtml" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+<td> <a href="http://www.cpc.ncep.noaa.gov/data/teledoc/telecontents.shtml" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=NCEPData/cpc_pna&STATION=CPC_PNA&TYPE=i&id=$EMAIL">Pacific
 North American index</a> and <a
 href="getindices.cgi?WMO=NCEPData/cpc_tnh&STATION=CPC_TNH&TYPE=i&id=$EMAIL">Tropical/Northern
 Hemisphere index</a>, (1950-now, CPC)</div>
 <td><a
-href="http://www.cpc.noaa.gov/data/teledoc/telecontents.shtml"
+href="http://www.cpc.ncep.noaa.gov/data/teledoc/telecontents.shtml"
 target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>IPO<td><div class="kalelink">4-yr time scale, based on <a href="getindices.cgi?WMO=UKMOData/eof_pac_hadsst3_4_01&STATION=IPO_HadSST3_4&TYPE=i&id=$EMAIL">HadSST3</a>, <a href="getindices.cgi?WMO=UKMOData/eof_pac_hadisst1_4_01&STATION=IPO_HadISST1_4&TYPE=i&id=$EMAIL">HadISST1</a>, <a href="getindices.cgi?WMO=NCDCData/eof_pac_ersstv5_4_01&STATION=IPO_HadERSSTv5_4&TYPE=i&id=$EMAIL">ERSSTv5</a></div>

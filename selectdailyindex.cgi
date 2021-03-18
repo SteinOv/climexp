@@ -15,13 +15,13 @@ cat <<EOF
 <table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
 <tr><th colspan="3">Select a time series by clicking on the name
 <tr><td>ENSO<td><div class="kalelink"><a href="getindices.cgi?WMO=NCEPData/nino12_daily&STATION=NINO12&TYPE=i&id=$EMAIL&NPERYEAR=366">NINO12</a>, <a href="getindices.cgi?WMO=NCEPData/nino3_daily&STATION=NINO3&TYPE=i&id=$EMAIL&NPERYEAR=366">NINO3</a>, <a href="getindices.cgi?WMO=NCEPData/nino34_daily&STATION=NINO3.4&TYPE=i&id=$EMAIL&NPERYEAR=366">NINO3.4</a>, <a href="getindices.cgi?WMO=NCEPData/nino4_daily&STATION=NINO4&TYPE=i&id=$EMAIL&NPERYEAR=366">NINO4</a> (1981-now, from daily SST OI v2)</div>
-<td><a href="http://www.cpc.noaa.gov/data/indices/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+<td><a href="http://www.cpc.ncep.noaa.gov/data/indices/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>&nbsp;<td><div class="kalelink"><a href="getindices.cgi?WMO=NCEPData/nino12_weekly&STATION=NINO12&TYPE=i&id=$EMAIL&NPERYEAR=366">NINO12</a>, <a href="getindices.cgi?WMO=NCEPData/nino3_weekly&STATION=NINO3&TYPE=i&id=$EMAIL&NPERYEAR=366">NINO3</a>, <a href="getindices.cgi?WMO=NCEPData/nino34_weekly&STATION=NINO3.4&TYPE=i&id=$EMAIL&NPERYEAR=366">NINO3.4</a>, <a href="getindices.cgi?WMO=NCEPData/nino4_weekly&STATION=NINO4&TYPE=i&id=$EMAIL&NPERYEAR=366">NINO4</a> (1990-now, from weekly SST OI v2)</div>
-<td><a href="http://www.cpc.noaa.gov/data/indices/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+<td><a href="http://www.cpc.ncep.noaa.gov/data/indices/" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>Circulation<td><div class="kalelink"><a href="getindices.cgi?WMO=NCEPData/cpc_nao_daily&STATION=NAO&TYPE=i&id=$EMAIL&NPERYEAR=366">NAO</a>, <a href="getindices.cgi?WMO=NCEPData/cpc_ao_daily&STATION=AO&TYPE=i&id=$EMAIL&NPERYEAR=366">AO</a>, <a href="getindices.cgi?WMO=NCEPData/cpc_pna_daily&STATION=PNA&TYPE=i&id=$EMAIL&NPERYEAR=366">PNA</a>, <a href="getindices.cgi?WMO=NCEPData/cpc_aao_daily&STATION=AAO&TYPE=i&id=$EMAIL&NPERYEAR=366">AAO</a> (1950-now, CPC)</div>
-<td><a href="http://www.cpc.noaa.gov/products/precip/CWlink/daily_ao_index/teleconnections.shtml" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
+<td><a href="http://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/teleconnections.shtml" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 <tr><td>MJO indices<td><div class="kalelink"><a href="getindices.cgi?WMO=BMRCData/rmm1&STATION=RMM1&TYPE=i&id=$EMAIL&NPERYEAR=366">RMM1</a> and <a href="getindices.cgi?WMO=BMRCData/rmm2&STATION=RMM2&TYPE=i&id=$EMAIL&NPERYEAR=366">RMM2</a> (1974-now, BMRC)</div>
 <td><a href="http://www.bom.gov.au/bmrc/clfor/cfstaff/matw/maproom/RMM/index.htm" target="_new"><img src="images/info-i.gif" alt="more information" border="0"></a>
