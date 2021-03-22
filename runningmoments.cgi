@@ -54,6 +54,7 @@ fi
 
 corrargs="./data/$TYPE$WMO.dat $FORM_moment"
 . ./getopts.cgi
+[ -n "$FORM_minnum" ] && corrargs="$corrargs minnum $FORM_minnum" # not in getopts anymore
 echo `date` "$FORM_EMAIL ($REMOTE_ADDR) runningmoments $corrargs" | sed -e "s@$DIR/@@g" >> log/log
 if [ -z "$FORM_separate" ]; then
   root=`echo data/running${FORM_moment}_$TYPE${WMO}_$$ | sed -e 's/++/__/'`

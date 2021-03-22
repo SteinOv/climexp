@@ -140,6 +140,7 @@ fi
 if [ "$FORM_type" != attribute ]; then # for attribute this has been done in attribute.cgi
     . ./getopts.cgi
     [ -n "$FORM_year" ] && corrargs="$corrargs end2 $FORM_year"
+    [ -n "$FORM_minnum" ] && corrargs="$corrargs minnum $FORM_minnum"
 fi
 FORM_threshold=$FORM_dgt
 FORM_dgt=""
