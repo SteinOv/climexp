@@ -724,6 +724,7 @@ hadsst4unc) file=UKMOData/HadSST.4.0.0.0_total_uncertainty.nc;kindname="HadSST40
 hadsst4nobs) file=UKMOData/HadSST.4.0.0.0_number_of_observations.nc;kindname="HadSST4000";climfield="nobs";;
 hadisst1) file=UKMOData/HadISST_sst.nc;kindname="HadISST1";climfield="SST";;
 hadisst1_ice) file=UKMOData/HadISST_ice.nc;kindname="HadISST1";climfield="ice";;
+hadisst2_ice) file=UKMOData/HadISST2_ice.nc;kindname="HadISST2";climfield="ice";;
 gisst22) file=UKMOData/gisst22_sst.ctl;kindname="GISST2.2";climfield="SST";;
 gisst22_ice) file=UKMOData/gisst22_ice.ctl;kindname="GISST2.2";climfield="ice";;
 mslpnh) file=CRUData/mslpnh.ctl;kindname="Jones";climfield="SLP";map='set mproj nps';;
