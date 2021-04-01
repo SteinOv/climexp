@@ -62,6 +62,28 @@ Primavera GCMs:
 <a href="getindices.cgi?WMO=Vietnam/Rx7day/Rx7day_EAS-22_NCC-NorESM1-M_r1i1p1_GERICS-REMO2015_1970-2099_ANN_nscen_timeseries&STATION=max_Rx7day_NCC-NorESM1-M_REMO2015&TYPE=i&id=$EMAIL&NPERYEAR=1">NCC-NorESM1-M_GERICS-REMO2015</a>,
 <a href="getindices.cgi?WMO=Vietnam/Rx7day/Rx7day_EAS-22_NCC-NorESM1-M_r1i1p1_ICTP-RegCM4-4_1970-2099_ANN_nscen_timeseries&STATION=max_Rx7day_NCC-NorESM1-M__RegCM4-4&TYPE=i&id=$EMAIL&NPERYEAR=1">NCC-NorESM1-M_ICTP-RegCM4-4</a>.
 
+<p><b>Rx3day</b>
+
+<p><a href="notyetready">observations</a>
+
+<p>Primavera GCMs: 
+<a href="getindices.cgi?WMO=Vietnam/Rx3day/Rx3day_PRIMAVERA_all_1950-2014_%%&STATION=max_Rx3day_PRIMAVERA&TYPE=i&id=$EMAIL&NPERYEAR=1">all</a>,
+<a href="getindices.cgi?WMO=Vietnam/Rx3day/Rx3day_PRIMAVERA_CMCC-CM2-VHR4_1950-2014_%%&STATION=max_Rx3day_CMCC-CM2-VHR4&TYPE=i&id=$EMAIL&NPERYEAR=1">CMCC-CM2-VHR4</a>,
+<a href="getindices.cgi?WMO=Vietnam/Rx3day/Rx3day_PRIMAVERA_CNRM-CM6-1-HR_1950-2014_%%&STATION=max_Rx3day_CNRM-CM6-1-HR&TYPE=i&id=$EMAIL&NPERYEAR=1">CNRM-CM6-1-HR</a>,
+<a href="getindices.cgi?WMO=Vietnam/Rx3day/Rx3day_PRIMAVERA_EC-Earth3P-HR_1950-2014_%%&STATION=max_Rx3day_EC-Earth3P-HR&TYPE=i&id=$EMAIL&NPERYEAR=1">EC-Earth3P-HR</a>,
+<a href="getindices.cgi?WMO=Vietnam/Rx3day/Rx3day_PRIMAVERA_ECMWF-IFS-HR_1950-2014_%%&STATION=max_Rx3day_ECMWF-IFS-HR&TYPE=i&id=$EMAIL&NPERYEAR=1">ECMWF-IFS-HR</a>,
+<a href="getindices.cgi?WMO=Vietnam/Rx3day/Rx3day_PRIMAVERA_HadGEM3-GC31-HM_1950-2014_%%&STATION=max_Rx3day_HadGEM3-GC31-HM&TYPE=i&id=$EMAIL&NPERYEAR=1">HadGEM3-GC31-HM</a>,
+<a href="getindices.cgi?WMO=Vietnam/Rx3day/Rx3day_PRIMAVERA_MPI-ESM1-2-XR_1950-2014_%%&STATION=max_Rx3day_MPI-ESM1-2-XR&TYPE=i&id=$EMAIL&NPERYEAR=1">MPI-ESM1-2-XR</a>.
+
+<p>CORDEX East Asia:
+<a href="getindices.cgi?WMO=Vietnam/Rx3day/Rx3day_EAS-22_all_%%&STATION=max_Rx3day_EAS-22&TYPE=i&id=$EMAIL&NPERYEAR=1">all</a>,
+<a href="getindices.cgi?WMO=Vietnam/Rx3day/Rx3day_EAS-22_MOHC-HadGEM2-ES_r1i1p1_GERICS-REMO2015_1970-2099_ANN_nscen_timeseries&STATION=max_Rx3day_HadGEM2_REMO2015&TYPE=i&id=$EMAIL&NPERYEAR=1">MOHC-HadGEM2-ES_GERICS-REMO2015</a>,
+<a href="getindices.cgi?WMO=Vietnam/Rx3day/Rx3day_EAS-22_MOHC-HadGEM2-ES_r1i1p1_ICTP-RegCM4-4_1970-2099_ANN_nscen_timeseries&STATION=max_Rx3day_HadGEM2_RegCM4-4&TYPE=i&id=$EMAIL&NPERYEAR=1">MOHC-HadGEM2-ES_ICTP-RegCM4-4</a>,
+<a href="getindices.cgi?WMO=Vietnam/Rx3day/Rx3day_EAS-22_MPI-M-MPI-ESM-LR_r1i1p1_GERICS-REMO2015_1970-2099_ANN_nscen_timeseries&STATION=max_Rx3day_MPI-ESM-LR_REMO2015&TYPE=i&id=$EMAIL&NPERYEAR=1">MPI-M-MPI-ESM-LR_GERICS-REMO2015</a>,
+<a href="getindices.cgi?WMO=Vietnam/Rx3day/Rx3day_EAS-22_MPI-M-MPI-ESM-MR_r1i1p1_ICTP-RegCM4-4_1980-2099_ANN_nscen_timeseries&STATION=max_Rx3day_MPI-ESM-MR_RegCM4-4&TYPE=i&id=$EMAIL&NPERYEAR=1">MPI-M-MPI-ESM-MR_ICTP-RegCM4-4</a>,
+<a href="getindices.cgi?WMO=Vietnam/Rx3day/Rx3day_EAS-22_NCC-NorESM1-M_r1i1p1_GERICS-REMO2015_1970-2099_ANN_nscen_timeseries&STATION=max_Rx3day_NCC-NorESM1-M_REMO2015&TYPE=i&id=$EMAIL&NPERYEAR=1">NCC-NorESM1-M_GERICS-REMO2015</a>,
+<a href="getindices.cgi?WMO=Vietnam/Rx3day/Rx3day_EAS-22_NCC-NorESM1-M_r1i1p1_ICTP-RegCM4-4_1970-2099_ANN_nscen_timeseries&STATION=max_Rx3day_NCC-NorESM1-M__RegCM4-4&TYPE=i&id=$EMAIL&NPERYEAR=1">NCC-NorESM1-M_ICTP-RegCM4-4</a>.
+
 EOF
 
 . ./myvinkfoot.cgi
