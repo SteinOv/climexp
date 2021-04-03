@@ -318,8 +318,13 @@ if [ -n "$FORM_cov3" ]; then
     [ "${FORM_cov3#+}" = "$FORM_cov3" -a "${FORM_cov3#-}" = "$FORM_cov3" ] && FORM_cov3="+$FORM_cov3"
     FORM_end3="$FORM_cov3" # for plots
 fi
-[ "FORM_fit" = gumbel -o "$FORM_fit" = gev ] && CLIM="max of $CLIM"
-
+if [ "FORM_fit" = gumbel -o "$FORM_fit" = gev -a \( $NPERYEAR -gt 12 -o ${FORM_lsel:-1} -gt 1 \) ]; then
+    if [ -n "$FORM_changesign" ]; then
+        CLIM="min of $CLIM"
+    else
+        CLIM="max of $CLIM"
+    fi
+fi
 if [ "$FORM_plot" = "hist" ]; then
 	title="$seriesmonth $CLIM $station"
 	if [ -n "$yrstart" ]; then
