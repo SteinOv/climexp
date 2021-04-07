@@ -256,6 +256,7 @@ else
 fi
 . ./month2string.cgi
 . ./setyaxis.cgi
+ylabel="$VAR $ylabel" # not in setyaxis
 
 echo "<tr><th colspan="4">$seriesmonth $station $VAR [$UNITS] dependent on $covstation</th></tr>"
 tail -n +2 "$root.txt" | grep '<tr>' | sed -e 's/# //'
