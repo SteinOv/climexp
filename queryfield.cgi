@@ -543,6 +543,8 @@ cru4_tmp_stn_old) file=CRUData/cru_ts4.03.1901.2018.tmp.stn.nc;kindname="CRU TS4
 cru4_tmp_10_old) file=CRUData/cru_ts4.03.1901.2018.tmp.dat_1.nc;kindname="CRU TS4.03";climfield="temperature";LSMASK=CRUData/lsmask_10.nc;;
 cru4_tmp_25_old) file=CRUData/cru_ts4.03.1901.2018.tmp.dat_25.nc;kindname="CRU TS4.03";climfield="temperature";LSMASK=CRUData/lsmask_25.nc;;
 cru4_tmx_old) file=CRUData/cru_ts4.03.1901.2018.tmx.dat.nc;kindname="CRU TS4.03";climfield="Tmax";LSMASK=CRUData/lsmask_05.nc;;
+cru4_tmx_older) file=CRUData/cru_ts4.01.1901.2016.tmx.dat.nc;kindname="CRU TS4.01";climfield="Tmax";LSMASK=CRUData/lsmask_05.nc;;
+cru4_tmx_stn_older) file=CRUData/cru_ts4.01.1901.2016.tmx.stn.nc;kindname="CRU TS4.01 stn";climfield="#Tmax";LSMASK=CRUData/lsmask_05.nc;;
 cru4_tmx_stn_old) file=CRUData/cru_ts4.03.1901.2018.tmx.stn.nc;kindname="CRU TS4.03 stn";climfield="#Tmax";LSMASK=CRUData/lsmask_05.nc;;
 cru4_tmx_10_old) file=CRUData/cru_ts4.03.1901.2018.tmx.dat_1.nc;kindname="CRU TS4.03";climfield="Tmax";LSMASK=CRUData/lsmask_10.nc;;
 cru4_tmx_25_old) file=CRUData/cru_ts4.03.1901.2018.tmx.dat_25.nc;kindname="CRU TS4.03";climfield="Tmax";LSMASK=CRUData/lsmask_25.nc;;
