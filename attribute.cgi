@@ -414,13 +414,21 @@ if [ $FORM_plot = "gumbel" -o $FORM_plot = "log" -o $FORM_plot = "sqrtlog" ]; th
 			sqrtlog) xhi=`echo " sqrt(l($FORM_xhi))" | bc -q -l`;;
 		esac
 	fi
-	if [ -n "$FORM_changesign" ]; then
-		bottomtop=top
-		plus="-"
+	if [ "$FORM_key" = "left" ]; then
+	    leftright=left
+        if [ -n "$FORM_changesign" ]; then
+            bottomtop=bottom
+        else
+            bottomtop=top
+        fi
 	else
-		bottomtop=bottom
-		plus="+"
-	fi
+	    leftright=right
+        if [ -n "$FORM_changesign" ]; then
+            bottomtop=top
+        else
+            bottomtop=bottom
+        fi
+    fi
 	case $FORM_fit in
 	    gev) fittext=GEV;;
 	    gpd) fittext=GPD;;
@@ -519,7 +527,7 @@ set xlabel "return period [yr]"
 set ylabel "$ylabel"
 $sety2label
 set datafile missing '-999.900'
-set key $bottomtop
+set key $bottomtop $leftright
 $xtics
 set xrange [${xlo}:${xhi}]
 set yrange [${FORM_ylo}:${FORM_yhi}]

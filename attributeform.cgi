@@ -100,6 +100,12 @@ if [ -n "$FORM_includepossibility" ]; then
   includelast_possibility="checked"
 fi
 
+if [ "$FORM_key" == "left" ]; then
+  key_left="checked"
+else
+  key_right="checked"
+fi
+
 if [ -n "$FORM_amoeba" ]; then
   amoeba_checked="checked"
 fi
@@ -299,7 +305,7 @@ if [ "$TYPE" != setmap -a "$TYPE" != field ]; then
     cat <<EOF
 <tr><td>Plot range:<td>X <input type="$number" step=any class="forminput" name="xlo" $textsize4 value="$FORM_xlo">:<input type="$number" step=any class="forminput" name="xhi" $textsize4 value="$FORM_xhi">,
 Y <input type="$number" step=any class="forminput" name="ylo" $textsize4 value="$FORM_ylo">:<input type="$number" step=any class="forminput" name="yhi" $textsize4 value="$FORM_yhi">
-<input type="hidden" name="var" value="$FORM_var">
+<input type="hidden" name="var" value="$FORM_var">, key <input type="radio" class="formradio" name="key" value="right" $key_right>right, <input type="radio" class="formradio" name="key" value="left" $key_left>left. 
 EOF
 elif [ "$TYPE" = setmap ]; then
     cat <<EOF
