@@ -457,9 +457,9 @@ dataset_values = [['CMIP5one', 'GCM: CMIP5 (IPCC AR5 Atlas subset)'],
                   ['CMIP3', 'GCM: CMIP3'],
 #                 ['RT2b', 'RCM: ENSEMBLES (Europe) GCM-driven'],
 #                 ['RT3', 'RCM: ENSEMBLES (Europe) ERA40-driven'],
-                 ['ERAi', 'ERA-interim reanalysis'],
+                 ['ERA5', 'ERA5 reanalysis'],
                  ['ERA20C', 'ERA-20C reanalysis'],
-                 ['20CR', '20C reanalysis'],
+                 ['20CR', '20CRv3 reanalysis'],
                  ['obs', 'Observations']]
 
 cmip5_var_values = [['tas', 'near-surface temperature'],
@@ -509,7 +509,7 @@ cmip3_var_values = [['tas', 'near-surface temperature'],
               ['pr', 'precipitation'],
               ['psl', 'air pressure at sea-level']]
 
-erai_var_values =[['t2m', 'near-surface temperature'],
+era5_var_values =[['t2m', 'near-surface temperature'],
               ['tmin', 'minimum near-surface temperature'],
               ['tmax', 'maximum near-surface temperature'],
               ['tp', 'precipitation'],
@@ -573,7 +573,7 @@ scenario_cordex_values = [['rcp26', 'Historical + RCP2.6'],
 
 obs_tas_values = [['giss_temp_1200', 'GISTEMP 1200'],
                   ['noaa_temp', 'NOAAGlobalTemp'],
-                  ['hadcrut4', 'HadCRUT4'],
+                  ['hadcrut5', 'HadCRUT5'],
                   ['cru4_tmp', 'CRU TS 4']]
 
 obs_tasmin_values = [['cru4_tmn', 'CRU TS 4']]
@@ -856,13 +856,13 @@ class FormParameters:
         elif self.FORM_dataset == 'RT3':
             self.yr1, self.yr2 = 1960, 2000
         elif self.FORM_dataset == '20CR':
-            self.yr1, self.yr2 = 1878, 2010
+            self.yr1, self.yr2 = 1836, 2015
         elif self.FORM_dataset == 'ERA20C':
             self.yr1, self.yr2 = 1900, 2010
-        elif self.FORM_dataset in ['ERAi']:
+        elif self.FORM_dataset in ['ERA5']:
             self.yr1 = 1979
             self.yr2 = thisYear
-            self.log.debug('FORM_dataset == ERAi, yr1=%i, yr2=%i', self.yr1, self.yr2)
+            self.log.debug('FORM_dataset == ERA5, yr1=%i, yr2=%i', self.yr1, self.yr2)
         elif self.FORM_dataset == 'obs':
             self.dataset_ok = True
             self.var_ok = False

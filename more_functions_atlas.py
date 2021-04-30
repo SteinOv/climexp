@@ -311,9 +311,9 @@ def get_file_list(exp, params):
 #            files='ENSEMBLES_RCM/rt3/rt3_*_25km_%(FORM_var)s_MM.nc' % paramsDict
 #        fi
 #
-    elif params.FORM_dataset == 'ERAi':
+    elif params.FORM_dataset == 'ERA5':
         dirName = '{FORM_dataset}'.format(**paramsDict)
-        FORM_field = 'erai_%(FORM_var)s' % paramsDict
+        FORM_field = 'era5_%(FORM_var)s' % paramsDict
         os.environ['FORM_field'] = FORM_field
         output = subprocess.check_output("./call_queryfield.cgi", shell = True)
         file = re.search(r"file=(.*)\s", output)
@@ -337,7 +337,7 @@ def get_file_list(exp, params):
 
     elif params.FORM_dataset == '20CR':
         dirName = '{FORM_dataset}'.format(**paramsDict)
-        FORM_field = 'c%(FORM_var)s' % paramsDict
+        FORM_field = 'c3%(FORM_var)s' % paramsDict
         os.environ['FORM_field'] = FORM_field
         output = subprocess.check_output("./call_queryfield.cgi", shell = True)
         file = re.search(r"file=(.*)\s", output)
@@ -459,7 +459,7 @@ def get_model(params, filename, typeVar):
             idx1 = mask.find('p1_')
             LSMASK = mask[:idx0] + '_r0i0p0_' + mask[idx1+3:]
 
-    elif params.FORM_dataset in ['CMIP3', 'ERAi', 'ERA20C', '20CR', 'obs']:
+    elif params.FORM_dataset in ['CMIP3', 'ERA5', 'ERA20C', '20CR', 'obs']:
 
         ensfile = re.sub(r'_0[0-9]_', '_%%_', os.path.basename(filename))
         ensfile = ensfile.replace("_144.nc","")
@@ -483,8 +483,8 @@ def get_model(params, filename, typeVar):
                     model = FORM_field[i+1:]
                     i = model.rfind("_")
                     model = model[:i]
-                elif params.FORM_dataset == 'ERAi':
-                    model = 'erai'
+                elif params.FORM_dataset == 'ERA5':
+                    model = 'era5'
                 elif params.FORM_dataset == 'ERA20C':
                     model = 'era20c'
                 elif params.FORM_dataset == '20CR':
@@ -612,12 +612,12 @@ def define_dataset(dataset,field):
         datasetname = 'CMIP5 one member'
     elif dataset == 'CMIP3':
         datasetname = 'CMIP3'
-    elif dataset == 'ERAi':
-        datasetname = 'ERA-interim'
+    elif dataset == 'ERA5':
+        datasetname = 'ERA5'
     elif dataset == 'ERA20C':
         datasetname = 'ERA-20C'
     elif dataset == '20CR':
-        datasetname = '20CR'
+        datasetname = '20CRv3'
     elif dataset == 'obs':
         names = [ el[1] for el in obs_tas_values + obs_tasmin_values + obs_tasmax_values + obs_pr_values + obs_psl_values if el[0] == field ]
         datasetname = names[0]

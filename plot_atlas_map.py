@@ -935,7 +935,7 @@ class PlotAtlasMap:
             title = "%(FORM_scenario_cmip3)s {titlebegin} {datasetname}".format(titlebegin=titlebegin, datasetname=datasetname) % paramsDict
         elif self.params.FORM_dataset == 'RT2b':
             title = "%(FORM_scenario_rt2b)s {titlebegin} {datasetname}".format(titlebegin=titlebegin, datasetname=datasetname) % paramsDict
-        elif self.params.FORM_dataset in ('RT3', 'ERAi', 'ERA20C', '20CR', 'obs'):
+        elif self.params.FORM_dataset in ('RT3', 'ERA5', 'ERA20C', '20CR', 'obs'):
             title = "{titlebegin} {datasetname}".format(titlebegin=titlebegin, datasetname=datasetname)
         else:
             raise PlotMapError("make_plot: unknown dataset %(FORM_dataset)s" % paramsDict)

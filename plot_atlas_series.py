@@ -144,7 +144,7 @@ class PlotAtlasSeries:
             exps = [el[1] for el in lstExps if el[0]]
         elif self.params.FORM_dataset == 'CMIP3':
             exps = ['sresa1b']
-        elif self.params.FORM_dataset in ['ERAi', 'ERA20C', '20CR']:
+        elif self.params.FORM_dataset in ['ERA5', 'ERA20C', '20CR']:
             exps = ['reanalysis']
         elif self.params.FORM_dataset == 'obs':
             exps = ['observations']
@@ -461,7 +461,7 @@ class PlotAtlasSeries:
                    (self.params.FORM_rcp85, 'rcp85')]
         elif self.params.FORM_dataset == 'CMIP3':
             lstExps = [('on', 'sresa1b')]
-        elif self.params.FORM_dataset in ['ERAi', 'ERA20C', '20CR']:
+        elif self.params.FORM_dataset in ['ERA5', 'ERA20C', '20CR']:
             lstExps = [('on', 'reanalysis')]
         elif self.params.FORM_dataset == 'obs':
             lstExps = [('on', 'observations')]
@@ -552,7 +552,7 @@ s/5.000 UL/5.000 UL 1 .setopacityalpha/"""
             os.makedirs(plotfolder)
         if self.params.FORM_dataset.split('-')[0] in ['CMIP5','CMIP5one','CMIP5ext','CMIP5extone','CMIP3', 'CORDEX']:
             lastbit = self.params.FORM_dataset + '_' + scenarios
-        elif self.params.FORM_dataset in ['ERAi','ERA20C','20CR']:
+        elif self.params.FORM_dataset in ['ERA5','ERA20C','20CR']:
             lastbit = self.params.FORM_dataset
         elif self.params.FORM_dataset == 'obs':
             if var in [el[0] for el in obs_var_values]: # make sure it is trusted input
@@ -677,7 +677,7 @@ plot \\\n""".format(range=rangeVal, region_extension=self.region_extension, var=
             # all model means
             for idxExp, exp in enumerate(exps):
                 expname, iexp, lt, lw = define_exp(exp)
-                if self.params.FORM_dataset in ['ERAi', 'ERA20C', '20CR', 'obs']:
+                if self.params.FORM_dataset in ['ERA5', 'ERA20C', '20CR', 'obs']:
                     dir = '{FORM_dataset}'.format(**paramsDict)
                 else:
                     dir = '{FORM_dataset}/{exp}'.format(exp=exp, **paramsDict)
@@ -694,8 +694,8 @@ plot \\\n""".format(range=rangeVal, region_extension=self.region_extension, var=
                     series = '{monthlydir}/time_{var}_{domain}_cordex_{exp}_mon_ave_{region_extension}.dat'.format(monthlydir=monthlydir, var=var, domain=domain, exp=exp, region_extension=self.region_extension)
                 elif self.params.FORM_dataset == 'CMIP3':
                     series = '{monthlydir}/time_{var}_cmip3_ave_mean_144_{region_extension}.dat'.format(monthlydir=monthlydir, var=var, region_extension=self.region_extension)
-                elif self.params.FORM_dataset == 'ERAi':
-                    series = '{monthlydir}/time_erai_{var}_{region_extension}.dat'.format(monthlydir=monthlydir, var=var, region_extension=self.region_extension)
+                elif self.params.FORM_dataset == 'ERA5':
+                    series = '{monthlydir}/time_era5_{var}_{region_extension}.dat'.format(monthlydir=monthlydir, var=var, region_extension=self.region_extension)
                 elif self.params.FORM_dataset == 'ERA20C':
                     series = '{monthlydir}/time_era20c_{var}_{region_extension}.dat'.format(monthlydir=monthlydir, var=var, region_extension=self.region_extension)
                 elif self.params.FORM_dataset == '20CR':
