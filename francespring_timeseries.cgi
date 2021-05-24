@@ -15,13 +15,23 @@ for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350
     else
         echo "<p>GDD &gt; ${variable#gdd} K dy:"
     fi
-    cat <<EOF
-<a href="getindices.cgi?WMO=SpringData/ytmin${variable}_BEAUCOUZE&STATION=Tmin_BEAUCOUZE_${variable}&TYPE=i&id=$EMAIL&NPERYEAR=1">Beaucouze</a>,
-<a href="getindices.cgi?WMO=SpringData/ytmin${variable}_CHARMEIL&STATION=Tmin_CHARMEIL_${variable}&TYPE=i&id=$EMAIL&NPERYEAR=1">Charmeil</a>,
-<a href="getindices.cgi?WMO=SpringData/ytmin${variable}_CHARNEY-LES-MACON&STATION=Tmin_CHARNEY-LES-MACON_${variable}&TYPE=i&id=$EMAIL&NPERYEAR=1">CHarney-Les-Macon</a>,
-<a href="getindices.cgi?WMO=SpringData/ytmin${variable}_EOBS&STATION=Tmin_EOBS_${variable}&TYPE=i&id=$EMAIL&NPERYEAR=1">E-OBS</a>,
-<a href="getindices.cgi?WMO=SpringData/ytmin${variable}_EURO-CORDEX_%%%&STATION=Tmin_EURO-CORDEX_${variable}&TYPE=i&id=$EMAIL&NPERYEAR=1">EUROCORDEX RCMs</a>.
+    for dataset in BEAUCOUZE CHARMEIL CHARNEY-LES-MACON EOBS EURO-CORDEX_%%%
+    do
+        name=$dataset
+        case $dataset in
+            BEAUCOUZE) name=Beaucouze;;
+            CHARMEIL) name=Charmeil;;
+            CHARNEY-LES-MACON) name=Charney-les-Macon;;
+            EOBS) name="E-OBS";;
+            EURO-CORDEX_%%%) name=EURO-CORDEX;;
+        esac
+        firstfile=`echo SpringData/ytmin${variable}_$dataset.dat | sed -e 's/%%%/001/'`
+        if [ -s $firstfile ]; then
+            cat <<EOF
+<a href="getindices.cgi?WMO=SpringData/ytmin${variable}_$dataset&STATION=Tmin_${name}_${variable}&TYPE=i&id=$EMAIL&NPERYEAR=1">$name</a>,
 EOF
+        fi
+    done
 done
 
 . ./myvinkfoot.cgi
