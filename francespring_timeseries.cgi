@@ -15,17 +15,24 @@ for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350
     else
         echo "<p>GDD &gt; ${variable#gdd} K dy:"
     fi
-    for dataset in BEAUCOUZE CHARMEIL CHARNEY-LES-MACON EOBS EURO-CORDEX_%%%
+    for dataset in BEAUCOUZE CHARMEIL CHARNAY-LES-MACON CHARNEY-LES-MACON EOBS \
+        EURO-CORDEX_%%% EURO-CORDEX_BEAUCOUZE_%%% EURO-CORDEX_CHARMEIL_%%% EURO-CORDEX_CHARNAY-LES-MACON_%%% EURO-CORDEX_CHARNEY-LES-MACON_%%%
     do
         name=$dataset
         case $dataset in
             BEAUCOUZE) name=Beaucouze;;
             CHARMEIL) name=Charmeil;;
+            CHARNAY-LES-MACON) name=Charnay-les-Macon;;
             CHARNEY-LES-MACON) name=Charney-les-Macon;;
+            EURO-CORDEX_BEAUCOUZE_%%%) name="EURO-CORDEX at Beaucouze";;
+            EURO-CORDEX_CHARMEIL_%%%) name="EURO-CORDEX at Charmeil";;
+            EURO-CORDEX_CHARNAY-LES-MACON_%%%) name="EURO-CORDEX at Charnay-les-Macon";;
+            EURO-CORDEX_CHARNEY-LES-MACON_%%%) name="EURO-CORDEX at Charney-les-Macon";;
             EOBS) name="E-OBS";;
             EURO-CORDEX_%%%) name=EURO-CORDEX;;
         esac
         firstfile=`echo SpringData/ytmin${variable}_$dataset.dat | sed -e 's/%%%/001/'`
+        ###echo "firstfile=$firstfile<br>"
         if [ -s $firstfile ]; then
             cat <<EOF
 <a href="getindices.cgi?WMO=SpringData/ytmin${variable}_$dataset&STATION=Tmin_${name}_${variable}&TYPE=i&id=$EMAIL&NPERYEAR=1">$name</a>,
