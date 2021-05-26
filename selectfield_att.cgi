@@ -425,8 +425,8 @@ cat <<EOF
 <tr><td>16 daily
 <td>RCP8.5
 <td><input type=radio class=formradio name=field value=knmi14_t2m_day_RACMO22E_rcp85>
-<td>&nbsp;
-<td>&nbsp;
+<td><input type=radio class=formradio name=field value=knmi14_tasmin_day_RACMO22E_rcp85>
+<td><input type=radio class=formradio name=field value=knmi14_tasmax_day_RACMO22E_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_pr_day_RACMO22E_rcp85>
 <td>&nbsp;
 <td>&nbsp;
@@ -437,8 +437,8 @@ cat <<EOF
 <tr><td>16 monthly
 <td>RCP8.5
 <td><input type=radio class=formradio name=field value=knmi14_t2m_mon_RACMO22E_rcp85>
-<td>&nbsp;
-<td>&nbsp;
+<td><input type=radio class=formradio name=field value=knmi14_tasmin_mon_RACMO22E_rcp85>
+<td><input type=radio class=formradio name=field value=knmi14_tasmax_mon_RACMO22E_rcp85>
 <td><input type=radio class=formradio name=field value=knmi14_pr_mon_RACMO22E_rcp85>
 <td>&nbsp;
 <td><input type=radio class=formradio name=field value=knmi14_mrso_mon_RACMO22E_rcp85>
