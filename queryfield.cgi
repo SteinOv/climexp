@@ -156,6 +156,9 @@ cmip6*|cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*|primavera*) # expec
                 else
                     period=1950-2100
                 fi
+                if [ $var = t2m -o $var = tasmin -o $var = tasmax ]; then
+                    splitfield=false
+                fi
                 file=${var}_WEU-11i_KNMI-EC-EARTH_historical-${exp}_KNMI-${model}_v1_${alttype#A}_${period}_%%.nc
                 file=KNMI14Data/CMIP5/output/KNMI/$model/$exp/$dir/$var/$file
                 LSMASK=KNMI14Data/CMIP5/output/KNMI/RACMO22E/rcp85/fixed/sftlf_WEU-11_KNMI-EC-EARTH_historical_r0i0p0_KNMI-RACMO22E_v1_fx_latlon.nc
