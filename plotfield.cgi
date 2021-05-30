@@ -162,6 +162,7 @@ else
     date=${FORM_hour}Z$FORM_day$m$FORM_year
 fi
 date2=$m2$FORM_year2
+plotyear=$FORM_year
 if [ "$NPERYEAR" = 12 ]; then
     endmonth=$(($FORM_month + $FORM_plotsum - 1))
     if [ -z "$FORM_year2" ]; then
@@ -178,7 +179,6 @@ fi
 echo "date = $date $date2<br>"
 station=$kindname
 CLIM=$climfield
-plotyear=$FORM_year
 
 . ./grads.cgi
 
