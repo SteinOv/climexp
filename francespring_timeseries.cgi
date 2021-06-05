@@ -21,7 +21,7 @@ for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350
     fi
     for dataset in BEAUCOUZE CHARMEIL CHARNAY-LES-MACON EOBS \
         EURO-CORDEX_%%% EURO-CORDEX_BEAUCOUZE_%%% EURO-CORDEX_CHARMEIL_%%% EURO-CORDEX_CHARNAY-LES-MACON_%%% EURO-CORDEX_CHARNAY-LES-MACON_%%% \
-        CMIP6SEL1_%%% CMIP6SEL1_anom_%%% IPSLCM6_%%% IPSLCM6BC_%%%
+        CMIP6SEL1_%%% CMIP6SEL1_anom_%%% IPSLCM6_%%% IPSLCM6BC_%%% highresSST_%%% HighresMIP_%%% HighresMIP_anom_%%%
     do
         name=$dataset
         case $dataset in
@@ -37,6 +37,9 @@ for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350
             CMIP6SEL1_anom_%%%) name="CMIP6 low-bias anom";;
             IPSLCM6_%%%) name="IPSL-CM6";;
             IPSLCM6BC_%%%) name="IPSL-CM6 bias corrected";;
+            highresSST_%%%) name="PRIMAVERA SST-forced bias-corrected";;
+            HighresMIP_%%%) name="PRIMAVERA coupled bias-corrected";;
+            HighresMIP_anom_%%%) name="PRIMAVERA coupled bias-corrected anom";;
         esac
         if [ $variable = SGSAT -o $variable = GMST ]; then
             firstfile=SpringData/$variable.${dataset%_%%%}.001.dat
