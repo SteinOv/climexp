@@ -7,14 +7,14 @@ echo
 
 echo "<b>Time series, minimum Tmin conditioned on a season or GDD threshold.</b>"
 
-for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350-450" SGSAT GMST; do
+for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350-450" SGSAT GMST gmst; do
     if [ $variable = spring ]; then
         echo "<p>April-July:"
     elif [ ${variable#i} != $variable ]; then
         echo "<p>GDD in ${variable#igdd} K dy:"
     elif [ $variable = SGSAT ]; then
         echo "<p>SGSAT (smoothed global mean near-surface temperature):"        
-    elif [ $variable = GMST ]; then
+    elif [ $variable = GMST -o $variable = gmst ]; then
         echo "GMST:"
     else
         echo "<p>GDD &gt; ${variable#gdd} K dy:"
@@ -41,7 +41,7 @@ for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350
             HighresMIP_%%%) name="PRIMAVERA coupled bias-corrected";;
             HighresMIP_anom_%%%) name="PRIMAVERA coupled bias-corrected anom";;
         esac
-        if [ $variable = SGSAT -o $variable = GMST ]; then
+        if [ $variable = SGSAT -o $variable = GMST -o $variable = gmst ]; then
             firstfile=SpringData/$variable.${dataset%_%%%}.001.dat
             if [ -s $firstfile ]; then
                 cat <<EOF
