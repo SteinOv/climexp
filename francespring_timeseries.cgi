@@ -3,11 +3,9 @@
 . ./getargs.cgi
 echo "Content-Type: text/html"
 echo
-. ./myvinkhead.cgi "France spring frost study" "time series" nofollow
+. ./myvinkhead.cgi "France spring frost study" "Time series, minimum Tmin conditioned on a season or GDD threshold" nofollow
 
-echo "<b>Time series, minimum Tmin conditioned on a season or GDD threshold.</b>"
-
-for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350-450" SGSAT GMST gmst; do
+for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350-450" SGSAT GSAT GMST gmst; do
     if [ $variable = spring ]; then
         echo "<p>April-July:"
     elif [ ${variable#i} != $variable ]; then
@@ -16,12 +14,14 @@ for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350
         echo "<p>SGSAT (smoothed global mean near-surface temperature):"        
     elif [ $variable = GMST -o $variable = gmst ]; then
         echo "GMST:"
+    elif [ $variable = GSAT ]; then
+        echo "GSAT:"
     else
         echo "<p>GDD &gt; ${variable#gdd} K dy:"
     fi
     for dataset in BEAUCOUZE CHARMEIL CHARNAY-LES-MACON EOBS \
         EURO-CORDEX_%%% EURO-CORDEX_BEAUCOUZE_%%% EURO-CORDEX_CHARMEIL_%%% EURO-CORDEX_CHARNAY-LES-MACON_%%% EURO-CORDEX_CHARNAY-LES-MACON_%%% \
-        CMIP6SEL1_%%% CMIP6SEL1_anom_%%% IPSLCM6_%%% IPSLCM6BC_%%% highresSST_%%% HighresMIP_%%% HighresMIP_anom_%%%
+        CMIP6SEL1_%%% CMIP6SEL1_anom_%%% IPSLCM6_%%% IPSLCM6BC_%%% IPSLCM6.%%% highresSST_%%% HighresMIP_%%% HighresMIP_anom_%%%
     do
         name=$dataset
         case $dataset in
@@ -35,15 +35,19 @@ for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350
             EURO-CORDEX_%%%) name=EURO-CORDEX;;
             CMIP6SEL1_%%%) name="CMIP6 low-bias";;
             CMIP6SEL1_anom_%%%) name="CMIP6 low-bias anom";;
-            IPSLCM6_%%%) name="IPSL-CM6";;
+            IPSLCM6?%%%) name="IPSL-CM6";;
             IPSLCM6BC_%%%) name="IPSL-CM6 bias corrected";;
             highresSST_%%%) name="PRIMAVERA SST-forced bias-corrected";;
             HighresMIP_%%%) name="PRIMAVERA coupled bias-corrected";;
             HighresMIP_anom_%%%) name="PRIMAVERA coupled bias-corrected anom";;
         esac
-        if [ $variable = SGSAT -o $variable = GMST -o $variable = gmst ]; then
-            firstfile=SpringData/$variable.${dataset%_%%%}.001.dat
-            if [ -s $firstfile ]; then
+        if [ $variable = SGSAT -o $variable = GMST -o $variable = gmst -o $variable = GSAT ]; then
+            firstfile=SpringData/$variable.${dataset%.%%%}.001.dat
+            if [ ! -s $firstfile ]; then
+                firstfile=SpringData/$variable.${dataset%_%%%}.001.dat
+            fi
+            part=${dataset%_%%%}
+            if [ -s $firstfile -a ${part%.%%%} = $part ]; then
                 cat <<EOF
 <a href="getindices.cgi?WMO=SpringData/$variable.${dataset%_%%%}.%%%&STATION=${variable}_${dataset}&TYPE=i&id=$EMAIL&NPERYEAR=1">$name</a>,
 EOF
