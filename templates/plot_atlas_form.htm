@@ -164,8 +164,8 @@ Variable:
     {% for var_val in cmip3_var_values %}
         <option value="{{var_val[0]}}" {{ 'selected' if FORM_var == var_val[0] }}>{{var_val[1]}}</option>
     {% endfor %}
-{% elif FORM_dataset == 'ERAi' %}
-    {% for var_val in erai_var_values %}
+{% elif FORM_dataset == 'ERA5' %}
+    {% for var_val in era5_var_values %}
         <option value="{{var_val[0]}}" {{ 'selected' if FORM_var == var_val[0] }}>{{var_val[1]}}</option>
     {% endfor %}
 {% elif FORM_dataset == 'ERA20C' %}
@@ -211,7 +211,7 @@ Output:
 
     {% if FORM_dataset in ['CMIP5', 'CMIP5one', 'CMIP5ext', 'CMIP5extone', 'CORDEX-EUR44', 'CMIP3', 'RT2b'] %}
         Scenario:
-    {% elif FORM_dataset in ['ERAi', 'ERA20C', '20CR'] %}
+    {% elif FORM_dataset in ['ERA5', 'ERA20C', '20CR'] %}
         (Re)analysis:
     {% elif FORM_dataset == 'obs' %}
         Observations:
@@ -259,8 +259,8 @@ Output:
         </td><td>ERA-40 boundary conditions
     {% endif %}
 
-    {% if FORM_dataset == 'ERAi' %}
-        </td><td>ERA-interim reanalysis
+    {% if FORM_dataset == 'ERA5' %}
+        </td><td>ERA5 reanalysis
     {% endif %}
 
     {% if FORM_dataset == 'ERA20C' %}
@@ -484,8 +484,8 @@ Output:
         ERA-40 boundary conditions
     {% endif %}
 
-    {% if FORM_dataset == 'ERAi' %}
-        ERA-interim reanalysis
+    {% if FORM_dataset == 'ERA5' %}
+        ERA5 reanalysis
     {% endif %}
 
     {% if FORM_dataset == 'ERA20C' %}
