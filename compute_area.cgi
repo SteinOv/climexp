@@ -40,7 +40,7 @@ if [ ! -s $yrfile -o $yrfile -ot $file ]; then
     if [ -z "$ave" ]; then
         echo "..."
     else
-        echo "averaging over $ave days ..."
+        echo " averaging over $ave days ..."
     fi
     if [ -n "$ave" ]; then
         (daily2longerfield $file $npernew $FORM_minmax ave $ave $yrfile) 2>&1
