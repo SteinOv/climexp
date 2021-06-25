@@ -1,14 +1,18 @@
 #!/bin/bash
 # constructs automatically but off-line the HTML file for the CMIP6 ensemble field selection.
 timescale="$1"
+lwrite=false # true
 if [ -z "$timescale" ]; then
     echo "usage: $0 monthly|annual"
     exit -1
 fi
 # get the list of vars and models from concatenate_years.sh
-server=/data/climexp_cmip6/CE
+server=/data/climexp_cmip6_new/CEeth
+nvarmax=6
+exps="ssp126 ssp245 ssp370 ssp585"
+
 if [ $timescale = "monthly" ]; then
-    vars1="tas tasmin tasmax pr  psl" # prw clwvi # evspsbl pme hurs taz
+    vars1="tas tasmin tasmax pr rsds psl" # prw clwvi # evspsbl pme hurs taz
     namevars1="<tr><th colspan=$((2+nvarmax))><a name=surface></a>Surface variables"
     if [ 0 = 1 ]; then
         vars2="rlds rlus rlut rsds rsus rsdt rsut hfss hfls"
@@ -16,7 +20,7 @@ if [ $timescale = "monthly" ]; then
         vars3="mrso mrro mrros snc snd sic tos z200 z500"
         namevars3="<tr><th colspan=$((2+nvarmax))><a name=ocean></a>Land, Ocean, Sea Ice variables"
     fi
-    models="one ens `ls $server/`"
+    models=`cd $server/tas; ls`
 elif [ $timescale = 'annual' ]; then
     echo "annual not yet ready."; exit -1
     vars1="altcdd csdi altcwd dtr fd gsl id tr prcptot"
@@ -30,9 +34,6 @@ else
     exit -1
 fi
 
-nvarmax=5
-exps="ssp126 ssp245 ssp370 ssp585"
-
 for table in 1 # 2 3
 do
     case $table in
@@ -41,29 +42,33 @@ do
         3) vars=$vars3;echo $namevars3;;
     esac
 
-    nmodel=-3
-    for model in one ens $models
+    nmodel=-6
+    nmodelold=999
+    for model in onemean modmean ensmean one mod ens $models
     do
     	pmax_prescribed=1
     	fmax_prescribed=1
         case $model in
             onemean) modelname="CMIP6 mean (one member per model)";;
             modmean) modelname="CMIP6 mean";;
+            ensmean) modelname="CMIP6 mean over all members";;
             modmedian) modelname="CMIP6 median";;
-            mod)     modelname="all models";;
             one)     modelname="one member per model";;
+            mod)     modelname="all models";;
             ens)     modelname="all members";;
             *)       modelname=$model
-                if [ -d $server/$model/r1i1p3f1 ]; then
+                if [ -d $server/pr/$model/r1i1p3f1 ]; then
                     pmax_prescribed=3
-                elif [ -d $server/$model/r1i1p2f1 ]; then
+                elif [ -d $server/pr/$model/r1i1p2f1 ]; then
                     pmax_prescribed=2
                 fi
-                if [ -d $server/$model/r1i1p1f3 ]; then
+                if [ -d $server/pr/$model/r1i1p1f3 ]; then
                     fmax_prescribed=3
-                elif [ -d $server/$model/r1i1p1f2 ]; then
+                elif [ -d $server/pr/$model/r1i1p1f2 ]; then
                     fmax_prescribed=2
                 fi
+                [ "$lwrite" = true ] && echo "@@@ pmax_prescribed=$pmax_prescribed"
+                [ "$lwrite" = true ] && echo "@@@ fmax_prescribed=$fmax_prescribed"
                 ;;
         esac
         p=0
@@ -72,7 +77,7 @@ do
         	((p++))
 			if [ $pmax_prescribed != 1 ]; then
 				modelname="${model} p$p"
-				modelp=${model}_p${p}
+				modelp=${model}-p${p}
 			else
 				modelp=$model
 			fi
@@ -82,12 +87,16 @@ do
                 ((f++))
 			    if [ $fmax_prescribed != 1 ]; then
                     modelname="${model} f$f"
-                    modelp=${model}_f${f}
+                    modelp=${model}-f${f}
                 fi
                 nmodel=$((nmodel+1))
                 nthree=$(( (nmodel-1)/3 ))
-                n=$(( nmodel - 3*nthree ))
-                if [ $nmodel = -4 -o $n = 1 ]; then
+                n=0
+                if [ $nmodel -gt 0 ]; then
+                    n=$(( nmodel - 3*nthree ))
+                fi
+                [ "$lwrite" = true ] && echo "@@@ nmodel model = $nmodel $modelp p$p f$f"
+                if [ $nmodel = -5 -o $nmodel = -2 -o \( $n = 1 -a $nmodel != $nmodelold \) ]; then
                     echo "<tr><th>model<th>exp"
                     for var in $vars
                     do
@@ -102,9 +111,16 @@ do
                         echo "<th>$varname"
                     done
                 fi
+                nmodelold=$nmodel
                 nexp=0
+                hasdatas[1]=true
+                hasdatas[2]=true
+                hasdatas[3]=true
+                hasdatas[4]=true
+                expfirst=0
                 for exp in $exps
                 do
+                    ((nexp++))
                     hasdata=false
                     for var in $vars; do
                         case $var in
@@ -114,23 +130,30 @@ do
                             sn?) type=LImon;;
                              cdd|altcdd|csdi|cwd|altcwd|dtr|fd|gsl|id|prcptot|r1mm|r10mm|r20mm|r95p|r99p|rx1day|rx5day|sdii|su|tn10p|tn90p|tnn|tnx|tx10p|tx90p|txn|txx|wsdi) type=yr;;
                              tr) type=yr;;
-                            *) type=Amon;;
+                            *) type=mon;;
                         esac
-                        if [ $nmodel -lt 0 ]; then
-                            oldfile="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_gn_185001-210012_00.nc"
+                        [ "$lwrite" = true ] && echo "@@@ nmodel model = $nmodel $model"
+                        if [ $nmodel -le -3 ]; then
+                            file="CMIP6/$timescale/$var/${var}_${type}_${model%mean}_${exp}_192_ave.nc"
+                        elif [ $nmodel -le 0 ]; then
+                            file="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_192_000.nc"
                         else
-                            oldfile="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_i1p${p}f${f}_gn_??????-??????+??????-??????_CEmerged_00.nc"
+                            file="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_000.nc"
                         fi
-                        file=${oldfile%.nc}0.nc
-                        ###echo "looking for $file"
-                        if [ -e $file -o -L $file -o -s $oldfile -o -L $oldfile ]; then
+                        [ "$lwrite" = true ] && echo "@@@ looking for $file"
+                        if [ -e $file -o -L $file ]; then
                             hasdata=true
                         fi
                     done
+                    hasdatas[$nexp]=$hasdata
                     if [ $hasdata = true ]; then
-                        nexp=$((nexp+1))
-                        if [ $nexp = 1 ]; then
-                            echo "<tr><td>$modelname"
+                        if [ $expfirst = 0 ]; then
+                            expfirst=1
+                            if [ $nmodel -gt 0 ]; then
+                                echo "<tr><td>$nmodel $modelname"
+                            else
+                                echo "<tr><td>$modelname"                            
+                            fi
                         else
                             echo "<tr><td>&nbsp;"
                         fi
@@ -143,34 +166,32 @@ do
                                 sic) type=OImon;;
                                 sn?) type=LImon;;
                                 cdd|altcdd|csdi|cwd|altcwd|dtr|fd|gsl|id|prcptot|r1mm|r10mm|r20mm|r95p|r99p|rx1day|rx5day|sdii|su|tn10p|tn90p|tnn|tnx|tx10p|tx90p|txn|txx|wsdi|tr) type=yr;;
-                                *) type=Amon;;
+                                *) type=mon;;
                             esac
-                            if [ $nmodel -lt 0 ]; then
-                                oldfile="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_gn_185001-210012_00.nc"
+                            [ "$lwrite" = true ] && echo "@@@ nmodel model = $nmodel $model"
+                            if [ $nmodel -le -3 ]; then
+                                file="CMIP6/$timescale/$var/${var}_${type}_${model%mean}_${exp}_192_ave.nc"
+                            elif [ $nmodel -le 0 ]; then
+                                file="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_192_000.nc"
                             else
-                                oldfile="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_i1p${p}f${f}_gn_??????-??????+??????-??????_CEmerged_00.nc"
+                                file="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_000.nc"
                             fi
-                            file=${oldfile%.nc}0.nc
-                            if [ -e $file -o -L $file -o -e $oldfile -o -L $oldfile ]; then
-                                if [ -e $file -o -L $file ]; then
-                                    thefile=$file
-                                else
-                                    thefile=$oldfile
-                                fi
-                                files=`echo $thefile | sed -e 's/_000/_???/' -e 's/_00/_??/'`
+                            [ "$lwrite" = true ] && echo "@@@ looking for $file"
+                            if [ -e $file -o -L $file ]; then
+                                files=`echo $file | sed -e 's/_000/_[0-9][0-9][0-9]/'`
                                 n=`echo $files | wc -w`
-                                if [ $nmodel -lt 0 ]; then
-                                    ipf=""
-                                else
-                                    ipf=_i1p${p}f${f}
-                                fi
-                                echo "<td><input type=radio class=formradio name=field value=cmip6_${var}_${type}_${model}_${exp}${ipf}><small>${n}</small>"
+                                echo "<td><input type=radio class=formradio name=field value=cmip6_${var}_${type}_${modelp}_${exp}><small>${n}</small>"
                             else
-                                echo "<td>&nbsp;<!-- cannot find $thefile -->"
+                                echo "<td>&nbsp;<!-- cannot find $file -->"
                             fi
                         done # vars
                     fi # hasdata
-                done # exp 
+                done # exp
+                [ "$lwrite" = true ] && echo "@@@ hasdatas=${hasdatas[1]}${hasdatas[2]}${hasdatas[3]}${hasdatas[4]}"
+                if [ ${hasdatas[1]} = false -a ${hasdatas[2]} = false -a ${hasdatas[3]} = false -a ${hasdatas[4]} = false ]; then
+                    [ "$lwrite" = true ] && echo "@@@ ((nmodel--))"
+                    ((nmodel--))
+                fi
 			done # f
 		done # p
     done # model

@@ -9,7 +9,7 @@ echo
 
 cat <<EOF
 <div class="kalelink">
-First batch of CMIP6 runs downlaoded November 2019, will be updated shortly.
+25-jun-2021 It seems to work, please report bugs.
 <p>
 Global mean temperatures can be <a href="cmip6_indices.cgi?id=$EMAIL">analysed</a> or <a href="CMIP6/Tglobal/index.cgi?email=$EMAIL">downloaded</a> separately.
 <p>

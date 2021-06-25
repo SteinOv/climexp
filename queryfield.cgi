@@ -214,10 +214,12 @@ cmip6*|cmip5*|thor*|knmi14*|eucleia*|futureweather*|hiwaves*|primavera*) # expec
             file=EUCLEIA/${model}/$dir/$var/$file
             ###echo "file=$file"
         elif [ $dataset = cmip6 ]; then
-            if [ -z "$rip" ]; then
-                file=$datasetname/$dir/$var/${var}_${type}_${model}_${exp}_gn_185001-210012_%%%.nc
+            if [ ${model%mean} != $model ]; then
+                file=$datasetname/$dir/$var/${var}_${type}_${model%mean}_${exp}_192_ave.nc
+            elif [ $model = one -o $model = mod -o $model = ens ]; then
+                file=$datasetname/$dir/$var/${var}_${type}_${model}_${exp}_192_%%%.nc
             else
-                file=`echo $datasetname/$dir/$var/${var}_${type}_${model}_${exp}_${rip}_gn_??????-??????+??????-??????_CEmerged_00.nc | sed -e 's/00.nc/%%.nc/'`
+                file=$datasetname/$dir/$var/${var}_${type}_${model}_${exp}_%%%.nc
             fi
             LSMASK=""
         elif [ -z "$rip" ]; then
