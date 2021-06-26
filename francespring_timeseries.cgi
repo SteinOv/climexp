@@ -41,7 +41,7 @@ for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350
             HighresMIP_%%%) name="PRIMAVERA coupled bias-corrected";;
             HighresMIP_anom_%%%) name="PRIMAVERA coupled bias-corrected anom";;
         esac
-        if [ $variable = SGSAT -o $variable = GMST -o $variable = gmst -o $variable = GSAT ]; then
+        if [ $variable = SGSAT -o $variable = sgsat -o $variable = GMST -o $variable = gmst -o $variable = GSAT ]; then
             firstfile=SpringData/$variable.${dataset%.%%%}.001.dat
             if [ ! -s $firstfile ]; then
                 firstfile=SpringData/$variable.${dataset%_%%%}.001.dat
