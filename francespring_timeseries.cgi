@@ -5,15 +5,17 @@ echo "Content-Type: text/html"
 echo
 . ./myvinkhead.cgi "France spring frost study" "Time series, minimum Tmin conditioned on a season or GDD threshold" nofollow
 
-for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350-450" SGSAT GSAT GMST gmst; do
+for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350-450" SGSAT sgsat GSAT GMST gmst; do
     if [ $variable = spring ]; then
         echo "<p>April-July:"
     elif [ ${variable#i} != $variable ]; then
         echo "<p>GDD in ${variable#igdd} K dy:"
-    elif [ $variable = SGSAT -o $variable = sgsat ]; then
+    elif [ $variable = SGSAT ]; then
         echo "<p>SGSAT (smoothed global mean near-surface temperature):"        
     elif [ $variable = GMST -o $variable = gmst ]; then
         echo "GMST:"
+    elif [ $variable = sgsat -o $variable = GSAT ]; then
+        echo "<!-- no new header needed for $variable-->"
     else
         echo "<p>GDD &gt; ${variable#gdd} K dy:"
     fi
