@@ -19,7 +19,7 @@ for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350
     else
         echo "<p>GDD &gt; ${variable#gdd} K dy:"
     fi
-    for dataset in BEAUCOUZE CHARMEIL CHARNAY-LES-MACON EOBS \
+    for dataset in BEAUCOUZE CHARMEIL CHARNAY-LES-MACON eobsee_dom \
         EURO-CORDEX_%%% EURO-CORDEX_BEAUCOUZE_%%% EURO-CORDEX_CHARMEIL_%%% EURO-CORDEX_CHARNAY-LES-MACON_%%% EURO-CORDEX_CHARNAY-LES-MACON_%%% \
         CMIP6SEL1_%%% CMIP6SEL1_anom_%%% IPSLCM6_%%% ipslbc_%%% IPSLCM6.%%% highresSST_%%% HighresMIP_%%% HighresMIP_anom_%%%
     do
@@ -31,7 +31,7 @@ for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350
             EURO-CORDEX_BEAUCOUZE_%%%) name="EURO-CORDEX at Beaucouze";;
             EURO-CORDEX_CHARMEIL_%%%) name="EURO-CORDEX at Charmeil";;
             EURO-CORDEX_CHARNAY-LES-MACON_%%%) name="EURO-CORDEX at Charnay-les-Macon";;
-            EOBS) name="E-OBS";;
+            EOBS|eobsee_dom) name="E-OBS";;
             EURO-CORDEX_%%%) name=EURO-CORDEX;;
             CMIP6SEL1_%%%) name="CMIP6 low-bias";;
             CMIP6SEL1_anom_%%%) name="CMIP6 low-bias anom";;
