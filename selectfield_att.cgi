@@ -651,7 +651,13 @@ cat <<EOF
 Resources not listed are either easily accessible through  other Climate Explorer pages
 or available from the authors (except for non-public data such as the IMD analyses).
 
-<div class=alineakop>Baltic temperature anomly November 2020</div>
+<div class=alineakop>Heat wave Pacific North America June 2021</div>
+<a href="pacificheat_timeseries.cgi?id=$EMAIL">Separate page</a>
+
+<div class=alineakop>Effect spring night frost on vines 2021</div>
+<a href="francespring_timeseries.cgi?id=$EMAIL">Separate page</a>
+
+<div class=alineakop>Baltic temperature anomoly November 2020</div>
 <a href="baltic_timeseries.cgi?id=$EMAIL">Separate page</a>
 
 <div class=alineakop>Siberian heat 2020</div>
