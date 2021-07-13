@@ -21,7 +21,7 @@ for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350
     fi
     for dataset in BEAUCOUZE CHARMEIL CHARNAY-LES-MACON eobsee_dom \
         EURO-CORDEX_%%% EURO-CORDEX_BEAUCOUZE_%%% EURO-CORDEX_CHARMEIL_%%% EURO-CORDEX_CHARNAY-LES-MACON_%%% EURO-CORDEX_CHARNAY-LES-MACON_%%% \
-        CMIP6SEL1_%%% CMIP6SEL1_anom_%%% IPSLCM6_%%% ipslbc_%%% IPSLCM6.%%% highresSST_%%% HighresMIP_%%% HighresMIP_anom_%%%
+        CMIP6SEL1_%%% CMIP6SEL1_anom_%%% IPSLCM6_%%% ipslbc_%%% IPSLCM6.%%% highresSST_%%% HighresMIP_%%% HighresMIP_anom_%%% HIRESMIP_%%%
     do
         name=$dataset
         case $dataset in
@@ -40,16 +40,27 @@ for variable in spring gdd150 gdd250 gdd350 "igdd150-250" "igdd250-350" "igdd350
             highresSST_%%%) name="PRIMAVERA SST-forced bias-corrected";;
             HighresMIP_%%%) name="PRIMAVERA coupled bias-corrected";;
             HighresMIP_anom_%%%) name="PRIMAVERA coupled bias-corrected anom";;
+            HIRESMIP_%%%) name="PRIMAVERA coupled bias-corrected anom (new)";;
         esac
         if [ $variable = SGSAT -o $variable = sgsat -o $variable = GMST -o $variable = gmst -o $variable = GSAT ]; then
             firstfile=SpringData/$variable.${dataset%.%%%}.001.dat
+            file=$variable.${dataset%_%%%}.%%%
             if [ ! -s $firstfile ]; then
                 firstfile=SpringData/$variable.${dataset%_%%%}.001.dat
+                file=$variable.${dataset%_%%%}.%%%
+            fi
+            if [ ! -s $firstfile ]; then
+                firstfile=SpringData/$variable.${dataset%_%%%}_001.dat
+                file=$variable.${dataset%_%%%}_%%%
             fi
             part=${dataset%_%%%}
+            if [ 0 = 1 -a $dataset = HIRESMIP_%%% ]; then
+                echo "looking for $firstfile<br>"
+                echo "comparing ${part%.%%%} = $part<br>"
+            fi
             if [ -s $firstfile -a ${part%.%%%} = $part ]; then
                 cat <<EOF
-<a href="getindices.cgi?WMO=SpringData/$variable.${dataset%_%%%}.%%%&STATION=${variable}_${dataset}&TYPE=i&id=$EMAIL&NPERYEAR=1">$name</a>,
+<a href="getindices.cgi?WMO=SpringData/$file&STATION=${variable}_${dataset}&TYPE=i&id=$EMAIL&NPERYEAR=1">$name</a>,
 EOF
             fi
         else
