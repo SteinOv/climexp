@@ -30,7 +30,7 @@ elif [ "$FORM_var" = "pot_rt" ]; then
   FORM_year=$FORM_potyear
 elif [ "$FORM_var" = "gev_rt" ]; then
   FORM_year=$FORM_gevyear
-elif [ "$FORM_var" = "rank" ]; then
+elif [ "$FORM_var" = "rank" -o "$FORM_var" = "recp" ]; then
   FORM_year=$FORM_rankyear
 fi
 if [ "$FORM_changesign" = "both" -a -z "FORM_year" ]; then
@@ -82,13 +82,15 @@ gev_return) var="$FORM_gev_return yr return value";;
 gev_rt)     var="GEV return time of $FORM_year";;
 rank)       var="Rank of $FORM_year";;
 timex)      var="Year of extreme";;
+recp)       var="Record exceedance in $FORM_year";;
 *)    var="UNKNOWN";;
 esac
 
 corrargs="$FORM_var"
 if [ "$FORM_var" = "perc" ]; then
   corrargs="$corrargs $FORM_perc"
-elif [  "$FORM_var" = "pot_rt" -o "$FORM_var" = "gev_rt" -o "$FORM_var" = "norm_rt" -o "$FORM_var" = "norm_z" -o "$FORM_var" = "rank" ]; then
+elif [  "$FORM_var" = "pot_rt" -o "$FORM_var" = "gev_rt" -o "$FORM_var" = "norm_rt" \
+    -o "$FORM_var" = "norm_z" -o "$FORM_var" = "rank" -o "$FORM_var" = "recp" ]; then
   corrargs="$corrargs $FORM_year"
 fi
 if [ "${FORM_var#pot}" != "$FORM_var" ]; then
