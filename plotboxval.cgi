@@ -48,6 +48,8 @@ if [ -n "$EMAIL" -a "$EMAIL" != someone@somewhere ]; then
   anom) var_anom=checked;;
   frac) var_frac=checked;;
   zval) var_zval=checked;;
+  recp) var_recp=checked;;
+  recm) var_recm=checked;;
   *)    var_val=checked;;
   esac
 fi
@@ -68,7 +70,9 @@ cat <<EOF
 <input type="radio" class="formradio" name="var" value="val" $var_val>value<br>
 <input type="radio" class="formradio" name="var" value="anom" $var_anom>anomaly = val-clim<br>
 <input type="radio" class="formradio" name="var" value="frac" $var_frac>fraction = val/clim-1 or<br>
-<input type="radio" class="formradio" name="var" value="zval" $var_zval>z-value = (val-clim)/sd
+<input type="radio" class="formradio" name="var" value="zval" $var_zval>z-value = (val-clim)/sd<br>
+<input type="radio" class="formradio" name="var" value="recp" $var_recp>positive
+<input type="radio" class="formradio" name="var" value="recm" $var_recm>negative record broken
 <br>
 year: <input type="$number" class="forminput" name="year" $textsize4 value="$FORM_year"> 
 EOF
