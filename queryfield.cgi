@@ -648,6 +648,9 @@ set lat -45 -10';;
 awap_tmin_mo) file=BOMData/awaptmin_025_mo.nc;kindname="AWAP";LSMASK=BOMData/lsmask_025.nc;climfield="tmin";map='set lon 110 155
 set lat -45 -10';;
 
+regnie) file=DWDData/regnie.nc;kindname="REGNIE";climfield="prcp";NPERYEAR=366;flipcolor=11;map='set lon 5.8 16
+set lat 47 55';;
+
 scpdsi) file=CRUData/scPDSI.cru_ts4.05early1.1901.2020.cal_1901_20.bams.2021.GLOBAL.1901.2020.nc;kindname="CRU";climfield="scPDSI 4.05early";;
 scpdsi_europe) file=CRUData/scpdsi_Europe_IJC.nc;kindname="CRU";climfield="scPDSI";;
 scpdsi_alpine) file=CRUData/scpdsi_alpine.ctl;kindname="CRU";climfield="scPDSI";map='set lon 4 19
