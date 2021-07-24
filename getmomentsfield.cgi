@@ -105,7 +105,7 @@ fi
 
 . ./myvinkhead.cgi "Compute $var" "$kindname $climfield" "noindex,nofollow"
 
-echo `date` "$EMAIL ($REMOTE_ADDR) getfieldmoments $corrargs" | sed -e "s:$DIR/::g" >> log/log
+echo `date` "$EMAIL ($REMOTE_ADDR) getmomentsfield $file $corrargs" | sed -e "s:$DIR/::g" >> log/log
 
 c=`echo $FORM_field | fgrep -c "mean_"`
 if [ $c != 0 -a \( $FORM_var = perc -o $FORM_var = sd \) ]; then
