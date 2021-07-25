@@ -113,6 +113,7 @@ cat <<EOF
 <form action="getmomentsfield.cgi" method="POST">
 <input type="hidden" name="EMAIL" value="$EMAIL">
 <input type="hidden" name="field" value="$FORM_field">
+<input type="hidden" name="NPERYEAR" value="$NPERYEAR">
 <div class="formheader">Make a map of the mean, s.d., percentile or extreme property</div>
 <div class="formbody">
 <table style='width:100%' border='0' cellpadding='0' cellspacing='0'>
