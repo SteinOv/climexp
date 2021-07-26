@@ -3,35 +3,50 @@
 . ./getargs.cgi
 echo "Content-Type: text/html"
 echo
-. ./myvinkhead.cgi "Pacific Northwest heat" "Time series for the 2021 heat wave study" nofollow
+. ./myvinkhead.cgi "Ardennes Eifel Floods" "Time series for the 2021 extreme precipitation and floods study" nofollow
 
-for variable in tmax rx1day rx2day gmst
+for variable in prcp rx1day rx2day gmst discharge
 do
     echo "<h3>$variable</h3>"
     case $variable in
-        tmax|rx1day) regions="ahrerft pool1 pool2";;
-        tmax|rx2day) regions="meuse geul";;
-        gmst|sgsat) regions=index;;
+        prcp|rx1day) regions="ahrerft pool1 pool2";;
+        prcp|rx2day) regions="meuse geul";;
+        gmst|sgsat) regions=gmst;;
+        discharge) regions="meuse ahr erft geul";;
         *) echo "$0: error: cannot handle handle variable $variable yet"; exit -1;;
     esac
         
     for region in $regions
     do
-        echo "<p>$region:"
-        for dataset in eobs era5 regnie
+        regionname=$region
+        case $region in
+            ahrerft) regionname="Ahr and Erft catchments combined";;
+            meuse) if [ $variable = discharge ]; then
+                    regionname="Meuse at Monsin / Eijsden"
+                else
+                    regionname="Belgium part of Meuse catchment upstream of Eijsden"
+                fi;;
+            geul) regionname="Geul catchment upstream of Valkenburg";;
+            ahr) regionname="Ahr";;
+            erft) regionname="Erft";;
+        esac
+        echo "<p>$regionname:"
+        for dataset in eobs era5 regnie rws
         do
             name=$dataset
             NPERYEAR=1
             case $dataset in
-                eobs|era5|regnie) ens=""
+                eobs|era5|regnie|rws) ens=""
                     if [ $dataset = era5 ]; then
                         name=ERA5
                     elif [ $dataset = eobs ]; then
                         name="E-OBS"
                     elif [ $dataset = regnie ]; then
                         name="REGNIE"
+                    elif [ $dataset = rws ]; then
+                        name="Rijkswaterstaat"
                     fi
-                    if [ $variable = tmax ]; then
+                    if [ $variable = prcp -o $variable = discharge ]; then
                         NPERYEAR=366
                     elif [ $variable = gmst -o $variable = sgsat ]; then
                         NPERYEAR=12
