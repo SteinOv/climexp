@@ -9,8 +9,9 @@ for variable in prcp rx1day rx2day gmst discharge
 do
     echo "<h3>$variable</h3>"
     case $variable in
-        prcp|rx1day) regions="ahrerft pool1 pool2";;
-        prcp|rx2day) regions="meuse geul";;
+        prcp) regions="meuse ahrerft pool";;
+        rx1day) regions="ahrerft pool";;
+        rx2day) regions="meuse geul pool";;
         gmst|sgsat) regions=gmst;;
         discharge) regions="meuse ahr erft geul";;
         *) echo "$0: error: cannot handle handle variable $variable yet"; exit -1;;
@@ -29,6 +30,7 @@ do
             geul) regionname="Geul catchment upstream of Valkenburg";;
             ahr) regionname="Ahr";;
             erft) regionname="Erft";;
+            pool) regionname="Alps to Netherlands";;
         esac
         echo "<p>$regionname:"
         for dataset in eobs era5 regnie rws
@@ -58,6 +60,7 @@ do
                 flor) name=FLOR;ens="_%%%";;
                 am2-5c360) name=AM2.5C360P;ens="_%%%";;
             esac
+            [ $region = pool ] && ens="_%%%"
             [ $dataset = none ] && echo "dataset=$dataset, name=$name<br>"
             file=ArdennenEifelData/${variable}_${dataset}_${region}$ens.dat
             firstfile=`echo $file | sed -e 's/%%%/001/'`
