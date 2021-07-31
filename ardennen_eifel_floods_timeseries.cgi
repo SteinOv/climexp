@@ -7,15 +7,16 @@ echo
 
 for variable in prcp rx1day rx2day gmst discharge
 do
-    echo "<h3>$variable</h3>"
+    variablename=$variable
     case $variable in
-        prcp) regions="meuse ahrerft pool";;
-        rx1day) regions="ahrerft pool";;
-        rx2day) regions="meuse geul pool";;
-        gmst|sgsat) regions=gmst;;
+        prcp) regions="meuse ahrerft pool" geul;variablename="Daily precipitation";;
+        rx1day) regions="ahrerft pool";variablename="Apr-Sep Rx1day";;
+        rx2day) regions="meuse geul pool";variablename="Apr-Sep Rx2day";;
+        gmst|sgsat) regions=gmst;variablename="Global Mean Surface Temperature";;
         discharge) regions="meuse ahr erft geul";;
         *) echo "$0: error: cannot handle handle variable $variable yet"; exit -1;;
     esac
+    echo "<h3>$variablename</h3>"
         
     for region in $regions
     do
