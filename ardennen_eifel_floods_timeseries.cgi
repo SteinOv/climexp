@@ -9,7 +9,7 @@ for variable in prcp rx1day rx2day gmst discharge
 do
     variablename=$variable
     case $variable in
-        prcp) regions="meuse ahrerft pool" geul;variablename="Daily precipitation";;
+        prcp) regions="meuse ahrerft pool geul";variablename="Daily precipitation";;
         rx1day) regions="ahrerft pool";variablename="Apr-Sep Rx1day";;
         rx2day) regions="meuse geul pool";variablename="Apr-Sep Rx2day";;
         gmst|sgsat) regions=gmst;variablename="Global Mean Surface Temperature";;
@@ -34,7 +34,7 @@ do
             pool) regionname="Alps to Netherlands";;
         esac
         echo "<p>$regionname:"
-        for dataset in eobs era5 regnie rws
+        for dataset in eobs era5 regnie rws racmo
         do
             name=$dataset
             NPERYEAR=1
@@ -49,18 +49,18 @@ do
                     elif [ $dataset = rws ]; then
                         name="Rijkswaterstaat"
                     fi
-                    if [ $variable = prcp -o $variable = discharge ]; then
-                        NPERYEAR=366
-                    elif [ $variable = gmst -o $variable = sgsat ]; then
-                        NPERYEAR=12
-                    elif [ $variable = rx1day -o $variable = rx2day ]; then
-                        NPERYEAR=1
-                    else
-                        echo "$0: error: cannot handle variable $variable yet 2";exit -1
-                    fi;;
-                flor) name=FLOR;ens="_%%%";;
-                am2-5c360) name=AM2.5C360P;ens="_%%%";;
+                    ;;
+                racmo) name=RACMO;ens="_%%%";;
             esac
+            if [ $variable = prcp -o $variable = discharge ]; then
+                NPERYEAR=366
+            elif [ $variable = gmst -o $variable = sgsat ]; then
+                NPERYEAR=12
+            elif [ $variable = rx1day -o $variable = rx2day ]; then
+                NPERYEAR=1
+            else
+                echo "$0: error: cannot handle variable $variable yet 2";exit -1
+            fi
             [ $region = pool ] && ens="_%%%"
             [ $dataset = none ] && echo "dataset=$dataset, name=$name<br>"
             file=ArdennenEifelData/${variable}_${dataset}_${region}$ens.dat
