@@ -34,7 +34,7 @@ do
             pool) regionname="Alps to Netherlands";;
         esac
         echo "<p>$regionname:"
-        for dataset in eobs era5 regnie rws racmo
+        for dataset in eobs era5 regnie belgiumgridded rws racmo
         do
             name=$dataset
             NPERYEAR=1
