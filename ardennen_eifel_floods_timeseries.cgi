@@ -39,13 +39,15 @@ do
             name=$dataset
             NPERYEAR=1
             case $dataset in
-                eobs|era5|regnie|rws) ens=""
+                eobs|era5|regnie|belgiumgridded|rws) ens=""
                     if [ $dataset = era5 ]; then
                         name=ERA5
                     elif [ $dataset = eobs ]; then
                         name="E-OBS"
                     elif [ $dataset = regnie ]; then
                         name="REGNIE"
+                    elif [ $dataset = belgiumgridded ]; then
+                        name="Belgium gridded"
                     elif [ $dataset = rws ]; then
                         name="Rijkswaterstaat"
                     fi
@@ -65,6 +67,9 @@ do
             [ $dataset = none ] && echo "dataset=$dataset, name=$name<br>"
             file=ArdennenEifelData/${variable}_${dataset}_${region}$ens.dat
             firstfile=`echo $file | sed -e 's/%%%/001/'`
+            if [ ! -s $firstfile ]; then
+                firstfile=${firstfile%dat}nc
+            fi
             [ $dataset = none ] && echo "looking for $firstfile<br>"
             if [ ! -s $firstfile ]; then
                 file=ArdennenEifelData/${variable}_${dataset}_${region}_@@.nc
