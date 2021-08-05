@@ -34,16 +34,18 @@ do
             pool) regionname="Alps to Netherlands";;
         esac
         echo "<p>$regionname:"
-        for dataset in eobs era5 regnie belgiumgridded rws racmo ETH-COSMO-CPM2p2
+        for dataset in eobs eobsprivate era5 regnie belgiumgridded rws racmo ETH-COSMO-CPM2p2
         do
             name=$dataset
             NPERYEAR=1
             case $dataset in
-                eobs|era5|regnie|belgiumgridded|rws) ens=""
+                eobs*|era5|regnie|belgiumgridded|rws) ens=""
                     if [ $dataset = era5 ]; then
                         name=ERA5
                     elif [ $dataset = eobs ]; then
                         name="E-OBS"
+                    elif [ $dataset = eobsprivate ]; then
+                        name="E-OBS (private version)"
                     elif [ $dataset = regnie ]; then
                         name="REGNIE"
                     elif [ $dataset = belgiumgridded ]; then

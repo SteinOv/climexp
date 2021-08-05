@@ -134,7 +134,7 @@ fi # NPERYEAR > 1
 doit=true
 if [ -n "$NT" -a -n "$NPERYEAR" ]; then
     if [ $NT -le $NPERYEAR ]; then
-        echo "Not enogh data to compute anomalies<p>"
+        echo "Not enough data to compute anomalies<p>"
         doit=false
     fi
 fi
