@@ -34,7 +34,7 @@ do
             pool) regionname="Alps to Netherlands";;
         esac
         echo "<p>$regionname:"
-        for dataset in eobs eobsprivate era5 regnie belgiumgridded rws racmo eurocordex ETH-COSMO-CPM2p2
+        for dataset in eobs eobsprivate era5 regnie belgiumgridded rws racmo eurocordex ETH-COSMO-CPM2p2 UKMO-UM-CPM2p2
         do
             name=$dataset
             NPERYEAR=1
@@ -57,6 +57,7 @@ do
                 racmo) name=RACMO;ens="_%%%";;
                 eurocordex) name="EURO-CORDEX (bias-corrected)";ens="_%%%";;
                 ETH-COSMO-CPM2p2) name=ETH-COSMO-CPM2p2;ens="_%%%";;
+		UKMO-UM-CPM2p2) name=UKMO-UM-CPM2p2;ens="_%%%";;
             esac
             if [ $variable = prcp -o $variable = discharge ]; then
                 NPERYEAR=366
