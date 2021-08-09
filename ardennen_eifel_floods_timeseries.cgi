@@ -34,7 +34,7 @@ do
             pool) regionname="Alps to Netherlands";;
         esac
         echo "<p>$regionname:"
-        for dataset in eobs eobsprivate era5 regnie belgiumgridded rws racmo eurocordex ETH-COSMO-CPM2p2 UKMO-UM-CPM2p2 EC-EARTH-KIT HadGEM2-KIT MPI-ESM-KIT WRF-EUR-11-EURO-CORDEX WRF-ME-3km
+        for dataset in eobs eobsprivate era5 regnie belgiumgridded rws racmo eurocordex ETH-COSMO-CPM2p2 UKMO-UM-CPM2p2 EC-EARTH-KIT HadGEM2-KIT MPI-ESM-KIT WRF-EUR-11-EURO-CORDEX WRF-ME-3km DWD-CCLM-MIROC5
         do
             name=$dataset
             NPERYEAR=1
@@ -63,6 +63,7 @@ do
                 MPI-ESM-KIT) name=MPI-ESM-KIT;ens="_%%%";;
                 WRF-EUR-11-EURO-CORDEX) name=WRF-EUR-11-EURO-CORDEX;ens="_%%%";;
                 WRF-ME-3km) name=WRF-ME-3km;ens="_%%%";;
+                DWD-CCLM5-MIROC5) name=DWD-CCLM5-MIROC5;ens="_%%%";;
             esac
             if [ $variable = prcp -o $variable = discharge ]; then
                 NPERYEAR=366
