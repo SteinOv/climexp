@@ -34,12 +34,15 @@ do
             pool) regionname="Alps to Netherlands";;
         esac
         echo "<p>$regionname:"
-        for dataset in eobs eobsprivate era5 regnie belgiumgridded rws racmo eurocordex ETH-COSMO-CPM2p2 UKMO-UM-CPM2p2 EC-EARTH-KIT HadGEM2-KIT MPI-ESM-KIT WRF-EUR-11-EURO-CORDEX WRF-ME-3km DWD-CCLM5-MIROC5 ALARO-0-rcp26 ALARO-0-rcp45 ALARO-0-rcp85 ECE-FFM
+        for dataset in eobs eobsprivate era5 regnie belgiumgridded rws bfg \
+            racmo eurocordex ETH-COSMO-CPM2p2 UKMO-UM-CPM2p2 EC-EARTH-KIT HadGEM2-KIT MPI-ESM-KIT \
+            WRF-EUR-11-EURO-CORDEX WRF-ME-3km DWD-CCLM5-MIROC5 \
+            ALARO-0-rcp26 ALARO-0-rcp45 ALARO-0-rcp85 ECE-FFM HCLIM38
         do
             name=$dataset
             NPERYEAR=1
             case $dataset in
-                eobs*|era5|regnie|belgiumgridded|rws) ens=""
+                eobs*|era5|regnie|belgiumgridded|rws|bfg) ens=""
                     if [ $dataset = era5 ]; then
                         name=ERA5
                     elif [ $dataset = eobs ]; then
@@ -52,6 +55,8 @@ do
                         name="Belgium gridded"
                     elif [ $dataset = rws ]; then
                         name="Rijkswaterstaat"
+                    elif [ $dataset = bfg ]; then
+                        name="Bundesanstalt für Gewässerkunde"
                     fi
                     ;;
                 racmo) name=RACMO;ens="_%%%";;
@@ -68,6 +73,7 @@ do
                 ALARO-0-rcp45) name=ALARO-0-rcp45;ens="_%%%";;
                 ALARO-0-rcp85) name=ALARO-0-rcp85;ens="_%%%";;
                 ECE-FFM) name=ECE-FFM;ens="_%%%";;
+                HCLIM38) name=HCLIM38;ens="_%%%";;
             esac
             if [ $variable = prcp -o $variable = discharge ]; then
                 NPERYEAR=366
