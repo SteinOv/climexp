@@ -3,7 +3,8 @@
 . ./getargs.cgi
 echo "Content-Type: text/html"
 echo
-. ./myvinkhead.cgi "Ardennes Eifel Floods" "Time series for the 2021 extreme precipitation and floods study. In the scientific report the following regions are analysed: Ahr and Erft catchments combined, Belgian part of Meuse catchment upstream of Eijsden, and Pooling Region." nofollow
+. ./myvinkhead.cgi "Ardennes Eifel Floods" "Time series for the July 2021 extreme precipitation and floods study." nofollow
+echo "In the scientific report the following regions are analysed: Ahr and Erft catchments combined, Belgian part of Meuse catchment upstream of Eijsden, and Pooling Region." 
 
 for variable in prcp rx1day rx2day gmst #discharge
 do
