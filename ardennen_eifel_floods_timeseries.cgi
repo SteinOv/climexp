@@ -3,16 +3,16 @@
 . ./getargs.cgi
 echo "Content-Type: text/html"
 echo
-. ./myvinkhead.cgi "Ardennes Eifel Floods" "Time series for the 2021 extreme precipitation and floods study" nofollow
+. ./myvinkhead.cgi "Ardennes Eifel Floods" "Time series for the 2021 extreme precipitation and floods study. In the scientific report the following regions are analysed: Ahr and Erft catchments combined, Belgian part of Meuse catchment upstream of Eijsden, and Pooling Region." nofollow
 
-for variable in prcp rx1day rx2day gmst discharge
+for variable in prcp rx1day rx2day gmst #discharge
 do
     variablename=$variable
     case $variable in
         prcp) regions="meuse ahrerft pool geul";variablename="Daily precipitation";;
-        rx1day) regions="ahrerft pool";variablename="Apr-Sep Rx1day";;
-        rx2day) regions="meuse geul pool";variablename="Apr-Sep Rx2day";;
-        gmst|sgsat) regions=gmst;variablename="Global Mean Surface Temperature";;
+        rx1day) regions="ahrerft pool";variablename="Apr-Sep RX1day";;
+        rx2day) regions="meuse geul pool";variablename="Apr-Sep RX2day";;
+        gmst|sgsat) regions=gmst;variablename="Global Mean Surface Temperature (GMST)";;
         discharge) regions="meuse ahr erft geul";;
         *) echo "$0: error: cannot handle handle variable $variable yet"; exit -1;;
     esac
@@ -26,19 +26,20 @@ do
             meuse) if [ $variable = discharge ]; then
                     regionname="Meuse at Monsin / Eijsden"
                 else
-                    regionname="Belgium part of Meuse catchment upstream of Eijsden"
+                    regionname="Belgian part of Meuse catchment upstream of Eijsden"
                 fi;;
             geul) regionname="Geul catchment upstream of Valkenburg";;
             ahr) regionname="Ahr";;
             erft) regionname="Erft";;
             pool) regionname="Pooling Region";;
+            gmst) regionname="GMST";;
         esac
         echo "<p>$regionname:"
-        for dataset in eobs regnie belgiumgridded rws bfg \
+        for dataset in eobs regnie belgiumgridded \
             racmo eurocordex UKMO-UM-CPM2p2 EC-EARTH-KIT HadGEM2-KIT MPI-ESM-KIT \
             WRF-EUR-11-EURO-CORDEX WRF-ME-3km DWD-CCLM5-MIROC5 \
             ALARO-0-rcp45 ALARO-0-rcp85 HCLIM38
-#ALARO-0-rcp26 ECE-FFM ETH-COSMO-CPM2p2 eobsprivate era5
+#ALARO-0-rcp26 ECE-FFM ETH-COSMO-CPM2p2 eobsprivate era5 rws bfg
          do
             name=$dataset
             NPERYEAR=1
