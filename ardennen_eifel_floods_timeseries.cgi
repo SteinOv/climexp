@@ -13,7 +13,7 @@ do
         rx1day) regions="ahrerft pool";variablename="Apr-Sep Rx1day";;
         rx2day) regions="meuse geul pool";variablename="Apr-Sep Rx2day";;
         gmst|sgsat) regions=gmst;variablename="Global Mean Surface Temperature";;
-        discharge) regions="meuse ahr erft geul";;
+#        discharge) regions="meuse ahr erft geul";;
         *) echo "$0: error: cannot handle handle variable $variable yet"; exit -1;;
     esac
     echo "<h3>$variablename</h3>"
@@ -34,11 +34,12 @@ do
             pool) regionname="Alps to Netherlands";;
         esac
         echo "<p>$regionname:"
-        for dataset in eobs eobsprivate era5 regnie belgiumgridded rws bfg \
-            racmo eurocordex ETH-COSMO-CPM2p2 UKMO-UM-CPM2p2 EC-EARTH-KIT HadGEM2-KIT MPI-ESM-KIT \
+        for dataset in eobs regnie belgiumgridded rws bfg \
+            racmo eurocordex UKMO-UM-CPM2p2 EC-EARTH-KIT HadGEM2-KIT MPI-ESM-KIT \
             WRF-EUR-11-EURO-CORDEX WRF-ME-3km DWD-CCLM5-MIROC5 \
-            ALARO-0-rcp26 ALARO-0-rcp45 ALARO-0-rcp85 ECE-FFM HCLIM38
-        do
+            ALARO-0-rcp45 ALARO-0-rcp85 HCLIM38
+#ALARO-0-rcp26 ECE-FFM ETH-COSMO-CPM2p2 eobsprivate era5
+         do
             name=$dataset
             NPERYEAR=1
             case $dataset in
