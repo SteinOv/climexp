@@ -13,7 +13,7 @@ do
         rx1day) regions="ahrerft pool";variablename="Apr-Sep Rx1day";;
         rx2day) regions="meuse geul pool";variablename="Apr-Sep Rx2day";;
         gmst|sgsat) regions=gmst;variablename="Global Mean Surface Temperature";;
-#        discharge) regions="meuse ahr erft geul";;
+        discharge) regions="meuse ahr erft geul";;
         *) echo "$0: error: cannot handle handle variable $variable yet"; exit -1;;
     esac
     echo "<h3>$variablename</h3>"
@@ -31,7 +31,7 @@ do
             geul) regionname="Geul catchment upstream of Valkenburg";;
             ahr) regionname="Ahr";;
             erft) regionname="Erft";;
-            pool) regionname="Alps to Netherlands";;
+            pool) regionname="Pooling Region";;
         esac
         echo "<p>$regionname:"
         for dataset in eobs regnie belgiumgridded rws bfg \
