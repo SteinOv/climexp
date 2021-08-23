@@ -9,9 +9,9 @@ for variable in prcp rx1day rx2day gmst #discharge
 do
     variablename=$variable
     case $variable in
-        prcp) regions="meuse ahrerft pool geul";variablename="Daily precipitation";;
+        prcp) regions="ahrerft meuse pool geul";variablename="Daily precipitation";;
         rx1day) regions="ahrerft pool";variablename="Apr-Sep RX1day";;
-        rx2day) regions="meuse geul pool";variablename="Apr-Sep RX2day";;
+        rx2day) regions="meuse pool geul";variablename="Apr-Sep RX2day";;
         gmst|sgsat) regions=gmst;variablename="Global Mean Surface Temperature (GMST)";;
         discharge) regions="meuse ahr erft geul";;
         *) echo "$0: error: cannot handle handle variable $variable yet"; exit -1;;
