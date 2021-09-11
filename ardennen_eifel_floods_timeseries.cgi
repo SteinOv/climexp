@@ -3,17 +3,16 @@
 . ./getargs.cgi
 echo "Content-Type: text/html"
 echo
-. ./myvinkhead.cgi "Ardennes Eifel Floods" "Time series for the July 2021 extreme precipitation and floods study." nofollow
-echo "In the scientific report the following regions are analysed: Ahr and Erft catchments combined, Belgian part of Meuse catchment upstream of Eijsden, and Pooling Region." 
+. ./myvinkhead.cgi "Ardennes Eifel Floods" "Time series for the 2021 extreme precipitation and floods study" nofollow
 
-for variable in prcp rx1day rx2day gmst #discharge
+for variable in prcp rx1day rx2day gmst discharge
 do
     variablename=$variable
     case $variable in
-        prcp) regions="ahrerft meuse pool geul";variablename="Daily precipitation";;
-        rx1day) regions="ahrerft pool";variablename="Apr-Sep RX1day";;
-        rx2day) regions="meuse pool geul";variablename="Apr-Sep RX2day";;
-        gmst|sgsat) regions=gmst;variablename="Global Mean Surface Temperature (GMST)";;
+        prcp) regions="meuse ahrerft pool geul";variablename="Daily precipitation";;
+        rx1day) regions="ahrerft pool";variablename="Apr-Sep Rx1day";;
+        rx2day) regions="meuse geul pool";variablename="Apr-Sep Rx2day";;
+        gmst|sgsat) regions=gmst;variablename="Global Mean Surface Temperature";;
         discharge) regions="meuse ahr erft geul";;
         *) echo "$0: error: cannot handle handle variable $variable yet"; exit -1;;
     esac
@@ -27,21 +26,19 @@ do
             meuse) if [ $variable = discharge ]; then
                     regionname="Meuse at Monsin / Eijsden"
                 else
-                    regionname="Belgian part of Meuse catchment upstream of Eijsden"
+                    regionname="Belgium part of Meuse catchment upstream of Eijsden"
                 fi;;
             geul) regionname="Geul catchment upstream of Valkenburg";;
             ahr) regionname="Ahr";;
             erft) regionname="Erft";;
-            pool) regionname="Pooling Region";;
-            gmst) regionname="GMST";;
+            pool) regionname="Alps to Netherlands";;
         esac
         echo "<p>$regionname:"
-        for dataset in eobs regnie belgiumgridded \
-            racmo eurocordex UKMO-UM-CPM2p2 EC-EARTH-KIT HadGEM2-KIT MPI-ESM-KIT \
+        for dataset in eobs eobsprivate era5 regnie belgiumgridded rws bfg \
+            racmo eurocordex ETH-COSMO-CPM2p2 UKMO-UM-CPM2p2 EC-EARTH-KIT HadGEM2-KIT MPI-ESM-KIT \
             WRF-EUR-11-EURO-CORDEX WRF-ME-3km DWD-CCLM5-MIROC5 \
-            ALARO-0-rcp45 ALARO-0-rcp85 HCLIM38
-#ALARO-0-rcp26 ECE-FFM ETH-COSMO-CPM2p2 eobsprivate era5 rws bfg
-         do
+            ALARO-0-rcp26 ALARO-0-rcp45 ALARO-0-rcp85 ECE-FFM
+        do
             name=$dataset
             NPERYEAR=1
             case $dataset in
@@ -76,7 +73,6 @@ do
                 ALARO-0-rcp45) name=ALARO-0-rcp45;ens="_%%%";;
                 ALARO-0-rcp85) name=ALARO-0-rcp85;ens="_%%%";;
                 ECE-FFM) name=ECE-FFM;ens="_%%%";;
-                HCLIM38) name=HCLIM38;ens="_%%%";;
             esac
             if [ $variable = prcp -o $variable = discharge ]; then
                 NPERYEAR=366
