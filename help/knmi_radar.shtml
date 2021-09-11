@@ -1,0 +1,5 @@
+<!--#include virtual="help_header.html"-->
+<div class="alineakop">KNMI daily radar data</div> 
+Unfortunately KNMI made teh radar data effectively unavailable for me by going from simple netcdf files to a complicated API with key and everything.
+As a result I cannot update his dataset anymore.
+<!--#include virtual="help_footer.html"-->
