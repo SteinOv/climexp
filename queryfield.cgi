@@ -701,8 +701,8 @@ cmap) file=NCEPData/cmap.nc;kindname="CMAP";climfield="precipitation";flipcolor=
 cmaperr) file=NCEPData/cmaperr.ctl;kindname="CMAP";climfield="relative error on precipitation";;
 cmapm) file=NCEPData/cmapm.ctl;kindname="CMAP incl model";climfield="precipitation";flipcolor=11;;
 cmapmerr) file=NCEPData/cmapmerr.ctl;kindname="CPMAP (incl model)";climfield="relative error on precipitation";;
-chirps_20_25) file=CHIRPSData/v2p0chirps_25.nc;kindname="CHIRPS";climfield="precipitation";flipcolor=11;NPERYEAR=366;map="set lon -20 55
-set lat -40 40";;
+chirps_20_25) file=CHIRPSData/v2p0chirps_25.nc;kindname="CHIRPS";climfield="precipitation";flipcolor=11;NPERYEAR=366;;
+chirps_20_25_mo) file=CHIRPSData/v2p0chirps_mo_25.nc;kindname="CHIRPS";climfield="precipitation";flipcolor=11;;
 CenTrendsv1) file=UCSBData/CenTrends_v1_monthly_ce.nc;kindname="CenTrends v1";climfield="precipitation";flipcolor=11;map="set lon 28 54
 set lat -15 18";;
 CenTrendsChirps) file=CHIRPSData/centrends_chirps.nc;kindname="CenTrends/CHIRPS";climfield="precipitation";flipcolor=11;map="set lon 28 54
