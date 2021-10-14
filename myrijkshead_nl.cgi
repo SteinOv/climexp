@@ -8,7 +8,7 @@ fi
 cat <<EOF
 <html>
 <head>
-<!-- beheerder: Geert Jan van Oldenborgh -->
+<!-- beheerder: climate-explorer@knmi.nl -->
 <link rel="stylesheet" href="/styles/rijksvinkstyle.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 $extrahead

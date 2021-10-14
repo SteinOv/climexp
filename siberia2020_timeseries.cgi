@@ -13,7 +13,7 @@ There are two "events"/ regions: <br>
 </ul>  
 
 <p><i><b>Observational data</b></i><br> 
-Contact: Geert Jan van Oldenborgh
+Contact: climate-explorer@knmi.nl
 <br><br>
 <i>Station - Verkhoyansk: daily TX (tasmax)</i><br>
 <a href="gdcntmax.cgi?id=$EMAIL&WMO=RSM00024266&STATION=VERHOJANSK">GHCN-D</a>
