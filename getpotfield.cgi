@@ -59,7 +59,7 @@ if [ -n "$FORM_lat1" ]; then
 fi
 eval `./bin/month2string "$FORM_month" "$FORM_sum" ave`
 cat <<EOF
-Extreme property maps are under active development and may still contain bugs.  Please report problems back to <a href="mailto:oldenborgh@knmi.nl">me</a>.<p>
+Extreme property maps are under active development and may still contain bugs.  Please report problems back to <a href="mailto:climate-explorer@knmi.nl">the administrator</a>.<p>
 EOF
 if [ -s $obsfile ]; then
   echo "Using cached data<br>"

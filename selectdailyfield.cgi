@@ -24,6 +24,6 @@ cat <<EOF
 EOF
 cat selectdailyfield_rea.html
 echo "</table>"
-echo "Please contact <a href=\"mailto:oldenborgh@knmi.nl\">me</a> if you would like to have other areas of ERA5 at high resolution."
+echo "Please contact <a href=\"mailto:climate-explorer@knmi.nl\">the administrator</a> if you would like to have other areas of ERA5 at high resolution."
 
 . ./myvinkfoot.cgi
