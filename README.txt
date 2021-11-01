@@ -54,7 +54,7 @@ Frequency convention: the Climate Explorer counts how many intervals there are p
 4: seasonal data: DJF, MAM, JJA, SON
 12: monthly data: Jan, ..., Dec
 36: decadal data (not used)
-360: daily data in 360-day calender
+360: daily data in 360-day calendar
 365: daily data in 365-dy calendar (no-leap)
 366: daily data in Gregorian calendar, Feb 29 is set to undefined in non-leap years.
 Data arrays are in the form data(1:nperyear,yr1:yr2)
@@ -75,7 +75,7 @@ C. Things that go wrong
 
 1) Full disks. Data is stored in climexp/data for three days after last use, this is so large it very rarely fills up. Some scripts and notably opendap store data in /tmp/ and /var/tmp, these are so small that they can cause a full disk and failure of the Climate Explorer so in fact they have been moved to the data disk and symlinked. There are two commands to clean up disks (and possibly kill jobs that depend on the data):
 - http://climexp.knmi.nl/cleanup_tmp.cgi cleans the /tmp and /var/tmp directories that are most often the cause of problems
-- http://climexp.knmi.nl/cleanup.cgi is the general grim reaper script that is run every nihgt to enforce the 3-day limit, but can be invoked at other times as well.
+- http://climexp.knmi.nl/cleanup.cgi is the general grim reaper script that is run every night to enforce the 3-day limit, but can be invoked at other times as well.
 
 2) A failed update script because the data has moved, been upgraded to a new version or changed in format (or all three at times). Usually a user complains that dataset XXX no longer works. The output of the general update script is in NINO/*.log on the zuidzee (except KNMIData), this normally gives a clue. A visit to the web site that the [i] after the dataset points to also often gives a clue. Update the update-script in the data directory...
 
