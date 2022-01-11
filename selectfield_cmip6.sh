@@ -135,14 +135,22 @@ do
                         [ "$lwrite" = true ] && echo "@@@ nmodel model = $nmodel $model"
                         if [ $nmodel -le -3 ]; then
                             file="CMIP6/$timescale/$var/${var}_${type}_${model%mean}_${exp}_192_ave.nc"
+                            file_alt="CMIP6/$timescale/$var/${var}_${type}_${model%mean}_${exp}_ave.nc"
                         elif [ $nmodel -le 0 ]; then
                             file="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_192_000.nc"
+                            file_alt="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_000.nc"
                         else
-                            file="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_000.nc"
+                            file="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_192_000.nc"
+                            file_alt="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_000.nc"
                         fi
                         [ "$lwrite" = true ] && echo "@@@ looking for $file"
                         if [ -e $file -o -L $file ]; then
                             hasdata=true
+                        else
+                            [ "$lwrite" = true ] && echo "@@@ looking for $file_alt"
+                            if [ -e $file_alt -o -L $file_alt ]; then
+                                hasdata=true; file=$file_alt
+                            fi
                         fi
                     done
                     hasdatas[$nexp]=$hasdata
@@ -160,6 +168,7 @@ do
                         echo "<td>$exp"
                         for var in $vars
                         do
+                            hasdata=false
                             case $var in
                                 ?os) type=Omon;;
                                 mr*) type=Lmon;;
@@ -171,13 +180,25 @@ do
                             [ "$lwrite" = true ] && echo "@@@ nmodel model = $nmodel $model"
                             if [ $nmodel -le -3 ]; then
                                 file="CMIP6/$timescale/$var/${var}_${type}_${model%mean}_${exp}_192_ave.nc"
+                                file_alt="CMIP6/$timescale/$var/${var}_${type}_${model%mean}_${exp}_ave.nc"
                             elif [ $nmodel -le 0 ]; then
                                 file="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_192_000.nc"
+                                file_alt="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_000.nc"
                             else
-                                file="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_000.nc"
+                                file="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_192_000.nc"
+                                file_alt="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_000.nc"
                             fi
                             [ "$lwrite" = true ] && echo "@@@ looking for $file"
                             if [ -e $file -o -L $file ]; then
+                                hasdata=true
+                            else
+                                [ "$lwrite" = true ] && echo "@@@ looking for $file_alt"
+                                if [ -e $file_alt -o -L $file_alt ]; then
+                                    hasdata=true; file=$file_alt
+                                fi
+                            fi
+
+                            if [ $hasdata = true ]; then
                                 files=`echo $file | sed -e 's/_000/_[0-9][0-9][0-9]/'`
                                 n=`echo $files | wc -w`
                                 echo "<td><input type=radio class=formradio name=field value=cmip6_${var}_${type}_${modelp}_${exp}><small>${n}</small>"
