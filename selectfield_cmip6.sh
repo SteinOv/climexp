@@ -134,14 +134,14 @@ do
                         esac
                         [ "$lwrite" = true ] && echo "@@@ nmodel model = $nmodel $model"
                         if [ $nmodel -le -3 ]; then
-                            file="CMIP6/$timescale/$var/${var}_${type}_${model%mean}_${exp}_192_ave.nc"
-                            file_alt="CMIP6/$timescale/$var/${var}_${type}_${model%mean}_${exp}_ave.nc"
+                            file="CMIP6/$timescale/$var/${var}_${type}_${model%mean}_${exp}_ave.nc"
+                            file_alt="CMIP6/$timescale/$var/${var}_${type}_${model%mean}_${exp}_192_ave.nc"
                         elif [ $nmodel -le 0 ]; then
-                            file="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_192_000.nc"
-                            file_alt="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_000.nc"
+                            file="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_000.nc"
+                            file_alt="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_192_000.nc"
                         else
-                            file="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_192_000.nc"
-                            file_alt="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_000.nc"
+                            file="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_000.nc"
+                            file_alt="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_192_000.nc"
                         fi
                         [ "$lwrite" = true ] && echo "@@@ looking for $file"
                         if [ -e $file -o -L $file ]; then
@@ -179,14 +179,14 @@ do
                             esac
                             [ "$lwrite" = true ] && echo "@@@ nmodel model = $nmodel $model"
                             if [ $nmodel -le -3 ]; then
-                                file="CMIP6/$timescale/$var/${var}_${type}_${model%mean}_${exp}_192_ave.nc"
-                                file_alt="CMIP6/$timescale/$var/${var}_${type}_${model%mean}_${exp}_ave.nc"
+                                file="CMIP6/$timescale/$var/${var}_${type}_${model%mean}_${exp}_ave.nc"
+                                file_alt="CMIP6/$timescale/$var/${var}_${type}_${model%mean}_${exp}_192_ave.nc"
                             elif [ $nmodel -le 0 ]; then
-                                file="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_192_000.nc"
-                                file_alt="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_000.nc"
+                                file="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_000.nc"
+                                file_alt="CMIP6/$timescale/$var/${var}_${type}_${model}_${exp}_192_000.nc"
                             else
-                                file="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_192_000.nc"
-                                file_alt="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_000.nc"
+                                file="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_000.nc"
+                                file_alt="CMIP6/$timescale/$var/${var}_${type}_${modelp}_${exp}_192_000.nc"
                             fi
                             [ "$lwrite" = true ] && echo "@@@ looking for $file"
                             if [ -e $file -o -L $file ]; then
