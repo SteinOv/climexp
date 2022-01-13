@@ -44,7 +44,7 @@ else
 fi
 
 cat <<EOF
-<p><address><a href="mailto:oldenborgh@knmi.nl">G. J. van Oldenborgh</a>, KNMI, 14-jan-2005</address>
+<p><address><a href="mailto:climate-explorer@knmi.nl">The administrator</a>, KNMI</address>
 </body>
 </html>
 EOF

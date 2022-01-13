@@ -22,7 +22,7 @@ then
           echo
           echo
 	  echo "robots and crawlers should use someone@somewhere"
-	  echo "contact me (Geert Jan van Oldenborgh) if you are not a robot"
+	  echo "contact the administrator (climate-explorer@knmi.nl) if you are not a robot"
 	  exit
   fi
 fi

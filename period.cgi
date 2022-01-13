@@ -69,7 +69,7 @@ if [ $FORM_which = period ]; then
     ###echo "bin/spectrum $corrargs <p>"
     (./bin/spectrum $corrargs > $root.txt) 2>&1 |tee $root.out
     if [ ! -s $root.txt ]; then
-      echo "<p>Something went wrong.  Please send the following line to <a href="mailto:oldenborgh@knmi.nl">me</a> and I'll try to fix it."
+      echo "<p>Something went wrong.  Please send the following line to <a href="mailto:climate-explorer@knmi.nl">the administrator</a> and they will try to fix it."
       echo '<pre>'
       echo spectrum $corrargs
       echo '</pre>'

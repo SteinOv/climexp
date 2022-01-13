@@ -7,7 +7,7 @@ then
   echo
   echo "<html><head><meta name=\"robots\" content=\"noindex\"></head><body>"
   echo "No access for robots and other non-human life forms"
-  echo "Please contact me (Geert Jan van Oldenborgh) if you are human"
+  echo "Please contact the administrator (climate-explorer@knmi.nl) if you are human"
   echo "</body></html>"
   exit
 fi

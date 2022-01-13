@@ -161,10 +161,8 @@ else
     # sed only accepts lines up to about 15000 chars in Fedora 28
     ncdump -h $file0 | cut -b 1-10000 | sed \
         -e '/{/,/global attributes/d' \
-        -e 's/^[ \t]*:/\<tr\>\<td\>/' \
-        -e 's/^[ 	]*:/\<tr\>\<td\>/' \
-        -e 's/ = */\<td\>/' \
-        -e 's/ ;//' \
+        -e 's/[ \t]*:\(.*\) = */\<tr\>\<td\>\1\<td\>/' \
+        -e 's/ ; *$//' \
         -e 's/"//g' \
         -e 's/\n,/\<br\>/g' \
         -e 's/\\n,/\<br\>/g' \

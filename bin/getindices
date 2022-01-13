@@ -30,11 +30,13 @@ else
 			if [ ! -s $datfile -o $datfile -ot $ensfile ]; then
     			ntime=$((ntime+1))
     			[ "$lwrite" = true ] && echo "copying $ensfile.dat" 1>&2
-    			cp -p $ensfile.dat $datfile
+			# AHE: removed "-p" part, otherwise this file will be removed every time cleanup.sh is run
+    			cp $ensfile.dat $datfile
     		fi
 			if [ -s $ensfile.nc -a \( ! -s $ncfile -o $ncfile -ot $datfile \) ]; then
     			[ "$lwrite" = true ] && echo "copying $ensfile.nc" 1>&2
-			    cp -p $ensfile.nc $ncfile
+			# AHE: removed "-p" part, otherwise this file will be removed every time cleanup.sh is run
+			    cp $ensfile.nc $ncfile
 			fi
 		elif [ -s $ensfile.nc ]; then
 		    # make a netcdf copy for faster I/O
