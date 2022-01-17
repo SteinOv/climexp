@@ -13,7 +13,7 @@ fi
 cat <<EOF
 <html>
 <head>
-<!-- beheerder: Geert Jan van Oldenborgh -->
+<!-- beheerder: climate-explorer@knmi.nl -->
 <link rel="stylesheet" href="${prfx}styles/rccstyle.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script language="javascript" src="${prfx}library/javascript/hidden_info_switch.js"></script>

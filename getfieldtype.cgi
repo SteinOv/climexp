@@ -23,6 +23,6 @@ snow) field_type="Snow";;
 time*) field_type="Time";;
 fd*) field_type="frost days";;
 salinity) field_type="salinity";;
-*) echo "getfieldtype: please ask <a href=\"mailto:oldenborgh@knmi.nl\">me</a> to add \"$VAR\" to the lists in getfieldtype";field_type="$VAR";;
+*) echo "getfieldtype: please ask <a href=\"mailto:climate-explorer@knmi.nl\">the administrator</a> to add \"$VAR\" to the lists in getfieldtype";field_type="$VAR";;
 esac
 fi

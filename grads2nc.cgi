@@ -45,7 +45,7 @@ grads2nc)
 esac
 
 if [ ! -f $outfile ]; then
-  echo 'Something went wrong in the netCDF generation routine.  Please send the following cryptic output to <a href="mailto:oldenborgh@knmi.nl">me</a> and I will try to fix it.<pre>'
+  echo 'Something went wrong in the netCDF generation routine.  Please send the following cryptic output to <a href="mailto:climate-explorer@knmi.nl">the administrator</a> and they will try to fix it.<pre>'
   cat /tmp/grads2nc$$.log
   de $DIR
   . ./myvinkfoot.cgi

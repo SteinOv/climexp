@@ -61,7 +61,7 @@ Please note that many of these time series have been derived from (very) indirec
 
 
 </table>
-If you have time series that you would like to add to the list contact <a href="mailto:oldenborgh@knmi.nl">me</a>.
+If you have time series that you would like to add to the list contact <a href="mailto:climate-explorer@knmi.nl">the administrator</a>.
 EOF
 
 . ./myvinkfoot.cgi

@@ -162,7 +162,7 @@ elif [ "$FORM_debias" = "all" ]; then
   debias="correcting for bias in whole PDF"
 fi
 cat <<EOF
-<small>Verification is under active development and may still contain bugs.  Please report problems back to <a href="mailto:oldenborgh@knmi.nl">me</a>.</small><p>
+<small>Verification is under active development and may still contain bugs.  Please report problems back to <a href="mailto:climate-explorer@knmi.nl">the administrator</a>.</small><p>
 EOF
 if [ -s $table ]; then
   echo "Using cached data. "

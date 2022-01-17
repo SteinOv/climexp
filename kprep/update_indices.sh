@@ -7,9 +7,9 @@
 res=$1
 
 # Copy grid description file to correct place
-cp griddes${res}.txt ~/climexp_data/KPREPData/targetgrid/
+cp griddes${res}.txt ../KPREPData/targetgrid/
 # Change working directory to where to store data / files / plots / etc.
-cd ~/climexp_data/KPREPData
+cd ../KPREPData
 # First get resolution..
 wget -N http://climexp.knmi.nl/BerkeleyData/land_mask.nc inputdata/
 wget -N http://climexp.knmi.nl/BerkeleyData/TMAX_LatLong1.nc inputdata/

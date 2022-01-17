@@ -489,7 +489,7 @@ Y(mo,yr) = white gaussian noise +
 <td><a href="?http://cmip-pcmdi.llnl.gov/cmip5/data_getting_started.html"><img src="images/info-i.gif" alt="more information" border="0"></a>
 
 </table>
-If you have time series that you would like to add to the list contact <a href="mailto:oldenborgh@knmi.nl">me</a>.
+If you have time series that you would like to add to the list contact <a href="mailto:climate-explorer@knmi.nl">the administrator</a>.
 EOF
 
 . ./myvinkfoot.cgi

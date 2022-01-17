@@ -425,7 +425,7 @@ EOF
     fi
 done
 if [ "$ok" != true ]; then
-    echo "Something went wrong making the plot, please send <a href="mailto:oldenborgh@knmi.nl">me</a> screendump of the previous page and I will try to fix it."
+    echo "Something went wrong making the plot, please send <a href="mailto:climate-explorer@knmi.nl">the administrator</a> a screendump of the previous page and I will try to fix it."
 fi
 if [ "$FORM_mapformat" = kml ]; then
     alreadyprinted=

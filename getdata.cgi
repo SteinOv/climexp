@@ -93,7 +93,7 @@ if [ -n "$masknetcdf" ]; then
     done
 	if [ ! -s "$masknetcdf" ]; then
 		echo "Something went wrong, cannot locate gridded mask file $masknetcdf<br>"
-		echo "Please contact <a href=\"mailto:oldenborgh@knmi.nl\">me</a> about this. I need the following command:<br> $polycommand"
+		echo "Please contact <a href=\"mailto:climate-explorer@knmi.nl\">the administrator</a> about this. They need the following command:<br> $polycommand"
 		if [ "$lwrite" = true ]; then
             echo "<br>"
             ls -l "$masknetcdf"
@@ -255,7 +255,7 @@ if [ ! -s $firstfile ]; then
   else
     # something went wrong
     echo `date`" $REMOTE_ADDR error: could not find $firstfile" 1>&2
-    echo "Something went wrong, could not find $firstfile.  Please contact <a href=\"mailto:oldenborgh@knmi.nl\">me</a>"
+    echo "Something went wrong, could not find $firstfile.  Please contact <a href=\"mailto:climate-explorer@knmi.nl\">the administrator</a>"
   fi
   VAR="unknown"
   UNITS="unknown"
