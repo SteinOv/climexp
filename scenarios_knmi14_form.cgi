@@ -23,8 +23,8 @@ en tijdhorizonten. Het is ook mogelijk eigen historische tijdreeksen in te voere
 <input type=hidden name=variable value="rr">
 <table border=0 cellpadding=0 cellspacing=0 style="width:100%;">
 <tr>
-<td><span style="float:left">Station</span> <a href="http://www.knmi.nl/klimaat/klimaatscenarios/KNMI'14/uitleg_stations.html" target="legenda">
-                             <img style="vertical-align:top;margin-right:5px; margin-left:5px;" src="/images/info-i.gif" vspace=0 hspace=0 border=0 alt="Uitleg" title="Uitleg"></a>
+<td><span style="float:left">Station</span> <a href="https://www.knmi.nl/nederland-nu/klimatologie/monv/reeksen" target="legenda">
+                             <img style="vertical-align:top;margin-right:5px; margin-left:5px;" src="/images/info-i.gif" vspace=0 hspace=0 border=0 alt="Uitleg" title="Uitleg: Dagwaarden neerslagstations"></a>
  </td>
 <td><p><br><span style="float:right;">
 <select class="forminput" style="width:250px;" name=station>
@@ -62,7 +62,7 @@ cat <<EOF
 </select></td>
 </tr>
 <tr>
-<td><span style="float:left">Scenario</span> <a href="http://www.knmi.nl/klimaat/klimaatscenarios/KNMI'14/uitleg_tijdshorizon.html" target="legenda">
+<td><span style="float:left">Scenario</span> <a href="javascript:pop_page('help/uitleg_tijdshorizon.shtml',284,450)">
                              <img style="vertical-align:top;margin-right:5px; margin-left:5px;" src="/images/info-i.gif" vspace=0 hspace=0 border=0 alt="Uitleg" title="Uitleg"></a>
  </td>
 <td><p><br><span style="float:right;">
@@ -76,7 +76,7 @@ cat <<EOF
 </select></td>
 </tr>
 <tr>
-<td><span style="float:left">Subscenario</span> <a href="http://www.knmi.nl/klimaat/klimaatscenarios/KNMI'14/uitleg_neerslagrange.html" target="legenda">
+<td><span style="float:left">Subscenario</span> <a href="javascript:pop_page('help/uitleg_neerslagrange.shtml',284,450)">
                              <img style="vertical-align:top;margin-right:5px; margin-left:5px;" src="/images/info-i.gif" vspace=0 hspace=0 border=0 alt="Uitleg" title="Uitleg"></a>
  </td>
 <td><p><br><span style="float:right;">
@@ -109,8 +109,8 @@ cat <<EOF
 </select></td>
 </tr>
 <tr>
-<td><span style="float:left">Station</span> <a href="http://www.knmi.nl/klimaat/klimaatscenarios/KNMI'14/uitleg_stations.html" target="legenda">
-                             <img style="vertical-align:top;margin-right:5px; margin-left:5px;" src="/images/info-i.gif" vspace=0 hspace=0 border=0 alt="Uitleg" title="Uitleg"></a>
+<td><span style="float:left">Station</span> <a href="https://www.knmi.nl/nederland-nu/klimatologie/daggegevens" target="legenda">
+                             <img style="vertical-align:top;margin-right:5px; margin-left:5px;" src="/images/info-i.gif" vspace=0 hspace=0 border=0 alt="Uitleg" title="Uitleg: Daggegevens van het weer in Nederland"></a>
  </td>
 <td><p><br><span style="float:right;">
 <select class="forminput" style="width:250px;" name=station>
@@ -148,7 +148,7 @@ cat <<EOF
 </select></td>
 </tr>
 <tr>
-<td><span style="float:left">Scenario</span> <a href="http://www.knmi.nl/klimaat/klimaatscenarios/KNMI'14/uitleg_tijdshorizon.html" target="legenda">
+<td><span style="float:left">Scenario</span> <a href="javascript:pop_page('help/uitleg_tijdshorizon.shtml',284,450)">
                              <img style="vertical-align:top;margin-right:5px; margin-left:5px;" src="/images/info-i.gif" vspace=0 hspace=0 border=0 alt="Uitleg" title="Uitleg"></a>
  </td>
 <td><p><br><span style="float:right;">
@@ -162,7 +162,7 @@ cat <<EOF
 </select></td>
 </tr>
 <tr>
-<td><span style="float:left">Regio</span> <a href="http://www.knmi.nl/klimaat/klimaatscenarios/KNMI'14/uitleg_regio.html" target="legenda">
+<td><span style="float:left">Regio</span> <a href="https://www.knmi.nl/kennis-en-datacentrum/achtergrond/knmi-14-klimaatscenario-s" target="legenda">
                              <img style="vertical-align:top;margin-right:5px; margin-left:5px;" src="/images/info-i.gif" vspace=0 hspace=0 border=0 alt="Uitleg" title="Uitleg"></a>
  </td>
 <td><p><br><span style="float:right;">

@@ -1,0 +1,10 @@
+<!--#include virtual="help_header.html"-->
+<div class="alineakop">Uitleg tijdshorizon</div> 
+<p>Tijdreeksen voor rond 2030
+<p>Rond 2030 zijn de verschillen in klimaatverandering tussen de KNMI’14 klimaatscenario’s nog klein ten opzichte van de natuurlijke variaties over 30-jaar perioden en voor de meeste indicatoren zijn de scenarioveranderingen voor 2030 niet significant. Daarom is er voor gekozen om voor rond 2030 het gemiddelde van de spreiding in de berekeningen te presenteren (het “2030-scenario”: spreiding vooral het gevolg van modelonzekerheid en natuurlijke variaties). Hoewel de klimaatveranderingen voor rond 2030 in de meeste gevallen niet significant zijn, betekent dit niet dat de veranderingen mogelijk niet relevant zijn voor gebruikers. Daarom wordt er naast de optie “2030-scenario” ook de optie geboden om voor de vier KNMI’14 scenario’s tijdreeksen voor rond 2030 te maken op basis van geïnterpoleerde verandering (op dezelfde manier als bij het transformatieprogramma voor KNMI’06lineair interpoleren tussen het referentieklimaat en de verandering rond 2050).
+<p>Gebruik
+<p>Gebruik de geïnterpoleerde tijdreeksen voor de KNMI’14 scenario’s rond 2030 al dan niet in combinatie met het “2030-scenario” om te kijken of de klimaatveranderingen rond 2030 toch relevant voor u zijn.
+<p>Meer informatie
+<p>Wetenschappelijke achtergrond rapport KNMI’14 en brochure (p. 19)
+<p>Zie de toelichting bij dit programma. Zit het antwoord op uw vraag daar niet in mail uw vraag dan naar mailto:klimaatscenarios@knmi.nl
+<!--#include virtual="help_footer.html"-->

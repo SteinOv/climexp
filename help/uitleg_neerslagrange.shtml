@@ -1,0 +1,12 @@
+<!--#include virtual="help_header.html"-->
+<div class="alineakop">Uitleg neerslagrange</div> 
+<p>Ranges voor neerslagverandering
+<p>Het pull-down menu geeft 3 opties per KNMI’14 klimaatscenario voor het transformeren van neerslagtijdreeksen. “Laag” verwijst naar de onderkant van de mogelijke range aan verandering in neerslagextremen in de zomer, zoals vermeld op http://www.klimaatscenarios.nl/kerncijfers/; “Hoog” verwijst naar de bovenkant van die range; “Midden” verwijst naar een waarde binnen die range. Met name de verandering in extreme neerslag is onzeker. Om uitdrukking aan deze onzekerheid te geven, is voor elk scenario de range aan mogelijke verandering gegeven (met een midden-waarde). In alle gevallen is de gemiddelde verandering in neerslag en de verandering in het aantal natte dagen voor het betreffende klimaatscenario hetzelfde, alleen de verandering in neerslagextremen (99ste percentiel) verschilt.
+<p>Gebruik
+<p>Bent u er zeker van dat (de verandering) in dagelijkse neerslagextremen niet relevant voor u is dan volstaat het “Midden” subscenario. In alle andere gevallen wordt aangeraden alle 3 de subscenario’s (“Laag”, “Midden” en “Hoog”) te gebruiken en daarmee een gevoeligheidsanalyse uit te voeren. Daaruit kan dan nog steeds blijken dat 1 subscenario voor uw probleem/systeem voldoende is.
+<p>Meer informatie
+<p>Wetenschappelijke achtergrond rapport KNMI’14 en brochure (p. 13)
+<p>Zie de toelichting bij dit programma. Zit het antwoord op uw vraag daar niet in mail uw vraag dan naar mailto:klimaatscenarios@knmi.nl
+
+  
+<!--#include virtual="help_footer.html"-->
