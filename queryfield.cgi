@@ -757,7 +757,7 @@ clm_wfdei_rain) file=ETHData/RAIN_wfdei_clm.nc;kindname="CLM/WFDEI";climfield="r
 clm_wfdei_et) file=ETHData/ET_wfdei_clm.nc;kindname="CLM/WFDEI";climfield="evapotranspiration";;
 clm_wfdei_etp) file=ETHData/ETp_wfdei_clm.nc;kindname="CLM/WFDEI";climfield="potential evaporation";;
 
-grun) file=ETHZData/GRUN_v1_GSWP3_WGS84_05_1902_2014_ce.nc;kindname="GRUN";climfield="runoff";flipcolor=11;;
+grun) file=ETHZData/G-RUN_ENSEMBLE_MMM_1902_2019.nc;kindname="GRUN";climfield="runoff";flipcolor=11;;
 
 glofas_discharge_??) file=CDSData/$FORM_field.nc;kindname="GloFAS";climfield="discharge";flipcolor=11;;
 
