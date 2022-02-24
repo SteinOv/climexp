@@ -284,7 +284,7 @@ class DefineVar:
                 else:
                     self.units = "[dy]"
                     self.cnlevels = "(/-10.,-8.,-6.,-4.,-2.,0.,2.,4.,6.,8.,10./)"
-    
+
         elif var in ['fd','id', 'tr', 'gsl', 'r1mm', 'r10mm', 'r20mm']:
             self.type = 'yr'
             self.varname = var.upper()
@@ -340,7 +340,7 @@ class DefineVar:
         else:
             # TODO: raise an exception
             print "DefineVar: error: unknown variable {var}".format(var=var)
-    #        exit -1;;
+            #        exit -1;;
             pass
 
         if self.units == '[%]':
@@ -363,16 +363,16 @@ class DefineVar:
 
 
 def get_season_name(params):
-    
+
     mon1 = int(params.FORM_mon)
     form_sum = int(params.FORM_sum)
 
     mon2 = mon1 + form_sum - 1
     if mon2 > 12:
         mon2 -=  12
-    
+
     cmon1 = month2string(mon1)
-    
+
     if form_sum == 1:
         sname = cmon1
     else:

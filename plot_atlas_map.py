@@ -33,9 +33,9 @@ class PlotAtlasMap:
         self.log.setLevel(logLevel)
 
         # Configure the logger to log in the HTML page
-#        hdlr = logging.StreamHandler(sys.stdout)
-#        hdlr.setFormatter(util.JavascriptFormatter())
-#        self.log.addHandler(hdlr)
+        #        hdlr = logging.StreamHandler(sys.stdout)
+        #        hdlr.setFormatter(util.JavascriptFormatter())
+        #        self.log.addHandler(hdlr)
 
         if not isLogFormatHTML:
             self.hdlr = logging.StreamHandler(sys.stdout)
@@ -123,7 +123,7 @@ class PlotAtlasMap:
         ###self.logOut.info('paramsDict = {paramsDict}'.format(paramsDict=paramsDict))
         self.log.debug('process')
 
-#        self.logOut.info("<font color=#ff2222>plot_atlas_map: UNDER CONSTRUCTION</font>")
+        #        self.logOut.info("<font color=#ff2222>plot_atlas_map: UNDER CONSTRUCTION</font>")
         if self.normsdmessage == True:
             self.logOut.info("Ignoring request for relative changes for this variable.<br>")
 
@@ -168,7 +168,7 @@ class PlotAtlasMap:
         elif self.params.FORM_measure == 'regr':
             self.log.debug("## FORM_measure == 'regr'")
             # Compute the regression data
-            self._compute_regression_data(paramsDict) 
+            self._compute_regression_data(paramsDict)
 
         else:
             raise PlotMapError("unknown measure '%(FORM_measure)s'" % paramsDict)
@@ -192,7 +192,7 @@ class PlotAtlasMap:
         """.format(root=root, title=title, plotfile=self.plotfile)
         self.logOut.info(htmlStr)
 
-#        self.log.debug('Use temporary folder: %s' % self.tempDir)
+        #        self.log.debug('Use temporary folder: %s' % self.tempDir)
         # TODO: delete folder self.tempDir
         return '{root}.png'.format(root=root)
 
@@ -210,7 +210,7 @@ class PlotAtlasMap:
         if not os.path.exists(root):
             self.log.debug('Make dir: %s', root)
             os.makedirs(root)
-            
+
         ifiles = 0
         ###self.logOut.info('self.files = %s<br>' % self.files[:5])
         ###self.logOut.info('len(self.files) = %i<br>' % len(self.files))
@@ -250,13 +250,13 @@ class PlotAtlasMap:
                     mindata = 'dgt 1'
                 else:
                     mindata = ''
-                
+
                 tmpdifffile = difffile + '.' + str(os.getpid())
                 cmd = 'difffield {filename} {filename} {season} begin2 {begin1} end2 {end1} begin {begin2} end {end2} %(FORM_normsd)s {mindata} {standardunits} {difffile}'.format(filename=fileName, difffile=tmpdifffile, season=season, begin1=begin1, end1=end1, begin2=begin2, end2=end2, standardunits=varObj.standardunits, mindata=mindata) % paramsDict
 
                 if lwrite:
                     self.logOut.info('%s <br>' % cmd)
-                   
+
                 self.log.debug("Cmd: '%s'" % cmd)
                 subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
                 # make atomic, some web browsers seem to call te routiunes twice in quick nsuccesion
@@ -274,7 +274,7 @@ class PlotAtlasMap:
             self.plotfile = self.quantfile
         else:
             self.plotfile = difffile
-        
+
         self.xvar = '{rel}diff'.format(rel=self.rel)
 
 
@@ -301,7 +301,7 @@ class PlotAtlasMap:
             if self.params.FORM_dataset in ['CMIP5ext', 'CMIP5extone']:
                 reffile = "CDIACData/RCP45_CO2EQ.dat"
             else:
-                reffile = "CDIACData/RCP45_CO2EQ_mo.dat"                
+                reffile = "CDIACData/RCP45_CO2EQ_mo.dat"
         elif self.params.FORM_regr == 'co2eq85':
             if self.params.FORM_dataset in ['CMIP5ext', 'CMIP5extone']:
                 reffile = "CDIACData/RCP85_CO2EQ.dat"
@@ -316,16 +316,16 @@ class PlotAtlasMap:
             raise PlotMapError("Reference 'modtglobal' not yet implemented")
         else:
             raise PlotMapError("Unknown reference '{regr}'".format(regr = self.params.FORM_regr))
-      
+
         # Check if file exists
         if not os.path.exists(reffile):
             raise PlotMapError("Cannot find reference series file {reffile}".format(reffile=reffile))
-   
+
         # Validate the start and end time
         if int(self.params.FORM_end_fit) < int(self.params.FORM_begin_fit):
             raise PlotMapError("end {end_fit} year less then begin year {begin_fit}".format(
-        end_fit = self.params.FORM_end_fit, 
-        begin_fit = self.params.FORM_begin_fit))
+                end_fit = self.params.FORM_end_fit,
+                begin_fit = self.params.FORM_begin_fit))
 
         varObj = DefineVar(self.params.FORM_var, self.params.FORM_normsd)
 
@@ -337,10 +337,10 @@ class PlotAtlasMap:
             # error gets the non-unique name "sd". A bit more time wasted for the user.
             regrfile = '{root}/{rel}regr_{basename}_{regr}_{begin_fit}-{end_fit}_{season}.nc'.format(
                 rel=self.rel,
-                root=root,     
+                root=root,
                 basename=os.path.splitext(os.path.basename(filename))[0],
-                regr=self.params.FORM_regr, 
-                begin_fit=self.params.FORM_begin_fit, 
+                regr=self.params.FORM_regr,
+                begin_fit=self.params.FORM_begin_fit,
                 end_fit=self.params.FORM_end_fit,
                 season=self.season)
             self.outfiles.append(regrfile)
@@ -369,22 +369,22 @@ class PlotAtlasMap:
                     cmd = 'ncrename -O -v .d{xvar},sd {regrfile}'.format(xvar=self.xvar, regrfile=regrfile)
                     ###self.logOut.info("cmd = '%s'" % cmd)
                     subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
-                
+
         self.quantfile = '{quantroot}/quant_{rel}regr_{basename}_{regr}_{begin_fit}-{end_fit}_{season}.nc'.format(
             quantroot=self.quantroot,
-            rel=self.rel, 
+            rel=self.rel,
             basename=os.path.splitext(os.path.basename(filename))[0],
-            regr=self.params.FORM_regr, 
-            begin_fit=self.params.FORM_begin_fit, 
+            regr=self.params.FORM_regr,
+            begin_fit=self.params.FORM_begin_fit,
             end_fit=self.params.FORM_end_fit,
             season=self.season)
         self.log.debug('quantfile = %s' % self.quantfile)
         if self.params.FORM_plotvar == 'mean':
             self.plotfile = regrfile # the last one of the previous loop
         else:
-            self.plotfile = self.quantfile        
+            self.plotfile = self.quantfile
 
-        # Set xvar
+            # Set xvar
         self.xvar = '{rel}regr'.format(rel=self.rel)
         self.log.debug('xvar = %s' % self.xvar)
 
@@ -407,8 +407,8 @@ class PlotAtlasMap:
                     # TODO: check this
                     if os.path.getmtime(self.quantfile) > os.path.getmtime(outfile):
                         doit = True
-        
-            if doit or lwrite:      
+
+            if doit or lwrite:
                 # (re)generate quantfile 
 
                 ###self.logOut.info('self.outfiles = %s<br>' % self.outfiles[:5])
@@ -423,13 +423,13 @@ class PlotAtlasMap:
                     if not os.path.exists(infile) or os.path.getsize(infile) == 0 or (os.path.getmtime(infile) < os.path.getmtime(outfile)):
                         if not os.path.exists(outfile) or os.path.getsize(outfile) == 0:
                             raise PlotMapError("Cannot find file {outfile} with variable {xvar}".format(outfile=outfile,xvar=self.xvar))
-                        
+
                         cmd = 'ncks -O -v {xvar} {outfile} {infile}'.format(xvar=self.xvar, outfile=outfile, infile=infile)
                         ###self.log.debug("cmd = '%s'" % cmd)
                         subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
 
                     infiles.append(infile)
-                
+
                 infiles.sort()
                 self.logOut.info("Generating quantiles of signal ...<br>")
 
@@ -439,7 +439,7 @@ class PlotAtlasMap:
                 if not infiles:
                     raise PlotMapError("Cannot find infiles.")
 
-                cmd = "bin/quantiles_field {infiles} {quantfile}".format(infiles=' '.join(infiles), quantfile=self.quantfile)
+                cmd = "./bin/quantiles_field {infiles} {quantfile}".format(infiles=' '.join(infiles), quantfile=self.quantfile)
                 ###self.logOut.info("cmd = '%s'" % cmd)
                 cmdOutput = subprocess.call(cmd, shell=True, stderr=subprocess.STDOUT)
 
@@ -450,7 +450,7 @@ class PlotAtlasMap:
                             os.remove(infile)
                 except OSError as e:
                     self.log.warning("Cannot remove file %s. %s" % (infile, str(e)))
-       
+
         ###self.logOut.info('plotfile = {plotfile}<br>'.format(plotfile=self.plotfile))
 
 
@@ -460,7 +460,7 @@ class PlotAtlasMap:
         if self.params.FORM_measure == 'diff' and not self.params.FORM_dataset.split('-')[0] in ['CMIP5ext','CMIP5extone','CORDEX']:
             period1 = int(self.params.FORM_end1) - int(self.params.FORM_begin1) + 1
             period2 = int(self.params.FORM_end2) - int(self.params.FORM_begin2) + 1
-        
+
             dir = "atlas/diff/CMIP3/sd_{period}".format(period=period1)
             if not os.path.exists(dir):
                 self.log.debug('mkdir %s' % dir)
@@ -476,7 +476,7 @@ class PlotAtlasMap:
             if not os.path.islink(dirone):
                 self.log.debug('mkdir %s' % dir)
                 os.symlink(rdir, dirone)
-            
+
             varObj = DefineVar(self.params.FORM_var, self.params.FORM_normsd)
             # get the s.d. from the CMIP5 piControl run (also for other datasets)
             if period1 == period2:
@@ -527,7 +527,7 @@ class PlotAtlasMap:
                         cmd = './makesd.cgi {period} {var} {rel01}'.format(var=varObj.sdvar, rel01=rel01, period=period1)
                         self.log.debug("cmd: '%s'" % cmd)
                         subprocess.call(cmd, shell=True)
-                
+
                 if period1 != period2:
                     sd2file = 'atlas/diff/CMIP5/sd_{period}/sd_{var}{rel}_{period}_{season}.nc'.format(dataset=self.params.FORM_dataset, var=varObj.sdvar, period=period2, rel=self.rel, season=self.season)
                     if not os.path.exists(sd2file) or os.path.getsize(sd2file) == 0:
@@ -545,7 +545,7 @@ class PlotAtlasMap:
             mergeit = True
 
         elif self.params.FORM_measure == 'regr':
-        
+
             if not self.ensemble:
                 mergeit = False
             else:
@@ -556,20 +556,20 @@ class PlotAtlasMap:
                         infile = os.path.join(self.tempDir, '%s_%s' % ('d'+self.xvar, os.path.basename(outfile)))
                         if not os.path.exists(outfile) or os.path.getsize(outfile) == 0:
                             raise PlotMapError("Cannot find outfile {outfile} with variable d{xvar}".format(outfile=outfile,xvar=self.xvar))
-                    
+
                         cmd = 'ncks -O -v d{xvar} {outfile} {infile}'.format(xvar=self.xvar, outfile=outfile, infile=infile)
                         ###self.logOut.info("cmd = '%s'" % cmd)
                         subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
 
                         infiles.append(infile)
-            
+
                 self.logOut.info("Generating median of variability...<br>")
 
                 if not infiles:
                     raise PlotMapError("Cannot find regression data.")
 
                 noisefile = os.path.join(self.tempDir, '%s%s_%s' % ('quant_d',self.xvar, os.path.basename(outfile)))
-                cmd = "bin/quantiles_field {infiles} {noisefile}".format(infiles=' '.join(infiles), noisefile=noisefile)
+                cmd = "./bin/quantiles_field {infiles} {noisefile}".format(infiles=' '.join(infiles), noisefile=noisefile)
                 ###self.log.debug("cmd = '%s'" % cmd)
                 cmdOutput = subprocess.call(cmd, shell=True, stderr=subprocess.STDOUT)
 
@@ -580,7 +580,7 @@ class PlotAtlasMap:
                             os.remove(infile)
                 except OSError as e:
                     self.log.warning("Cannot remove file %s. %s" % (infile, str(e)))
-        
+
                 # take median to represent to s.d.
                 self.sdfile = os.path.join(self.tempDir, '%s%s_%s' % ('sd_',self.xvar, os.path.basename(outfile)))
                 cmd = "ncks -v p50 {noisefile} {sdfile}".format(noisefile=noisefile, sdfile=self.sdfile)
@@ -634,49 +634,49 @@ class PlotAtlasMap:
 
         elif self.params.FORM_dataset.split('-')[0] == 'CORDEX':
 
-                # get the s.d. from the diffs (taking serial correlations into account?)
-                infiles = []
-                for outfile in self.outfiles:
-                    if outfile.find('ave_') == -1:
-                        infile = os.path.join(self.tempDir, '%s_%s' % ('d'+self.xvar, os.path.basename(outfile)))
-                        if not os.path.exists(outfile) or os.path.getsize(outfile) == 0:
-                            raise PlotMapError("Cannot find outfile {outfile} with variable error".format(outfile=outfile,xvar=self.xvar))
-                    
-                        cmd = 'ncks -O -v error {outfile} {infile}'.format(xvar=self.xvar, outfile=outfile, infile=infile)
-                        ###self.logOut.info("%s<br>" % cmd)
-                        subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
+            # get the s.d. from the diffs (taking serial correlations into account?)
+            infiles = []
+            for outfile in self.outfiles:
+                if outfile.find('ave_') == -1:
+                    infile = os.path.join(self.tempDir, '%s_%s' % ('d'+self.xvar, os.path.basename(outfile)))
+                    if not os.path.exists(outfile) or os.path.getsize(outfile) == 0:
+                        raise PlotMapError("Cannot find outfile {outfile} with variable error".format(outfile=outfile,xvar=self.xvar))
 
-                        infiles.append(infile)
-            
-                self.logOut.info("Generating mean of variability...<br>")
+                    cmd = 'ncks -O -v error {outfile} {infile}'.format(xvar=self.xvar, outfile=outfile, infile=infile)
+                    ###self.logOut.info("%s<br>" % cmd)
+                    subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
 
-                if not infiles:
-                    raise PlotMapError("Cannot find regression data.")
+                    infiles.append(infile)
 
-                noisefile = os.path.join(self.tempDir, '%s%s_%s' % ('quant_d',self.xvar, os.path.basename(outfile)))
-                cmd = "cdo ensmean {infiles} {noisefile}".format(infiles=' '.join(infiles), noisefile=noisefile)
-                ###self.logOut.info("%s<br>" % cmd)
-                cmdOutput = subprocess.call(cmd, shell=True, stderr=subprocess.STDOUT)
+            self.logOut.info("Generating mean of variability...<br>")
 
-                # Remove temporary 'infiles'
-                try:
-                    for infile in infiles:
-                        if os.path.isfile(infile):
-                            os.remove(infile)
-                except OSError as e:
-                    self.log.warning("Cannot remove file %s. %s" % (infile, str(e)))
-        
-                # take median to represent to s.d.
-                self.sdfile = os.path.join(self.tempDir, '%s%s_%s' % ('sd_',self.xvar, os.path.basename(outfile)))
-                cmd = "ncks -v error {noisefile} {sdfile}".format(noisefile=noisefile, sdfile=self.sdfile)
-                ###self.logOut.info("%s<br>" % cmd)
-                cmdOutput = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
-                cmd = "ncrename -v error,sd {sdfile}".format(noisefile=noisefile, sdfile=self.sdfile)
-                ###self.log.debug("%s<br>" % cmd)
-                cmdOutput = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
-                mergeit = True
-                self.logOut.info("Using temporal variability to estimate natural variability for the hatching.<br>")
-            
+            if not infiles:
+                raise PlotMapError("Cannot find regression data.")
+
+            noisefile = os.path.join(self.tempDir, '%s%s_%s' % ('quant_d',self.xvar, os.path.basename(outfile)))
+            cmd = "cdo ensmean {infiles} {noisefile}".format(infiles=' '.join(infiles), noisefile=noisefile)
+            ###self.logOut.info("%s<br>" % cmd)
+            cmdOutput = subprocess.call(cmd, shell=True, stderr=subprocess.STDOUT)
+
+            # Remove temporary 'infiles'
+            try:
+                for infile in infiles:
+                    if os.path.isfile(infile):
+                        os.remove(infile)
+            except OSError as e:
+                self.log.warning("Cannot remove file %s. %s" % (infile, str(e)))
+
+            # take median to represent to s.d.
+            self.sdfile = os.path.join(self.tempDir, '%s%s_%s' % ('sd_',self.xvar, os.path.basename(outfile)))
+            cmd = "ncks -v error {noisefile} {sdfile}".format(noisefile=noisefile, sdfile=self.sdfile)
+            ###self.logOut.info("%s<br>" % cmd)
+            cmdOutput = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
+            cmd = "ncrename -v error,sd {sdfile}".format(noisefile=noisefile, sdfile=self.sdfile)
+            ###self.log.debug("%s<br>" % cmd)
+            cmdOutput = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
+            mergeit = True
+            self.logOut.info("Using temporal variability to estimate natural variability for the hatching.<br>")
+
         else:
             raise PlotMapError("Unknown measure {measure}".format(measure=self.params.FORM_measure))
 
@@ -693,7 +693,7 @@ class PlotAtlasMap:
             else:
                 if self.params.FORM_measure == 'diff' and not self.params.FORM_dataset.split('-')[0] in ['CMIP5ext', 'CMIP5extone','CORDEX']:
                     self.logOut.info("Using natural variability in the CMIP5 pre-industrial control runs for the hatching.<br>")
-        
+
             newplotfile = self.plotfile[:-3] + "_withsd.nc"
             if not os.path.exists(newplotfile) or (os.path.getmtime(newplotfile) < os.path.getmtime(self.plotfile)):
                 tempfile = os.path.join(self.tempDir, os.path.basename(self.sdfile))
@@ -703,7 +703,7 @@ class PlotAtlasMap:
                     ###self.logOut.info("cmd: '%s'" % cmd)
                     subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
                     self.sdfile = tempfile
-                
+
                 if os.path.exists(newplotfile): # cdo does not overwrite...
                     os.remove(newplotfile)
                 # and merge in the information from the pre-industrial control run
@@ -724,16 +724,16 @@ class PlotAtlasMap:
         if self.params.FORM_region == 'srex':
             if lwrite:
                 self.logOut.info("calling lookup_region with FORM_srex=%(FORM_srex)s<br>" % paramsDict)
-            
+
             region, subregion = lookup_region(self.params)
             reg = DefineRegion(region)
             ###print "reg.npoly[subregion] = %s<br>" % reg.npoly[subregion]
             # check
             if self.params.FORM_srex not in (reg.abbr[subregion], reg.shortname[subregion]):
-                errMsg = "error: inconsistency in lookup_region: %(FORM_srex)s gives {region} {subregion}".format(region=region, subregion=subregion) % paramsDict 
+                errMsg = "error: inconsistency in lookup_region: %(FORM_srex)s gives {region} {subregion}".format(region=region, subregion=subregion) % paramsDict
                 errMsg += "but abbr = %s and shortname = %s" % (reg.abbr[subregion], reg.shortname[subregion])
                 raise PlotMapError(errMsg)
-            
+
             # make the map larger than the area over which the time series are defined
             if not reg.lon1[subregion]:
                 # TODO: test this part
@@ -745,7 +745,7 @@ class PlotAtlasMap:
                     errMsg = "internal error: cannot find region file %s " % polyRegionFile
                     errMsg += "region={region}, subregion={subregion}, lon1[{subregion}]={lon1_subregion}".format(region=region, subregion=subregion, lon1_subregion=reg.lon1[subregion])
                     raise PlotMapError(errMsg)
-                
+
                 xmin, xmax, ymin, ymax = getboxfrompolygon(polyRegionFile)
 
                 # we assume the region have been encoded sensibly with no wrapping longitudes
@@ -850,7 +850,7 @@ class PlotAtlasMap:
         plotlon2 = float(plotlon2)
         plotlat1 = float(plotlat1)
         plotlat2 = float(plotlat2)
-        
+
         if self.params.FORM_dataset.split('-')[0] == 'CORDEX':
             if region in ['arctic','highlatitudes','antarctica']:
                 raise PlotMapError("Cannot plot CORDEX data in this projection yet.")
@@ -962,7 +962,7 @@ class PlotAtlasMap:
 
         if plotvar.startswith('p'):
             plotvarname = plotvar.strip('p') + '%'
-#            plotvarname = "%s%%" % plotvar[1:]
+        #            plotvarname = "%s%%" % plotvar[1:]
         else:
             plotvarname = self.params.FORM_plotvar
 
@@ -1127,7 +1127,7 @@ class PlotAtlasMap:
             if self.params.FORM_region != 'srex' or self.params.FORM_srex != 'world':
                 i = subregion
                 if self.params.FORM_region == 'box' or self.params.FORM_region == 'point' \
-                    or ( self.params.FORM_region == 'srex' and reg.abbr[i] == ''):
+                        or ( self.params.FORM_region == 'srex' and reg.abbr[i] == ''):
                     if lwrite:
                         self.logOut.info("using lon12,lat12<br>")
                     nclInputStr = """
@@ -1170,7 +1170,7 @@ class PlotAtlasMap:
                         f.write(nclInputStr)
 
             # TODO: implement this
-    #        cat >> /tmp/nclinput$$.ncl <<EOF
+            #        cat >> ./tmp/nclinput$$.ncl <<EOF
             nclInputDict = { 'plotvarname': plotvarname }
             nclInputDict.update(reg.__dict__)
             nclInputStr = """
@@ -1192,27 +1192,27 @@ class PlotAtlasMap:
                 f.write(nclInputStr)
 
             ### TEMP
-    #        with open(nclInputName) as f:
-    #            nclLines = f.readlines()
+            #        with open(nclInputName) as f:
+            #            nclLines = f.readlines()
 
-    #        print '<br>File nclLines<br>'
-    #        print '----------------<br>'
-    #        print '<br>'.join(nclLines)
-    #        print '\n'.join(nclLines)
-    #        print '----------------<br>'
+            #        print '<br>File nclLines<br>'
+            #        print '----------------<br>'
+            #        print '<br>'.join(nclLines)
+            #        print '\n'.join(nclLines)
+            #        print '----------------<br>'
             ##### TEMP
 
             cmd = "ncl -Qn < {nclInputName}".format(nclInputName=nclInputName)
             self.log.debug('Launch: %s' % cmd)
             processOutput = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
 
-###            for el in processOutput.split('\n'):
-###                if 'EXPLICIT' not in el:
-###                    self.logOut.info(el + '<br>')
+            ###            for el in processOutput.split('\n'):
+            ###                if 'EXPLICIT' not in el:
+            ###                    self.logOut.info(el + '<br>')
 
             if os.path.exists(epsFilename):
                 size = os.path.getsize('{root}.eps'.format(root=root))
-            else:   
+            else:
                 size=0
 
             if size < 2500:

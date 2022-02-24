@@ -47,16 +47,16 @@ def footerScript():
 
 class JavascriptFormatter(logging.Formatter):
     fmt = '%(asctime)s %(name)s: %(message)s'
-   
+
     def format(self, record):
 
         if record.levelno == logging.DEBUG:
             self._fmt = "<script language=\"javascript\">console.debug(\"%(asctime)s DEBUG - %(name)s: %(message)s\")</script>"
-        elif record.levelno == logging.INFO: 
+        elif record.levelno == logging.INFO:
             self._fmt = "<script language=\"javascript\">console.info(\"%(asctime)s %(name)s: %(message)s\")</script>"
-        elif record.levelno == logging.ERROR: 
+        elif record.levelno == logging.ERROR:
             self._fmt = "<script language=\"javascript\">console.error(\"%(asctime)s %(name)s: %(message)s\")</script>"
-        elif record.levelno == logging.WARNING: 
+        elif record.levelno == logging.WARNING:
             self._fmt = "<script language=\"javascript\">console.warn(\"%(asctime)s %(name)s: %(message)s\")</script>"
         else:
             self._fmt = "<script language=\"javascript\">console.log(\"%(asctime)s %(name)s: %(message)s\")</script>"
@@ -99,7 +99,7 @@ def generateReport(params, error):
                                             credentials, secure)
     else:
         hdlr = logging.StreamHandler(sys.stdout)
-#        hdlr = logging.FileHandler('error_report.txt')
+    #        hdlr = logging.FileHandler('error_report.txt')
 
     hdlr.setFormatter(logging.Formatter('%(message)s'))
     log.addHandler(hdlr)

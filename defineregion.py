@@ -12,15 +12,15 @@ class DefineRegion:
     def __init__(self, region):
         """define list of regions."""
 
-#        self.log = logging.getLogger('DefineRegion')
-#        self.log.setLevel(logging.DEBUG)
-#
-#        hdlr = logging.StreamHandler(sys.stdout)
-#        hdlr.setFormatter(logging.Formatter('%(name)s: %(message)s'))
-#        self.log.addHandler(hdlr)
-#
-#        self.log.debug('')
-#        self.log.debug('DefineRegion, region = %s' % region)
+        #        self.log = logging.getLogger('DefineRegion')
+        #        self.log.setLevel(logging.DEBUG)
+        #
+        #        hdlr = logging.StreamHandler(sys.stdout)
+        #        hdlr.setFormatter(logging.Formatter('%(name)s: %(message)s'))
+        #        self.log.addHandler(hdlr)
+        #
+        #        self.log.debug('')
+        #        self.log.debug('DefineRegion, region = %s' % region)
 
         # define properties of the regions
         self.labelx = 0.77

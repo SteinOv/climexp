@@ -30,7 +30,7 @@ class PlotAtlasSeries:
         self.log.setLevel(logLevel)
 
         if not isLogFormatHTML:
-#            hdlr = logging.NullHandler(sys.stdout)
+            #            hdlr = logging.NullHandler(sys.stdout)
             self.hdlr = logging.StreamHandler(sys.stdout)
             self.hdlr.setFormatter(logging.Formatter('\033[1;31m%(name)s(%(lineno)s):\033[1;0m \033[1;1m%(message)s\033[1;0m'))
             self.log.addHandler(self.hdlr)
@@ -59,7 +59,7 @@ class PlotAtlasSeries:
         # Set temporary folder
         self.tempDir = tempfile.mkdtemp()
         self.log.debug('Use temporary folder: %s' % self.tempDir)
-        
+
         self.maskfile = None
 
         # set flag for ensembles
@@ -120,7 +120,7 @@ class PlotAtlasSeries:
         """ main routine """
 
         paramsDict = self.params.__dict__
-        
+
         if self.params.FORM_normsd == 'normsd' and self.params.FORM_anomaly != 'on':
             self.logOut.info("Error: a reference period is needed for relative changes")
             return None
@@ -199,7 +199,7 @@ class PlotAtlasSeries:
 
             # Next compute monthly time series
             self.region_extension = get_region_extension(self.params)
-    
+
             if self.params.FORM_normsd and varObj.norelative == True:
                 self.params.FORM_normsd = ""
                 self.logOut.info("Ignoring request for relative changes for this variable.<br>")
@@ -212,7 +212,7 @@ class PlotAtlasSeries:
                 if self.params.FORM_anom1 > self.params.FORM_anom2:
                     raise PlotSeriesError("error: anomalies from {FORM_anom1} to {FORM_anom2} are not defined".format(**paramsDict))
 
-            for idxFilename, filename in enumerate(files):            
+            for idxFilename, filename in enumerate(files):
                 # deduce model from 'filename' and get path to 'lsmask'
                 model, LSMASK = get_model(self.params, filename, self.typeVar)
 
@@ -254,13 +254,13 @@ class PlotAtlasSeries:
                         if self.params.FORM_masktype.find('lan') >= 0:
                             lsext = "_land"
                             lsname = " (land)"
-                
+
                     args = "{FORM_lon1} {FORM_lon2} {FORM_lat1} {FORM_lat2} {lsargs} nearest".format(lsargs=lsargs, **paramsDict)
                     self.regionname = "{FORM_lat1}-{FORM_lat2}N, {FORM_lon1}-{FORM_lon2}E{lsname}".format(lsname=lsname, **paramsDict)
-         
+
                 elif self.params.FORM_region == 'srex':
                     region, subregion = lookup_region(self.params)
-                
+
                     reg = DefineRegion(region)
                     self.regionname = reg.name[subregion]
 
@@ -276,10 +276,10 @@ class PlotAtlasSeries:
                     else:
                         if LSMASK:
                             args = "{lon1_subregion} {lon2_subregion} {lat1_subregion}  {lat2_subregion} lsmask {LSMASK} {lsmask_subregion}".format(lon1_subregion=reg.lon1[subregion],
-                                    lon2_subregion=reg.lon2[subregion],lat1_subregion=reg.lat1[subregion],lat2_subregion=reg.lat2[subregion], LSMASK=LSMASK, lsmask_subregion=reg.lsmask[subregion])
+                                                                                                                                                    lon2_subregion=reg.lon2[subregion],lat1_subregion=reg.lat1[subregion],lat2_subregion=reg.lat2[subregion], LSMASK=LSMASK, lsmask_subregion=reg.lsmask[subregion])
                         else:
                             args = "{lon1_subregion} {lon2_subregion} {lat1_subregion}  {lat2_subregion}".format(lon1_subregion=reg.lon1[subregion],
-                                    lon2_subregion=reg.lon2[subregion],lat1_subregion=reg.lat1[subregion],lat2_subregion=reg.lat2[subregion], LSMASK=LSMASK, lsmask_subregion=reg.lsmask[subregion])
+                                                                                                                 lon2_subregion=reg.lon2[subregion],lat1_subregion=reg.lat1[subregion],lat2_subregion=reg.lat2[subregion], LSMASK=LSMASK, lsmask_subregion=reg.lsmask[subregion])
 
                 elif self.params.FORM_region in ['countries','ipbes']:
 
@@ -310,18 +310,18 @@ class PlotAtlasSeries:
 
                 elif self.params.FORM_region == 'mask':
                     # TODO: fix this. Ask geert jan
-#                    save_uploaded_mask
+                    #                    save_uploaded_mask
 
                     if not os.path.exists(maskfile) or os.path.getsize(maskfile) == 0:
                         raise PlotSeriesError("error: cannot locate uploaded maskfile {maskfile}".format(maskfile=maskfile))
                     self.maskfile = maskfile
-                
+
                     args = "mask {maskfile}".format(maskfile=maskfile)
                 else:
                     raise PlotSeriesError("error: unknown value for region: {FORM_region}".format(**paramsDict))
 
                 if not os.path.exists(series) or (os.path.getsize(series) == 0) or (os.path.getmtime(series) < os.path.getmtime(filename)):
-                
+
                     cmd = 'get_index {file} {args} > {series}'.format(file=filename, args=args, series=series)
                     ###self.logOut.info(cmd)
                     if printexp:
@@ -330,10 +330,10 @@ class PlotAtlasSeries:
                     self.logOut.info('Averaging {i}/{n} {infile} over {regionname}<br>'.format(i=str(idxFilename), n=str(len(files) - 1), infile=os.path.splitext(os.path.basename(filename))[0], regionname=self.regionname))
 
                     subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
-        
+
                     if not os.path.exists(series) or os.path.getsize(series) == 0:
                         raise PlotSeriesError("Command failed: '%s'" % cmd)
-            
+
                 # take anomalies if requested
                 ###self.logOut.info('self.params.FORM_anomaly = %s<br>' % self.params.FORM_anomaly)
                 if self.params.FORM_anomaly != "on":
@@ -341,14 +341,14 @@ class PlotAtlasSeries:
                 else:
                     if self.params.FORM_normsd == "normsd":
                         if self.params.FORM_dataset in ['CMIP5ext', 'CMIP5extone']:
-                            rel = "normsd"    
+                            rel = "normsd"
                         else:
                             rel = "normsd mon {FORM_mon} ave {FORM_sum}".format(**paramsDict)
                         relative = "relative"
                     else:
                         rel = ""
                         relative = ""
-                
+
                     aseries = self.get_aseries_name(anomdir, series, paramsDict)
 
                     if not os.path.exists(aseries) or os.path.getsize(aseries) == 0 or (os.path.getmtime(aseries) < os.path.getmtime(series)):
@@ -356,14 +356,14 @@ class PlotAtlasSeries:
                             raise PlotSeriesError("beginning of anomaly range {FORM_anom1} is before beginning of data {yr1}".format(**paramsDict))
                         # ensanom here means "compute anomalies relative to the ensemble mean"
                         # normsd here means "take relative anomalies"
-                
+
                         cmd = "plotdat anom {FORM_anom1} {FORM_anom2} ensanom {rel} {series} | fgrep -v repeat > {aseries}".format(rel=rel, series=series, aseries=aseries, **paramsDict)
                         if printexp:
                             self.logOut.info('<p>%s<br>' % exp)
                             printexp = False
                         ###self.logOut.info('Taking {relative} anomalies {i}/{n} {series} w.r.t. {anom1}-{anom2}<br>'.format(relative=relative, series=os.path.splitext(os.path.basename(series))[0], i=str(idxFilename), n=str(len(files) - 1), anom1=self.params.FORM_anom1, anom2=self.params.FORM_anom2))
                         subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
-                
+
                         c = subprocess.check_output('cat {aseries} | wc -l'.format(aseries=aseries), shell=True, stderr=subprocess.STDOUT)
                         c = int(c)
 
@@ -384,15 +384,15 @@ class PlotAtlasSeries:
                         dumpdir = dump1dir
                     else:
                         raise PlotSeriesError("error: unknown ext {ext}".format(ext=ext))
-               
+
 
                     dumpfile = self.get_dumpfile_name(dumpdir, aseries, ext, paramsDict)
-                
+
 
                     # always plot standard units
                     # TODO: fix this
                     standardunits = 'standardunits'
-                
+
                     if not os.path.exists(dumpfile) or (os.path.getsize(dumpfile) == 0) or (os.path.getmtime(dumpfile) < os.path.getmtime(aseries)):
                         if self.params.FORM_dataset in ['CMIP5ext', 'CMIP5extone']:
                             season = ""
@@ -408,7 +408,7 @@ class PlotAtlasSeries:
                                 self.logOut.info('Converting {i}/{n} {aseries}<br>'.format(i=str(idxFilename), n=str(len(files) - 1), aseries=os.path.splitext(os.path.basename(series))[0], times=times, **paramsDict))
                             else:
                                 self.logOut.info('Averaging {i}/{n} {aseries} over season starting month {FORM_mon}, length {FORM_sum}<br>'.format(i=str(idxFilename), n=str(len(files) - 1), aseries=os.path.splitext(os.path.basename(series))[0], times=times, **paramsDict))
-                    
+
                         subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
 
                         # Get number of lines in file 'dumpfile'
@@ -427,7 +427,7 @@ class PlotAtlasSeries:
                 # loop over dump0, dump1
             # endfor files
         # endfor exps
-           
+
     def doPlot(self):
         """
         inputs:
@@ -454,11 +454,11 @@ class PlotAtlasSeries:
         if self.params.FORM_dataset in ['CMIP5', 'CMIP5one', 'CMIP5ext', 'CMIP5extone']:
             # params.FORM_rcp26, _rcp45, _rcp60, _rcp85
             lstExps = [(self.params.FORM_rcp26, 'rcp26'), (self.params.FORM_rcp45, 'rcp45'),
-                   (self.params.FORM_rcp60, 'rcp60'), (self.params.FORM_rcp85, 'rcp85')]
+                       (self.params.FORM_rcp60, 'rcp60'), (self.params.FORM_rcp85, 'rcp85')]
         elif self.params.FORM_dataset.split('-')[0] in ['CORDEX']:
             # params.FORM_rcp26, _rcp45, _rcp85
             lstExps = [(self.params.FORM_rcp26, 'rcp26'), (self.params.FORM_rcp45, 'rcp45'),
-                   (self.params.FORM_rcp85, 'rcp85')]
+                       (self.params.FORM_rcp85, 'rcp85')]
         elif self.params.FORM_dataset == 'CMIP3':
             lstExps = [('on', 'sresa1b')]
         elif self.params.FORM_dataset in ['ERA5', 'ERA20C', '20CR']:
@@ -482,7 +482,7 @@ class PlotAtlasSeries:
         # TODO: create a temporary file
         # TSU-proposed colours for SOD (here so that the file does not get lost)
         adjustColoursFilename = os.path.join(self.tempDir, 'adjust_colours.sed')
-        adjustColoursFilename = '/tmp/adjust_colours.sed'
+        adjustColoursFilename = './tmp/adjust_colours.sed'
 
         with open(adjustColoursFilename, 'w') as f:
             fileContent = """s@/LC0 {1 0 0} def@/LC0 {0 0 1} def@
@@ -563,11 +563,11 @@ s/5.000 UL/5.000 UL 1 .setopacityalpha/"""
             lastbit = self.params.FORM_dataset + '_' + FORM_field
         else:
             raise PlotSeriesError("error: unknown dataset5 %s<br>") % self.params.FORM_dataset
-        epsfile = '{epsfolder}/time_{var}{rel}_{region_extension}_mon{FORM_mon}_ave{FORM_sum}_ref{anom1}-{anom2}_{FORM_begin}-{FORM_end}_{lastbit}.eps'.format(epsfolder=epsfolder, 
-var=var, rel=rel, region_extension=self.region_extension, anom1=anom1, anom2=anom2, lastbit=lastbit, **paramsDict)
+        epsfile = '{epsfolder}/time_{var}{rel}_{region_extension}_mon{FORM_mon}_ave{FORM_sum}_ref{anom1}-{anom2}_{FORM_begin}-{FORM_end}_{lastbit}.eps'.format(epsfolder=epsfolder,
+                                                                                                                                                               var=var, rel=rel, region_extension=self.region_extension, anom1=anom1, anom2=anom2, lastbit=lastbit, **paramsDict)
         quantfile = '{quantfolder}/quant_{var}{rel}_{region_extension}_mon{FORM_mon}_ave{FORM_sum}_all_ref{anom1}-{anom2}_{yr1s}-{yr2s}_{lastbit}.txt'.format(quantfolder=quantfolder, var=var, rel=rel, region_extension=self.region_extension, anom1=anom1, anom2=anom2, yr1s=yr1s, yr2s=yr2s, lastbit=lastbit, **paramsDict)
-        plotfile = '{plotfolder}/plot_time_{var}{rel}_{region_extension}_mon{FORM_mon}_ave{FORM_sum}_ref{anom1}-{anom2}_{FORM_begin}-{FORM_end}_{lastbit}.gnuplot'.format(plotfolder=plotfolder, 
-var=var, rel=rel, region_extension=self.region_extension, anom1=anom1, anom2=anom2, lastbit=lastbit, **paramsDict)
+        plotfile = '{plotfolder}/plot_time_{var}{rel}_{region_extension}_mon{FORM_mon}_ave{FORM_sum}_ref{anom1}-{anom2}_{FORM_begin}-{FORM_end}_{lastbit}.gnuplot'.format(plotfolder=plotfolder,
+                                                                                                                                                                          var=var, rel=rel, region_extension=self.region_extension, anom1=anom1, anom2=anom2, lastbit=lastbit, **paramsDict)
 
         if self.params.FORM_anomaly == 'on':
             change = "change "
@@ -615,13 +615,13 @@ set xzeroaxis lw 4
 set ylabel "{units}"
 ###set style fill solid
 plot \\\n""".format(range=rangeVal, region_extension=self.region_extension, var=var, sname=sname, scenarios=scenarios, anom1=anom1, anom2=anom2, gnuplot_init=gnuplot_init, plottitle=plottitle,
-     epsfile=epsfile, Varname=defVar.Varname,
-     units=defVar.units, xtics=xtics, **paramsDict)
+                    epsfile=epsfile, Varname=defVar.Varname,
+                    units=defVar.units, xtics=xtics, **paramsDict)
 
             with open(plotfile, 'w') as f:
                 f.write(plotFileStr)
 
-    		# all RCPs plume
+            # all RCPs plume
             if not exps:
                 raise PlotSeriesError("No experiments selected")
 
@@ -699,12 +699,12 @@ plot \\\n""".format(range=rangeVal, region_extension=self.region_extension, var=
                 elif self.params.FORM_dataset == 'ERA20C':
                     series = '{monthlydir}/time_era20c_{var}_{region_extension}.dat'.format(monthlydir=monthlydir, var=var, region_extension=self.region_extension)
                 elif self.params.FORM_dataset == '20CR':
-                    series = '{monthlydir}/time_c{var}_{region_extension}.dat'.format(monthlydir=monthlydir, var=var, region_extension=self.region_extension)                
+                    series = '{monthlydir}/time_c{var}_{region_extension}.dat'.format(monthlydir=monthlydir, var=var, region_extension=self.region_extension)
                 elif self.params.FORM_dataset == 'obs':
-                    series = '{monthlydir}/time_{field}_{region_extension}.dat'.format(monthlydir=monthlydir, field=model, region_extension=self.region_extension)                
+                    series = '{monthlydir}/time_{field}_{region_extension}.dat'.format(monthlydir=monthlydir, field=model, region_extension=self.region_extension)
                 else:
                     raise PlotSeriesError("Unknown dataset1 %s" % self.params.FORM_dataset)
-                    
+
                 if not os.path.exists(series):
                     raise PlotSeriesError('Cannot find series {series}.'.format(series=series))
                 else:
@@ -860,7 +860,7 @@ plot \\\n""".format(yr1s=yr1s, yr2s=yr2s)
         # epsfile already exists ?
         pngfile = epsfile.rstrip('.eps') + '.png'
 
-#       if transparency and mkpngfile and (not os.path.exists(pngfile) or os.path.getsize(pngfile) == 0 or os.path.getmtime(pngfile) < os.path.getmtime(epsfile)):
+        #       if transparency and mkpngfile and (not os.path.exists(pngfile) or os.path.getsize(pngfile) == 0 or os.path.getmtime(pngfile) < os.path.getmtime(epsfile)):
         if mkpngfile and (not os.path.exists(pngfile) or os.path.getsize(pngfile) == 0 or os.path.getmtime(pngfile) < os.path.getmtime(epsfile)):
             ###self.logOut.info("generating {pngfile}".format(pngfile=pngfile))
 
@@ -878,7 +878,7 @@ plot \\\n""".format(yr1s=yr1s, yr2s=yr2s)
             masktext = ", <a href='{maskdir}'>masks</a>".format(maskdir=os.path.dirname(self.maskfile))
         else:
             masktext = ""
-         
+
         self.logOut.info("""
 <div class='bijschrift'>
 {plottitle}. {ensembletext}(<a href='{pngImg}'>png</a>, <a href='{epsImg}'>eps</a>, <a href='{pdfImg}'>pdf</a>, <a href='{plotfile}'>plotscript</a>, <a href='plotfile2zip.cgi?plotfile={plotfile}'>all data</a>, <a href='{quantfile}'>means</a>{masktext})

@@ -38,7 +38,7 @@ from formparameters import FormParameters, region_values, \
     cmip5_var_values, cmip5_extreme_values, cordex_var_values, cmip3_var_values, era5_var_values, era20c_var_values, c20cr_var_values, obs_var_values, \
     output_values, sum_values, regr_values, \
     scenario_cmip5_values, scenario_cordex_values, obs_tas_values, obs_tasmax_values, obs_tasmin_values, obs_pr_values, \
-    obs_psl_values, measure_values, plotvar_values 
+    obs_psl_values, measure_values, plotvar_values
 from plot_atlas_map import PlotAtlasMap, PlotMapError
 from plot_atlas_series import PlotAtlasSeries, PlotSeriesError
 from more_functions_atlas import GetModelError
@@ -82,7 +82,7 @@ if params.EMAIL == 'oldenbor@knmi.nl':
 #util.headerScript('Plot %s %s %s' % (params.FORM_dataset, params.FORM_var, params.FORM_output))
 util.headerScript(params)
 
-httpUserAgent = os.getenv('HTTP_USER_AGENT').lower()    
+httpUserAgent = os.getenv('HTTP_USER_AGENT').lower()
 if ('mobile' in httpUserAgent) or ('opera' in httpUserAgent):
     number = "number"
     textsize2 = "style=\"width: 4em;\""
@@ -97,7 +97,7 @@ else:
     textsize4 = "size=4"
     textsize6 = "size=6"
     textsize10 = "size=10"
-    
+
 # Generate template
 print template.render(params.__dict__,
                       region_values=region_values,
@@ -134,7 +134,7 @@ print template.render(params.__dict__,
                       textsize10=textsize10
                       )
 
-try:                      
+try:
     if params.DO_ACTION:
 
         # if nominous, save in defaults file for next visit
@@ -154,22 +154,22 @@ try:
         if params.FORM_output == 'map':
             log.debug('map')
             plotMap = PlotAtlasMap(params)
-#            plotMap = PlotAtlasMap(params, logLevel=logging.DEBUG)
+            #            plotMap = PlotAtlasMap(params, logLevel=logging.DEBUG)
             plotMap.process()
 
         elif params.FORM_output == 'series':
 
             # Do some sanity check
             if ( params.FORM_dataset in ['CMIP5','CMIP5one'] and
-                params.FORM_rcp26 == '' and params.FORM_rcp45 == '' and
-                params.FORM_rcp60 == '' and params.FORM_rcp85 == ''):
+                    params.FORM_rcp26 == '' and params.FORM_rcp45 == '' and
+                    params.FORM_rcp60 == '' and params.FORM_rcp85 == ''):
                 print 'Error. Select at least one scenario in Time series options.<br>'
             else:
                 ###print "<font color=#ff2222>plot_atlas_series: CONTAINS MANY BUGS, ONLY FOR INTERNAL TESTING AT KNMI</font><br>"
-                
+
                 ###log.debug('series')
                 plotSeries = PlotAtlasSeries(params)
-#                plotSeries = PlotAtlasSeries(params, logLevel=logging.DEBUG)
+                #                plotSeries = PlotAtlasSeries(params, logLevel=logging.DEBUG)
                 plotSeries.process()
                 plotSeries.doPlot()
         elif params.FORM_output == 'histogram':
