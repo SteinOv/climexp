@@ -339,7 +339,7 @@ class DefineVar:
             self.norelative = True
         else:
             # TODO: raise an exception
-            print "DefineVar: error: unknown variable {var}".format(var=var)
+            print("DefineVar: error: unknown variable {var}".format(var=var))
             #        exit -1;;
             pass
 

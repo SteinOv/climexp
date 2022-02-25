@@ -7,7 +7,7 @@ import sys
 import logging
 import settings
 import subprocess
-from formparameters import obs_var_values, obs_tas_values, obs_tasmax_values, obs_tasmin_values, obs_pr_values, obs_psl_values
+from formparameters_pyv3 import obs_var_values, obs_tas_values, obs_tasmax_values, obs_tasmin_values, obs_pr_values, obs_psl_values
 
 class GetModelError(Exception):
     """Raised when a error occured in function get_model."""
@@ -29,7 +29,7 @@ def lookup_region(params, lwrite=False):
     paramsDict = params.__dict__
 
     if lwrite:
-        print "lookup_region: input %(FORM_srex)s<br>" % paramsDict
+        print("lookup_region: input %(FORM_srex)s<br>" % paramsDict)
     
 #log.debug('')        
 #    log.debug("lookup_region: input %(FORM_srex)s" % paramsDict)
@@ -86,7 +86,7 @@ def lookup_region(params, lwrite=False):
     region, subregion = regions[params.FORM_srex]
 
     if lwrite:
-        print "lookup_region: found region={region}, subregion={subregion}<br>".format(region=region, subregion=subregion)
+        print("lookup_region: found region={region}, subregion={subregion}<br>".format(region=region, subregion=subregion))
     
 #    log.debug("lookup_region: found region={region}, subregion={subregion}".format(region=region, subregion=subregion))
 
@@ -320,7 +320,7 @@ def get_file_list(exp, params):
         if file:
             file = file.groups()[0]
         else:
-            print "get_file_list: error: cannot find %s<br>" % FORM_field
+            print("get_file_list: error: cannot find %s<br>" % FORM_field)
         files = [file]
 
     elif params.FORM_dataset == 'ERA20C':
@@ -332,7 +332,7 @@ def get_file_list(exp, params):
         if file:
             file = file.groups()[0]
         else:
-            print "get_file_list: error: cannot find %s<br>" % FORM_field
+            print("get_file_list: error: cannot find %s<br>" % FORM_field)
         files = [file]
 
     elif params.FORM_dataset == '20CR':
@@ -344,7 +344,7 @@ def get_file_list(exp, params):
         if file:
             file = file.groups()[0]
         else:
-            print "get_file_list: error: cannot find %s<br>" % FORM_field
+            print("get_file_list: error: cannot find %s<br>" % FORM_field)
         files = [file]
 
     elif params.FORM_dataset == 'obs':
@@ -354,14 +354,14 @@ def get_file_list(exp, params):
             variable = 'params.FORM_obs_{var}'.format(var=var)
             FORM_field = eval(variable)
         else:
-            print 'get_file_list: unknown value for var %s<br>' % var
+            print('get_file_list: unknown value for var %s<br>' % var)
         os.environ['FORM_field'] = FORM_field
         output = subprocess.check_output("./call_queryfield.cgi", shell = True)
         file = re.search(r"file=(.*)\s", output)
         if file:
             file = file.groups()[0]
         else:
-            print "get_file_list: error: cannot find %s<br>" % FORM_field
+            print("get_file_list: error: cannot find %s<br>" % FORM_field)
         files = [file]
 
     
@@ -372,7 +372,7 @@ def get_file_list(exp, params):
 #        . ./queryfield.cgi
 #        files=$fileName
     else:
-        print "get_file_list: error: unknown dataset %s<br>" % params.FORM_dataset
+        print("get_file_list: error: unknown dataset %s<br>" % params.FORM_dataset)
 
 
     return (typeVar, dirName, files)
@@ -434,7 +434,7 @@ def get_model(params, filename, typeVar):
             if (os.path.exists(trylsmask) and os.path.getsize(trylsmask) !=0) or (os.path.exists(trylsmask_home) and os.path.getsize(trylsmask_home) != 0):
                 LSMASK = trylsmask
             else:
-                print '<b>Cannot find mask file %s</b><br>' % trylsmask
+                print('<b>Cannot find mask file %s</b><br>' % trylsmask)
                 raise PlotSeriesError('<b>Cannot find mask file %s</b><br>' % trylsmask)
 
     elif params.FORM_dataset.split('-')[0] in ['CORDEX']:
@@ -464,7 +464,7 @@ def get_model(params, filename, typeVar):
         ensfile = re.sub(r'_0[0-9]_', '_%%_', os.path.basename(filename))
         ensfile = ensfile.replace("_144.nc","")
         ensfile = ensfile.replace(".nc","")
-        ###print "ensfile = %s<br>" % ensfile
+        ###print("ensfile = %s<br>" % ensfile)
 
         f = open('queryfield.cgi','r')
         line = "aap"
@@ -477,7 +477,7 @@ def get_model(params, filename, typeVar):
                 i = FORM_field.rfind('|')
                 if i >= 0:
                     FORM_field = FORM_field[i+1:]
-                ###print "FORM_field = %s<br>" % FORM_field
+                ###print("FORM_field = %s<br>" % FORM_field)
                 if params.FORM_dataset == 'CMIP3':
                     i = FORM_field.find("_")
                     model = FORM_field[i+1:]
@@ -492,18 +492,18 @@ def get_model(params, filename, typeVar):
                 elif params.FORM_dataset == 'obs':
                     model = FORM_field
                 else:
-                    print 'error4: unknown dataset {dataset}<br>'.format(dataset=params.FORM_dataset) 
-                ###print "model = %s<br>" % model
+                    print('error4: unknown dataset {dataset}<br>'.format(dataset=params.FORM_dataset))
+                ###print("model = %s<br>" % model)
                 i = line.find('LSMASK=')
                 if i < 0:
-                    print 'get_model: cannot find LSMASK in %s<br>' % line
+                    print('get_model: cannot find LSMASK in %s<br>' % line)
                     LSMASK = 'unknown'
                 else:
                     LSMASK = line[i+7:]
                     i = LSMASK.find(';')
                     LSMASK = LSMASK[:i]
                     LSMASK = LSMASK.replace('"','')
-                    ###print "LSMASK = %s<br>" % LSMASK
+                    ###print("LSMASK = %s<br>" % LSMASK)
                 break
         f.close()
 
@@ -560,17 +560,17 @@ def get_rip(params, filename):
     elif params.FORM_dataset == 'CMIP3':
 
         rip = os.path.basename(filename)
-        ###print 'file = %s<br>' % rip
+        ###print('file = %s<br>' % rip)
         idx = rip.rfind('_0')
         if idx >= 0 and rip[idx+3:idx+4] == '_':
             rip = rip[idx+1:idx+3]
-            ###print 'rip = %s<br>' % rip
+            ###print('rip = %s<br>' % rip)
             r = int(rip) + 1
         else:
             r = 1
         i = 1
         p = 1
-        ###print 'r = %i<br>' % r
+        ###print('r = %i<br>' % r)
 
     return rip, r, i, p        
 
@@ -629,7 +629,7 @@ def define_dataset(dataset,field):
 def getboxfrompolygon(polyRegionFile):
 
     cmd = "bin/polygon2box {polyRegionFile} | tr -d ' '".format(polyRegionFile=polyRegionFile)
-    ###print "getboxfrompolygon: cmd = %s<br>" % cmd
+    ###print("getboxfrompolygon: cmd = %s<br>" % cmd)
     output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
 
     xmin = re.search(r"xmin=(.*)\s", output).groups()[0]

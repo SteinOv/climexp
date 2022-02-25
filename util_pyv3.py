@@ -1,7 +1,7 @@
 import sys
 import os
 import subprocess
-import urllib
+import urllib.parse
 import logging
 import logging.handlers
 
@@ -22,7 +22,7 @@ def getpngwidth(pngfile):
 
 def launchScript(cmd):
     output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
-    print output
+    print(str(output, "utf-8"))
 
 
 def initScript():
@@ -36,13 +36,13 @@ def headerScript(params, title=None):
     os.environ['EMAIL'] = params.EMAIL
     args = ['./myvinkhead.cgi', title, '', '']
     p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    output = urllib.unquote(p.stdout.read())
+    output = urllib.parse.unquote(p.stdout.read().decode())
     output = output.replace('451','600')
     output = output.replace('762','911')
-    print output
+    print(output)
 
 def footerScript():
-    launchScript('./climexp_footer.cgi')
+    launchScript('./climexp_footer_pyv3.cgi')
 
 
 class JavascriptFormatter(logging.Formatter):

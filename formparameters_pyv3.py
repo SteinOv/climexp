@@ -7,7 +7,7 @@ import datetime
 import os
 import re
 import ast
-from util import month2string
+from util_pyv3 import month2string
 
 
 # Region: Predefined (srex)
@@ -875,7 +875,7 @@ class FormParameters:
                 self.yr1 = 1901
             self.yr2 = thisYear
         else:
-            print "\nerror, unknow dataset "+self.FORM_dataset
+            print("\nerror, unknow dataset "+self.FORM_dataset)
 
         # do not overwrite values from the defaults file
         if self.FORM_begin == None:

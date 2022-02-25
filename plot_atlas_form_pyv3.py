@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 """
 script to produce maps and time series analogous
@@ -28,20 +28,20 @@ import os
 import cgi
 import sys
 import logging
-import util
+import util_pyv3 as util
 import settings
 import re
 ###from urlparse import parse_qs
 from subprocess import CalledProcessError
-from formparameters import FormParameters, region_values, \
+from formparameters_pyv3 import FormParameters, region_values, \
     srex_values, country_values, ipbes_values, mon_values, dataset_values, \
     cmip5_var_values, cmip5_extreme_values, cordex_var_values, cmip3_var_values, era5_var_values, era20c_var_values, c20cr_var_values, obs_var_values, \
     output_values, sum_values, regr_values, \
     scenario_cmip5_values, scenario_cordex_values, obs_tas_values, obs_tasmax_values, obs_tasmin_values, obs_pr_values, \
     obs_psl_values, measure_values, plotvar_values
-from plot_atlas_map import PlotAtlasMap, PlotMapError
-from plot_atlas_series import PlotAtlasSeries, PlotSeriesError
-from more_functions_atlas import GetModelError
+from plot_atlas_map_pyv3 import PlotAtlasMap, PlotMapError
+from plot_atlas_series_pyv3 import PlotAtlasSeries, PlotSeriesError
+from more_functions_atlas_pyv3 import GetModelError
 from jinja2 import Environment, FileSystemLoader
 
 # Load HTML template
@@ -60,8 +60,8 @@ hdlr = logging.StreamHandler(sys.stdout)
 hdlr.setFormatter(util.JavascriptFormatter())
 log.addHandler(hdlr)
 
-print 'Content-Type: text/html'
-print
+print('Content-Type: text/html')
+print()
 
 # Initialize variables from formular
 params = FormParameters(form)
@@ -99,40 +99,40 @@ else:
     textsize10 = "size=10"
 
 # Generate template
-print template.render(params.__dict__,
-                      region_values=region_values,
-                      srex_values=srex_values,
-                      country_values=country_values,
-                      ipbes_values=ipbes_values,
-                      mon_values=mon_values,
-                      sum_values=sum_values,
-                      output_values=output_values,
-                      dataset_values=dataset_values,
-                      cmip5_var_values=cmip5_var_values,
-                      cmip5_extreme_values=cmip5_extreme_values,
-                      cordex_var_values=cordex_var_values,
-                      cmip3_var_values=cmip3_var_values,
-                      era5_var_values=era5_var_values,
-                      era20c_var_values=era20c_var_values,
-                      c20cr_var_values=c20cr_var_values,
-                      obs_var_values=obs_var_values,
-                      scenario_cmip5_values=scenario_cmip5_values,
-                      scenario_cordex_values=scenario_cordex_values,
-                      obs_tas_values=obs_tas_values,
-                      obs_tasmin_values=obs_tasmin_values,
-                      obs_tasmax_values=obs_tasmax_values,
-                      obs_pr_values=obs_pr_values,
-                      obs_psl_values=obs_psl_values,
-                      measure_values=measure_values,
-                      regr_values=regr_values,
-                      plotvar_values=plotvar_values,
-                      number=number,
-                      textsize2=textsize2,
-                      textsize3=textsize3,
-                      textsize4=textsize4,
-                      textsize6=textsize6,
-                      textsize10=textsize10
-                      )
+print(template.render(params.__dict__,
+                       region_values=region_values,
+                       srex_values=srex_values,
+                       country_values=country_values,
+                       ipbes_values=ipbes_values,
+                       mon_values=mon_values,
+                       sum_values=sum_values,
+                       output_values=output_values,
+                       dataset_values=dataset_values,
+                       cmip5_var_values=cmip5_var_values,
+                       cmip5_extreme_values=cmip5_extreme_values,
+                       cordex_var_values=cordex_var_values,
+                       cmip3_var_values=cmip3_var_values,
+                       era5_var_values=era5_var_values,
+                       era20c_var_values=era20c_var_values,
+                       c20cr_var_values=c20cr_var_values,
+                       obs_var_values=obs_var_values,
+                       scenario_cmip5_values=scenario_cmip5_values,
+                       scenario_cordex_values=scenario_cordex_values,
+                       obs_tas_values=obs_tas_values,
+                       obs_tasmin_values=obs_tasmin_values,
+                       obs_tasmax_values=obs_tasmax_values,
+                       obs_pr_values=obs_pr_values,
+                       obs_psl_values=obs_psl_values,
+                       measure_values=measure_values,
+                       regr_values=regr_values,
+                       plotvar_values=plotvar_values,
+                       number=number,
+                       textsize2=textsize2,
+                       textsize3=textsize3,
+                       textsize4=textsize4,
+                       textsize6=textsize6,
+                       textsize10=textsize10
+                       ))
 
 try:
     if params.DO_ACTION:
@@ -163,7 +163,7 @@ try:
             if ( params.FORM_dataset in ['CMIP5','CMIP5one'] and
                     params.FORM_rcp26 == '' and params.FORM_rcp45 == '' and
                     params.FORM_rcp60 == '' and params.FORM_rcp85 == ''):
-                print 'Error. Select at least one scenario in Time series options.<br>'
+                print('Error. Select at least one scenario in Time series options.<br>')
             else:
                 ###print "<font color=#ff2222>plot_atlas_series: CONTAINS MANY BUGS, ONLY FOR INTERNAL TESTING AT KNMI</font><br>"
 
@@ -173,29 +173,29 @@ try:
                 plotSeries.process()
                 plotSeries.doPlot()
         elif params.FORM_output == 'histogram':
-            print " A WONDERFUL TIME SERIES PLOT WILL APPEAR HERE"
+            print(" A WONDERFUL TIME SERIES PLOT WILL APPEAR HERE")
         elif params.FORM_output == 'scatter':
-            print " A WONDERFUL TIME SCATTER PLOT WILL APPEAR HERE"
+            print(" A WONDERFUL TIME SCATTER PLOT WILL APPEAR HERE")
         else:
-            print "Error: do not know how to make a %s plot" % params.FORM_output
+            print("Error: do not know how to make a %s plot" % params.FORM_output)
     else:
         # some news to the user
         f = open("atlas_news.html", "r")
         text = f.read()
-        print text
+        print(text)
         f.close()
 
 except (PlotMapError, PlotSeriesError) as e:
-    print '<br><b>Error: %s</b></br>' % e
+    print('<br><b>Error: %s</b></br>' % e)
     util.generateReport(params, e)
 except CalledProcessError as e:
-    print '<br><b>Error in %s</b><br>' % e.cmd
+    print('<br><b>Error in %s</b><br>' % e.cmd)
     if e.output:
-        print '<br>Output:<br><b>%s</b><br>' % cgi.escape(e.output).replace('\n', '<br />')
-    print '<br>Return code: <b>%s</b><br>' % e.returncode
+        print('<br>Output:<br><b>%s</b><br>' % cgi.escape(e.output).replace('\n', '<br />'))
+    print('<br>Return code: <b>%s</b><br>' % e.returncode)
     util.generateReport(params, e)
 except GetModelError as e:
-    print 'GetModelError: %s' % e
+    print('GetModelError: %s' % e)
     util.generateReport(params, e)
 
 os.chdir(settings.WORKING_DIR)

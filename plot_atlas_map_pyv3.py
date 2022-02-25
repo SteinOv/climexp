@@ -4,18 +4,18 @@ import os
 import re
 import logging
 import sys
-import util
+import util_pyv3 as util
 import shutil
 import resource
 import subprocess
 import tempfile
 from time import gmtime, strftime
 import settings
-from formparameters import get_season_name, obs_var_values
-from more_functions_atlas import get_region_extension, \
+from formparameters_pyv3 import get_season_name, obs_var_values
+from more_functions_atlas_pyv3 import get_region_extension, \
     get_file_list, lookup_region, define_dataset, getboxfrompolygon
-from define_functions_atlas import DefineVar
-from defineregion import DefineRegion
+from define_functions_atlas_pyv3 import DefineVar
+from defineregion_pyv3 import DefineRegion
 
 
 class PlotMapError(Exception):
@@ -243,7 +243,7 @@ class PlotAtlasMap:
                 else:
                     season = "mon %(FORM_mon)s ave %(FORM_sum)s" % paramsDict
 
-                # for variables that count the number of days, 
+                # for variables that count the number of days,
                 # do not consider in relative differences denominators < 1
                 # and in normal differences points where both fields are < 1
                 if self.params.FORM_var in ['fd','id', 'gsl', 'r1mm', 'r10mm', 'r20mm']:
@@ -333,7 +333,7 @@ class PlotAtlasMap:
         ifiles = 0
         ###self.logOut.info("self.files = {files}<br>".format(files=self.files))
         for filename in self.files:
-            # in principle the {rel} is not necessary here, but later on the 
+            # in principle the {rel} is not necessary here, but later on the
             # error gets the non-unique name "sd". A bit more time wasted for the user.
             regrfile = '{root}/{rel}regr_{basename}_{regr}_{begin_fit}-{end_fit}_{season}.nc'.format(
                 rel=self.rel,
@@ -409,7 +409,7 @@ class PlotAtlasMap:
                         doit = True
 
             if doit or lwrite:
-                # (re)generate quantfile 
+                # (re)generate quantfile
 
                 ###self.logOut.info('self.outfiles = %s<br>' % self.outfiles[:5])
                 ###self.logOut.info('len(self.outfiles) = %i<br>' % len(self.outfiles))
@@ -925,7 +925,7 @@ class PlotAtlasMap:
                 variable = 'self.params.FORM_obs_{var}'.format(var=var)
                 FORM_field = eval(variable)
             else:
-                print 'plot_atlas_map: unknown value for var %s<br>' % var
+                print('plot_atlas_map: unknown value for var %s<br>' % var)
         else:
             FORM_field = "" # is only required for the obs
         datasetname = define_dataset(self.params.FORM_dataset, FORM_field)

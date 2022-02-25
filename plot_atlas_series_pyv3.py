@@ -9,11 +9,11 @@ import subprocess
 import tempfile
 from time import gmtime, strftime
 import settings
-from more_functions_atlas import *
-from define_functions_atlas import *
+from more_functions_atlas_pyv3 import *
+from define_functions_atlas_pyv3 import *
 from define_functions import *
-from defineregion import DefineRegion
-from util import month2string
+from defineregion_pyv3 import DefineRegion
+from util_pyv3 import month2string
 
 class PlotSeriesError(Exception):
     """Raised when a error occured in PlotSeries."""
@@ -155,7 +155,7 @@ class PlotAtlasSeries:
                 if not os.path.isdir(dirall):
                     os.makedirs(dirall)
         if self.params.FORM_dataset == 'CMIP5one':
-            # share all time series with CMIP5    
+            # share all time series with CMIP5
             for exp in exps:
                 dirone = 'atlas/series/CMIP5one/{exp}'.format(exp=exp)
                 if not os.path.islink(dirone):
@@ -164,7 +164,7 @@ class PlotAtlasSeries:
                 if not os.path.isdir(dir):
                     os.makedirs(dir)
         if self.params.FORM_dataset == 'CMIP5extone':
-            # share all time series with CMIP5ext  
+            # share all time series with CMIP5ext
             for exp in exps:
                 dirone = 'atlas/series/CMIP5extone/{exp}'.format(exp=exp)
                 if not os.path.islink(dirone):
@@ -302,8 +302,8 @@ class PlotAtlasSeries:
                         subprocess.call(command, shell=True, stderr=subprocess.STDOUT)
                         if not os.path.exists(maskfile) or os.path.getsize(maskfile) == 0:
                             # most likely there were no grid points in the polygons - skip
-                            print "Cannot make mask for {country}, skipping {model}<br>".format(country=country, model=model)
-                            print command
+                            print("Cannot make mask for {country}, skipping {model}<br>".format(country=country, model=model))
+                            print(command)
                             continue
 
                     args = "mask {maskfile}".format(maskfile=maskfile)
@@ -559,7 +559,7 @@ s/5.000 UL/5.000 UL 1 .setopacityalpha/"""
                 variable = 'self.params.FORM_obs_{var}'.format(var=var)
                 FORM_field = eval(variable)
             else:
-                print 'process: unknown value for var %s<br>' % var
+                print('process: unknown value for var %s<br>' % var)
             lastbit = self.params.FORM_dataset + '_' + FORM_field
         else:
             raise PlotSeriesError("error: unknown dataset5 %s<br>") % self.params.FORM_dataset

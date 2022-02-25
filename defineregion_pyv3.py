@@ -671,7 +671,7 @@ class DefineRegion:
             self.tascross = "9.6.1, 11.3.2.4.2, Box 11.2, 12.4.3, 14.9.14"
             self.prcross = "9.6.1, 11.3.2.4.2, Box 11.2, 12.4.5, 14.9.14"
         else:
-            print 'unknown region {region}'.format(region)
+            print('unknown region {region}'.format(region))
             # TODO: generate an exception
 
         self.prmin_winter2 = self.prmin_winter
