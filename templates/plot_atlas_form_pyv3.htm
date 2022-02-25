@@ -1,0 +1,593 @@
+{# begin form #}
+
+<div class="kalelink">
+<div class="regform">
+<form id="climexp_form" action="plot_atlas_form.py" method="POST">
+<table class="realtable" width="100%" border=0 cellspacing=0 cellpadding=0>
+
+{# select a region - standard or custom
+   except the top few the same as the AR5 Atlas #}
+
+<tr><th colspan="3">Select a region</th></tr>
+<tr><td>
+Type:
+</td><td>
+<input type=hidden name=id value="{{ EMAIL|e }}">
+<input type=hidden name=resubmitted value="true">
+<input type=hidden name=region_old value="{{ FORM_region|e }}">
+<input type=hidden name="doAction" value="">
+
+{% for val in region_values %}
+    <input class=formradio type=radio name=region value={{val[0]}} {{ 'checked' if FORM_region == val[0] }} onchange=this.form.submit();>{{val[1]}}
+{% endfor %}
+</td><td align="right"><a href="javascript:pop_page('help/atlas_chooseareas.shtml',500,550)"><img src="images/info-i.gif" alt="help" border="0"></a>
+{% if FORM_region == 'srex' %}
+    </td></tr><tr><td>
+    IPCC WG1:
+    </td><td>
+    <select class=forminput name=srex>
+    {% for srex_val in srex_values %}
+        <option value={{srex_val[0]}} {{ 'selected' if FORM_srex == srex_val[0] }} >{{srex_val[1]}}</option>
+    {% endfor %}
+    </select>
+{% else %}
+    {# save the variable in a hidden variable #}
+    <input type=hidden name=srex value="{{FORM_srex}}">
+{% endif %}
+
+{% if FORM_region == 'ipbes' %}
+    </td></tr><tr><td>
+    IPBES:
+    </td><td>
+    <select class=forminput name=ipbes>
+    {% for ipbes_val in ipbes_values %}
+        <option value={{ipbes_val[0]}} {{ 'selected' if FORM_ipbes == ipbes_val[0] }} >{{ipbes_val[1]}}</option>
+    {% endfor %}
+    </select>
+{% else %}
+    {# save the variable in a hidden variable #}
+    <input type=hidden name=ipbes value="{{FORM_ipbes}}">
+{% endif %}
+
+{% if FORM_region == 'countries' %}
+    </td></tr><tr><td>
+    Country:
+    </td><td>
+    <select class=forminput name=country>
+    {% for country_val in country_values %}
+        <option value={{country_val[0]}} {{ 'selected' if FORM_country == country_val[0] }} >{{country_val[1]}}</option>
+    {% endfor %}
+    </select>
+{% else %}
+    {# save the variable in a hidden variable #}
+    <input type=hidden name=country value="{{FORM_country}}">
+{% endif %}
+
+{% if FORM_region == 'box' %}
+    </td></tr><tr><td>
+    Box:</td><td>
+    <input type="{{number}}" step=any class="forminput" name="lat1" {{textsize4}} value="{{FORM_lat1}}">&deg;N -
+    <input type="{{number}}" step=any class="forminput" name="lat2" {{textsize4}} value="{{FORM_lat2}}">&deg;N,
+    <input type="{{number}}" step=any class="forminput" name="lon1" {{textsize4}} value="{{FORM_lon1}}">&deg;E -
+    <input type="{{number}}" step=any class="forminput" name="lon2" {{textsize4}} value="{{FORM_lon2}}">&deg;E
+    </td></tr><tr><td>
+    Land/sea mask:
+    </td><td>
+    <input type="radio" class="formradio" name="masktype" value="all" {{ 'checked' if FORM_masktype == 'all' }}>everything
+    <input type="radio" class="formradio" name="masktype" value="5lan" {{ 'checked' if FORM_masktype == '5lan' }}>only land points
+    <input type="radio" class="formradio" name="masktype" value="5sea" {{ 'checked' if FORM_masktype == '5sea' }}>only sea points<br>
+    </td><td align="right"><a href="javascript:pop_page('help/landseamask.shtml',500,550)"><img src="images/info-i.gif" alt="help" border="0"></a></td></tr>
+{% else %}
+    {# save the variables #}
+    <input type=hidden name=lon1 value="{{FORM_lon1}}">
+    <input type=hidden name=lon2 value="{{FORM_lon2}}">
+    <input type=hidden name=lat1 value="{{FORM_lat1}}">
+    <input type=hidden name=lat2 value="{{FORM_lat2}}">
+    <input type=hidden name=masktype value="{{FORM_masktype}}">
+{% endif %}
+
+{% if FORM_region == 'point' %}
+    </td></tr><tr><td>
+    Place:
+    </td><td>
+    <input type="{{number}}" step=any class="forminput" name="lat" {{textsize4}} value="{{FORM_lat}}">&deg;N -
+    <input type="{{number}}" step=any class="forminput" name="lon" {{textsize4}} value="{{FORM_lon}}">&deg;E
+{% else %}
+    <input type=hidden name=lon value="{{FORM_lon}}">
+    <input type=hidden name=lat value="{{FORM_lat}}">
+{% endif %}
+
+{% if FORM_region == 'mask' %}
+    </td></tr><tr><td>
+    Mask file:
+    </td><td>
+    <input type="file" class="formbutton" name="mask" value="mask.nc">
+    <br>(netcdf file on 2.5&deg; grid starting at 1.25&deg;E/88.75&deg;S)
+{% endif %}
+
+{# season #}
+</td></tr><tr><th colspan=3>Select a season
+</th></tr><tr><td>
+Season:</td><td>
+{% if FORM_dataset not in ['CMIP5ext', 'CMIP5extone'] %}
+First month
+<select class="forminput" name="mon">
+{% for mon_val in mon_values %}
+    <option value="{{mon_val[0]}}" {{ 'selected' if FORM_mon == mon_val[0] }}>{{mon_val[1]}}</option> 
+{% endfor %}
+</select>, 
+length 
+<select class="forminput" name="sum">
+{% for sum_val in sum_values %}
+    <option value="{{sum_val}}" {{ 'selected' if FORM_sum == sum_val }}>{{sum_val}}</option>
+{% endfor %}
+</select> months
+{% else %}
+Annual data
+<input type=hidden name=mon value="{{FORM_mon}}">
+<input type=hidden name=sum value="{{FORM_sum}}">
+{% endif %}
+</td><td><a href="javascript:pop_page('help/atlas_selectseason.shtml',568,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+
+{# Dataset #}
+</td></tr><tr><th colspan=3>
+Select a dataset and variable
+</th></tr><tr><td>
+Dataset:
+</td><td>
+<input type=hidden name=dataset_old value={{FORM_dataset}}>
+<select class=forminput name=dataset onchange=this.form.submit();>
+{% for dataset_val in dataset_values %}
+    <option value="{{dataset_val[0]}}" {{ 'selected' if FORM_dataset|default(CMIP5one) == dataset_val[0] }}>{{dataset_val[1]}}</option>
+{% endfor %}
+</select> 
+</td><td><a href="javascript:pop_page('help/atlas_dataset.shtml',568,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+
+</td></tr><tr><td>
+Variable:
+</td><td>
+<input type=hidden name=var_old value="{{FORM_var}}">
+<select class=forminput name=var onchange=this.form.submit();>
+{% if FORM_dataset in ['CMIP5', 'CMIP5one'] %}
+    {% for var_val in cmip5_var_values %}
+        <option value="{{var_val[0]}}" {{ 'selected' if FORM_var == var_val[0] }}>{{var_val[1]}}</option>
+    {% endfor %}
+{% elif FORM_dataset in ['CMIP5ext', 'CMIP5extone'] %}
+    {% for var_val in cmip5_extreme_values %}
+        <option value="{{var_val[0]}}" {{ 'selected' if FORM_var == var_val[0] }}>{{var_val[1]}}</option>
+    {% endfor %}
+{% elif FORM_dataset in ['CORDEX-EUR44'] %}
+    {% for var_val in cordex_var_values %}
+        <option value="{{var_val[0]}}" {{ 'selected' if FORM_var == var_val[0] }}>{{var_val[1]}}</option>
+    {% endfor %}
+{% elif FORM_dataset == 'CMIP3' %}
+    {% for var_val in cmip3_var_values %}
+        <option value="{{var_val[0]}}" {{ 'selected' if FORM_var == var_val[0] }}>{{var_val[1]}}</option>
+    {% endfor %}
+{% elif FORM_dataset == 'ERA5' %}
+    {% for var_val in era5_var_values %}
+        <option value="{{var_val[0]}}" {{ 'selected' if FORM_var == var_val[0] }}>{{var_val[1]}}</option>
+    {% endfor %}
+{% elif FORM_dataset == 'ERA20C' %}
+    {% for var_val in era20c_var_values %}
+        <option value="{{var_val[0]}}" {{ 'selected' if FORM_var == var_val[0] }}>{{var_val[1]}}</option>
+    {% endfor %}
+{% elif FORM_dataset == '20CR' %}
+    {% for var_val in c20cr_var_values %}
+        <option value="{{var_val[0]}}" {{ 'selected' if FORM_var == var_val[0] }}>{{var_val[1]}}</option>
+    {% endfor %}
+{% elif FORM_dataset == 'obs' %}
+    {% for var_val in obs_var_values %}
+        <option value="{{var_val[0]}}" {{ 'selected' if FORM_var == var_val[0] }}>{{var_val[1]}}</option>
+    {% endfor %}
+{% else %}
+    internal error: unknown dataset 
+{% endif %}
+</select>
+</td><td><a href="javascript:pop_page('help/atlas_variable.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+</td></tr><tr><td>
+&nbsp;
+</td><td>
+<input type=radio class="formradio" name="normsd" value="absolute" {{ 'checked' if not FORM_normsd }}>absolute
+<input type=radio class="formradio" name="normsd" value="normsd" {{ 'checked' if FORM_normsd }}>relative
+</select> changes are shown
+</td><td><a href="javascript:pop_page('help/atlas_relative.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+
+{# map or time series #}
+</td></tr><tr><td>
+Output:
+</td><td>
+<input type=hidden name=output_old value={{FORM_output}}>
+{% for output_val in output_values %}
+    <input type=radio class="formradio" name="output" value="{{output_val[0]}}" {{ 'checked' if FORM_output == output_val[0] }} onchange=this.form.submit();>{{output_val[1]}} 
+{% endfor %}
+</td><td><a href="javascript:pop_page('help/atlas_map_timeseries.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+
+{% if FORM_output in ['map', 'histogram'] %}
+    {# map & histogram options #}
+    </td></tr><tr><th colspan=3>
+    Map options
+    </th></tr><tr><td>
+
+    {% if FORM_dataset in ['CMIP5', 'CMIP5one', 'CMIP5ext', 'CMIP5extone', 'CORDEX-EUR44', 'CMIP3', 'RT2b'] %}
+        Scenario:
+    {% elif FORM_dataset in ['ERA5', 'ERA20C', '20CR'] %}
+        (Re)analysis:
+    {% elif FORM_dataset == 'obs' %}
+        Observations:
+    {% else %}
+        ???:
+    {% endif %}
+
+    {% if FORM_dataset in ['CMIP5', 'CMIP5one', 'CMIP5ext', 'CMIP5extone'] %}
+        </td><td>
+        <select class=forminput name=scenario_cmip5>
+        {% for val in scenario_cmip5_values %}
+            <option value={{val[0]}} {{ 'selected' if FORM_scenario_cmip5 == val[0] }}>{{val[1]}}</option>
+        {% endfor %}
+        </select>
+</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+    {% elif FORM_dataset in ['CORDEX-EUR44'] %}
+        </td><td>
+        <select class=forminput name=scenario_cmip5>
+        {% for val in scenario_cordex_values %}
+            <option value={{val[0]}} {{ 'selected' if FORM_scenario_cmip5 == val[0] }}>{{val[1]}}</option>
+        {% endfor %}
+        </select>
+</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+    {% else %}
+        <input type=hidden name=scenario_cmip5 value={{FORM_scenario_cmip5}}>
+    {% endif %}
+
+    {% if FORM_dataset == 'CMIP3' %}
+        <input type=hidden name=scenario_cmip3 value=sresa1b>
+        </td><td>SRES A1B
+</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+    {% else %}
+        <input type=hidden name=scenario_cmip3 value=sresa1b>
+    {% endif %}
+
+    {% if FORM_dataset == 'RT2b' %}
+        <input type=hidden name=scenario_rt2b value=A1B>
+        </td><td>SRES A1B
+</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+    {% else %}
+        <input type=hidden name=scenario_rt2b value=A1B>
+    {% endif %}
+   
+    {% if FORM_dataset == 'RT3' %}
+        </td><td>ERA-40 boundary conditions
+    {% endif %}
+
+    {% if FORM_dataset == 'ERA5' %}
+        </td><td>ERA5 reanalysis
+    {% endif %}
+
+    {% if FORM_dataset == 'ERA20C' %}
+        </td><td>ERA-20C reanalysis
+    {% endif %}
+
+    {% if FORM_dataset == '20CR' %}
+        </td><td>Reanalysis of the twentieth century
+    {% endif %}
+   
+    {% if FORM_dataset == 'obs' %}
+        {% if FORM_var == 'tas' %}
+            </td><td>
+            <select class=forminput name=obs_tas>
+            {% for val in obs_tas_values %}
+                <option value={{val[0]}} {{ 'selected' if FORM_obs_tas == val[0]}}>{{val[1]}}</option>
+            {% endfor %}
+            </select>
+        {% else %}
+            <input type=hidden name=obs_tas value={{FORM_obs_tas}}>
+        {% endif %}
+
+        {% if FORM_var == 'tasmin' %}
+            </td><td>
+            <select class=forminput name=obs_tasmin>
+            {% for val in obs_tasmin_values %}
+                <option value={{val[0]}} {{ 'selected' if FORM_obs_tasmin == val[0]}}>{{val[1]}}</option>
+            {% endfor %}
+            </select>
+        {% else %}
+            <input type=hidden name=obs_tasmin value={{FORM_obs_tasmin}}>
+        {% endif %}
+
+        {% if FORM_var == 'tasmax' %}
+            </td><td>
+            <select class=forminput name=obs_tasmax>
+            {% for val in obs_tasmax_values %}
+                <option value={{val[0]}} {{ 'selected' if FORM_obs_tasmax == val[0]}}>{{val[1]}}</option>
+            {% endfor %}
+            </select>
+        {% else %}
+            <input type=hidden name=obs_tasmax value={{FORM_obs_tasmax}}>
+        {% endif %}
+
+        {% if FORM_var == 'pr' %}
+            </td><td>
+            <select class=forminput name=obs_pr>
+            {% for val in obs_pr_values %}
+                <option value={{val[0]}} {{ 'selected' if FORM_obs_pr == val[0] }}>{{val[1]}}</option>
+            {% endfor %}
+            </select>
+        {% else %}
+            <input type=hidden name=obs_pr value={{FORM_obs_pr}}>
+        {% endif %}
+
+        {% if FORM_var == 'psl' %}
+            </td><td>
+            <select class=forminput name=obs_psl>
+            {% for val in obs_psl_values %}
+                <option value={{val[0]}} {{ 'selected' if FORM_obs_psl == val[0] }}>{{val[1]}}</option>
+            {% endfor %}
+            </select>
+        {% else %}
+            <input type=hidden name=obs_psl value={{FORM_obs_psl}}>
+        {% endif %}
+    {% else %}
+        <input type=hidden name=obs_tas value={{FORM_obs_tas}}>
+        <input type=hidden name=obs_tasmin value={{FORM_obs_tasmin}}>
+        <input type=hidden name=obs_tasmax value={{FORM_obs_tasmax}}>
+        <input type=hidden name=obs_pr value={{FORM_obs_pr}}>
+        <input type=hidden name=obs_psl value={{FORM_obs_psl}}>
+    {% endif %}
+
+    </th></tr><tr><td>
+    Measure:
+    </td><td>
+    <input type=hidden name=measure_old value={{FORM_measure}}>
+    <select class=forminput name=measure onchange=this.form.submit();>
+    {% for val in measure_values %}
+        <option value={{val[0]}} {{ 'selected' if FORM_measure|default(diff) == val[0] }}>{{val[1]}}</option>
+    {% endfor %}
+    </select>
+</td><td><a href="javascript:pop_page('help/atlas_measure.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+
+    {% if FORM_measure == 'diff' %}
+        </td></tr><tr><td>
+        Reference period:
+        </td><td>
+        <input type="text" min={{yr1}} max={{yr2}} step=1 name="begin1" {{textsize4}} value="{{FORM_begin1|default(1986, true)}}">-<input type="text" min={{yr1}} max={{yr2}} step=1 name="end1" {{textsize4}} value="{{FORM_end1|default(2005, true)}}">
+        </td></tr><tr><td>
+        Future period:
+        </td><td>
+        <input type="text" min={{yr1}} max={{yr2}} step=1 name="begin2" {{textsize4}} value="{{FORM_begin2|default(yr2-19, true)}}">-<input type="text" min={{yr1}} max={{yr2}} step=1 name="end2" {{textsize4}} value="{{FORM_end2|default(yr2)}}">
+    {% else %}
+        {# these two are not used in the regression #}
+        <input type=hidden name=begin1 value={{FORM_begin1}}>
+        <input type=hidden name=end1 value={{FORM_end1}}>
+        <input type=hidden name=begin2 value={{FORM_begin2}}>
+        <input type=hidden name=end2 value={{FORM_end2}}>
+    {% endif %}
+
+    {% if FORM_measure == 'regr' %}
+        </td></tr><tr><td>
+        Trend definition:
+        </td><td>
+        <select class=forminput name=regr>
+        {% for val in regr_values %}
+            <option value={{val[0]}} {{ 'selected' if FORM_regr == val[0] }}>{{val[1]}}</option>
+        {% endfor %}
+        </select>
+        </td></tr><tr><td>
+        Fit period:
+        </td><td>
+        <input type="text" min={{yr1}} max={{yr2}} step=1 name="begin_fit" {{textsize4}} value="{{FORM_begin_fit|default(1950, true)}}">-<input type="text" min={{yr1}} max={{yr2}} step=1 name="end_fit" {{textsize4}} value="{{FORM_end_fit|default(2100, true)}}">
+    {% else %}
+        {# these variables are not used in the difference definition #}
+        <input type=hidden name=regr value={{FORM_regr}}>
+        <input type=hidden name=begin_fit value={{FORM_begin_fit}}>
+        <input type=hidden name=end_fit value={{FORM_end_fit}}>
+    {% endif %}
+
+    {% if FORM_output == 'map' %}
+        {# measure of PDF - coordinate with quantiles_field and getweightedquantile #}
+        </td></tr><tr><td>
+        Mean/percentiles:
+        </td><td>
+        {% if FORM_dataset in ['CMIP5', 'CMIP5one', 'CMIP5ext', 'CMIP5extone', 'CORDEX-EUR44', 'CMIP3'] %}
+            <select class=forminput name=plotvar>
+            {% for val in plotvar_values %}
+                <option value={{val[0]}} {{ 'selected' if FORM_plotvar|default(mean) == val[0] }}>{{val[1]}}</option>
+            {% endfor %}
+        {% else %}
+            Mean
+            <input type=hidden name=plotvar value='mean'>
+        {% endif %}
+        </select>
+</td><td><a href="javascript:pop_page('help/atlas_percentiles.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+
+        {# submit #}
+        </td></tr><tr><td colspan=2>
+        <input type="submit" class="formbutton" value="Make map" onclick="this.form.doAction.value=2; this.form.submit()">
+        {% if FORM_dataset == 'CMIP5one' %}
+            May take up to 15 minutes the first time a season / measure is selected
+        {% elif FORM_dataset == 'CMIP5' %}
+            May take up to half an hour the first time a season / measure is selected
+        {% elif FORM_dataset == 'CORDEX-EUR44' %}
+            May take up to 15 minutes the first time a season / measure is selected
+        {% elif FORM_dataset == 'CMIP5extone' %}
+            May take up to 10 minutes the first time a season / measure is selected
+        {% elif FORM_dataset == 'CMIP5ext' %}
+            May take up to 20 minutes the first time a season / measure is selected
+        {% endif %}
+    {% else %}
+
+        {# histogram #}
+        <input type=hidden name=plotvar value={{FORM_plotvar}}>
+        </td></tr><tr><td colspan=2>
+        <input type="submit" class="formbutton" value="Make histogram" onclick="this.form.doAction.value=2; this.form.submit()">
+    {% endif %}
+{% else %}            
+    {# hidden versions of all parameters in map, histogram to save them #}
+    {# TODO: cgi line 754, FORM_measure_old=$FORM_measure #}
+    <input type=hidden name=scenario_cmip5 value={{FORM_scenario_cmip5}}>
+    <input type=hidden name=scenario_cmip3 value={{FORM_scenario_cmip3}}>
+    <input type=hidden name=scenario_rt2b value={{FORM_scenario_rt2b}}>
+    <input type=hidden name=measure value={{FORM_measure}}>
+    <input type=hidden name=begin1 value={{FORM_begin1}}>
+    <input type=hidden name=end1 value={{FORM_end1}}>
+    <input type=hidden name=begin2 value={{FORM_begin2}}>
+    <input type=hidden name=end2 value={{FORM_end2}}>
+    <input type=hidden name=regr value={{FORM_regr}}>
+    <input type=hidden name=plotvar value={{FORM_plotvar}}>
+{% endif %}
+
+{% if FORM_output == 'series' %}
+    {# time series options #}
+    </td></tr><tr><th colspan=3>
+    Time series options
+    </th></tr><tr><td>
+    {% if FORM_dataset in ['CMIP5', 'CMIP5one', 'CMIP5ext', 'CMIP5extone', 'CORDEX-EUR44', 'CMIP3', 'RT2b'] %}
+        Scenario(s):
+    {% else %}
+        (Re)analysis:
+    {% endif %}
+    </td><td>
+
+    {% if FORM_dataset in ['CMIP5', 'CMIP5one', 'CMIP5ext', 'CMIP5extone', 'CORDEX-EUR44' ] %}
+        
+        {% if ((not FORM_rcp26) and (not FORM_rcp45) and (not FORM_rcp60) and (not FORM_rcp85)) %}
+            {% set FORM_rcp45 = 'on' %}
+        {% endif %}
+
+        <input type=checkbox class=formcheck name=rcp26 {{ 'checked' if FORM_rcp26 }}>RCP2.6
+        <input type=checkbox class=formcheck name=rcp45 {{ 'checked' if FORM_rcp45 }}>RCP4.5
+        {% if FORM_dataset in ['CMIP5', 'CMIP5one', 'CMIP5ext', 'CMIP5extone', 'CORDEX-EUR44' ] %}
+            <input type=checkbox class=formcheck name=rcp60 {{ 'checked' if FORM_rcp60 }}>RCP6.0
+        {% endif %}
+        <input type=checkbox class=formcheck name=rcp85 {{ 'checked' if FORM_rcp85 }}>RCP8.5
+</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+    {% else %}
+        <input type=hidden name=rcp26 value={{FORM_rcp26}}>
+        <input type=hidden name=rcp45 value={{FORM_rcp45}}>
+        <input type=hidden name=rcp60 value={{FORM_rcp60}}>
+        <input type=hidden name=rcp85 value={{FORM_rcp85}}>
+    {% endif %}
+     
+    {% if FORM_dataset == 'CMIP3' %}
+        {{ FORM_scenario_cmip3 }}
+<a href="javascript:pop_page('help/atlas_scenario.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+    {% endif %}
+
+    {% if FORM_dataset == 'RT2b' %}
+        <input type=hidden name=scenario_rt2b value=A1B>
+        SRES A1B
+</td><td><a href="javascript:pop_page('help/atlas_scenario.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+    {% else %}
+        <input type=hidden name=scenario_rt2b value=A1B>
+    {% endif %}
+   
+    {% if FORM_dataset == 'RT3' %}
+        ERA-40 boundary conditions
+    {% endif %}
+
+    {% if FORM_dataset == 'ERA5' %}
+        ERA5 reanalysis
+    {% endif %}
+
+    {% if FORM_dataset == 'ERA20C' %}
+        ERA-20C reanalysis
+    {% endif %}
+
+    {% if FORM_dataset == '20CR' %}
+        Reanalysis of the twentieth century
+    {% endif %}
+   
+    {% if FORM_dataset == 'obs' %}
+        {% if FORM_var == 'tas' %}
+            <select class=forminput name=obs_tas>
+            {% for val in obs_tas_values %}
+                <option value={{val[0]}} {{ 'selected' if FORM_obs_tas == val[0]}}>{{val[1]}}</option>
+            {% endfor %}
+            </select>
+        {% else %}
+            <input type=hidden name=obs_tas value={{FORM_obs_tas}}>
+        {% endif %}
+
+        {% if FORM_var == 'pr' %}
+            <select class=forminput name=obs_pr>
+            {% for val in obs_pr_values %}
+                <option value={{val[0]}} {{ 'selected' if FORM_obs_pr == val[0] }}>{{val[1]}}</option>
+            {% endfor %}
+            </select>
+        {% else %}
+            <input type=hidden name=obs_pr value={{FORM_obs_pr}}>
+        {% endif %}
+
+        {% if FORM_var == 'psl' %}
+            <select class=forminput name=obs_psl>
+            {% for val in obs_psl_values %}
+                <option value={{val[0]}} {{ 'selected' if FORM_obs_psl == val[0] }}>{{val[1]}}</option>
+            {% endfor %}
+            <!--
+            <option value=trenberthslp $trenberthslp_selected>UCAR ds010 (NH only)
+            <option value=hadslp2r $hadslp2r_selected>HadSLP2r
+            -->
+            </select>
+        {% else %}
+            <input type=hidden name=obs_pr value={{FORM_obs_pr}}>
+        {% endif %}
+    {% endif %}
+
+    </td></tr><tr><td>
+    Plot period:
+    </td><td>
+    <input type="text" min={{yr1}} max={{yr2}} step=1 name="begin" {{textsize4}} value="{{FORM_begin|default(yr1, true)}}">-<input type="text" min={{yr1}} max={{yr2}} step=1 name="end" {{textsize4}} value="{{FORM_end|default(yr2, true)}}">
+    </td></tr><tr><td>
+    Anomalies:
+    </td><td>
+    <input type=radio class=formradio value="on" name=anomaly {{ 'checked' if FORM_anomaly|default(on) == 'on' }}>Take anomalies wrt 
+    <input type="text" min={{yr1}} max={{yr2}} step=1 name="anom1" {{textsize4}} value="{{FORM_anom1|default('1986', true)}}">-<input type="text" min={{yr1}} max={{yr2}} step=1 name="anom2" {{textsize4}} value="{{FORM_anom2|default('2005', true)}}">
+    <input type=radio class=formradio value="off" name=anomaly {{ 'checked' if FORM_anomaly == 'off' }}>Full values
+</td><td><a href="javascript:pop_page('help/atlas_anomalies.shtml',248,550)"><img align="right" src="images/info-i.gif" alt="help" border="0"></a>
+    </td></tr><tr><td>
+    Transparency:
+    </td><td>
+    <input type=radio class="formradio" name="transparency" value="on" {{ 'checked' if FORM_transparency|default(on) == 'on' }}>on
+    <input type=radio class="formradio" name="transparency" value="off" {{ 'checked' if FORM_transparency == 'off' }}>off
+    </td><td align="right"><a href="javascript:pop_page('help/atlas_transparency.shtml',500,550)"><img src="images/info-i.gif" alt="help" border="0"></a>
+ 
+    {# submit #}
+    </td></tr><tr><td colspan=2>
+    <input type="submit" class="formbutton" value="Make time series" onclick="this.form.doAction.value=2; this.form.submit()">
+    {% if FORM_dataset in ['CMIP5one', 'CMIP5extone', 'CORDEX-EUR44'] %}
+        May take up to 15 minutes per scenario the first time a region is selected
+    {% elif FORM_dataset in ['CMIP5', 'CMIP5ext' ] %}
+        May take up to half an hour per scenario the first time a region is selected
+    {% endif %}
+{% else %}
+    <input type=hidden name=rcp26 value={{FORM_rcp26}}>
+    <input type=hidden name=rcp45 value={{FORM_rcp45}}>
+    <input type=hidden name=rcp60 value={{FORM_rcp60}}>
+    <input type=hidden name=rcp85 value={{FORM_rcp85}}>
+    <input type=hidden name=anomaly value={{FORM_anomaly}}>
+    <input type=hidden name=anom1 value={{FORM_anom1}}>
+    <input type=hidden name=anom2 value={{FORM_anom2}}>
+    <input type=hidden name=begin value={{FORM_begin}}>
+    <input type=hidden name=end value={{FORM_end}}>
+{% endif %}
+
+</td></tr>
+</table>
+</form>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+Users are strongly advised to study the <a href="javascript:pop_page('help/atlas.shtml',550,550)">short introduction</a>. Specific help is available under the <a href="javascript:pop_page('help/atlas.shtml',500,550)"><img src="images/info-i.gif" alt="help" border="0"></a> icons.
+      <div class="menukopje">Further information</div>
+      <div class="menulink"><a href="help/atlas.shtml" target="_new">Short introduction</a></div>
+      <div class="menulink"><a href="http://www.climatechange2013.org/report/" target="_new">IPCC WG1 AR5 report, notably Annex I "Atlas"</a></div>
+      <div class="menulink"><a href="http://journals.ametsoc.org/doi/abs/10.1175/BAMS-D-11-00094.1" target="_new">CMIP5 co-ordinated climate model experiments</a></div>
+      <div class="menulink"><a href="http://www.skepticalscience.com/rcp.php" target="_new">RCP scenario's</a></div>
+      <div class="menukopje">Funding</div>
+      <div class="menulink"><a href="http://www.knmi.nl/" target="_new">KNMI</a></div>
+      <div class="menulink"><a href="http://www.specs-fp7.eu" target="_new">SPECS</a></div>
+      <div class="menulink"><a href="http://www.climatecentre.org" target="_new">Red Cross / Red Crescent Climate Centre</a></div>
+      <div class="menulink"><a href="http://www.government.nl/ministries/ienm/organisation" target="_new">Dutch Ministry of Infrastructure and Environment, DGMI</a></div>
+</div>
+</div>
