@@ -279,7 +279,7 @@ def get_file_list(exp, params):
             for model in cmip3models:
                 file="IPCCData/{FORM_scenario_cmip3}/{FORM_var}_{typeVar}_{model}_144.nc".format(dirName=dirName, typeVar=typeVar, model=model, **paramsDict)
 ###                os.environ['FORM_field'] = FORM_field
-###                output = subprocess.check_output("./call_queryfield.cgi", shell = True)
+###                output = str(subprocess.check_output("./call_queryfield.cgi", shell = True), "utf-8")
 ###                file = re.search(r"file=(.*)\s", output).groups()[0]
                 if os.path.exists(file):
                     # one run only
@@ -315,7 +315,7 @@ def get_file_list(exp, params):
         dirName = '{FORM_dataset}'.format(**paramsDict)
         FORM_field = 'era5_%(FORM_var)s' % paramsDict
         os.environ['FORM_field'] = FORM_field
-        output = subprocess.check_output("./call_queryfield.cgi", shell = True)
+        output = str(subprocess.check_output("./call_queryfield.cgi", shell = True), "utf-8")
         file = re.search(r"file=(.*)\s", output)
         if file:
             file = file.groups()[0]
@@ -327,7 +327,7 @@ def get_file_list(exp, params):
         dirName = '{FORM_dataset}'.format(**paramsDict)
         FORM_field = 'era20c_%(FORM_var)s' % paramsDict
         os.environ['FORM_field'] = FORM_field
-        output = subprocess.check_output("./call_queryfield.cgi", shell = True)
+        output = str(subprocess.check_output("./call_queryfield.cgi", shell = True), "utf-8")
         file = re.search(r"file=(.*)\s", output)
         if file:
             file = file.groups()[0]
@@ -339,7 +339,7 @@ def get_file_list(exp, params):
         dirName = '{FORM_dataset}'.format(**paramsDict)
         FORM_field = 'c3%(FORM_var)s' % paramsDict
         os.environ['FORM_field'] = FORM_field
-        output = subprocess.check_output("./call_queryfield.cgi", shell = True)
+        output = str(subprocess.check_output("./call_queryfield.cgi", shell = True), "utf-8")
         file = re.search(r"file=(.*)\s", output)
         if file:
             file = file.groups()[0]
@@ -356,7 +356,7 @@ def get_file_list(exp, params):
         else:
             print('get_file_list: unknown value for var %s<br>' % var)
         os.environ['FORM_field'] = FORM_field
-        output = subprocess.check_output("./call_queryfield.cgi", shell = True)
+        output = str(subprocess.check_output("./call_queryfield.cgi", shell = True), "utf-8")
         file = re.search(r"file=(.*)\s", output)
         if file:
             file = file.groups()[0]
@@ -630,7 +630,7 @@ def getboxfrompolygon(polyRegionFile):
 
     cmd = "bin/polygon2box {polyRegionFile} | tr -d ' '".format(polyRegionFile=polyRegionFile)
     ###print("getboxfrompolygon: cmd = %s<br>" % cmd)
-    output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
+    output = str(subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT), "utf-8")
 
     xmin = re.search(r"xmin=(.*)\s", output).groups()[0]
     xmax = re.search(r"xmax=(.*)\s", output).groups()[0]

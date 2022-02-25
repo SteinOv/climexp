@@ -36,7 +36,7 @@ def headerScript(params, title=None):
     os.environ['EMAIL'] = params.EMAIL
     args = ['./myvinkhead.cgi', title, '', '']
     p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    output = urllib.parse.unquote(p.stdout.read().decode())
+    output = urllib.parse.unquote(str(p.stdout.read(), "utf-8"))
     output = output.replace('451','600')
     output = output.replace('762','911')
     print(output)

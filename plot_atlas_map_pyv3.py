@@ -866,7 +866,7 @@ class PlotAtlasMap:
         # Check if 'plotfile' is a NetCDF file
         cmd = "file {plotfile}".format(plotfile=self.plotfile)
         self.log.debug("cmd = '%s'" % cmd)
-        resultProcess = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
+        resultProcess = str(subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT), "utf-8")
 
         if 'NetCDF' not in resultProcess and 'Hierarchical' not in resultProcess:
             raise PlotMapError("Cannot find plotfile {plotfile}".format(plotfile=self.plotfile))
