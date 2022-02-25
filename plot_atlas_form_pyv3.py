@@ -46,7 +46,7 @@ from jinja2 import Environment, FileSystemLoader
 
 # Load HTML template
 env = Environment(loader=FileSystemLoader('./templates'))
-template = env.get_template('plot_atlas_form.htm')
+template = env.get_template('plot_atlas_form_pyv3.htm')
 
 # Get variables from the HTML formular
 form = cgi.FieldStorage()
